@@ -1,4 +1,4 @@
-let word: string = "Интервьюер интервента интервьюировал".toLowerCase();
+let word: string = "ЗЕЛЕНАЯ ЗЕЛЕНЬ ЗЕЛЕНЕЕТ".toLowerCase();
 
 function moveWindowLZ77(word: string): Array<{ offset: number, length: number, next: string }> {
 
@@ -9,10 +9,13 @@ function moveWindowLZ77(word: string): Array<{ offset: number, length: number, n
     let library: string[] = [];
     console.log(wordLength, uniqueSymbols);
 
-    for (let i = 0; i < wordLength; i++) {
+    let i = 0;
+    while (i < wordLength) {
         if (!library.includes(word[i])) {
             library.push(word[i]);
             console.log("запушил ", word[i]);
+            result.push({ offset: 0, length: 0, next: word[i] })
+            i += 1;
         } else {
             const window = word.slice(0, i);
             const buffer = word.slice(i);
@@ -22,18 +25,16 @@ function moveWindowLZ77(word: string): Array<{ offset: number, length: number, n
 
             for (let len = 1; len <= buffer.length; len++) {
                 const sub = buffer.slice(0, len);
-                const idx = window.lastIndexOf(sub);
-
+                const idx = window.indexOf(sub);
                 if (idx !== -1) {
-                    bestOffset = window.length - idx;
+                    bestOffset = idx + 1; // offset от начала строки, индекс с 1
                     bestLength = len;
                 } else {
                     break;
                 }
             }
 
-            // берём следующий символ после совпадения
-            const nextSymbol = word[i + bestLength] ?? "";
+            const nextSymbol = (i + bestLength) < wordLength ? word[i + bestLength] : "";
 
             result.push({
                 offset: bestOffset,
@@ -44,6 +45,7 @@ function moveWindowLZ77(word: string): Array<{ offset: number, length: number, n
             console.log(
                 `словарь=[${window.slice(-9)}] буфер=[${buffer.slice(0, 7)}] -> (${bestOffset}, ${bestLength}, ${nextSymbol || "∅"})`
             );
+            i += bestLength + 1;
         }
     }
 
