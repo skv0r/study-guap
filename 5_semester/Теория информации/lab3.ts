@@ -1,4 +1,4 @@
-let word: string = "ЗЕЛЕНАЯ ЗЕЛЕНЬ ЗЕЛЕНЕЕТ".toLowerCase();
+let word: string = "Интервьюер интервента интервьюировал".toLowerCase();
 
 function moveWindowLZ77(word: string): Array<{ offset: number, length: number, next: string }> {
 
