@@ -27,7 +27,7 @@ function moveWindowLZ77(word: string): Array<{ offset: number, length: number, n
                 const sub = buffer.slice(0, len);
                 const idx = window.indexOf(sub);
                 if (idx !== -1) {
-                    bestOffset = idx + 1; // offset от начала строки, индекс с 1
+                    bestOffset = idx + 1; 
                     bestLength = len;
                 } else {
                     break;

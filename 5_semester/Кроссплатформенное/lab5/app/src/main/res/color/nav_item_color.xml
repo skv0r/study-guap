@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- активный элемент -->
     <item android:color="@color/nav_active" android:state_checked="true"/>
-    <!-- неактивный элемент -->
     <item android:color="@color/nav_inactive"/>
 </selector>

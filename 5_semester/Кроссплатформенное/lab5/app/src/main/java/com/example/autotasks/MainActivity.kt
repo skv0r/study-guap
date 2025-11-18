@@ -11,24 +11,38 @@ import kotlinx.coroutines.withContext
 import org.json.JSONArray
 import java.net.HttpURLConnection
 import java.net.URL
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
+import android.widget.Toast
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
-    val drivers = mutableListOf<Pair<String, Int>>() // Pair<fullName, driver_number>
+    val drivers = mutableListOf<Pair<String, Int>>() // Pair<fullName, driver_number
     var currentDriverIndex = 0
 
     private lateinit var fragmentDriver: FragmentDriver
 
+    private fun isNetworkAvailable(): Boolean {
+        val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo: NetworkInfo? = connectivityManager.activeNetworkInfo
+        return networkInfo?.isConnected == true
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (!isNetworkAvailable()) {
+            Toast.makeText(this, "Нет интернета", Toast.LENGTH_SHORT).show()
+        }
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
         lifecycleScope.launch {
             loadDriversList()
 
-            // Создаём фрагмент гонщиков
+            // Сфрагмент гонщиков
             fragmentDriver = FragmentDriver.newInstance(drivers, ::loadDriverInfo)
             supportFragmentManager.commit {
                 replace(R.id.fragmentContainer, fragmentDriver)
@@ -38,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_driver -> {
-                    // Показываем фрагмент гонщиков
+                    // фрагмент гонщиков
                     supportFragmentManager.commit {
                         replace(R.id.fragmentContainer, fragmentDriver)
                     }
@@ -61,6 +75,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
 
     // Загружаем всех гонщиков из API
     private suspend fun loadDriversList() {
@@ -90,7 +106,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
     // Получаем информацию о выбранном гонщике
     private suspend fun loadDriverInfo(driverNumber: Int): String {
         return withContext(Dispatchers.IO) {
