@@ -11,7 +11,11 @@ import kotlinx.coroutines.withContext
 import org.json.JSONArray
 import java.net.HttpURLConnection
 import java.net.URL
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
+import android.widget.Toast
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     val drivers = mutableListOf<Pair<String, Int>>() // Pair<fullName, driver_number>
@@ -19,9 +23,19 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var fragmentDriver: FragmentDriver
 
+    private fun isNetworkAvailable(): Boolean {
+        val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo: NetworkInfo? = connectivityManager.activeNetworkInfo
+        return networkInfo?.isConnected == true
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (!isNetworkAvailable()) {
+            Toast.makeText(this, "Нет интернета", Toast.LENGTH_SHORT).show()
+        }
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
@@ -61,6 +75,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
 
     // Загружаем всех гонщиков из API
     private suspend fun loadDriversList() {
