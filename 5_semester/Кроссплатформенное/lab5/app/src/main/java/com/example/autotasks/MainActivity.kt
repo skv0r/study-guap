@@ -18,7 +18,7 @@ import android.widget.Toast
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
-    val drivers = mutableListOf<Pair<String, Int>>() // Pair<fullName, driver_number>
+    val drivers = mutableListOf<Pair<String, Int>>() // Pair<fullName, driver_number
     var currentDriverIndex = 0
 
     private lateinit var fragmentDriver: FragmentDriver
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             loadDriversList()
 
-            // Создаём фрагмент гонщиков
+            // Сфрагмент гонщиков
             fragmentDriver = FragmentDriver.newInstance(drivers, ::loadDriverInfo)
             supportFragmentManager.commit {
                 replace(R.id.fragmentContainer, fragmentDriver)
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_driver -> {
-                    // Показываем фрагмент гонщиков
+                    // фрагмент гонщиков
                     supportFragmentManager.commit {
                         replace(R.id.fragmentContainer, fragmentDriver)
                     }
@@ -106,7 +106,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
     // Получаем информацию о выбранном гонщике
     private suspend fun loadDriverInfo(driverNumber: Int): String {
         return withContext(Dispatchers.IO) {

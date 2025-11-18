@@ -15,3 +15,5 @@ class FragmentInfo : Fragment() {
         return inflater.inflate(R.layout.fragment_info, container, false)
     }
 }
+
+//poka ne dorabotan
