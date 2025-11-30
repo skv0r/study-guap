@@ -1,0 +1,10 @@
+<resources>
+    <color name="brand">#0D47A1</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="dark_gray">#88000000</color>
+    <color name="nav_active">#FF000000</color>
+    <color name="nav_inactive">#88000000</color>
+    <color name="nav_background">#FFFFFFFF</color>
+
+</resources>
