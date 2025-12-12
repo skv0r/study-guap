@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 
     <application
@@ -14,6 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AutoTasks">
+        
+        <meta-data
+            android:name="com.yandex.mapkit.ApiKey"
+            android:value="8975e7ac-e7be-47ef-8f5d-4a0a08c3af04" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -32,6 +38,11 @@
             android:name=".EditDriverActivity"
             android:exported="false"
             android:label="Редактировать гонщика"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".MapActivity"
+            android:exported="false"
+            android:label="Карта Москвы"
             android:parentActivityName=".MainActivity" />
     </application>
 

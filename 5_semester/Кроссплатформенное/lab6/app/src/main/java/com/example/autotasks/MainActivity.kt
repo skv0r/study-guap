@@ -170,6 +170,12 @@ class MainActivity : AppCompatActivity() {
                     }
                     true
                 }
+                R.id.menu_map -> {
+                    // Открываем карту Москвы
+                    val intent = Intent(this, MapActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
                 else -> false
             }
         }

@@ -70,4 +70,7 @@ dependencies {
     
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    
+    // Яндекс MapKit
+    implementation("com.yandex.android:maps.mobile:4.4.0-full")
 }

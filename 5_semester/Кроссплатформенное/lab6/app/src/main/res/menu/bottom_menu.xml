@@ -15,4 +15,9 @@
         android:id="@+id/menu_account"
         android:title="Аккаунт"
         android:icon="@android:drawable/ic_menu_info_details"/>
+
+    <item
+        android:id="@+id/menu_map"
+        android:title="Карта"
+        android:icon="@android:drawable/ic_dialog_map"/>
 </menu>
