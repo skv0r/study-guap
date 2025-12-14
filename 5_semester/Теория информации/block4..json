@@ -1,0 +1,39 @@
+{
+    "blocks": [
+      {"x":300,"y":-950,"text":"Начало splitIntoBlocks(text, k)","width":200,"height":40,"type":"Начало / конец","isMenuBlock":false,"fontSize":14,"textHeight":14,"isBold":false,"isItalic":false,"textAlign":"center","labelsPosition":1},
+      {"x":300,"y":-880,"text":"blocks = {}","width":140,"height":40,"type":"Блок","isMenuBlock":false,"fontSize":14,"textHeight":14,"isBold":false,"isItalic":false,"textAlign":"center","labelsPosition":1},
+      {"x":300,"y":-810,"text":"Подсчёт вероятностей блоков","width":220,"height":40,"type":"Блок","isMenuBlock":false,"fontSize":14,"textHeight":14,"isBold":false,"isItalic":false,"textAlign":"center","labelsPosition":1},
+      {"x":300,"y":-740,"text":"calculateBlockProbabilities(blocks)","width":200,"height":40,"type":"Подпрограмма","isMenuBlock":false,"fontSize":14,"textHeight":14,"isBold":false,"isItalic":false,"textAlign":"center","labelsPosition":1},
+      {"x":300,"y":-670,"text":"Рекурсивное кодирование Шеннона-Фано","width":250,"height":40,"type":"Блок","isMenuBlock":false,"fontSize":14,"textHeight":14,"isBold":false,"isItalic":false,"textAlign":"center","labelsPosition":1},
+      {"x":300,"y":-600,"text":"Конец splitIntoBlocks","width":160,"height":40,"type":"Начало / конец","isMenuBlock":false,"fontSize":14,"textHeight":14,"isBold":false,"isItalic":false,"textAlign":"center","labelsPosition":1},
+  
+      {"x":700,"y":-900,"text":"Начало divideAndCode(blockProbs, prefix)","width":220,"height":40,"type":"Начало / конец","isMenuBlock":false,"fontSize":14,"textHeight":14,"isBold":false,"isItalic":false,"textAlign":"center","labelsPosition":1},
+      {"x":700,"y":-830,"text":"items.length == 1?","width":150,"height":50,"type":"Условие","isMenuBlock":false,"fontSize":14,"textHeight":14,"isBold":false,"isItalic":false,"textAlign":"center","labelsPosition":1},
+      {"x":500,"y":-830,"text":"result[items[0].block] = prefix","width":180,"height":40,"type":"Блок","isMenuBlock":false,"fontSize":14,"textHeight":14,"isBold":false,"isItalic":false,"textAlign":"center","labelsPosition":1},
+      {"x":500,"y":-760,"text":"Возврат (конец ветви)","width":180,"height":40,"type":"Начало / конец","isMenuBlock":false,"fontSize":14,"textHeight":14,"isBold":false,"isItalic":false,"textAlign":"center","labelsPosition":1},
+      {"x":700,"y":-760,"text":"Определить индекс разделения блоков","width":220,"height":40,"type":"Блок","isMenuBlock":false,"fontSize":14,"textHeight":14,"isBold":false,"isItalic":false,"textAlign":"center","labelsPosition":1},
+      {"x":700,"y":-690,"text":"Разделить на две группы: firstHalf, secondHalf","width":300,"height":40,"type":"Блок","isMenuBlock":false,"fontSize":14,"textHeight":14,"isBold":false,"isItalic":false,"textAlign":"center","labelsPosition":1},
+      {"x":700,"y":-620,"text":"divideAndCode(firstHalf, prefix+'0')","width":240,"height":40,"type":"Подпрограмма","isMenuBlock":false,"fontSize":14,"textHeight":14,"isBold":false,"isItalic":false,"textAlign":"center","labelsPosition":1},
+      {"x":700,"y":-550,"text":"divideAndCode(secondHalf, prefix+'1')","width":240,"height":40,"type":"Подпрограмма","isMenuBlock":false,"fontSize":14,"textHeight":14,"isBold":false,"isItalic":false,"textAlign":"center","labelsPosition":1},
+      {"x":700,"y":-480,"text":"Возврат","width":120,"height":40,"type":"Начало / конец","isMenuBlock":false,"fontSize":14,"textHeight":14,"isBold":false,"isItalic":false,"textAlign":"center","labelsPosition":1}
+    ],
+    "arrows": [
+      {"startIndex":0,"endIndex":1,"startConnectorIndex":1,"endConnectorIndex":0,"nodes":[],"counts":[1,1]},
+      {"startIndex":1,"endIndex":2,"startConnectorIndex":1,"endConnectorIndex":0,"nodes":[],"counts":[1,1]},
+      {"startIndex":2,"endIndex":3,"startConnectorIndex":1,"endConnectorIndex":0,"nodes":[],"counts":[1,1]},
+      {"startIndex":3,"endIndex":4,"startConnectorIndex":1,"endConnectorIndex":0,"nodes":[],"counts":[1,1]},
+      {"startIndex":4,"endIndex":5,"startConnectorIndex":1,"endConnectorIndex":0,"nodes":[],"counts":[1,1]},
+      
+      {"startIndex":6,"endIndex":7,"startConnectorIndex":1,"endConnectorIndex":0,"nodes":[],"counts":[1,1]},
+      {"startIndex":7,"endIndex":8,"startConnectorIndex":2,"endConnectorIndex":0,"nodes":[],"counts":[1,1]},
+      {"startIndex":8,"endIndex":9,"startConnectorIndex":1,"endConnectorIndex":0,"nodes":[],"counts":[1,1]},
+      {"startIndex":7,"endIndex":10,"startConnectorIndex":1,"endConnectorIndex":0,"nodes":[],"counts":[1,1]},
+      {"startIndex":10,"endIndex":11,"startConnectorIndex":1,"endConnectorIndex":0,"nodes":[],"counts":[1,1]},
+      {"startIndex":11,"endIndex":12,"startConnectorIndex":1,"endConnectorIndex":0,"nodes":[],"counts":[1,1]},
+      {"startIndex":12,"endIndex":13,"startConnectorIndex":1,"endConnectorIndex":0,"nodes":[],"counts":[1,1]},
+      {"startIndex":13,"endIndex":14,"startConnectorIndex":1,"endConnectorIndex":0,"nodes":[],"counts":[1,1]}
+    ],
+    "x0":0,
+    "y0":950
+  }
+  
