@@ -1,0 +1,110 @@
+[Processor settings]
+Memory size=2048
+Max commands before interruption=1048576
+Generate messages=1
+[Registers]
+PSL=00000008
+R0=00000023
+R1=0000040C
+R2=00000271
+R3=00000004
+R6=00000406
+R7=00000041
+R8=00000402
+R9=00000037
+RA=00000403
+RC=00001AE9
+RD=00000000
+RE=00000000
+RF=000000A8
+[Memory]
+0x00000000=00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 F7
+0x00000010=00 00 00 00 00 00 00 00 00 19 00 00 00 00 00 00
+0x00000020=00 00 00 00 FC FF 00 00 00 00 00 00 00 00 00 10
+0x00000030=00 00 00 00 00 00 00 0F 8F C7 F9 FF 00 00 00 00
+0x00000040=00 11 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x000000A0=00 00 00 00 00 00 00 00 8E 53 98 C0 98 69 A1 70
+0x000000B0=52 5C 97 91 78 77 69 69 D8 69 96 00 00 00 00 00
+0x00000400=00 00 0F 00 00 00 2D 00 00 00 00 00 19 00 00 00
+[Variable 0]
+Name=X1_pointer
+VarType=0
+IsReg=0
+Address=00000402
+Base=3
+[Variable 1]
+Name=X1
+VarType=5
+IsReg=0
+Address=0000000F
+Base=2
+[Variable 2]
+Name=X1_val
+VarType=0
+IsReg=0
+Address=0000000F
+Base=3
+[Variable 3]
+Name=X7
+VarType=7
+IsReg=0
+Address=0000002D
+Base=2
+[Variable 4]
+Name=X7_val
+VarType=2
+IsReg=0
+Address=0000002D
+Base=3
+[Variable 5]
+Name=X8
+VarType=7
+IsReg=0
+Address=00000037
+Base=2
+[Variable 6]
+Name=X8_val
+VarType=2
+IsReg=0
+Address=00000037
+Base=3
+[Variable 7]
+Name=X7_pointer
+VarType=0
+IsReg=0
+Address=00000406
+Base=3
+[Variable 8]
+Name=X4
+VarType=6
+IsReg=0
+Address=00000023
+Base=2
+[Variable 9]
+Name=X4_val
+VarType=1
+IsReg=0
+Address=00000023
+Base=3
+[Windows]
+MemoryEditor.Opened=1
+MemoryEditor.Left=0
+MemoryEditor.Top=88
+MemoryEditor.Width=600
+MemoryEditor.Height=434
+RegsEditor.Opened=1
+RegsEditor.Left=600
+RegsEditor.Top=88
+RegsEditor.Width=263
+RegsEditor.Height=308
+MsgsEditor.Opened=1
+MsgsForm.Left=0
+MsgsForm.Top=517
+MsgsForm.Width=600
+MsgsForm.Height=563
+VarsEditor.Opened=1
+VarsWin.Left=594
+VarsWin.Top=397
+VarsWin.Width=300
+VarsWin.Height=300
+
