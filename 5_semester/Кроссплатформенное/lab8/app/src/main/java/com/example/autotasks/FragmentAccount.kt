@@ -42,10 +42,10 @@ class FragmentAccount : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_account, container, false)
         
-        // Инициализация Firebase Auth
+
         auth = FirebaseAuth.getInstance()
         
-        // Инициализация views
+
         layoutLoggedIn = view.findViewById(R.id.layoutLoggedIn)
         layoutLoggedOut = view.findViewById(R.id.layoutLoggedOut)
         textUserEmail = view.findViewById(R.id.textUserEmail)
@@ -59,7 +59,7 @@ class FragmentAccount : Fragment() {
         btnChangePassword = view.findViewById(R.id.btnChangePassword)
         btnDeleteAccount = view.findViewById(R.id.btnDeleteAccount)
         
-        // Обработчики кнопок
+
         btnLogin.setOnClickListener {
             loginUser()
         }
@@ -80,7 +80,7 @@ class FragmentAccount : Fragment() {
             confirmDeleteAccount()
         }
         
-        // Проверяем текущий статус пользователя
+
         updateUI(auth.currentUser)
         
         return view
@@ -88,7 +88,7 @@ class FragmentAccount : Fragment() {
     
     override fun onStart() {
         super.onStart()
-        // Обновляем UI при старте фрагмента
+
         updateUI(auth.currentUser)
     }
     
@@ -185,7 +185,7 @@ class FragmentAccount : Fragment() {
             }
         )
         
-        // Скрываем сообщение через 3 секунды
+
         textMessage.postDelayed({
             if (textMessage.text == message) {
                 textMessage.visibility = View.GONE
@@ -250,7 +250,7 @@ class FragmentAccount : Fragment() {
                         val error = task.exception?.message ?: "Ошибка удаления аккаунта"
                         showMessage("Ошибка: $error", false)
                         
-                        // Если ошибка связана с необходимостью повторной аутентификации
+
                         if (error.contains("recent login", ignoreCase = true)) {
                             showMessage("Выйдите и войдите снова, затем повторите попытку", false)
                         }

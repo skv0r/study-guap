@@ -11,12 +11,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.system.measureTimeMillis
 
-/**
- * Задание 2: Оптимизация перебора массива
- * 
- * Демонстрация различных способов оптимизации перебора массивов в Kotlin
- * с тестированием на массивах от 100000 элементов
- */
+
 class ArrayOptimizationActivity : AppCompatActivity() {
 
     private lateinit var textResults: TextView

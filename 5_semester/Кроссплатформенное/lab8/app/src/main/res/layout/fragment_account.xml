@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:gravity="center">
 
-        <!-- Заголовок -->
+
         <TextView
             android:id="@+id/textTitle"
             android:layout_width="wrap_content"
@@ -22,7 +22,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="32dp" />
 
-        <!-- Информация о пользователе (когда залогинен) -->
+
         <LinearLayout
             android:id="@+id/layoutLoggedIn"
             android:layout_width="match_parent"
@@ -112,7 +112,7 @@
                     android:autofillHints="email" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Поле Пароль -->
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
                     android:autofillHints="password" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Кнопки -->
+
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"

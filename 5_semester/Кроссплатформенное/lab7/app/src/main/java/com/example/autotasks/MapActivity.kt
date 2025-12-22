@@ -36,21 +36,12 @@ class MapActivity : AppCompatActivity() {
     private lateinit var database: AppDatabase
     private val markers = mutableListOf<com.yandex.mapkit.map.PlacemarkMapObject>()
     
-    // Координаты центра Москвы (Красная площадь)
+
     private val MOSCOW_CENTER = Point(55.753544, 37.621211)
-    
-    // Известные места в Москве для примера
+
+
     private val FAMOUS_PLACES = listOf(
         Triple("Красная площадь", 55.753544, 37.621211),
-        Triple("Кремль", 55.752004, 37.617734),
-        Triple("Храм Василия Блаженного", 55.752516, 37.623147),
-        Triple("ГУМ", 55.754491, 37.621481),
-        Triple("Большой театр", 55.760376, 37.618423),
-        Triple("МГУ", 55.703370, 37.530663),
-        Triple("Останкинская башня", 55.819694, 37.611916),
-        Triple("Парк Горького", 55.730899, 37.601179),
-        Triple("ВДНХ", 55.823921, 37.636856),
-        Triple("Третьяковская галерея", 55.741425, 37.620498)
     )
     
     companion object {
@@ -60,7 +51,7 @@ class MapActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-        // Инициализация MapKit должна быть ПЕРЕД setContentView
+
         MapKitFactory.setApiKey("8975e7ac-e7be-47ef-8f5d-4a0a08c3af04")
         MapKitFactory.initialize(this)
         
@@ -233,7 +224,6 @@ class MapActivity : AppCompatActivity() {
     private fun addMarker(title: String, description: String, point: Point) {
         lifecycleScope.launch {
             try {
-                // Сохраняем в БД
                 val marker = MapMarker(
                     title = title,
                     description = description,
