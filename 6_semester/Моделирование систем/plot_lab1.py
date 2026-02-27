@@ -1,21 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Графики для ЛР1 (БСВ z ~ R[0,1]) для варианта 1 (LCG).
 
-Скрипт использует генератор из `lab.py` и строит через matplotlib:
-- Гистограмму выборки z (bins=K)
-- Столбчатую диаграмму частот по K интервалам [0,1)
-- Диаграмму рассеяния пар (z_i, z_{i+s}) (визуальная проверка независимости)
-- Автокорреляцию corr(z_i, z_{i+lag}) по lag=1..max_lag
-- График зависимости оценки корреляции R_hat(T) от длины выборки T для нескольких s (как в методичках)
-
-Запуск (из корня репо):
-  python3 "6_semester/Моделирование систем/plot_lab1.py" --n 200000 --k 20 --s 1 --max-lag 30
-
-Зависимости:
-  pip install matplotlib numpy
-"""
 
 from __future__ import annotations
 
@@ -150,7 +133,44 @@ def main() -> int:
     )
     x = np.asarray(xs, dtype=float)
 
-    # --- 1) Гистограмма (как в отчётах: относительные частоты по интервалам) ---
+    # --- 1) Сравнение теоретических и экспериментальных M и D ---
+    m_hat = lab.mean(xs)
+    d_hat = lab.variance_population(xs)
+    m_theor = lab.THEORETICAL_MEAN
+    d_theor = lab.THEORETICAL_VAR
+
+    plt.figure(figsize=(8, 5))
+    labels = ["M(z)", "D(z)"]
+    x_pos = np.arange(len(labels))
+    exp_vals = [m_hat, d_hat]
+    theor_vals = [m_theor, d_theor]
+
+    width = 0.35
+    plt.bar(x_pos - width / 2, theor_vals, width, label="Теоретическое значение")
+    plt.bar(x_pos + width / 2, exp_vals, width, label="Экспериментальная оценка")
+
+    # немного увеличиваем «зум», чтобы различия были видны
+    all_vals = theor_vals + exp_vals
+    y_min = min(all_vals)
+    y_max = max(all_vals)
+    margin = 0.2 * (y_max - y_min) if y_max > y_min else 0.02
+    plt.ylim(y_min - margin, y_max + margin)
+
+    # подпишем точные значения над столбцами
+    for i, (t_val, e_val) in enumerate(zip(theor_vals, exp_vals)):
+        plt.text(i - width / 2, t_val, f"{t_val:.4f}", ha="center", va="bottom", fontsize=9, color="navy")
+        plt.text(i + width / 2, e_val, f"{e_val:.4f}", ha="center", va="bottom", fontsize=9, color="darkorange")
+
+    plt.xticks(x_pos, labels)
+    plt.ylabel("Значение")
+    plt.title("Сравнение теоретических и экспериментальных значений M и D")
+    plt.grid(True, axis="y", alpha=0.25)
+    plt.legend()
+    md_path = outdir / "md_compare.png"
+    plt.tight_layout()
+    plt.savefig(md_path, dpi=160)
+
+    # --- 2) Гистограмма (как в отчётах: относительные частоты по интервалам) ---
     # Важно: делим [0,1] на K равных интервалов => ширина интервала = 1/K.
     # Высота столбца = (число попаданий в интервал) / n.
     plt.figure(figsize=(10, 5))
@@ -167,7 +187,7 @@ def main() -> int:
     plt.tight_layout()
     plt.savefig(hist_path, dpi=160)
 
-    # --- 2) Частоты по интервалам (bar) ---
+    # --- 3) Частоты по интервалам (bar) ---
     counts, freqs = lab.frequency_test(xs, args.k)
     centers = np.arange(args.k)
     plt.figure(figsize=(10, 5))
@@ -182,7 +202,7 @@ def main() -> int:
     plt.tight_layout()
     plt.savefig(freq_path, dpi=160)
 
-    # --- 3) Диаграмма рассеяния (z_i, z_{i+s}) ---
+    # --- 4) Диаграмма рассеяния (z_i, z_{i+s}) ---
     s = args.s
     # Чтобы scatter не был слишком тяжёлым, ограничим количество точек
     max_points = min(30_000, max(0, args.n - s))
@@ -200,7 +220,7 @@ def main() -> int:
     plt.tight_layout()
     plt.savefig(scatter_path, dpi=160)
 
-    # --- 4) Автокорреляция по лагам ---
+    # --- 5) Автокорреляция по лагам ---
     max_lag = max(1, int(args.max_lag))
     lags = np.arange(1, max_lag + 1)
     rs = np.array([lab.correlation(xs, int(lag)) for lag in lags], dtype=float)
@@ -215,7 +235,7 @@ def main() -> int:
     plt.tight_layout()
     plt.savefig(ac_path, dpi=160)
 
-    # --- 5) R_hat(T) от T для нескольких s ---
+    # --- 6) R_hat(T) от T для нескольких s ---
     s_list = [v for v in _parse_int_list(args.s_list) if v >= 1]
     t_max = max(10, int(args.t_max))
     t_step = max(1, int(args.t_step))
@@ -239,6 +259,7 @@ def main() -> int:
     plt.savefig(rt_path, dpi=160)
 
     print("Графики сохранены в:", str(outdir))
+    print("-", md_path.name)
     print("-", hist_path.name)
     print("-", freq_path.name)
     print("-", scatter_path.name)
