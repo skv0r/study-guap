@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_driver"
+        android:title="Гонщик"
+        android:icon="@android:drawable/ic_menu_myplaces"/>
+
+    <item
+        android:id="@+id/menu_cards"
+        android:title="Карты"
+        android:icon="@android:drawable/ic_menu_compass"/>
+
+    <item
+        android:id="@+id/menu_account"
+        android:title="Аккаунт"
+        android:icon="@android:drawable/ic_menu_info_details"/>
+
+    <item
+        android:id="@+id/menu_map"
+        android:title="Карта"
+        android:icon="@android:drawable/ic_dialog_map"/>
+</menu>
