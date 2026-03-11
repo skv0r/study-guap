@@ -1,0 +1,6 @@
+Пирсона	Поле1.Имя	Поле1.Метка	Поле2.Имя	Поле2.Метка
+0,9999376065446411	Low	Low	Close	Close
+0,9999241591122922	High	High	Close	Close
+0,9998604639188823	Open	Open	Close	Close
+0,8600717951914454	Date	Date	Close	Close
+0,03181281492659392	Volume	Volume	Close	Close
