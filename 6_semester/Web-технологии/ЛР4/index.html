@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Формы - Лабораторная работа №4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Магазин Компьютерной Техники (ЛР4)</h2>
+        <form action="#" method="POST" autocomplete="on">
+            
+            <fieldset>
+                <legend>Личные данные и доставка</legend>
+                
+                <div class="form-group">
+                    <label for="firstname">Ваше имя:</label>
+                    <input type="text" id="firstname" name="firstname" required placeholder="Введите имя">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Пароль (для создания кабинета):</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="delivery_date">Желаемая дата доставки (Date):</label>
+                    <input type="date" id="delivery_date" name="delivery_date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Способ доставки (радиокнопки 1):</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="delivery" value="courier" checked> Курьер (по городу)</label><br>
+                        <label><input type="radio" name="delivery" value="pickup"> Самовывоз из магазина</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Тип клиента (радиокнопки 2):</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="client_type" value="person" checked> Физическое лицо</label><br>
+                        <label><input type="radio" name="client_type" value="company"> Юридическое лицо</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Детали заказа</legend>
+                
+                <div class="form-group">
+                    <label for="category">Категория товара (Select):</label>
+                    <select id="category" name="category">
+                        <option value="cpu">Процессоры</option>
+                        <option value="gpu">Видеокарты</option>
+                        <option value="hdd" selected>Жесткие диски</option>
+                        <option value="ram">Оперативная память</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Дополнительные опции (чекбокс 1):</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="options" value="warranty" checked> Дополнительная гарантия</label><br>
+                        <label><input type="checkbox" name="options" value="setup"> Установка/Сборка</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Информирование (чекбокс 2):</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="info" value="sms" checked> SMS-уведомления</label><br>
+                        <label><input type="checkbox" name="info" value="email"> E-mail рассылка</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="about">Комментарий к заказу (Textarea):</label>
+                    <textarea id="about" name="about" rows="4" placeholder="Напишите пожелания курьеру..."></textarea>
+                </div>
+            </fieldset>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-submit">Оформить заказ</button>
+                <button type="reset" class="btn btn-reset">Очистить форму</button>
+            </div>
+            
+        </form>
+    </div>
+</body>
+</html>

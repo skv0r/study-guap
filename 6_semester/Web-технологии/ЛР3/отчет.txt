@@ -1,0 +1,227 @@
+﻿МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ
+Федеральное государственное автономное образовательное учреждение высшего образования
+«Санкт-Петербургский государственный университет аэрокосмического приборостроения»
+Кафедра №42
+Дисциплина «Web-технологии»
+
+ОТЧЕТ О ЛАБОРАТОРНОЙ РАБОТЕ №3
+РАБОТА С ТАБЛИЦАМИ И УПРАВЛЕНИЕ ФОНОМ В WEB-ДОКУМЕНТЕ
+
+ВЫПОЛНИЛ:
+СТУДЕНТ ГР. [Укажите номер группы]
+Буренков Григорий
+
+ПРЕПОДАВАТЕЛЬ:
+к.т.н., доцент
+Красильникова О.И.
+
+Санкт-Петербург 2026
+
+
+1. Цель работы
+	Изучение HTML-тегов для построения таблиц различной сложности и освоение CSS-свойств для управления фоном (background) веб-страниц и отдельных элементов.
+
+2. Задание
+	Создать HTML-страницу, содержащую таблицу. При создании таблицы использовать теги объединения ячеек по строкам (rowspan) и по столбцам (colspan), добавить заголовок таблицы (caption), а также сгруппировать строки с помощью тегов thead, tbody, tfoot. Продемонстрировать стилизацию столбцов с помощью тегов colgroup и col. Применить CSS-свойства оформления для таблиц (border-collapse, отступы, границы ячеек) и реализовать чередующийся цвет строк таблиц (чересстрочный фон) с помощью псевдоклассов, а также подсветку строки при наведении мыши. Настроить сложный фон для веб-страницы: использовать линейный градиент в качестве фонового изображения, задать цвет фона по умолчанию и зафиксировать фон при прокрутке страницы. Добавить ссылки навигации между всеми страницами работы.
+
+3. Вывод
+	В ходе лабораторной работы были получены практические навыки верстки HTML-таблиц. Были успешно применены элементы структурирования таблиц (thead, tbody, tfoot, caption, colgroup), реализовано объединение ячеек с помощью атрибутов rowspan и colspan. С помощью каскадных таблиц стилей (CSS) выполнено детальное оформление таблицы: задан стиль границ, отступы, чересстрочная заливка и эффект подсветки при наведении (:hover). Помимо этого, закреплены навыки работы с фоном элементов: для веб-страницы установлен сложный градиентный фон (linear-gradient), зафиксированный относительно окна браузера (background-attachment: fixed). Интеграция новой страницы в существующий проект выполнена успешно с помощью перекрестных навигационных ссылок. Поставленные цели работы достигнуты в полном объеме.
+
+4. Результат работы
+
+	[Вставьте скриншот: \photo\lab3_photo_1.png]
+	Рисунок 1 – Страница сайта с разработанной таблицей и градиентным фоном
+
+Код стиля style.css:
+
+/* Внешняя таблица стилей (ЛР3 - Таблицы и фон) */
+
+body#main-page {
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+}
+
+body#page2 {
+    background-color: #e6e6fa;
+    font-family: Georgia, serif;
+}
+
+body#page3 {
+    /* Использование сложного фона для 3-й ЛР */
+    background-color: #f5f5dc;
+    background-image: linear-gradient(to right bottom, #f5f5dc, #ffebcd);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-attachment: fixed;
+}
+
+/* Навигационное меню */
+.nav-menu {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.nav-menu a:hover {
+    color: #ff4500;
+}
+
+/* Форматирование таблиц (Главная цель ЛР3) */
+table.styled-table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse; /* Объединение границ */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+table.styled-table caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #2F4F4F;
+}
+
+table.styled-table th, table.styled-table td {
+    border: 2px solid #2e8b57;
+    padding: 12px 15px;
+    text-align: center;
+}
+
+table.styled-table thead tr {
+    background-color: #2e8b57;
+    color: white;
+}
+
+table.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3; /* Чересстрочный фон */
+}
+
+table.styled-table tbody tr:hover {
+    background-color: #d1ffd1; /* Фон при наведении на строку */
+}
+
+/* Форматирование списков */
+ol.poets-list {
+    list-style-type: upper-roman;
+    list-style-position: inside;
+}
+
+ul.poems-list {
+    list-style-type: square;
+    list-style-position: outside;
+}
+
+/* Блок из ЛР2 */
+.experiment-box {
+    border-style: dashed solid;
+    border-color: #2e8b57;
+    border-width: 4px;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #fffacd;
+    text-align: justify;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    text-indent: 40px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.decorated-text {
+    text-decoration: underline wavy blue;
+}
+
+
+Код страницы page3.html:
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблицы и фон - Лабораторная работа №3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="page3">
+    <nav class="nav-menu">
+        <a href="index.html">Главная</a>
+        <a href="page2.html">Стихи (Текст)</a>
+        <a href="page3.html">Расписание (Таблицы)</a>
+    </nav>
+
+    <h1>Расписание занятий (Работа с таблицами)</h1>
+    
+    <table class="styled-table">
+        <caption>Мое расписание на неделю (Пример)</caption>
+        <colgroup>
+            <col style="background-color: rgba(255, 255, 255, 0.5);">
+            <col span="5">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Время / День</th>
+                <th>Понедельник</th>
+                <th>Вторник</th>
+                <th>Среда</th>
+                <th>Четверг</th>
+                <th>Пятница</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>09:30 - 11:00</td>
+                <td>Web-технологии</td>
+                <td>Базы данных</td>
+                <td rowspan="2" style="background-color: #ffe4b5;">Практика (НИР)<br><i>(Объединение строк - rowspan)</i></td>
+                <td>Математика</td>
+                <td>Физкультура</td>
+            </tr>
+            <tr>
+                <td>11:10 - 12:40</td>
+                <td>Web-технологии (ЛР)</td>
+                <td>Сети ЭВМ</td>
+                <!-- Среда объединена -->
+                <td>Программирование</td>
+                <td>Экономика</td>
+            </tr>
+            <tr>
+                <td>13:00 - 14:30</td>
+                <td colspan="5" style="text-align: center; font-style: italic; background-color: #ffffe0; font-weight: bold;">
+                    Обеденный перерыв (Объединение столбцов - colspan)
+                </td>
+            </tr>
+            <tr>
+                <td>14:40 - 16:10</td>
+                <td>Иностранный язык</td>
+                <td>-</td>
+                <td>Архитектура ЭВМ</td>
+                <td>-</td>
+                <td>Философия</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6" style="text-align: right; font-size: 0.9em; background-color: #f9f9f9;">* Расписание утверждено деканатом</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <hr>
+    <div class="experiment-box">
+        <h3>Особенности фона (Background) на этой странице</h3>
+        <p>Для элемента `body` текущей 3-ей страницы установлен CSS-градиент в качестве фонового изображения (`background-image: linear-gradient(...)`), а само изображение зафиксировано (`background-attachment: fixed`), так что фон не прокручивается вместе с контентом страницы.</p>
+    </div>
+
+</body>
+</html>

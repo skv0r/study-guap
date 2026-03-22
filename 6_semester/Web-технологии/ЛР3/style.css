@@ -1,0 +1,102 @@
+/* Внешняя таблица стилей (ЛР3 - Таблицы и фон) */
+
+body#main-page {
+    /* Фоновое изображение (бесшовный паттерн), повторяющееся по обеим осям */
+    background-color: #f0f8ff;
+    background-image: url('https://www.transparenttextures.com/patterns/cartographer.png');
+    background-repeat: repeat;
+    font-family: Arial, sans-serif;
+}
+
+body#page2 {
+    /* Фоновое изображение, занимающее всю доступную площадь */
+    background-color: #e6e6fa;
+    background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=1920');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: Georgia, serif;
+}
+
+body#page3 {
+    /* Фон для 3-й страницы для контраста */
+    background-color: #fcfcfc;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Навигационное меню */
+.nav-menu {
+    background-color: rgba(51, 51, 51, 0.9);
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.nav-menu a:hover {
+    color: #ff4500;
+}
+
+/* Форматирование сводной таблицы прайс-листа */
+table.styled-table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse; /* Сплошная рамка, отсутствие двойных линий */
+    border: 2px solid #333;
+    background-color: white;
+}
+
+table.styled-table caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+table.styled-table th, table.styled-table td {
+    border: 1px solid #666;
+    padding: 8px; /* Одинаковые поля со всех сторон */
+}
+
+/* Шапка таблицы крупнее и с отличительным фоном */
+table.styled-table thead tr th {
+    background-color: #4682b4;
+    color: white;
+    font-size: 1.2em; /* Более крупный размер шрифта для шапки */
+    text-align: center;
+}
+
+/* Выравнивание по заданию: первый столбец - центр, второй - лево, третий - право */
+table.styled-table td.col-num {
+    text-align: center;
+}
+table.styled-table td.col-name {
+    text-align: left;
+}
+table.styled-table td.col-price {
+    text-align: right;
+}
+
+/* Нечетные строки одним цветом, четные - другим (псевдоклассы) */
+table.styled-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; 
+}
+table.styled-table tbody tr:nth-child(odd) {
+    background-color: #e0f7fa;
+}
+
+/* Блок из ЛР2 (Для совместимости) */
+.experiment-box {
+    border: 4px dashed #2e8b57;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: rgba(255, 250, 205, 0.85); /* Полупрозрачный фон чтобы видеть рисунок */
+}

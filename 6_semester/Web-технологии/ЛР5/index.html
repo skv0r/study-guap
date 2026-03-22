@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Верстка - ЛР5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1-й Flex-контейнер: Навигация -->
+    <nav class="flex-container-1">
+        <a href="#left">Левый Блок</a>
+        <a href="#center">О Главном</a>
+        <a href="#right">Правый Блок</a>
+        <a href="#footer">Контакты</a>
+    </nav>
+
+    <!-- 2-й Flex-контейнер: Основной контент (3 блока) -->
+    <main class="flex-container-2">
+        <div id="left" class="side-block left-block">
+            <h3>Левый Блок</h3>
+            <p>Дополнительная информация слева. Этот блок имеет ширину примерно в 2 раза меньшую, чем центральный.</p>
+        </div>
+        
+        <div id="center" class="center-block">
+            <h3>Центральный Блок (Статья)</h3>
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=300" alt="Компьютер">
+            <p>Основной текст статьи, рассказывающий про Web-технологии. Изображение обтекается текстом с правой стороны, как требуется по заданию. Технология Flexbox позволяет легко управлять позиционированием.</p>
+            <p>Flexbox значительно упрощает верстку по сравнению с традиционными методами float. Мы можем вытягивать блоки на всю высоту контейнера (stretch).</p>
+        </div>
+        
+        <div id="right" class="side-block right-block">
+            <h3>Правый Блок</h3>
+            <p>Рекламный блок или меню справа. Ширина также в 2 раза меньше центрального.</p>
+        </div>
+    </main>
+
+    <!-- 3-й Flex-контейнер: Подвал -->
+    <footer id="footer" class="flex-container-3">
+        <div class="footer-phone">Телефон: +7 (812) 123-45-67</div>
+        <div class="footer-address">Адрес: Санкт-Петербург, ГУАП</div>
+    </footer>
+
+</body>
+</html>

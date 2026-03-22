@@ -1,0 +1,65 @@
+/* Внешняя таблица стилей (ЛР2) */
+
+/* Псевдоклассы */
+a:hover {
+    color: #ff4500;
+    text-decoration: none;
+}
+
+img.avatar {
+    transition: opacity 0.3s;
+}
+
+img.avatar:hover {
+    opacity: 0.7;
+}
+
+/* Форматирование списков (вид маркеров/пунктов, позиция) */
+ol.poets-list {
+    list-style-type: upper-roman;
+    list-style-position: inside;
+}
+
+ul.poems-list {
+    list-style-type: square;
+    list-style-position: outside;
+}
+
+/* Форматирование блока на 2 странице с текстами и рамками */
+.experiment-box {
+    border-style: dashed solid;
+    border-color: #2e8b57;
+    border-width: 4px;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #fffacd;
+    
+    /* Параметры текста в блоке */
+    text-align: justify;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    text-indent: 40px; /* Красная строка */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.sub-text {
+    vertical-align: sub;
+    font-size: 0.8em;
+}
+
+.sup-text {
+    vertical-align: super;
+    font-size: 0.8em;
+}
+
+.inline-image {
+    vertical-align: middle;
+    width: 30px;
+}
+
+.decorated-text {
+    text-decoration: underline wavy blue;
+}

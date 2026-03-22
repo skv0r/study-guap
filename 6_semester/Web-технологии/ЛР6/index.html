@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Верстка - ЛР6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Часть 1: Размещение по линиям сетки</h1>
+    <div class="grid-part1">
+        <div class="p1-photo p1-photo1">Фото 1</div>
+        <div class="p1-photo p1-photo2">Фото 2</div>
+        <div class="p1-article">
+            <h3>Статья о курсовой</h3>
+            <p>Мой курсовой проект посвящен созданию электронного магазина компьютерной техники. Здесь будут продаваться видеокарты, процессоры и жесткие диски.</p>
+        </div>
+        <div class="p1-photo p1-photo3">Фото 3</div>
+        <div class="p1-photo p1-photo4">Фото 4</div>
+    </div>
+
+    <hr style="margin: 40px 0;">
+
+    <h1>Часть 2: Размещение по именованным областям (grid-template-areas)</h1>
+    <div class="grid-part2">
+        <header class="p2-header">Электронный магазин (Название сайта)</header>
+        <nav class="p2-menu">
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Каталог</a></li>
+                <li><a href="#">О нас</a></li>
+            </ul>
+        </nav>
+        <article class="p2-article">
+            <h3>О проекте</h3>
+            <p>Сайт разрабатывается в рамках курсовой работы по Web-технологиям. Мы предлагаем удобный интерфейс для заказа комплектующих.</p>
+        </article>
+        <aside class="p2-contacts">
+            <p>Контакты:</p>
+            <p>Студент: Буренков Григорий</p>
+            <p>Ф4</p>
+        </aside>
+    </div>
+
+</body>
+</html>

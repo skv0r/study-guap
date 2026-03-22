@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обо мне - Лабораторная работа №3</title>
+    <!-- Внешняя таблица стилей -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Внутренняя таблица стилей -->
+    <style>
+        /* Стили для H1 */
+        h1.main-title {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 2.5em;
+            font-weight: 900;
+            font-style: italic;
+            color: #4b0082;
+        }
+        
+        /* Стили для H2 */
+        h2.section-title {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 24px;
+            font-weight: normal;
+            font-style: oblique;
+            color: #8b0000;
+        }
+    </style>
+</head>
+<body id="main-page">
+    <nav class="nav-menu">
+        <a href="index.html">Главная</a>
+        <a href="page2.html">Стихи (Текст)</a>
+        <a href="page3.html">Расписание (Таблицы)</a>
+    </nav>
+
+    <h1 class="main-title">Обо мне</h1>
+    <p style="font-size: 1.1em; color: #333; line-height: 1.5; font-weight: 500;">
+        Привет! Меня зовут Григорий Буренков (студент ГУАП). У меня есть базовые знания в области web-технологий: 
+        я знаком с HTML, CSS и немного с JavaScript. Эта работа посвящена изучению таблиц и настройки фона.
+    </p>
+
+    <hr style="border-top: 2px dotted #000;">
+    <br><br><br>
+
+    <h2 class="section-title">Мои любимые поэты и их произведения</h2>
+    <ol class="poets-list">
+        <li>
+            Александр Пушкин
+            <ul class="poems-list">
+                <li><a href="page2.html#pushkin-1">Я вас любил...</a></li>
+                <li><a href="page2.html#pushkin-2">Узник</a></li>
+            </ul>
+        </li>
+        <li>
+            Михаил Лермонтов
+            <ul class="poems-list">
+                <li><a href="page2.html#lermontov-1">Парус</a></li>
+                <li><a href="page2.html#lermontov-2">Смерть поэта</a></li>
+            </ul>
+        </li>
+        <li>
+            Сергей Есенин
+            <ul class="poems-list">
+                <li><a href="page2.html#esenin-1">Письмо к женщине</a></li>
+                <li><a href="page2.html#esenin-2">Береза</a></li>
+            </ul>
+        </li>
+    </ol>
+
+    <hr>
+    <h3>Дополнительные ссылки</h3>
+    <p><a href="ЛР3Таблицыифон.pdf" download>Скачать методичку (ЛР3Таблицыифон.pdf)</a></p>
+    <p><a href="page3.html">Перейти к странице 3 (Таблицы и фон)</a></p>
+    <p><a href="mailto:student@guap.ru">Написать письмо (mailto)</a></p>
+</body>
+</html>

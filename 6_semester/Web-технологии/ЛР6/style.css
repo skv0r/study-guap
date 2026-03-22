@@ -1,0 +1,119 @@
+/* Базовые стили ЛР6 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 20px;
+}
+h1 {text-align: center; margin-bottom: 20px;}
+
+/* =====================================
+   ЧАСТЬ 1: Размещение по линиям сетки
+====================================== */
+.grid-part1 {
+    display: grid;
+    /* 3 колонки, используем fr, центральная шире остальных */
+    grid-template-columns: 1fr 2fr 1fr;
+    /* Используем vh для высоты строк относительно окна */
+    grid-template-rows: 25vh 25vh;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.p1-photo, .p1-article {
+    background-color: #fff;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.p1-photo {
+    background-color: #ecf0f1;
+    font-weight: bold;
+}
+
+/* Размещение элементов по линиям (в соответствии с рис.1 из методички) */
+.p1-photo1 {
+    grid-column-start: 1; grid-column-end: 2;
+    grid-row-start: 1; grid-row-end: 2;
+}
+.p1-photo2 {
+    grid-column-start: 3; grid-column-end: 4;
+    grid-row-start: 1; grid-row-end: 2;
+}
+.p1-article {
+    grid-column-start: 2; grid-column-end: 3;
+    grid-row-start: 1; grid-row-end: 3; /* Статья занимает 2 строки */
+}
+.p1-photo3 {
+    grid-column-start: 1; grid-column-end: 2;
+    grid-row-start: 2; grid-row-end: 3;
+}
+.p1-photo4 {
+    grid-column-start: 3; grid-column-end: 4;
+    grid-row-start: 2; grid-row-end: 3;
+}
+
+/* Адаптивность Часть 1 */
+@media (max-width: 900px) and (min-width: 700px) {
+    /* Перестроение по рис. 2 из методички (статья сверху во всю ширину, фото снизу в 2 ряда или подобное) */
+    .grid-part1 {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+    }
+    .p1-article {
+        grid-column-start: 1; grid-column-end: 3;
+        grid-row-start: 1; grid-row-end: 2;
+    }
+    .p1-photo1 { grid-column-start: 1; grid-column-end: 2; grid-row-start: 2; grid-row-end: 3; }
+    .p1-photo2 { grid-column-start: 2; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3; }
+    .p1-photo3 { grid-column-start: 1; grid-column-end: 2; grid-row-start: 3; grid-row-end: 4; }
+    .p1-photo4 { grid-column-start: 2; grid-column-end: 3; grid-row-start: 3; grid-row-end: 4; }
+}
+
+@media (max-width: 699px) {
+    .grid-part1 {
+        display: flex; /* Выстроить в колонку друг под другом */
+        flex-direction: column;
+    }
+}
+
+
+/* =====================================
+   ЧАСТЬ 2: Именованные области grid-template-areas
+====================================== */
+.grid-part2 {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-areas:
+        "header header"
+        "menu article"
+        "contacts contacts";
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.p2-header { grid-area: header; background-color: #2c3e50; color: white; padding: 20px; text-align: center; font-size: 1.5em; }
+.p2-menu { grid-area: menu; background-color: #34495e; padding: 20px; }
+.p2-menu ul { list-style: none; padding: 0;}
+.p2-menu a { color: white; text-decoration: none; display: block; margin-bottom: 10px;}
+.p2-article { grid-area: article; background-color: white; padding: 20px; border: 1px solid #bdc3c7;}
+.p2-contacts { grid-area: contacts; background-color: #7f8c8d; color: white; padding: 20px; text-align: center;}
+
+/* Адаптивность Часть 2 */
+@media (max-width: 699px) {
+    .grid-part2 {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "menu"
+            "article"
+            "contacts";
+    }
+}
