@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Умный дом — ЛР4 — мониторинг и команды</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="{{ url_for('static', filename='js/control.js') }}"></script>
+</head>
+<body>
+  <h1>Мониторинг и управление (лабораторная работа №4)</h1>
+
+  <section>
+    <h2>Температура — мониторинг</h2>
+    <input type="text" id="temperature_value" readonly>
+    <h3>Команда: задать значение</h3>
+    <input type="text" id="temperature_cmd" placeholder="например 23.5">
+    <button type="button" id="btn_temperature_send">Отправить</button>
+  </section>
+
+  <section>
+    <h2>Освещение — мониторинг</h2>
+    <input type="text" id="light_state" readonly>
+    <input type="text" id="light_brightness" readonly>
+    <h3>Команда</h3>
+    <label>on (1/0) <input type="text" id="light_on" size="3" value="1"></label>
+    <label>яркость 0–100 <input type="text" id="light_br" size="5" value="60"></label>
+    <button type="button" id="btn_light_send">Отправить</button>
+  </section>
+
+  <section>
+    <h2>Замок — мониторинг</h2>
+    <input type="text" id="lock_state" readonly>
+    <h3>Команда: locked (1 закрыть / 0 открыть)</h3>
+    <input type="text" id="lock_cmd" size="3" value="1">
+    <button type="button" id="btn_lock_send">Отправить</button>
+  </section>
+</body>
+</html>

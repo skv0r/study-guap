@@ -1,0 +1,20 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 720px;
+  margin: 2rem auto;
+  line-height: 1.45;
+}
+section {
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+input[type="text"] {
+  margin: 0.25rem 0.5rem 0.25rem 0;
+  padding: 0.35rem;
+}
+button {
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+}
