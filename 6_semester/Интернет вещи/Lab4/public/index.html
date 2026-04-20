@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IoT Дом — ЛР4</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 42rem; margin: 1.5rem auto; padding: 0 1rem; }
+    section { border: 1px solid #ddd; border-radius: 8px; padding: 0.75rem 1rem; margin: 1rem 0; }
+    h1 { font-size: 1.35rem; }
+    code { background: #f4f4f4; padding: 0.1rem 0.35rem; border-radius: 4px; }
+    .result { font-size: 0.9rem; color: #333; margin-top: 0.35rem; }
+  </style>
+</head>
+<body>
+  <h1>ЛР4 — мониторинг (ЛР3) + команды управления</h1>
+
+  <section>
+    <h2>Мониторинг</h2>
+    <p>Обновление раз в секунду через <code>GET /connect/…</code></p>
+    <p><strong>Температура:</strong> <span id="tempValue">—</span></p>
+    <p><strong>Свет:</strong> <span id="lightEnabled">—</span>, яркость <span id="lightBrightness">—</span>%</p>
+    <p><strong>Замок:</strong> <span id="lockState">—</span></p>
+  </section>
+
+  <section>
+    <h2>Управление</h2>
+    <p>Отправка на <code>GET /command/…</code> с параметрами в строке запроса.</p>
+
+    <div>
+      <h3>Температура</h3>
+      <input id="cmdTemp" type="text" placeholder="например 23.5" />
+      <button id="btnTemp" type="button">Отправить</button>
+      <div class="result" id="cmdTempResult"></div>
+    </div>
+
+    <div>
+      <h3>Свет</h3>
+      <label><input id="cmdLightOn" type="checkbox" checked /> Включено</label>
+      <input id="cmdLightBright" type="number" min="0" max="100" value="65" />
+      <button id="btnLight" type="button">Отправить</button>
+      <div class="result" id="cmdLightResult"></div>
+    </div>
+
+    <div>
+      <h3>Замок</h3>
+      <label><input id="cmdLockLocked" type="checkbox" checked /> Закрыт</label>
+      <button id="btnLock" type="button">Отправить</button>
+      <div class="result" id="cmdLockResult"></div>
+    </div>
+  </section>
+
+  <script src="/script.js"></script>
+  <script src="/index.js"></script>
+  <script src="/command.js"></script>
+</body>
+</html>
