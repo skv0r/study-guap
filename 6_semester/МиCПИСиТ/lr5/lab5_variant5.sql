@@ -9,7 +9,6 @@ join "Группа" as g on g."ID_группы" = s."ID_группы"
 join "Факультет" as f on f."ID_факультета" = g."ID_факультета"
 where (
   f."Номер_факультета" = 4
-  or g."Номер_группы" in ('4550', '4551')
 )
   and not exists (
     select 1
@@ -51,11 +50,14 @@ where exists (
   from "Выступление_студент" as vs0
   where vs0."ID_студента" = s1."ID_студента"
 )
+-- хотя бы 1 раз 
 and exists (
   select 1
   from "Выступление_студент" as vs0b
   where vs0b."ID_студента" = s2."ID_студента"
 )
+
+--0 выступлений в котором участвовал первый а втрой нет
 and not exists (
   select 1
   from "Выступление_студент" as vs1
@@ -67,6 +69,8 @@ and not exists (
         and vs1b."ID_студента" = s2."ID_студента"
     )
 )
+
+--обратное 
 and not exists (
   select 1
   from "Выступление_студент" as vs2
@@ -161,7 +165,6 @@ from tmp_student_participation_stats
 order by "Участий", "ФИО";
 
 drop table if exists tmp_student_participation_stats;
-
 
 -- теоретико-множественное пересечение A ∩ B через EXISTS
 -- A: ФИО, выступавшие на «Информатика»; B: ФИО на «Робототехника и ИИ»
