@@ -60,12 +60,7 @@ end;
 $$;
 
 
--- call pr_add_student_with_group(
---   'Пробный Студент ЛР6',
---   '9999',
---   1::smallint,
---   'ГУАП'
--- );
+-- call pr_add_student_with_group('Пробный Студент ЛР6','9999',1::smallint,'ГУАП');
 
 
 -- 2) удаление с очисткой справочника «Группа»
@@ -358,4 +353,55 @@ select *
 from fn_students_by_conference('Информатика')
 limit 20;
 
--- добавить case
+
+-- 8) ситуация с CASE — категории активности студентов по числу участий
+
+
+create or replace procedure pr_fill_student_activity_case(
+  p_vuz text default 'ГУАП'
+)
+language plpgsql
+as $$
+begin
+  drop table if exists tmp_student_activity_case;
+
+  create temp table tmp_student_activity_case (
+    fio varchar(150) not null,
+    nomer_grupy varchar(20) not null,
+    kolichestvo_uchastiy bigint not null,
+    uroven_aktivnosti varchar(30) not null
+  ) on commit preserve rows;
+
+  insert into tmp_student_activity_case (
+    fio,
+    nomer_grupy,
+    kolichestvo_uchastiy,
+    uroven_aktivnosti
+  )
+  select
+    s."ФИО",
+    g."Номер_группы",
+    count(vs."ID_выступления")::bigint as kolichestvo_uchastiy,
+    case
+      when count(vs."ID_выступления") = 0 then 'Нет участий'
+      when count(vs."ID_выступления") between 1 and 2 then 'Низкая'
+      when count(vs."ID_выступления") between 3 and 4 then 'Средняя'
+      else 'Высокая'
+    end as uroven_aktivnosti
+  from "Студент" s
+  join "Группа" g on g."ID_группы" = s."ID_группы"
+  join "Факультет" f on f."ID_факультета" = g."ID_факультета"
+  join "Вуз" vz on vz."ID_вуза" = f."ID_вуза"
+  left join "Выступление_студент" vs on vs."ID_студента" = s."ID_студента"
+  where btrim(vz."Название") = btrim(p_vuz)
+  group by s."ID_студента", s."ФИО", g."Номер_группы"
+  order by s."ФИО";
+end;
+$$;
+
+
+call pr_fill_student_activity_case('ГУАП');
+
+select *
+from tmp_student_activity_case
+order by fio;
