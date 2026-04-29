@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>График температуры — ЛР9</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 56rem; margin: 1rem auto; padding: 0 1rem; }
+    a { color: #2563eb; }
+    .chart-wrap { margin-top: 1rem; min-height: 22rem; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <p><a href="/">← На главную</a></p>
+  <h1>ЛР9 — визуализация журнала температуры</h1>
+  <p>Данные из MongoDB, <code>GET /chart/temperature-series?limit=…</code></p>
+  <div class="chart-wrap">
+    <canvas id="tempChart" height="120"></canvas>
+  </div>
+  <script src="/chart.js"></script>
+</body>
+</html>

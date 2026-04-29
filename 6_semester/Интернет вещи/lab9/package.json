@@ -1,0 +1,25 @@
+{
+  "name": "lab9",
+  "version": "1.0.0",
+  "description": "ЛР9 — визуализация данных (Chart.js) + ЛР5–8, Express + TypeScript",
+  "main": "src/app.ts",
+  "scripts": {
+    "start": "tsx src/app.ts",
+    "dev": "tsx watch src/app.ts",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongodb": "^6.12.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  }
+}

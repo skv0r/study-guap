@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IoT Дом — ЛР8</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 48rem; margin: 1.5rem auto; padding: 0 1rem; }
+    section { border: 1px solid #ddd; border-radius: 8px; padding: 0.75rem 1rem; margin: 1rem 0; }
+    h1 { font-size: 1.35rem; }
+    code { background: #f4f4f4; padding: 0.1rem 0.35rem; border-radius: 4px; }
+    .result { font-size: 0.9rem; color: #333; margin-top: 0.35rem; }
+    .hint { font-size: 0.85rem; color: #555; }
+  </style>
+</head>
+<body>
+  <h1>ЛР8 — агрегаты по журналу MongoDB</h1>
+  <p class="hint">Порт по умолчанию <strong>5008</strong>. MongoDB: <code>MONGODB_URI</code> или localhost. Кнопка ниже запрашивает <code>GET /analysis/stats</code> (среднее и максимум температуры, счётчики On/Off по журналу обогревателя).</p>
+
+  <section>
+    <h2>Мониторинг</h2>
+    <p><strong>Температура:</strong> <span id="tempValue">—</span></p>
+    <p><strong>Свет:</strong> <span id="lightEnabled">—</span>, яркость <span id="lightBrightness">—</span>%</p>
+    <p><strong>Замок:</strong> <span id="lockState">—</span></p>
+    <p><strong>Обогреватель:</strong> <span id="heaterPower">—</span> (порог 25 °C)</p>
+  </section>
+
+  <section>
+    <h2>Управление (с валидацией на сервере)</h2>
+
+    <div>
+      <h3>Температура</h3>
+      <p class="hint">Примеры: <code>23.5</code> или <code>23,5</code></p>
+      <input id="cmdTemp" type="text" placeholder="23.5 или 23,5" />
+      <button id="btnTemp" type="button">Отправить</button>
+      <div class="result" id="cmdTempResult"></div>
+    </div>
+
+    <div>
+      <h3>Свет</h3>
+      <p class="hint"><code>enabled</code> — слово: on, off, true, false, да, нет … Яркость — только цифры 0–100.</p>
+      <input id="cmdLightOn" type="text" placeholder="on / off / true" value="on" />
+      <input id="cmdLightBright" type="text" inputmode="numeric" placeholder="65" value="65" />
+      <button id="btnLight" type="button">Отправить</button>
+      <div class="result" id="cmdLightResult"></div>
+    </div>
+
+    <div>
+      <h3>Замок</h3>
+      <p class="hint">Строка из словаря: <code>закрыт</code>, <code>открыт</code>, <code>true</code>, <code>false</code>, …</p>
+      <input id="cmdLockLocked" type="text" placeholder="закрыт или открыт" value="закрыт" />
+      <button id="btnLock" type="button">Отправить</button>
+      <div class="result" id="cmdLockResult"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Анализ данных</h2>
+    <button type="button" id="btnStats">Показать статистику</button>
+    <pre id="statsOut" class="result" style="white-space: pre-wrap; margin-top: 0.5rem;">—</pre>
+  </section>
+
+  <script src="/script.js"></script>
+  <script src="/index.js"></script>
+  <script src="/command.js"></script>
+  <script src="/stats.js"></script>
+</body>
+</html>

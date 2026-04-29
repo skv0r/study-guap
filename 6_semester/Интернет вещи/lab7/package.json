@@ -1,0 +1,27 @@
+{
+  "name": "lab7",
+  "version": "1.0.0",
+  "description": "ЛР7 — логирование в MongoDB (две коллекции), Express + TypeScript",
+  "main": "src/app.ts",
+  "scripts": {
+    "start": "tsx src/app.ts",
+    "dev": "tsx watch src/app.ts",
+    "build": "tsc",
+    "run": "powershell -ExecutionPolicy Bypass -File ./run-all.ps1",
+    "run:all": "powershell -ExecutionPolicy Bypass -File ./run-all.ps1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongodb": "^6.12.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  }
+}
