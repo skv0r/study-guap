@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛР9 — Библиотеки JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Лабораторная работа №9</h1>
+        <p>Использование библиотек JavaScript для анимации и визуализации данных</p>
+    </header>
+
+    <main>
+        <section class="task-block">
+            <h2>Задание 1. Анимационный эффект (jQuery)</h2>
+            <p>Кнопка запускает анимацию карточки с заданными параметрами: длительность и функция плавности.</p>
+            <button id="runAnimationBtn" type="button">Запустить анимацию</button>
+            <div class="animation-area">
+                <div id="animatedCard" class="animated-card">
+                    Курсовой проект по веб-технологиям
+                </div>
+            </div>
+        </section>
+
+        <section class="task-block">
+            <h2>Задание 2. Диаграмма (Chart.js)</h2>
+            <p>Вариант 1: самые популярные веб-браузеры в мире.</p>
+            <div class="chart-wrap">
+                <canvas id="jsChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

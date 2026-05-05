@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛР8 — Управление позиционированием и отображением</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Лабораторная работа №8</h1>
+        <p>Управление позиционированием и отображением элементов</p>
+    </header>
+
+    <main>
+        <section class="task-block">
+            <h2>Задание 1. Слайд-шоу</h2>
+            <p>Изображения сменяются каждые 1 секунду. По клику на слайд выполняется переход на соответствующий файл.</p>
+            <div class="slideshow-wrap">
+                <a id="slideshowLink" href="../ЛР7/bmw.png">
+                    <img id="slideshowImage" src="../ЛР7/bmw.png" alt="Слайд 1">
+                </a>
+            </div>
+        </section>
+
+        <section class="task-block">
+            <h2>Задание 2. Выпадающее меню</h2>
+            <nav class="top-nav">
+                <div class="menu-item">
+                    <button type="button" class="menu-toggle">Курсовая</button>
+                    <div class="dropdown-menu">
+                        <a href="slide-bmw.html">О проекте</a>
+                        <a href="slide-audi.html">Технологии</a>
+                        <a href="slide-toyota.html">План работ</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <button type="button" class="menu-toggle">Учеба</button>
+                    <div class="dropdown-menu">
+                        <a href="slide-bmw.html">Расписание</a>
+                        <a href="slide-audi.html">Текущие задания</a>
+                        <a href="slide-toyota.html">Успеваемость</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <button type="button" class="menu-toggle">Контакты</button>
+                    <div class="dropdown-menu">
+                        <a href="slide-bmw.html">Электронная почта</a>
+                        <a href="slide-audi.html">Чат группы</a>
+                        <a href="slide-toyota.html">Местоположение</a>
+                    </div>
+                </div>
+            </nav>
+        </section>
+
+        <section class="task-block">
+            <h2>Задание 3. Галерея изображений</h2>
+            <p>В галерее 7 изображений, одновременно видно 3. Кнопки позволяют прокручивать изображения влево и вправо.</p>
+            <div class="gallery-wrap">
+                <button id="galleryPrev" type="button" class="gallery-btn">&#8592;</button>
+                <div class="gallery-window">
+                    <div id="galleryTrack" class="gallery-track">
+                        <img src="../ЛР7/bmw.png" alt="BMW">
+                        <img src="../ЛР7/audi.png" alt="Audi">
+                        <img src="../ЛР7/toyota.png" alt="Toyota">
+                        <img src="../ЛР7/mega-mercded.png" alt="Mercedes концепт 1">
+                        <img src="../ЛР7/mercdedec.png" alt="Mercedes концепт 2">
+                        <img src="../ЛР7/mercedez.png" alt="Mercedes концепт 3">
+                        <img src="../ЛР7/bmw.png" alt="BMW 2">
+                    </div>
+                </div>
+                <button id="galleryNext" type="button" class="gallery-btn">&#8594;</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
