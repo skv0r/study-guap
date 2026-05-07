@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "com.example.autotasks.app-mergeDebugResources-41:/layout/activity_main.xml",
+        "source": "com.example.autotasks.app-main-44:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.autotasks.app-mergeDebugResources-41:/layout/fragment_driver.xml",
+        "source": "com.example.autotasks.app-main-44:/layout/fragment_driver.xml"
+    },
+    {
+        "merged": "com.example.autotasks.app-mergeDebugResources-41:/layout/item_driver.xml",
+        "source": "com.example.autotasks.app-main-44:/layout/item_driver.xml"
+    },
+    {
+        "merged": "com.example.autotasks.app-mergeDebugResources-41:/layout/fragment_info.xml",
+        "source": "com.example.autotasks.app-main-44:/layout/fragment_info.xml"
+    },
+    {
+        "merged": "com.example.autotasks.app-mergeDebugResources-41:/layout/activity_add_driver.xml",
+        "source": "com.example.autotasks.app-main-44:/layout/activity_add_driver.xml"
+    },
+    {
+        "merged": "com.example.autotasks.app-mergeDebugResources-41:/layout/activity_edit_driver.xml",
+        "source": "com.example.autotasks.app-main-44:/layout/activity_edit_driver.xml"
+    },
+    {
+        "merged": "com.example.autotasks.app-mergeDebugResources-41:/layout/fragment_car.xml",
+        "source": "com.example.autotasks.app-main-44:/layout/fragment_car.xml"
+    }
+]

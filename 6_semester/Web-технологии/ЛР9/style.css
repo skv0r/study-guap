@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    color: #111827;
+}
+
+header {
+    background: #1d4ed8;
+    color: #fff;
+    text-align: center;
+    padding: 24px 16px;
+}
+
+header h1 {
+    margin: 0 0 6px;
+}
+
+main {
+    max-width: 1000px;
+    margin: 24px auto;
+    padding: 0 16px 24px;
+}
+
+.task-block {
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+
+.task-block h2 {
+    margin-top: 0;
+}
+
+#runAnimationBtn {
+    position: relative;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #fff;
+    padding: 10px 14px;
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+
+#runAnimationBtn:hover {
+    background: #1e40af;
+}
+
+.animation-area {
+    position: relative;
+    border: 1px dashed #9ca3af;
+    border-radius: 8px;
+    height: 220px;
+    background: #f9fafb;
+    overflow: hidden;
+}
+
+.animated-card {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    width: 260px;
+    padding: 16px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #2563eb, #60a5fa);
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.animated-card.glow {
+    transform: scale(1.07);
+    box-shadow: 0 12px 26px rgba(59, 130, 246, 0.55);
+    filter: saturate(1.25);
+}
+
+.chart-wrap {
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    padding: 12px;
+}

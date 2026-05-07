@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    color: #111827;
+}
+
+header {
+    background: #1d4ed8;
+    color: #fff;
+    text-align: center;
+    padding: 24px 16px;
+}
+
+header h1 {
+    margin: 0 0 6px;
+}
+
+main {
+    max-width: 1100px;
+    margin: 24px auto;
+    padding: 0 16px 24px;
+}
+
+.task-block {
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+
+.task-block h2 {
+    margin-top: 0;
+}
+
+.slideshow-wrap {
+    margin-top: 14px;
+    width: 100%;
+    height: 360px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#slideshowLink,
+#slideshowImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#slideshowImage {
+    object-fit: cover;
+}
+
+.top-nav {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-toggle {
+    border: none;
+    background: #2563eb;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.menu-toggle:hover {
+    background: #1e40af;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 180px;
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 10;
+}
+
+.menu-item.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    text-decoration: none;
+    color: #111827;
+    padding: 9px 12px;
+}
+
+.dropdown-menu a:hover {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.gallery-wrap {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+}
+
+.gallery-btn {
+    border: none;
+    background: #2563eb;
+    color: #fff;
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    font-size: 1.05rem;
+}
+
+.gallery-btn:hover {
+    background: #1e40af;
+}
+
+.gallery-window {
+    overflow: hidden;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+}
+
+.gallery-track {
+    display: flex;
+    transition: transform 0.35s ease;
+}
+
+.gallery-track img {
+    flex: 0 0 calc(100% / 3);
+    height: 220px;
+    object-fit: cover;
+    border-right: 1px solid #e5e7eb;
+}
+
+.gallery-track img:last-child {
+    border-right: none;
+}
