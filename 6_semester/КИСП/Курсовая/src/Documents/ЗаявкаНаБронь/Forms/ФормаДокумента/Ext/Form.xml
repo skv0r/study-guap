@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<InputField name="Клиент" id="4">
+			<DataPath>Объект.Клиент</DataPath>
+			<ContextMenu name="КлиентКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="КлиентРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Компьютер" id="7">
+			<DataPath>Объект.Компьютер</DataPath>
+			<ContextMenu name="КомпьютерКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="КомпьютерРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="Тариф" id="10">
+			<DataPath>Объект.Тариф</DataPath>
+			<ContextMenu name="ТарифКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ТарифРасширеннаяПодсказка" id="12"/>
+			<Events>
+				<Event name="OnChange">ТарифПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="НачалоСеанса" id="13">
+			<DataPath>Объект.НачалоСеанса</DataPath>
+			<ContextMenu name="НачалоСеансаКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="НачалоСеансаРасширеннаяПодсказка" id="15"/>
+			<Events>
+				<Event name="OnChange">НачалоСеансаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="ОкончаниеСеанса" id="16">
+			<DataPath>Объект.ОкончаниеСеанса</DataPath>
+			<ContextMenu name="ОкончаниеСеансаКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="ОкончаниеСеансаРасширеннаяПодсказка" id="18"/>
+			<Events>
+				<Event name="OnChange">ОкончаниеСеансаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Сумма" id="19">
+			<DataPath>Объект.Сумма</DataPath>
+			<ContextMenu name="СуммаКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="СуммаРасширеннаяПодсказка" id="21"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.ЗаявкаНаБронь</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>
