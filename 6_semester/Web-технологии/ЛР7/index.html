@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛР7 — JavaScript сценарии</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Лабораторная работа №7</h1>
+        <p>Создание сценариев на JavaScript</p>
+    </header>
+
+    <main>
+        <section class="task-block">
+            <h2>Часть 1. Пункт 2 — три способа объявления функции</h2>
+            <p>Все три кнопки выполняют одинаковую задачу: выводят сумму двух чисел.</p>
+            <div class="button-row">
+                <button id="declarationBtn">Function Declaration</button>
+                <button id="expressionBtn">Function Expression</button>
+                <button id="arrowBtn">Arrow Function</button>
+            </div>
+            <p id="functionResult" class="result">Результат появится здесь.</p>
+        </section>
+
+        <section class="task-block">
+            <h2>Часть 2. Вариант 1</h2>
+
+            <h3>Пункт 1. «Напоминания»</h3>
+            <p>По клику последовательно выводятся модальные окна типа <code>alert</code>.</p>
+            <div class="button-row">
+                <button id="remindersBtn" type="button">Напоминания</button>
+            </div>
+
+            <h3>Пункт 2. Клонирование узлов</h3>
+            <p>После клика появится еще один контейнер: первый абзац останется прежним, а во втором будет другой текст.</p>
+
+            <div id="cloneContainer1" class="clone-container">
+                <p class="clone-p1">Первый абзац: прежний текст.</p>
+                <p class="clone-p2">Второй абзац: исходный текст.</p>
+            </div>
+            <div class="button-row">
+                <button id="cloneBtn" type="button">Создать копию</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

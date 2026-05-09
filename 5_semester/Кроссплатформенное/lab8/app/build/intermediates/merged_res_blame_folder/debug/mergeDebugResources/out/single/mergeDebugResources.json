@@ -1,0 +1,122 @@
+[
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/mipmap-anydpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/layout_activity_map.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/layout/activity_map.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/layout_fragment_map.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/layout/fragment_map.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/mipmap-anydpi/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/layout_activity_main.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/layout_fragment_account.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/layout/fragment_account.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/layout_fragment_driver.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/layout/fragment_driver.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/layout_activity_array_optimization.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/layout/activity_array_optimization.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/menu_bottom_menu.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/menu/bottom_menu.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/layout_item_driver.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/layout/item_driver.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/layout_activity_add_driver.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/layout/activity_add_driver.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/xml_backup_rules.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/layout_fragment_car.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/layout/fragment_car.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/color_nav_item_color.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/color/nav_item_color.xml"
+    },
+    {
+        "merged": "com.example.autotasks.app-debug-58:/layout_fragment_account.xml.flat",
+        "source": "com.example.autotasks.app-main-60:/layout/fragment_account.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/layout_fragment_info.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/layout/fragment_info.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/layout_activity_edit_driver.xml.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/layout/activity_edit_driver.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-debug-58:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-60:/mipmap-xxhdpi/ic_launcher.webp"
+    }
+]

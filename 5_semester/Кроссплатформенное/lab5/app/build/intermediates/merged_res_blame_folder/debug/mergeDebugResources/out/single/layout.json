@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-mergeDebugResources-37:/layout/fragment_driver.xml",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-40:/layout/fragment_driver.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-mergeDebugResources-37:/layout/fragment_info.xml",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-40:/layout/fragment_info.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-mergeDebugResources-37:/layout/item_driver.xml",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-40:/layout/item_driver.xml"
+    },
+    {
+        "merged": "com.example.autotasks.app-mergeDebugResources-37:/layout/activity_main.xml",
+        "source": "com.example.autotasks.app-main-40:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-mergeDebugResources-37:/layout/fragment_car.xml",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-40:/layout/fragment_car.xml"
+    },
+    {
+        "merged": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-mergeDebugResources-37:/layout/activity_main.xml",
+        "source": "/Users/gregoryburenkov/.gradle/daemon/8.13/com.example.autotasks.app-main-40:/layout/activity_main.xml"
+    }
+]

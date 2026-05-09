@@ -1,0 +1,1016 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:2:1-55:12
+INJECTED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:2:1-55:12
+INJECTED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:2:1-55:12
+INJECTED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:2:1-55:12
+MERGED from [androidx.databinding:viewbinding:8.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/141c5ba57bd3d04bbdd3509a889f73ac/transformed/viewbinding-8.13.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.material:material:1.10.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/dfce80a29321aed9d8a08e102e56aae4/transformed/material-1.10.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/59df76cf90c3611377d1e089df145248/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/90631900591c271560cda9f917f32d7a/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/fdebc68f86955db751797b35e50f79ae/transformed/appcompat-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment-ktx:1.6.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/de64898cad9ed4ce3d450c37b342d745/transformed/fragment-ktx-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c8d1fffe1dd65e577dc770709b02f41b/transformed/recyclerview-1.4.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/fc85653f9d7f17d6d78e8ab174567db2/transformed/viewpager2-1.1.0-beta02/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-auth-ktx:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c849a216fdf8fe61f4586356bbe3036b/transformed/firebase-auth-ktx-22.3.0/AndroidManifest.xml:2:1-17:12
+MERGED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:17:1-75:12
+MERGED from [com.google.firebase:firebase-crashlytics:20.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9a88a4a8ccbb4de4cd67d2cf711a96d0/transformed/firebase-crashlytics-20.0.3/AndroidManifest.xml:2:1-24:12
+MERGED from [com.google.firebase:firebase-sessions:3.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/18e6c439116b955666946c2bac844a70/transformed/firebase-sessions-3.0.3/AndroidManifest.xml:15:1-31:12
+MERGED from [com.google.firebase:firebase-analytics-ktx:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/470f8965141730d445398493d81bba40/transformed/firebase-analytics-ktx-21.5.0/AndroidManifest.xml:2:1-17:12
+MERGED from [com.google.firebase:firebase-analytics:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/25d8f17554278a555e13ad89dab3b8dc/transformed/firebase-analytics-21.5.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:17:1-43:12
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:2:1-24:12
+MERGED from [com.google.firebase:firebase-installations-interop:17.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/69005798d340ae5f2c78b9d06e05693a/transformed/firebase-installations-interop-17.2.0/AndroidManifest.xml:15:1-19:12
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/097e248ef77e2b36e893515970dcf0eb/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/275e75e4c62fdf5afff4f23a3cedc4ed/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:15:1-41:12
+MERGED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:3:1-72:12
+MERGED from [com.google.android.gms:play-services-location:21.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f0d63fb83c0ef8353c1d099d0c69af48/transformed/play-services-location-21.0.1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4f2e56ca1221fad334d60556d4657607/transformed/recaptcha-18.1.2/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.play:integrity:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d4d445fe3419833c654550bdc62f1913/transformed/integrity-1.1.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.room:room-runtime:2.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/cca1d4dcb909acf82387c6f318ce51c4/transformed/room-runtime-2.6.1/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.room:room-ktx:2.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/88592d3ecc602d214870655b3ae111da/transformed/room-ktx-2.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.8.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6258ece5edba1d8f6d2707237e0bf0b4/transformed/activity-ktx-1.8.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9e9ac7f2a2277058616e638743ed79b3/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/19241c9d5c5e1bca49e318992c40a664/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f12d7c6b10f1ff366f4b4e8d9762d16/transformed/emoji2-1.2.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/48d456b43bcc16d08548fc00eade99fc/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5036e8d272a863471c38361c6077cb7c/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/50da0db145dca192939367cd6cd53e08/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b33884275e8b6f29f1f00c122c9fc2ff/transformed/transition-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/88989ebdfd26923e8566092d885224e4/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9f20579308e1c932602087319c3692fd/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6a5bd7c701aa47a5bf4a9690368ac569/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/318b5e8171a34d1d60c7eead1ab4e743/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:17:1-46:12
+MERGED from [com.google.android.gms:play-services-measurement-sdk:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/20a3b2bcc7b5b37d84aea086e9a1c0da/transformed/play-services-measurement-sdk-21.5.0/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8876787b2479871b22a3d283b5cb0da9/transformed/play-services-measurement-impl-21.5.0/AndroidManifest.xml:17:1-32:12
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5c61ae139f415890d0ee4ffdeb13a2c2/transformed/play-services-stats-17.0.2/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f6fc273b910ce30a57982447853c1a79/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c5eddaa92e5eb54238a431cf2f94f9f8/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.privacysandbox.ads:ads-adservices-java:1.0.0-beta05] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/15c75c8e51ef0c7ce4f96ce81a25e2ac/transformed/ads-adservices-java-1.0.0-beta05/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/3ebad3cdaba11604f1cff29f14dc3d87/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.core:core-ktx:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/e52fa4518dc6ceb6993cfb6b68ee3ce5/transformed/core-ktx-1.13.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8d50ab3f005d2ddf3d9e991d43a93619/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8df18f8973153aa2c63c5e7dae88c95d/transformed/play-services-auth-api-phone-17.4.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/83e51e28c9142da11d865c42fb978592/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:15:1-25:12
+MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/21a6858ef24c3a7d5895b1e0416ad4e6/transformed/play-services-base-18.1.0/AndroidManifest.xml:16:1-24:12
+MERGED from [androidx.browser:browser:1.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/7661d11e777962767bbf6f872d62ea35/transformed/browser-1.4.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c295e05670e313168ca6ff3fb89076f2/transformed/lifecycle-livedata-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/390d593484f5f559259c3a56ef1762b0/transformed/lifecycle-viewmodel-ktx-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ccc2576354c18b031c60e5b22084a8d5/transformed/lifecycle-viewmodel-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/3602ce8db8269cc717b1e060327cd43f/transformed/lifecycle-runtime-ktx-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4e00cbaf791e7a7dcdf8b692d5d07409/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5a1dc4e558fb6504cdbbeb0717c89b6c/transformed/lifecycle-livedata-core-ktx-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/7d04ec2f50bf49b8fe276bac081537e9/transformed/lifecycle-livedata-core-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b0b6d9ac367cd9b121ff2a7f9b5a690c/transformed/lifecycle-runtime-2.6.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/56ac627d9f19b944afa8f0d53d54451a/transformed/lifecycle-viewmodel-savedstate-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6336d5397b3b96641e0310f55e1e39e1/transformed/savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore-preferences-core-android:1.1.7] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9ad75d85477516f7fa40410b78d1b64d/transformed/datastore-preferences-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-core-android:1.1.7] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f0d0adde8ed6cd0b4cb13ed03827a0b3/transformed/datastore-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.7] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/85c6d8796ca732e183674706233af3cd/transformed/datastore-preferences-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore-android:1.1.7] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1447797651a3732a5097bddcf734198d/transformed/datastore-release/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/67f500460d7f4f8846c40f0b38973795/transformed/play-services-tasks-18.1.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.firebase:firebase-measurement-connector:20.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2bacf1e868a7a507e684f99037f952d3/transformed/firebase-measurement-connector-20.0.1/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/bbc5be587359b8dd7253742395d86408/transformed/play-services-ads-identifier-18.0.0/AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d6e335e54889c2742e51a99a0ccbbda4/transformed/play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:17:1-30:12
+MERGED from [com.google.android.gms:play-services-measurement-base:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ea6f0d51fa495c6aa07b851fa6ac751c/transformed/play-services-measurement-base-21.5.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f318737e3f9a4e63f6dd89b10764a21d/transformed/play-services-basement-18.3.0/AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.fragment:fragment:1.6.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/a69d45145d7de054f6c71af2dffe1f25/transformed/fragment-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.8.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8c6409eeb2d4fc8156300570a7e8dad9/transformed/activity-1.8.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9165819cde6fc163aa083b23a93f5349/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite:2.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a74a5e8bb2e3d352bfb5250fdaedbd2/transformed/sqlite-2.4.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5d744cce114e3689b92a316c6175446e/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0e5e080177b3e679bf34a6aac3a5d038/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4d4ed994ab4cf6c8a37a076acc6a7652/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/baae3936f8e1613ece4d539e7df3cb9c/transformed/tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-components:19.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/787a5b121a4c019004583fa0eb71de0d/transformed/firebase-components-19.0.0/AndroidManifest.xml:15:1-20:12
+MERGED from [com.google.firebase:firebase-config-interop:16.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/3ab42b914efda367aeb72c095e7481c0/transformed/firebase-config-interop-16.0.1/AndroidManifest.xml:15:1-20:12
+MERGED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c657a0a3ceb1bd4366f68fb7cce9b8e9/transformed/firebase-datatransport-19.0.0/AndroidManifest.xml:15:1-31:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6435989397dbe65e58b6bb79ad2657ba/transformed/transport-backend-cct-3.3.0/AndroidManifest.xml:15:1-35:12
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/88e82febeb8b596c3daa69e39f8f7023/transformed/firebase-encoders-json-18.0.1/AndroidManifest.xml:15:1-22:12
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:15:1-39:12
+MERGED from [com.google.android.datatransport:transport-api:3.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8cffbfdf5f813b10c3fcea3320946302/transformed/transport-api-3.2.0/AndroidManifest.xml:15:1-20:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/fc96338b128bf6c56405617efe1f88da/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1754723b5ec29f13b4babcd5dda83da0/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f397fca3fb9a23d7df79a8a8f30deb7/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/669baddc2ee879480b260432520c4863/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6376237626ea85f1bacaa0429fa03bff/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/03414621085c8ee09e8326326346da2a/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/7c9cacf49c95e40b4d20b18595937e59/transformed/annotation-experimental-1.4.0/AndroidManifest.xml:2:1-7:12
+	package
+		INJECTED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:4:5-67
+MERGED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-crashlytics:20.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9a88a4a8ccbb4de4cd67d2cf711a96d0/transformed/firebase-crashlytics-20.0.3/AndroidManifest.xml:7:5-67
+MERGED from [com.google.firebase:firebase-crashlytics:20.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9a88a4a8ccbb4de4cd67d2cf711a96d0/transformed/firebase-crashlytics-20.0.3/AndroidManifest.xml:7:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:8:5-67
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:8:5-67
+MERGED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:14:5-67
+MERGED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:14:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4f2e56ca1221fad334d60556d4657607/transformed/recaptcha-18.1.2/AndroidManifest.xml:7:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4f2e56ca1221fad334d60556d4657607/transformed/recaptcha-18.1.2/AndroidManifest.xml:7:5-67
+MERGED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8876787b2479871b22a3d283b5cb0da9/transformed/play-services-measurement-impl-21.5.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8876787b2479871b22a3d283b5cb0da9/transformed/play-services-measurement-impl-21.5.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d6e335e54889c2742e51a99a0ccbbda4/transformed/play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d6e335e54889c2742e51a99a0ccbbda4/transformed/play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6435989397dbe65e58b6bb79ad2657ba/transformed/transport-backend-cct-3.3.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6435989397dbe65e58b6bb79ad2657ba/transformed/transport-backend-cct-3.3.0/AndroidManifest.xml:23:5-67
+	android:name
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:4:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:5:5-78
+MERGED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:26:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:7:5-79
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:7:5-79
+MERGED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:13:5-79
+MERGED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:13:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4f2e56ca1221fad334d60556d4657607/transformed/recaptcha-18.1.2/AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4f2e56ca1221fad334d60556d4657607/transformed/recaptcha-18.1.2/AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8876787b2479871b22a3d283b5cb0da9/transformed/play-services-measurement-impl-21.5.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8876787b2479871b22a3d283b5cb0da9/transformed/play-services-measurement-impl-21.5.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d6e335e54889c2742e51a99a0ccbbda4/transformed/play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d6e335e54889c2742e51a99a0ccbbda4/transformed/play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6435989397dbe65e58b6bb79ad2657ba/transformed/transport-backend-cct-3.3.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6435989397dbe65e58b6bb79ad2657ba/transformed/transport-backend-cct-3.3.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:20:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:20:5-79
+	android:name
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:5:22-76
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:6:5-79
+MERGED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:17:5-79
+MERGED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:17:5-79
+	android:name
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:6:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:7:5-81
+	android:name
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:7:22-78
+application
+ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:10:5-53:19
+INJECTED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:10:5-53:19
+MERGED from [com.google.android.material:material:1.10.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/dfce80a29321aed9d8a08e102e56aae4/transformed/material-1.10.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.10.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/dfce80a29321aed9d8a08e102e56aae4/transformed/material-1.10.0/AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/59df76cf90c3611377d1e089df145248/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/59df76cf90c3611377d1e089df145248/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
+MERGED from [com.google.firebase:firebase-auth-ktx:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c849a216fdf8fe61f4586356bbe3036b/transformed/firebase-auth-ktx-22.3.0/AndroidManifest.xml:7:5-15:19
+MERGED from [com.google.firebase:firebase-auth-ktx:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c849a216fdf8fe61f4586356bbe3036b/transformed/firebase-auth-ktx-22.3.0/AndroidManifest.xml:7:5-15:19
+MERGED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:28:5-73:19
+MERGED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:28:5-73:19
+MERGED from [com.google.firebase:firebase-crashlytics:20.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9a88a4a8ccbb4de4cd67d2cf711a96d0/transformed/firebase-crashlytics-20.0.3/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-crashlytics:20.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9a88a4a8ccbb4de4cd67d2cf711a96d0/transformed/firebase-crashlytics-20.0.3/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-sessions:3.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/18e6c439116b955666946c2bac844a70/transformed/firebase-sessions-3.0.3/AndroidManifest.xml:21:5-29:19
+MERGED from [com.google.firebase:firebase-sessions:3.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/18e6c439116b955666946c2bac844a70/transformed/firebase-sessions-3.0.3/AndroidManifest.xml:21:5-29:19
+MERGED from [com.google.firebase:firebase-analytics-ktx:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/470f8965141730d445398493d81bba40/transformed/firebase-analytics-ktx-21.5.0/AndroidManifest.xml:7:5-15:19
+MERGED from [com.google.firebase:firebase-analytics-ktx:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/470f8965141730d445398493d81bba40/transformed/firebase-analytics-ktx-21.5.0/AndroidManifest.xml:7:5-15:19
+MERGED from [com.google.firebase:firebase-analytics:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/25d8f17554278a555e13ad89dab3b8dc/transformed/firebase-analytics-21.5.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-analytics:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/25d8f17554278a555e13ad89dab3b8dc/transformed/firebase-analytics-21.5.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:29:5-41:19
+MERGED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:29:5-41:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/097e248ef77e2b36e893515970dcf0eb/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/097e248ef77e2b36e893515970dcf0eb/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/275e75e4c62fdf5afff4f23a3cedc4ed/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/275e75e4c62fdf5afff4f23a3cedc4ed/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:22:5-39:19
+MERGED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:24:5-70:19
+MERGED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:24:5-70:19
+MERGED from [com.google.android.gms:play-services-location:21.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f0d63fb83c0ef8353c1d099d0c69af48/transformed/play-services-location-21.0.1/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:21.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f0d63fb83c0ef8353c1d099d0c69af48/transformed/play-services-location-21.0.1/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.play:integrity:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d4d445fe3419833c654550bdc62f1913/transformed/integrity-1.1.0/AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.play:integrity:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d4d445fe3419833c654550bdc62f1913/transformed/integrity-1.1.0/AndroidManifest.xml:5:5-6:19
+MERGED from [androidx.room:room-runtime:2.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/cca1d4dcb909acf82387c6f318ce51c4/transformed/room-runtime-2.6.1/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.room:room-runtime:2.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/cca1d4dcb909acf82387c6f318ce51c4/transformed/room-runtime-2.6.1/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f12d7c6b10f1ff366f4b4e8d9762d16/transformed/emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f12d7c6b10f1ff366f4b4e8d9762d16/transformed/emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:28:5-44:19
+MERGED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:28:5-44:19
+MERGED from [com.google.android.gms:play-services-measurement-sdk:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/20a3b2bcc7b5b37d84aea086e9a1c0da/transformed/play-services-measurement-sdk-21.5.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-measurement-sdk:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/20a3b2bcc7b5b37d84aea086e9a1c0da/transformed/play-services-measurement-sdk-21.5.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8876787b2479871b22a3d283b5cb0da9/transformed/play-services-measurement-impl-21.5.0/AndroidManifest.xml:29:5-30:19
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8876787b2479871b22a3d283b5cb0da9/transformed/play-services-measurement-impl-21.5.0/AndroidManifest.xml:29:5-30:19
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5c61ae139f415890d0ee4ffdeb13a2c2/transformed/play-services-stats-17.0.2/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5c61ae139f415890d0ee4ffdeb13a2c2/transformed/play-services-stats-17.0.2/AndroidManifest.xml:7:5-20
+MERGED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/3ebad3cdaba11604f1cff29f14dc3d87/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/3ebad3cdaba11604f1cff29f14dc3d87/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/83e51e28c9142da11d865c42fb978592/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:23:5-20
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/83e51e28c9142da11d865c42fb978592/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:23:5-20
+MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/21a6858ef24c3a7d5895b1e0416ad4e6/transformed/play-services-base-18.1.0/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/21a6858ef24c3a7d5895b1e0416ad4e6/transformed/play-services-base-18.1.0/AndroidManifest.xml:19:5-23:19
+MERGED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4e00cbaf791e7a7dcdf8b692d5d07409/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4e00cbaf791e7a7dcdf8b692d5d07409/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:23:5-33:19
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/67f500460d7f4f8846c40f0b38973795/transformed/play-services-tasks-18.1.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/67f500460d7f4f8846c40f0b38973795/transformed/play-services-tasks-18.1.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:20.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2bacf1e868a7a507e684f99037f952d3/transformed/firebase-measurement-connector-20.0.1/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:20.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2bacf1e868a7a507e684f99037f952d3/transformed/firebase-measurement-connector-20.0.1/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/bbc5be587359b8dd7253742395d86408/transformed/play-services-ads-identifier-18.0.0/AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/bbc5be587359b8dd7253742395d86408/transformed/play-services-ads-identifier-18.0.0/AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ea6f0d51fa495c6aa07b851fa6ac751c/transformed/play-services-measurement-base-21.5.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ea6f0d51fa495c6aa07b851fa6ac751c/transformed/play-services-measurement-base-21.5.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f318737e3f9a4e63f6dd89b10764a21d/transformed/play-services-basement-18.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f318737e3f9a4e63f6dd89b10764a21d/transformed/play-services-basement-18.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4d4ed994ab4cf6c8a37a076acc6a7652/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4d4ed994ab4cf6c8a37a076acc6a7652/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c657a0a3ceb1bd4366f68fb7cce9b8e9/transformed/firebase-datatransport-19.0.0/AndroidManifest.xml:21:5-29:19
+MERGED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c657a0a3ceb1bd4366f68fb7cce9b8e9/transformed/firebase-datatransport-19.0.0/AndroidManifest.xml:21:5-29:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6435989397dbe65e58b6bb79ad2657ba/transformed/transport-backend-cct-3.3.0/AndroidManifest.xml:25:5-33:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6435989397dbe65e58b6bb79ad2657ba/transformed/transport-backend-cct-3.3.0/AndroidManifest.xml:25:5-33:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:23:5-37:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:23:5-37:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1754723b5ec29f13b4babcd5dda83da0/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1754723b5ec29f13b4babcd5dda83da0/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+	android:extractNativeLibs
+		INJECTED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:17:9-35
+	android:label
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:15:9-41
+	android:fullBackupContent
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:13:9-54
+	tools:ignore
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:24:18-44
+	android:roundIcon
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:16:9-54
+	android:icon
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:14:9-43
+	android:allowBackup
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:11:9-35
+	android:theme
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:18:9-47
+	android:dataExtractionRules
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:12:9-65
+	android:usesCleartextTraffic
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:19:9-44
+meta-data#com.yandex.mapkit.ApiKey
+ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:21:9-23:68
+	android:value
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:23:13-65
+	android:name
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:22:13-52
+activity#com.example.autotasks.MainActivity
+ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:24:9-32:20
+	android:exported
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:26:13-36
+	android:name
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:25:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:27:13-31:29
+action#android.intent.action.MAIN
+ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:28:17-69
+	android:name
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:28:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:30:17-77
+	android:name
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:30:27-74
+activity#com.example.autotasks.AddDriverActivity
+ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:33:9-37:58
+	android:parentActivityName
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:37:13-55
+	android:label
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:36:13-45
+	android:exported
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:34:13-46
+activity#com.example.autotasks.EditDriverActivity
+ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:38:9-42:58
+	android:parentActivityName
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:42:13-55
+	android:label
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:41:13-50
+	android:exported
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:40:13-37
+	android:name
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:39:13-47
+activity#com.example.autotasks.MapActivity
+ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:43:9-47:58
+	android:parentActivityName
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:47:13-55
+	android:label
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:46:13-41
+	android:exported
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:45:13-37
+	android:name
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:44:13-40
+activity#com.example.autotasks.ArrayOptimizationActivity
+ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:48:9-52:58
+	android:parentActivityName
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:52:13-55
+	android:label
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:51:13-49
+	android:exported
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:50:13-37
+	android:name
+		ADDED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml:49:13-54
+uses-sdk
+INJECTED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml
+INJECTED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml
+MERGED from [androidx.databinding:viewbinding:8.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/141c5ba57bd3d04bbdd3509a889f73ac/transformed/viewbinding-8.13.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:viewbinding:8.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/141c5ba57bd3d04bbdd3509a889f73ac/transformed/viewbinding-8.13.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.material:material:1.10.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/dfce80a29321aed9d8a08e102e56aae4/transformed/material-1.10.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.10.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/dfce80a29321aed9d8a08e102e56aae4/transformed/material-1.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/59df76cf90c3611377d1e089df145248/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/59df76cf90c3611377d1e089df145248/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/90631900591c271560cda9f917f32d7a/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/90631900591c271560cda9f917f32d7a/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/fdebc68f86955db751797b35e50f79ae/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/fdebc68f86955db751797b35e50f79ae/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.6.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/de64898cad9ed4ce3d450c37b342d745/transformed/fragment-ktx-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.6.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/de64898cad9ed4ce3d450c37b342d745/transformed/fragment-ktx-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c8d1fffe1dd65e577dc770709b02f41b/transformed/recyclerview-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c8d1fffe1dd65e577dc770709b02f41b/transformed/recyclerview-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/fc85653f9d7f17d6d78e8ab174567db2/transformed/viewpager2-1.1.0-beta02/AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/fc85653f9d7f17d6d78e8ab174567db2/transformed/viewpager2-1.1.0-beta02/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-ktx:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c849a216fdf8fe61f4586356bbe3036b/transformed/firebase-auth-ktx-22.3.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-ktx:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c849a216fdf8fe61f4586356bbe3036b/transformed/firebase-auth-ktx-22.3.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:21:5-23:64
+MERGED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:21:5-23:64
+MERGED from [com.google.firebase:firebase-crashlytics:20.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9a88a4a8ccbb4de4cd67d2cf711a96d0/transformed/firebase-crashlytics-20.0.3/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-crashlytics:20.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9a88a4a8ccbb4de4cd67d2cf711a96d0/transformed/firebase-crashlytics-20.0.3/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-sessions:3.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/18e6c439116b955666946c2bac844a70/transformed/firebase-sessions-3.0.3/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-sessions:3.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/18e6c439116b955666946c2bac844a70/transformed/firebase-sessions-3.0.3/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-analytics-ktx:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/470f8965141730d445398493d81bba40/transformed/firebase-analytics-ktx-21.5.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-analytics-ktx:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/470f8965141730d445398493d81bba40/transformed/firebase-analytics-ktx-21.5.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-analytics:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/25d8f17554278a555e13ad89dab3b8dc/transformed/firebase-analytics-21.5.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-analytics:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/25d8f17554278a555e13ad89dab3b8dc/transformed/firebase-analytics-21.5.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-installations-interop:17.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/69005798d340ae5f2c78b9d06e05693a/transformed/firebase-installations-interop-17.2.0/AndroidManifest.xml:17:5-44
+MERGED from [com.google.firebase:firebase-installations-interop:17.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/69005798d340ae5f2c78b9d06e05693a/transformed/firebase-installations-interop-17.2.0/AndroidManifest.xml:17:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/097e248ef77e2b36e893515970dcf0eb/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/097e248ef77e2b36e893515970dcf0eb/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/275e75e4c62fdf5afff4f23a3cedc4ed/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/275e75e4c62fdf5afff4f23a3cedc4ed/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:19:5-44
+MERGED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:9:5-11:41
+MERGED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:9:5-11:41
+MERGED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:19:5-58
+MERGED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:19:5-58
+MERGED from [com.google.android.gms:play-services-location:21.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f0d63fb83c0ef8353c1d099d0c69af48/transformed/play-services-location-21.0.1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:21.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f0d63fb83c0ef8353c1d099d0c69af48/transformed/play-services-location-21.0.1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4f2e56ca1221fad334d60556d4657607/transformed/recaptcha-18.1.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4f2e56ca1221fad334d60556d4657607/transformed/recaptcha-18.1.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.play:integrity:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d4d445fe3419833c654550bdc62f1913/transformed/integrity-1.1.0/AndroidManifest.xml:4:5-44
+MERGED from [com.google.android.play:integrity:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d4d445fe3419833c654550bdc62f1913/transformed/integrity-1.1.0/AndroidManifest.xml:4:5-44
+MERGED from [androidx.room:room-runtime:2.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/cca1d4dcb909acf82387c6f318ce51c4/transformed/room-runtime-2.6.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-runtime:2.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/cca1d4dcb909acf82387c6f318ce51c4/transformed/room-runtime-2.6.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-ktx:2.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/88592d3ecc602d214870655b3ae111da/transformed/room-ktx-2.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.room:room-ktx:2.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/88592d3ecc602d214870655b3ae111da/transformed/room-ktx-2.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6258ece5edba1d8f6d2707237e0bf0b4/transformed/activity-ktx-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6258ece5edba1d8f6d2707237e0bf0b4/transformed/activity-ktx-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9e9ac7f2a2277058616e638743ed79b3/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9e9ac7f2a2277058616e638743ed79b3/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/19241c9d5c5e1bca49e318992c40a664/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/19241c9d5c5e1bca49e318992c40a664/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f12d7c6b10f1ff366f4b4e8d9762d16/transformed/emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f12d7c6b10f1ff366f4b4e8d9762d16/transformed/emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/48d456b43bcc16d08548fc00eade99fc/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/48d456b43bcc16d08548fc00eade99fc/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5036e8d272a863471c38361c6077cb7c/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5036e8d272a863471c38361c6077cb7c/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/50da0db145dca192939367cd6cd53e08/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/50da0db145dca192939367cd6cd53e08/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b33884275e8b6f29f1f00c122c9fc2ff/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b33884275e8b6f29f1f00c122c9fc2ff/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/88989ebdfd26923e8566092d885224e4/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/88989ebdfd26923e8566092d885224e4/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9f20579308e1c932602087319c3692fd/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9f20579308e1c932602087319c3692fd/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6a5bd7c701aa47a5bf4a9690368ac569/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6a5bd7c701aa47a5bf4a9690368ac569/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/318b5e8171a34d1d60c7eead1ab4e743/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/318b5e8171a34d1d60c7eead1ab4e743/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/20a3b2bcc7b5b37d84aea086e9a1c0da/transformed/play-services-measurement-sdk-21.5.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/20a3b2bcc7b5b37d84aea086e9a1c0da/transformed/play-services-measurement-sdk-21.5.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8876787b2479871b22a3d283b5cb0da9/transformed/play-services-measurement-impl-21.5.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8876787b2479871b22a3d283b5cb0da9/transformed/play-services-measurement-impl-21.5.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5c61ae139f415890d0ee4ffdeb13a2c2/transformed/play-services-stats-17.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5c61ae139f415890d0ee4ffdeb13a2c2/transformed/play-services-stats-17.0.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f6fc273b910ce30a57982447853c1a79/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f6fc273b910ce30a57982447853c1a79/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c5eddaa92e5eb54238a431cf2f94f9f8/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c5eddaa92e5eb54238a431cf2f94f9f8/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.privacysandbox.ads:ads-adservices-java:1.0.0-beta05] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/15c75c8e51ef0c7ce4f96ce81a25e2ac/transformed/ads-adservices-java-1.0.0-beta05/AndroidManifest.xml:5:5-44
+MERGED from [androidx.privacysandbox.ads:ads-adservices-java:1.0.0-beta05] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/15c75c8e51ef0c7ce4f96ce81a25e2ac/transformed/ads-adservices-java-1.0.0-beta05/AndroidManifest.xml:5:5-44
+MERGED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/3ebad3cdaba11604f1cff29f14dc3d87/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:20:5-44
+MERGED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/3ebad3cdaba11604f1cff29f14dc3d87/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/e52fa4518dc6ceb6993cfb6b68ee3ce5/transformed/core-ktx-1.13.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/e52fa4518dc6ceb6993cfb6b68ee3ce5/transformed/core-ktx-1.13.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8d50ab3f005d2ddf3d9e991d43a93619/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8d50ab3f005d2ddf3d9e991d43a93619/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8df18f8973153aa2c63c5e7dae88c95d/transformed/play-services-auth-api-phone-17.4.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8df18f8973153aa2c63c5e7dae88c95d/transformed/play-services-auth-api-phone-17.4.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/83e51e28c9142da11d865c42fb978592/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/83e51e28c9142da11d865c42fb978592/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/21a6858ef24c3a7d5895b1e0416ad4e6/transformed/play-services-base-18.1.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/21a6858ef24c3a7d5895b1e0416ad4e6/transformed/play-services-base-18.1.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.browser:browser:1.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/7661d11e777962767bbf6f872d62ea35/transformed/browser-1.4.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/7661d11e777962767bbf6f872d62ea35/transformed/browser-1.4.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c295e05670e313168ca6ff3fb89076f2/transformed/lifecycle-livedata-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c295e05670e313168ca6ff3fb89076f2/transformed/lifecycle-livedata-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/390d593484f5f559259c3a56ef1762b0/transformed/lifecycle-viewmodel-ktx-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/390d593484f5f559259c3a56ef1762b0/transformed/lifecycle-viewmodel-ktx-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ccc2576354c18b031c60e5b22084a8d5/transformed/lifecycle-viewmodel-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ccc2576354c18b031c60e5b22084a8d5/transformed/lifecycle-viewmodel-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/3602ce8db8269cc717b1e060327cd43f/transformed/lifecycle-runtime-ktx-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/3602ce8db8269cc717b1e060327cd43f/transformed/lifecycle-runtime-ktx-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4e00cbaf791e7a7dcdf8b692d5d07409/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4e00cbaf791e7a7dcdf8b692d5d07409/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5a1dc4e558fb6504cdbbeb0717c89b6c/transformed/lifecycle-livedata-core-ktx-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5a1dc4e558fb6504cdbbeb0717c89b6c/transformed/lifecycle-livedata-core-ktx-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/7d04ec2f50bf49b8fe276bac081537e9/transformed/lifecycle-livedata-core-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/7d04ec2f50bf49b8fe276bac081537e9/transformed/lifecycle-livedata-core-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b0b6d9ac367cd9b121ff2a7f9b5a690c/transformed/lifecycle-runtime-2.6.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b0b6d9ac367cd9b121ff2a7f9b5a690c/transformed/lifecycle-runtime-2.6.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/56ac627d9f19b944afa8f0d53d54451a/transformed/lifecycle-viewmodel-savedstate-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/56ac627d9f19b944afa8f0d53d54451a/transformed/lifecycle-viewmodel-savedstate-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6336d5397b3b96641e0310f55e1e39e1/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6336d5397b3b96641e0310f55e1e39e1/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-core-android:1.1.7] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9ad75d85477516f7fa40410b78d1b64d/transformed/datastore-preferences-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-preferences-core-android:1.1.7] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9ad75d85477516f7fa40410b78d1b64d/transformed/datastore-preferences-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.7] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f0d0adde8ed6cd0b4cb13ed03827a0b3/transformed/datastore-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.7] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f0d0adde8ed6cd0b4cb13ed03827a0b3/transformed/datastore-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.7] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/85c6d8796ca732e183674706233af3cd/transformed/datastore-preferences-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.7] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/85c6d8796ca732e183674706233af3cd/transformed/datastore-preferences-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.7] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1447797651a3732a5097bddcf734198d/transformed/datastore-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.7] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1447797651a3732a5097bddcf734198d/transformed/datastore-release/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/67f500460d7f4f8846c40f0b38973795/transformed/play-services-tasks-18.1.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/67f500460d7f4f8846c40f0b38973795/transformed/play-services-tasks-18.1.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-measurement-connector:20.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2bacf1e868a7a507e684f99037f952d3/transformed/firebase-measurement-connector-20.0.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:20.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2bacf1e868a7a507e684f99037f952d3/transformed/firebase-measurement-connector-20.0.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/bbc5be587359b8dd7253742395d86408/transformed/play-services-ads-identifier-18.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/bbc5be587359b8dd7253742395d86408/transformed/play-services-ads-identifier-18.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d6e335e54889c2742e51a99a0ccbbda4/transformed/play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d6e335e54889c2742e51a99a0ccbbda4/transformed/play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ea6f0d51fa495c6aa07b851fa6ac751c/transformed/play-services-measurement-base-21.5.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ea6f0d51fa495c6aa07b851fa6ac751c/transformed/play-services-measurement-base-21.5.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f318737e3f9a4e63f6dd89b10764a21d/transformed/play-services-basement-18.3.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f318737e3f9a4e63f6dd89b10764a21d/transformed/play-services-basement-18.3.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.fragment:fragment:1.6.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/a69d45145d7de054f6c71af2dffe1f25/transformed/fragment-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.6.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/a69d45145d7de054f6c71af2dffe1f25/transformed/fragment-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8c6409eeb2d4fc8156300570a7e8dad9/transformed/activity-1.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8c6409eeb2d4fc8156300570a7e8dad9/transformed/activity-1.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9165819cde6fc163aa083b23a93f5349/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9165819cde6fc163aa083b23a93f5349/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a74a5e8bb2e3d352bfb5250fdaedbd2/transformed/sqlite-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a74a5e8bb2e3d352bfb5250fdaedbd2/transformed/sqlite-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5d744cce114e3689b92a316c6175446e/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5d744cce114e3689b92a316c6175446e/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0e5e080177b3e679bf34a6aac3a5d038/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0e5e080177b3e679bf34a6aac3a5d038/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4d4ed994ab4cf6c8a37a076acc6a7652/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4d4ed994ab4cf6c8a37a076acc6a7652/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/baae3936f8e1613ece4d539e7df3cb9c/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/baae3936f8e1613ece4d539e7df3cb9c/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-components:19.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/787a5b121a4c019004583fa0eb71de0d/transformed/firebase-components-19.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-components:19.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/787a5b121a4c019004583fa0eb71de0d/transformed/firebase-components-19.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-config-interop:16.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/3ab42b914efda367aeb72c095e7481c0/transformed/firebase-config-interop-16.0.1/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-config-interop:16.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/3ab42b914efda367aeb72c095e7481c0/transformed/firebase-config-interop-16.0.1/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c657a0a3ceb1bd4366f68fb7cce9b8e9/transformed/firebase-datatransport-19.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c657a0a3ceb1bd4366f68fb7cce9b8e9/transformed/firebase-datatransport-19.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6435989397dbe65e58b6bb79ad2657ba/transformed/transport-backend-cct-3.3.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6435989397dbe65e58b6bb79ad2657ba/transformed/transport-backend-cct-3.3.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/88e82febeb8b596c3daa69e39f8f7023/transformed/firebase-encoders-json-18.0.1/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/88e82febeb8b596c3daa69e39f8f7023/transformed/firebase-encoders-json-18.0.1/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-api:3.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8cffbfdf5f813b10c3fcea3320946302/transformed/transport-api-3.2.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-api:3.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8cffbfdf5f813b10c3fcea3320946302/transformed/transport-api-3.2.0/AndroidManifest.xml:18:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/fc96338b128bf6c56405617efe1f88da/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/fc96338b128bf6c56405617efe1f88da/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1754723b5ec29f13b4babcd5dda83da0/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1754723b5ec29f13b4babcd5dda83da0/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f397fca3fb9a23d7df79a8a8f30deb7/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f397fca3fb9a23d7df79a8a8f30deb7/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/669baddc2ee879480b260432520c4863/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/669baddc2ee879480b260432520c4863/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6376237626ea85f1bacaa0429fa03bff/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6376237626ea85f1bacaa0429fa03bff/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/03414621085c8ee09e8326326346da2a/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/03414621085c8ee09e8326326346da2a/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/7c9cacf49c95e40b4d20b18595937e59/transformed/annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/7c9cacf49c95e40b4d20b18595937e59/transformed/annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
+	tools:overrideLibrary
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:23:9-61
+	android:targetSdkVersion
+		INJECTED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml
+		MERGED from /Users/gregoryburenkov/dev/GitHub/study-guap/5_semester/Кроссплатформенное/lab8/app/src/main/AndroidManifest.xml
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-auth-ktx:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c849a216fdf8fe61f4586356bbe3036b/transformed/firebase-auth-ktx-22.3.0/AndroidManifest.xml:8:9-14:19
+MERGED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.firebase:firebase-crashlytics:20.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9a88a4a8ccbb4de4cd67d2cf711a96d0/transformed/firebase-crashlytics-20.0.3/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-crashlytics:20.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9a88a4a8ccbb4de4cd67d2cf711a96d0/transformed/firebase-crashlytics-20.0.3/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-sessions:3.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/18e6c439116b955666946c2bac844a70/transformed/firebase-sessions-3.0.3/AndroidManifest.xml:22:9-28:19
+MERGED from [com.google.firebase:firebase-sessions:3.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/18e6c439116b955666946c2bac844a70/transformed/firebase-sessions-3.0.3/AndroidManifest.xml:22:9-28:19
+MERGED from [com.google.firebase:firebase-analytics-ktx:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/470f8965141730d445398493d81bba40/transformed/firebase-analytics-ktx-21.5.0/AndroidManifest.xml:8:9-14:19
+MERGED from [com.google.firebase:firebase-analytics-ktx:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/470f8965141730d445398493d81bba40/transformed/firebase-analytics-ktx-21.5.0/AndroidManifest.xml:8:9-14:19
+MERGED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:34:9-40:19
+MERGED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:34:9-40:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/275e75e4c62fdf5afff4f23a3cedc4ed/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/275e75e4c62fdf5afff4f23a3cedc4ed/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:30:9-38:19
+MERGED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:30:9-38:19
+MERGED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c657a0a3ceb1bd4366f68fb7cce9b8e9/transformed/firebase-datatransport-19.0.0/AndroidManifest.xml:22:9-28:19
+MERGED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c657a0a3ceb1bd4366f68fb7cce9b8e9/transformed/firebase-datatransport-19.0.0/AndroidManifest.xml:22:9-28:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth-ktx:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c849a216fdf8fe61f4586356bbe3036b/transformed/firebase-auth-ktx-22.3.0/AndroidManifest.xml:10:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:34:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:32:13-43
+	android:name
+		ADDED from [com.google.firebase:firebase-auth-ktx:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c849a216fdf8fe61f4586356bbe3036b/transformed/firebase-auth-ktx-22.3.0/AndroidManifest.xml:9:13-84
+meta-data#com.google.firebase.components:com.google.firebase.auth.ktx.FirebaseAuthLegacyRegistrar
+ADDED from [com.google.firebase:firebase-auth-ktx:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c849a216fdf8fe61f4586356bbe3036b/transformed/firebase-auth-ktx-22.3.0/AndroidManifest.xml:11:13-13:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth-ktx:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c849a216fdf8fe61f4586356bbe3036b/transformed/firebase-auth-ktx-22.3.0/AndroidManifest.xml:13:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth-ktx:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c849a216fdf8fe61f4586356bbe3036b/transformed/firebase-auth-ktx-22.3.0/AndroidManifest.xml:12:17-119
+activity#com.google.firebase.auth.internal.GenericIdpActivity
+ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:29:9-46:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:31:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:33:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:32:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:34:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:30:13-80
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:genericidp
+ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:35:13-45:29
+action#android.intent.action.VIEW
+ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:36:17-69
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:36:25-66
+category#android.intent.category.DEFAULT
+ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:38:17-76
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:38:27-73
+category#android.intent.category.BROWSABLE
+ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:39:17-78
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:39:27-75
+data
+ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:41:17-44:51
+	android:path
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:43:21-37
+	android:host
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:42:21-49
+	android:scheme
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:44:21-48
+activity#com.google.firebase.auth.internal.RecaptchaActivity
+ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:47:9-64:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:49:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:51:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:50:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:52:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:48:13-79
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:recaptcha
+ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:53:13-63:29
+meta-data#com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar
+ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:69:13-71:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:71:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:22.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8855e21a407205686ca376c6e3c87025/transformed/firebase-auth-22.3.0/AndroidManifest.xml:70:17-109
+meta-data#com.google.firebase.components:com.google.firebase.crashlytics.FirebaseCrashlyticsKtxRegistrar
+ADDED from [com.google.firebase:firebase-crashlytics:20.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9a88a4a8ccbb4de4cd67d2cf711a96d0/transformed/firebase-crashlytics-20.0.3/AndroidManifest.xml:15:13-17:85
+	android:value
+		ADDED from [com.google.firebase:firebase-crashlytics:20.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9a88a4a8ccbb4de4cd67d2cf711a96d0/transformed/firebase-crashlytics-20.0.3/AndroidManifest.xml:17:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-crashlytics:20.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9a88a4a8ccbb4de4cd67d2cf711a96d0/transformed/firebase-crashlytics-20.0.3/AndroidManifest.xml:16:17-126
+meta-data#com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar
+ADDED from [com.google.firebase:firebase-crashlytics:20.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9a88a4a8ccbb4de4cd67d2cf711a96d0/transformed/firebase-crashlytics-20.0.3/AndroidManifest.xml:18:13-20:85
+	android:value
+		ADDED from [com.google.firebase:firebase-crashlytics:20.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9a88a4a8ccbb4de4cd67d2cf711a96d0/transformed/firebase-crashlytics-20.0.3/AndroidManifest.xml:20:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-crashlytics:20.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/9a88a4a8ccbb4de4cd67d2cf711a96d0/transformed/firebase-crashlytics-20.0.3/AndroidManifest.xml:19:17-115
+meta-data#com.google.firebase.components:com.google.firebase.sessions.FirebaseSessionsRegistrar
+ADDED from [com.google.firebase:firebase-sessions:3.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/18e6c439116b955666946c2bac844a70/transformed/firebase-sessions-3.0.3/AndroidManifest.xml:25:13-27:85
+	android:value
+		ADDED from [com.google.firebase:firebase-sessions:3.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/18e6c439116b955666946c2bac844a70/transformed/firebase-sessions-3.0.3/AndroidManifest.xml:27:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-sessions:3.0.3] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/18e6c439116b955666946c2bac844a70/transformed/firebase-sessions-3.0.3/AndroidManifest.xml:26:17-117
+meta-data#com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsLegacyRegistrar
+ADDED from [com.google.firebase:firebase-analytics-ktx:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/470f8965141730d445398493d81bba40/transformed/firebase-analytics-ktx-21.5.0/AndroidManifest.xml:11:13-13:85
+	android:value
+		ADDED from [com.google.firebase:firebase-analytics-ktx:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/470f8965141730d445398493d81bba40/transformed/firebase-analytics-ktx-21.5.0/AndroidManifest.xml:13:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics-ktx:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/470f8965141730d445398493d81bba40/transformed/firebase-analytics-ktx-21.5.0/AndroidManifest.xml:12:17-129
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:24:5-68
+MERGED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:21:5-68
+MERGED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:21:5-68
+MERGED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8876787b2479871b22a3d283b5cb0da9/transformed/play-services-measurement-impl-21.5.0/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8876787b2479871b22a3d283b5cb0da9/transformed/play-services-measurement-impl-21.5.0/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d6e335e54889c2742e51a99a0ccbbda4/transformed/play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d6e335e54889c2742e51a99a0ccbbda4/transformed/play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:25:5-68
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:24:22-65
+uses-permission#com.google.android.gms.permission.AD_ID
+ADDED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8876787b2479871b22a3d283b5cb0da9/transformed/play-services-measurement-impl-21.5.0/AndroidManifest.xml:27:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8876787b2479871b22a3d283b5cb0da9/transformed/play-services-measurement-impl-21.5.0/AndroidManifest.xml:27:5-79
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/bbc5be587359b8dd7253742395d86408/transformed/play-services-ads-identifier-18.0.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/bbc5be587359b8dd7253742395d86408/transformed/play-services-ads-identifier-18.0.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d6e335e54889c2742e51a99a0ccbbda4/transformed/play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:26:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d6e335e54889c2742e51a99a0ccbbda4/transformed/play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:26:5-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:25:22-76
+uses-permission#android.permission.ACCESS_ADSERVICES_ATTRIBUTION
+ADDED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:26:5-88
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d6e335e54889c2742e51a99a0ccbbda4/transformed/play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:27:5-88
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d6e335e54889c2742e51a99a0ccbbda4/transformed/play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:27:5-88
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:26:22-85
+uses-permission#android.permission.ACCESS_ADSERVICES_AD_ID
+ADDED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:27:5-82
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d6e335e54889c2742e51a99a0ccbbda4/transformed/play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:28:5-82
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/d6e335e54889c2742e51a99a0ccbbda4/transformed/play-services-measurement-sdk-api-21.5.0/AndroidManifest.xml:28:5-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:27:22-79
+property#android.adservices.AD_SERVICES_CONFIG
+ADDED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:30:9-32:61
+	android:resource
+		ADDED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:32:13-58
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:31:13-65
+meta-data#com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar
+ADDED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:37:13-39:85
+	android:value
+		ADDED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:39:17-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/0b397d7884b269283314cd7a988ec717/transformed/play-services-measurement-api-21.5.0/AndroidManifest.xml:38:17-139
+meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar
+ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:15:13-17:85
+	android:value
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:17:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:16:17-130
+meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar
+ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:18:13-20:85
+	android:value
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:20:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1f3146e7d863fb43203c4ea57889dd96/transformed/firebase-installations-18.0.0/AndroidManifest.xml:19:17-127
+meta-data#com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar
+ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/275e75e4c62fdf5afff4f23a3cedc4ed/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/275e75e4c62fdf5afff4f23a3cedc4ed/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/275e75e4c62fdf5afff4f23a3cedc4ed/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:23:9-28:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:25:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:27:13-37
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:26:13-43
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:28:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:24:13-77
+meta-data#com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar
+ADDED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:35:13-37:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:37:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common:22.0.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/1a1d0faca0fd73ad61b8a14467e98ced/transformed/firebase-common-22.0.1/AndroidManifest.xml:36:17-109
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:15:5-76
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:15:22-73
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:16:5-76
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:16:22-73
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:22:5-81
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:22:22-78
+meta-data#yandex.maps.runtime.stl.linkage
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:25:9-27:38
+	android:value
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:27:13-35
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:26:13-59
+service#com.evernote.android.job.patched.internal.v21.PlatformJobService
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:29:9-32:72
+	android:exported
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:31:13-37
+	android:permission
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:32:13-69
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:30:13-92
+service#com.evernote.android.job.patched.internal.v14.PlatformAlarmService
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:33:9-36:72
+	android:exported
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:35:13-37
+	android:permission
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:36:13-69
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:34:13-94
+service#com.evernote.android.job.patched.internal.v14.PlatformAlarmServiceExact
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:37:9-39:40
+	android:exported
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:39:13-37
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:38:13-99
+receiver#com.evernote.android.job.patched.internal.v14.PlatformAlarmReceiver
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:41:9-50:20
+	android:exported
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:43:13-37
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:42:13-95
+intent-filter#action:name:com.evernote.android.job.patched.internal.v14.RUN_JOB+action:name:net.vrallev.android.job.v14.RUN_JOB
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:44:13-49:29
+action#com.evernote.android.job.patched.internal.v14.RUN_JOB
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:47:17-96
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:47:25-93
+action#net.vrallev.android.job.v14.RUN_JOB
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:48:17-78
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:48:25-75
+receiver#com.evernote.android.job.patched.internal.JobBootReceiver
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:51:9-60:20
+	android:exported
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:53:13-37
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:52:13-85
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.MY_PACKAGE_REPLACED+action:name:android.intent.action.QUICKBOOT_POWERON+action:name:com.htc.intent.action.QUICKBOOT_POWERON
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:54:13-59:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:55:17-79
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:55:25-76
+action#android.intent.action.QUICKBOOT_POWERON
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:56:17-82
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:56:25-79
+action#com.htc.intent.action.QUICKBOOT_POWERON
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:57:17-82
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:57:25-79
+action#android.intent.action.MY_PACKAGE_REPLACED
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:58:17-84
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:58:25-81
+service#com.evernote.android.job.patched.internal.JobRescheduleService
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:62:9-65:72
+	android:exported
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:64:13-37
+	android:permission
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:65:13-69
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:63:13-90
+service#com.yandex.runtime.connectivity.internal.ConnectivityService
+ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:66:9-69:72
+	android:exported
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:68:13-36
+	android:permission
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:69:13-69
+	android:name
+		ADDED from [com.yandex.android:maps.mobile:4.4.0-full] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/ae06c7df58413052a47d39b624e05e04/transformed/maps.mobile-4.4.0-full/AndroidManifest.xml:67:13-88
+service#androidx.room.MultiInstanceInvalidationService
+ADDED from [androidx.room:room-runtime:2.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/cca1d4dcb909acf82387c6f318ce51c4/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+	android:exported
+		ADDED from [androidx.room:room-runtime:2.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/cca1d4dcb909acf82387c6f318ce51c4/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.room:room-runtime:2.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/cca1d4dcb909acf82387c6f318ce51c4/transformed/room-runtime-2.6.1/AndroidManifest.xml:28:13-60
+	android:directBootAware
+		ADDED from [androidx.room:room-runtime:2.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/cca1d4dcb909acf82387c6f318ce51c4/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+	android:name
+		ADDED from [androidx.room:room-runtime:2.6.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/cca1d4dcb909acf82387c6f318ce51c4/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f12d7c6b10f1ff366f4b4e8d9762d16/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4e00cbaf791e7a7dcdf8b692d5d07409/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4e00cbaf791e7a7dcdf8b692d5d07409/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4d4ed994ab4cf6c8a37a076acc6a7652/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4d4ed994ab4cf6c8a37a076acc6a7652/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f12d7c6b10f1ff366f4b4e8d9762d16/transformed/emoji2-1.2.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f12d7c6b10f1ff366f4b4e8d9762d16/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f12d7c6b10f1ff366f4b4e8d9762d16/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f12d7c6b10f1ff366f4b4e8d9762d16/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f12d7c6b10f1ff366f4b4e8d9762d16/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f12d7c6b10f1ff366f4b4e8d9762d16/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/5f12d7c6b10f1ff366f4b4e8d9762d16/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+ADDED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:26:5-110
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8876787b2479871b22a3d283b5cb0da9/transformed/play-services-measurement-impl-21.5.0/AndroidManifest.xml:26:5-110
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/8876787b2479871b22a3d283b5cb0da9/transformed/play-services-measurement-impl-21.5.0/AndroidManifest.xml:26:5-110
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:26:22-107
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:29:9-33:20
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:31:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:30:13-85
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:35:9-38:40
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:38:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:36:13-84
+service#com.google.android.gms.measurement.AppMeasurementJobService
+ADDED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:39:9-43:72
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:41:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:42:13-37
+	android:permission
+		ADDED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:43:13-69
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:21.5.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/78f34d604915bb6021366b145cfb3a9e/transformed/play-services-measurement-21.5.0/AndroidManifest.xml:40:13-87
+uses-library#android.ext.adservices
+ADDED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/3ebad3cdaba11604f1cff29f14dc3d87/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:23:9-25:40
+	android:required
+		ADDED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/3ebad3cdaba11604f1cff29f14dc3d87/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/3ebad3cdaba11604f1cff29f14dc3d87/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:24:13-50
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/21a6858ef24c3a7d5895b1e0416ad4e6/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/21a6858ef24c3a7d5895b1e0416ad4e6/transformed/play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/21a6858ef24c3a7d5895b1e0416ad4e6/transformed/play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/21a6858ef24c3a7d5895b1e0416ad4e6/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:23:9-81
+permission#com.example.autotasks.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:26:22-94
+uses-permission#com.example.autotasks.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/b5f8ef11834ca765596faa8725f4de13/transformed/core-1.13.0/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4e00cbaf791e7a7dcdf8b692d5d07409/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4e00cbaf791e7a7dcdf8b692d5d07409/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/4e00cbaf791e7a7dcdf8b692d5d07409/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f318737e3f9a4e63f6dd89b10764a21d/transformed/play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f318737e3f9a4e63f6dd89b10764a21d/transformed/play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/f318737e3f9a4e63f6dd89b10764a21d/transformed/play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/10263b56ac89a146df8e1791e34ed17f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+meta-data#com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar
+ADDED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c657a0a3ceb1bd4366f68fb7cce9b8e9/transformed/firebase-datatransport-19.0.0/AndroidManifest.xml:25:13-27:85
+	android:value
+		ADDED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c657a0a3ceb1bd4366f68fb7cce9b8e9/transformed/firebase-datatransport-19.0.0/AndroidManifest.xml:27:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-datatransport:19.0.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/c657a0a3ceb1bd4366f68fb7cce9b8e9/transformed/firebase-datatransport-19.0.0/AndroidManifest.xml:26:17-115
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6435989397dbe65e58b6bb79ad2657ba/transformed/transport-backend-cct-3.3.0/AndroidManifest.xml:26:9-32:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:34:9-36:40
+MERGED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:34:9-36:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6435989397dbe65e58b6bb79ad2657ba/transformed/transport-backend-cct-3.3.0/AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6435989397dbe65e58b6bb79ad2657ba/transformed/transport-backend-cct-3.3.0/AndroidManifest.xml:27:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6435989397dbe65e58b6bb79ad2657ba/transformed/transport-backend-cct-3.3.0/AndroidManifest.xml:29:13-31:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6435989397dbe65e58b6bb79ad2657ba/transformed/transport-backend-cct-3.3.0/AndroidManifest.xml:31:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/6435989397dbe65e58b6bb79ad2657ba/transformed/transport-backend-cct-3.3.0/AndroidManifest.xml:30:17-94
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:24:9-28:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:26:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:27:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:25:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:30:9-32:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.3.0] /Users/gregoryburenkov/.gradle/caches/8.13/transforms/2a69b4a55a3f4193f828af4f31c847b7/transformed/transport-runtime-3.3.0/AndroidManifest.xml:31:13-132
