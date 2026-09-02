@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8"><title>Разделитель тысяч</title>
+<style>
+body{font-family:system-ui,sans-serif;padding:48px;background:#f5f5f5}
+h1{font-size:28px;margin-bottom:24px}
+.card{background:#fff;border-radius:12px;padding:24px;max-width:560px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+pre{background:#111;color:#0f0;padding:16px;border-radius:8px;font-size:16px;line-height:1.6}
+code{font-family:ui-monospace,Menlo,monospace}
+</style></head><body>
+<h1>Разделитель тысяч</h1>
+<div class="card"><p>Результаты вызова <code>тысячи_разделителей</code>:</p>
+<pre id="out"></pre></div>
+<script>
+function тысячи_разделителей(n, d) {
+  let s = String(Math.abs(Math.trunc(n)));
+  if (s.length > 4) {
+    const p = [];
+    while (s.length > 3) { p.unshift(s.slice(-3)); s = s.slice(0, -3); }
+    p.unshift(s); s = p.join(" ");
+  }
+  return (n < 0 ? "-" : "") + s + (d != null ? "," + d : "");
+}
+const lines = [
+  'тысячи_разделителей(1000) → ' + тысячи_разделителей(1000),
+  'тысячи_разделителей(10000, 23) → ' + тысячи_разделителей(10000, 23),
+  'тысячи_разделителей(100000) → ' + тысячи_разделителей(100000),
+];
+document.getElementById('out').textContent = lines.join('\n');
+</script></body></html>
