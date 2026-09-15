@@ -1,0 +1,9 @@
+Adaptor=mwdemoimaq
+DeviceName=Color Device
+DeviceID=1
+Format=RGB_NTSC
+VideoResolution=[640 480]
+ReturnedColorSpace=rgb
+FrameRate=30
+Hue=0.5
+Saturation=50

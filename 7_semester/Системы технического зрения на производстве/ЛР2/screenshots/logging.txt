@@ -1,0 +1,7 @@
+LoggingMode=disk
+FramesPerTrigger=180
+FramesAcquired=180
+DiskLoggerFrameCount=180
+File=C:\Users\skvor\OneDrive\Desktop\GitHub\study-guap\7_semester\Системы технического зрения на производстве\ЛР2\capture\log_6s.avi
+Duration_s=6.0
+FPS=30

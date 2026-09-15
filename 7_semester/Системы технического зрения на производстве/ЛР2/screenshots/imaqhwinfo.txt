@@ -1,0 +1,9 @@
+InstalledAdaptors: mwdemoimaq
+MATLAB: 24.1 (R2024a)
+Toolbox: Image Acquisition Toolbox 24.1
+DeviceID=1 Color Device default=RGB_NTSC
+  RGB_NTSC
+  S-Video
+DeviceID=2 Monochrome Device default=RS170
+  CCIR
+  RS170

@@ -1,0 +1,12 @@
+ExperimentSetup
+FrameRate
+Hue
+Parent
+Saturation
+Selected
+SourceName
+SyncInput
+Tag
+TimestampInteger
+TimestampString
+Type
