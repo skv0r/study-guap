@@ -1,0 +1,15 @@
+{
+  "n": 100,
+  "n_train": 20,
+  "n_test": 80,
+  "intercept": 6.7917,
+  "slope": 3.4624,
+  "R2": 0.91496,
+  "adj_R2": 0.91387,
+  "MAE": 2.4716,
+  "MSE": 9.482,
+  "RMSE": 3.0793,
+  "MAPE_pct": 7.196,
+  "mean_signed_diff": 2.0537,
+  "eq": "time_min = 6.792 + 3.462 * distance_km"
+}

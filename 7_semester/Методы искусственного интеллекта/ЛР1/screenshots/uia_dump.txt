@@ -1,0 +1,12 @@
+WindowControl name='KNIME Analytics Platform' auto='' class='SWT_Window0' rect=853,192,1877,960
+  PaneControl name='' auto='725672' class='SWT_Window0' rect=861,223,1869,952
+    PaneControl name='' auto='464624' class='SWT_Window0' rect=861,223,1869,952
+      PaneControl name='' auto='333562' class='SWT_Window0' rect=861,223,1869,952
+        PaneControl name='KNIME Modern UI' auto='398676' class='SWT_Window0' rect=861,223,1869,952
+          PaneControl name='' auto='464608' class='SWT_Window0' rect=861,223,1869,952
+  TitleBarControl name='' auto='' class='' rect=877,195,1869,223
+    MenuBarControl name='Система' auto='MenuBar' class='' rect=861,200,883,222
+      MenuItemControl name='Система' auto='' class='' rect=861,200,883,222
+    ButtonControl name='Свернуть' auto='' class='' rect=1730,193,1777,223
+    ButtonControl name='Развернуть' auto='' class='' rect=1777,193,1823,223
+    ButtonControl name='Закрыть' auto='' class='' rect=1823,193,1870,223
