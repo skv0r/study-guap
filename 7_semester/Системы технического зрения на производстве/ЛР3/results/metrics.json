@@ -1,0 +1,83 @@
+{
+  "video": "C:\\Users\\skvor\\AppData\\Local\\Temp\\stz_lr3_cam.avi",
+  "fps": 25.0,
+  "total_frames": 597,
+  "duration_s": 23.88,
+  "width": 640,
+  "height": 480,
+  "step": 11,
+  "saved": 55,
+  "sample": "frame_000297.jpg",
+  "channels": 3,
+  "dtype": "uint8",
+  "gray": {
+    "mean": 154.18,
+    "std": 60.8,
+    "p5": 45,
+    "p95": 243
+  },
+  "linear": {
+    "mean": 182.11,
+    "std": 63.37,
+    "p5": 62,
+    "p95": 255,
+    "alpha": 1.15,
+    "beta": 10,
+    "lap": 796.42
+  },
+  "gamma": {
+    "mean": 163.82,
+    "std": 57.17,
+    "p5": 58,
+    "p95": 244,
+    "gamma": 0.85,
+    "lap": 637.2
+  },
+  "clahe": {
+    "mean": 154.58,
+    "std": 57.19,
+    "p5": 42,
+    "p95": 238,
+    "clip": 2.0,
+    "grid": 8,
+    "lap": 1486.38
+  },
+  "original_lap": 614.73,
+  "times_ms": {
+    "gaussian": {
+      "mean": 0.09,
+      "std": 0.073
+    },
+    "median": {
+      "mean": 1.108,
+      "std": 0.115
+    },
+    "bilateral": {
+      "mean": 4.447,
+      "std": 0.438
+    },
+    "clahe": {
+      "mean": 2.054,
+      "std": 0.231
+    }
+  },
+  "pipeline_ms": {
+    "mean": 1.695,
+    "std": 0.242
+  },
+  "prepared_shape": [
+    640,
+    640,
+    3
+  ],
+  "pairs": [
+    "frame_000000.jpg",
+    "frame_000297.jpg",
+    "frame_000594.jpg"
+  ],
+  "processed_count": 55,
+  "scale": {
+    "nw": 640,
+    "nh": 480
+  }
+}
