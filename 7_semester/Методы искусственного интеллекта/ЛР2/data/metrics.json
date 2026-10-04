@@ -1,0 +1,2105 @@
+{
+  "n": 90,
+  "n_train": 63,
+  "n_test": 27,
+  "per_class_total": 30,
+  "per_class_train": 21,
+  "per_class_test": 9,
+  "k": 11,
+  "loo": [
+    {
+      "k": 1,
+      "correct": 37,
+      "n": 63,
+      "accuracy": 0.5873015873015873
+    },
+    {
+      "k": 3,
+      "correct": 42,
+      "n": 63,
+      "accuracy": 0.6666666666666666
+    },
+    {
+      "k": 5,
+      "correct": 44,
+      "n": 63,
+      "accuracy": 0.6984126984126984
+    },
+    {
+      "k": 7,
+      "correct": 44,
+      "n": 63,
+      "accuracy": 0.6984126984126984
+    },
+    {
+      "k": 9,
+      "correct": 46,
+      "n": 63,
+      "accuracy": 0.7301587301587301
+    },
+    {
+      "k": 11,
+      "correct": 49,
+      "n": 63,
+      "accuracy": 0.7777777777777778
+    },
+    {
+      "k": 13,
+      "correct": 46,
+      "n": 63,
+      "accuracy": 0.7301587301587301
+    },
+    {
+      "k": 15,
+      "correct": 44,
+      "n": 63,
+      "accuracy": 0.6984126984126984
+    }
+  ],
+  "ties": 2,
+  "mu": {
+    "pressure_bar": 2.5785714285714287,
+    "pad_mm": 1.7758730158730158,
+    "chain_pct": 0.6592063492063491,
+    "lever_mm": 14.68095238095238
+  },
+  "sd": {
+    "pressure_bar": 0.4682315840762246,
+    "pad_mm": 0.4703785538000552,
+    "chain_pct": 0.20473987822958517,
+    "lever_mm": 3.6599009936672764
+  },
+  "confusion": [
+    [
+      9,
+      0,
+      0
+    ],
+    [
+      0,
+      9,
+      0
+    ],
+    [
+      1,
+      3,
+      5
+    ]
+  ],
+  "correct": 23,
+  "errors": 4,
+  "accuracy": 0.8518518518518519,
+  "macro_precision": 0.8833333333333333,
+  "macro_recall": 0.8518518518518517,
+  "macro_f1": 0.8395989974937343,
+  "per_class": [
+    {
+      "class": "прокол",
+      "tp": 9,
+      "fp": 1,
+      "tn": 17,
+      "fn": 0,
+      "precision": 0.9,
+      "recall": 1.0,
+      "f1": 0.9473684210526316,
+      "support": 9
+    },
+    {
+      "class": "тормоза",
+      "tp": 9,
+      "fp": 3,
+      "tn": 15,
+      "fn": 0,
+      "precision": 0.75,
+      "recall": 1.0,
+      "f1": 0.8571428571428571,
+      "support": 9
+    },
+    {
+      "class": "трансмиссия",
+      "tp": 5,
+      "fp": 0,
+      "tn": 18,
+      "fn": 4,
+      "precision": 1.0,
+      "recall": 0.5555555555555556,
+      "f1": 0.7142857142857143,
+      "support": 9
+    }
+  ],
+  "train_ids": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    23,
+    24,
+    26,
+    28,
+    29,
+    30,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    55,
+    57,
+    58,
+    59,
+    60,
+    61,
+    67,
+    68,
+    69,
+    70,
+    71,
+    73,
+    74,
+    76,
+    77,
+    78,
+    79,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88
+  ],
+  "test_ids": [
+    5,
+    7,
+    8,
+    9,
+    10,
+    20,
+    21,
+    22,
+    25,
+    27,
+    31,
+    32,
+    33,
+    42,
+    53,
+    54,
+    56,
+    62,
+    63,
+    64,
+    65,
+    66,
+    72,
+    75,
+    80,
+    89,
+    90
+  ],
+  "predictions": [
+    {
+      "request_id": 5,
+      "fault": "тормоза",
+      "pred": "тормоза",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 3.27,
+      "pad_mm": 0.92,
+      "chain_pct": 0.9,
+      "lever_mm": 19.1,
+      "neighbors": [
+        {
+          "request_id": 61,
+          "fault": "тормоза",
+          "distance": 0.9105770424121348
+        },
+        {
+          "request_id": 87,
+          "fault": "тормоза",
+          "distance": 0.9685525893570651
+        },
+        {
+          "request_id": 44,
+          "fault": "тормоза",
+          "distance": 1.4462363079897047
+        },
+        {
+          "request_id": 77,
+          "fault": "тормоза",
+          "distance": 1.6124712283484033
+        },
+        {
+          "request_id": 2,
+          "fault": "тормоза",
+          "distance": 1.6713764444129537
+        },
+        {
+          "request_id": 40,
+          "fault": "трансмиссия",
+          "distance": 1.7621213711142563
+        },
+        {
+          "request_id": 23,
+          "fault": "тормоза",
+          "distance": 1.8874998198626631
+        },
+        {
+          "request_id": 19,
+          "fault": "тормоза",
+          "distance": 2.0246095766720806
+        },
+        {
+          "request_id": 3,
+          "fault": "тормоза",
+          "distance": 2.0685912987211497
+        },
+        {
+          "request_id": 6,
+          "fault": "тормоза",
+          "distance": 2.141240683820216
+        },
+        {
+          "request_id": 17,
+          "fault": "тормоза",
+          "distance": 2.386916133552593
+        }
+      ]
+    },
+    {
+      "request_id": 7,
+      "fault": "прокол",
+      "pred": "прокол",
+      "correct": true,
+      "tie": true,
+      "pressure_bar": 2.4,
+      "pad_mm": 1.76,
+      "chain_pct": 0.6,
+      "lever_mm": 17.4,
+      "neighbors": [
+        {
+          "request_id": 86,
+          "fault": "прокол",
+          "distance": 0.9601747215005776
+        },
+        {
+          "request_id": 38,
+          "fault": "тормоза",
+          "distance": 0.9617296669877867
+        },
+        {
+          "request_id": 88,
+          "fault": "трансмиссия",
+          "distance": 1.0675221495630398
+        },
+        {
+          "request_id": 82,
+          "fault": "тормоза",
+          "distance": 1.1089209311058712
+        },
+        {
+          "request_id": 52,
+          "fault": "тормоза",
+          "distance": 1.1549752853605066
+        },
+        {
+          "request_id": 51,
+          "fault": "прокол",
+          "distance": 1.2314505637747655
+        },
+        {
+          "request_id": 12,
+          "fault": "тормоза",
+          "distance": 1.3317055939314006
+        },
+        {
+          "request_id": 46,
+          "fault": "трансмиссия",
+          "distance": 1.3755668414785878
+        },
+        {
+          "request_id": 13,
+          "fault": "прокол",
+          "distance": 1.4085991612139632
+        },
+        {
+          "request_id": 40,
+          "fault": "трансмиссия",
+          "distance": 1.4444907113578844
+        },
+        {
+          "request_id": 39,
+          "fault": "прокол",
+          "distance": 1.4728770272678573
+        }
+      ]
+    },
+    {
+      "request_id": 8,
+      "fault": "тормоза",
+      "pred": "тормоза",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 2.63,
+      "pad_mm": 1.75,
+      "chain_pct": 0.46,
+      "lever_mm": 15.4,
+      "neighbors": [
+        {
+          "request_id": 86,
+          "fault": "прокол",
+          "distance": 0.5537522691116937
+        },
+        {
+          "request_id": 82,
+          "fault": "тормоза",
+          "distance": 0.6331046770852705
+        },
+        {
+          "request_id": 88,
+          "fault": "трансмиссия",
+          "distance": 0.929264179878866
+        },
+        {
+          "request_id": 55,
+          "fault": "тормоза",
+          "distance": 0.9516125587935926
+        },
+        {
+          "request_id": 58,
+          "fault": "тормоза",
+          "distance": 0.9721080102528924
+        },
+        {
+          "request_id": 39,
+          "fault": "прокол",
+          "distance": 0.9976016418386954
+        },
+        {
+          "request_id": 52,
+          "fault": "тормоза",
+          "distance": 1.146479421436014
+        },
+        {
+          "request_id": 35,
+          "fault": "прокол",
+          "distance": 1.309955961318968
+        },
+        {
+          "request_id": 13,
+          "fault": "прокол",
+          "distance": 1.4086517674961456
+        },
+        {
+          "request_id": 43,
+          "fault": "тормоза",
+          "distance": 1.4213833299063137
+        },
+        {
+          "request_id": 12,
+          "fault": "тормоза",
+          "distance": 1.429096337535122
+        }
+      ]
+    },
+    {
+      "request_id": 9,
+      "fault": "трансмиссия",
+      "pred": "трансмиссия",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 2.34,
+      "pad_mm": 1.66,
+      "chain_pct": 0.72,
+      "lever_mm": 11.6,
+      "neighbors": [
+        {
+          "request_id": 12,
+          "fault": "тормоза",
+          "distance": 0.42126077622808694
+        },
+        {
+          "request_id": 59,
+          "fault": "прокол",
+          "distance": 0.6871998401348051
+        },
+        {
+          "request_id": 52,
+          "fault": "тормоза",
+          "distance": 0.7847415229021715
+        },
+        {
+          "request_id": 35,
+          "fault": "прокол",
+          "distance": 1.0029711863859863
+        },
+        {
+          "request_id": 38,
+          "fault": "тормоза",
+          "distance": 1.0119581830084123
+        },
+        {
+          "request_id": 13,
+          "fault": "прокол",
+          "distance": 1.0833135851243014
+        },
+        {
+          "request_id": 69,
+          "fault": "трансмиссия",
+          "distance": 1.1120174495688813
+        },
+        {
+          "request_id": 4,
+          "fault": "трансмиссия",
+          "distance": 1.118587269374184
+        },
+        {
+          "request_id": 29,
+          "fault": "трансмиссия",
+          "distance": 1.1844115166517746
+        },
+        {
+          "request_id": 50,
+          "fault": "трансмиссия",
+          "distance": 1.1902205022072352
+        },
+        {
+          "request_id": 34,
+          "fault": "трансмиссия",
+          "distance": 1.2382038139907345
+        }
+      ]
+    },
+    {
+      "request_id": 10,
+      "fault": "прокол",
+      "pred": "прокол",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 2.53,
+      "pad_mm": 2.06,
+      "chain_pct": 0.51,
+      "lever_mm": 16.8,
+      "neighbors": [
+        {
+          "request_id": 86,
+          "fault": "прокол",
+          "distance": 0.7810673312976545
+        },
+        {
+          "request_id": 48,
+          "fault": "трансмиссия",
+          "distance": 1.1450991987376504
+        },
+        {
+          "request_id": 88,
+          "fault": "трансмиссия",
+          "distance": 1.1880441834714202
+        },
+        {
+          "request_id": 39,
+          "fault": "прокол",
+          "distance": 1.2435021895725689
+        },
+        {
+          "request_id": 26,
+          "fault": "прокол",
+          "distance": 1.2554975829906225
+        },
+        {
+          "request_id": 82,
+          "fault": "тормоза",
+          "distance": 1.2604015501407566
+        },
+        {
+          "request_id": 36,
+          "fault": "прокол",
+          "distance": 1.3532348630670994
+        },
+        {
+          "request_id": 52,
+          "fault": "тормоза",
+          "distance": 1.3801996958322864
+        },
+        {
+          "request_id": 81,
+          "fault": "прокол",
+          "distance": 1.3863415076496108
+        },
+        {
+          "request_id": 57,
+          "fault": "прокол",
+          "distance": 1.4219181086291646
+        },
+        {
+          "request_id": 38,
+          "fault": "тормоза",
+          "distance": 1.4303784571616802
+        }
+      ]
+    },
+    {
+      "request_id": 20,
+      "fault": "прокол",
+      "pred": "прокол",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 1.55,
+      "pad_mm": 1.46,
+      "chain_pct": 0.33,
+      "lever_mm": 17.0,
+      "neighbors": [
+        {
+          "request_id": 74,
+          "fault": "прокол",
+          "distance": 0.9442566495922566
+        },
+        {
+          "request_id": 71,
+          "fault": "прокол",
+          "distance": 1.3469303435644777
+        },
+        {
+          "request_id": 78,
+          "fault": "прокол",
+          "distance": 1.3764848970352013
+        },
+        {
+          "request_id": 30,
+          "fault": "прокол",
+          "distance": 1.6992114929648898
+        },
+        {
+          "request_id": 81,
+          "fault": "прокол",
+          "distance": 1.9963682873511992
+        },
+        {
+          "request_id": 13,
+          "fault": "прокол",
+          "distance": 2.070025913555487
+        },
+        {
+          "request_id": 86,
+          "fault": "прокол",
+          "distance": 2.1172632927552875
+        },
+        {
+          "request_id": 39,
+          "fault": "прокол",
+          "distance": 2.2256172507683103
+        },
+        {
+          "request_id": 51,
+          "fault": "прокол",
+          "distance": 2.3583183812510042
+        },
+        {
+          "request_id": 55,
+          "fault": "тормоза",
+          "distance": 2.4805262516994007
+        },
+        {
+          "request_id": 47,
+          "fault": "трансмиссия",
+          "distance": 2.5703060126495143
+        }
+      ]
+    },
+    {
+      "request_id": 21,
+      "fault": "тормоза",
+      "pred": "тормоза",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 2.79,
+      "pad_mm": 1.34,
+      "chain_pct": 0.34,
+      "lever_mm": 21.3,
+      "neighbors": [
+        {
+          "request_id": 17,
+          "fault": "тормоза",
+          "distance": 1.2543196788890691
+        },
+        {
+          "request_id": 41,
+          "fault": "тормоза",
+          "distance": 1.348057118096156
+        },
+        {
+          "request_id": 16,
+          "fault": "тормоза",
+          "distance": 1.5384539747004213
+        },
+        {
+          "request_id": 3,
+          "fault": "тормоза",
+          "distance": 1.6205470153185682
+        },
+        {
+          "request_id": 83,
+          "fault": "тормоза",
+          "distance": 1.7328585628541233
+        },
+        {
+          "request_id": 86,
+          "fault": "прокол",
+          "distance": 1.7431790632386224
+        },
+        {
+          "request_id": 23,
+          "fault": "тормоза",
+          "distance": 1.7470666273832882
+        },
+        {
+          "request_id": 19,
+          "fault": "тормоза",
+          "distance": 2.060220589580375
+        },
+        {
+          "request_id": 88,
+          "fault": "трансмиссия",
+          "distance": 2.064879837297332
+        },
+        {
+          "request_id": 70,
+          "fault": "тормоза",
+          "distance": 2.130019794025653
+        },
+        {
+          "request_id": 82,
+          "fault": "тормоза",
+          "distance": 2.1662984055971073
+        }
+      ]
+    },
+    {
+      "request_id": 22,
+      "fault": "тормоза",
+      "pred": "тормоза",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 2.86,
+      "pad_mm": 1.2,
+      "chain_pct": 0.46,
+      "lever_mm": 15.3,
+      "neighbors": [
+        {
+          "request_id": 82,
+          "fault": "тормоза",
+          "distance": 0.9925110732465641
+        },
+        {
+          "request_id": 23,
+          "fault": "тормоза",
+          "distance": 1.0146369628833818
+        },
+        {
+          "request_id": 77,
+          "fault": "тормоза",
+          "distance": 1.2304572011079113
+        },
+        {
+          "request_id": 58,
+          "fault": "тормоза",
+          "distance": 1.278986320858221
+        },
+        {
+          "request_id": 88,
+          "fault": "трансмиссия",
+          "distance": 1.2972479713364267
+        },
+        {
+          "request_id": 16,
+          "fault": "тормоза",
+          "distance": 1.3631913305498606
+        },
+        {
+          "request_id": 19,
+          "fault": "тормоза",
+          "distance": 1.4330635488474728
+        },
+        {
+          "request_id": 43,
+          "fault": "тормоза",
+          "distance": 1.5053164240676986
+        },
+        {
+          "request_id": 6,
+          "fault": "тормоза",
+          "distance": 1.5124434139962293
+        },
+        {
+          "request_id": 55,
+          "fault": "тормоза",
+          "distance": 1.5440234652589753
+        },
+        {
+          "request_id": 86,
+          "fault": "прокол",
+          "distance": 1.555677604546345
+        }
+      ]
+    },
+    {
+      "request_id": 25,
+      "fault": "тормоза",
+      "pred": "тормоза",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 2.79,
+      "pad_mm": 1.06,
+      "chain_pct": 0.43,
+      "lever_mm": 19.2,
+      "neighbors": [
+        {
+          "request_id": 23,
+          "fault": "тормоза",
+          "distance": 1.0052425729195944
+        },
+        {
+          "request_id": 19,
+          "fault": "тормоза",
+          "distance": 1.1853052603287408
+        },
+        {
+          "request_id": 16,
+          "fault": "тормоза",
+          "distance": 1.2271555276848622
+        },
+        {
+          "request_id": 3,
+          "fault": "тормоза",
+          "distance": 1.2717139169004585
+        },
+        {
+          "request_id": 17,
+          "fault": "тормоза",
+          "distance": 1.4444895586378454
+        },
+        {
+          "request_id": 41,
+          "fault": "тормоза",
+          "distance": 1.4790985109253634
+        },
+        {
+          "request_id": 77,
+          "fault": "тормоза",
+          "distance": 1.759433745411227
+        },
+        {
+          "request_id": 82,
+          "fault": "тормоза",
+          "distance": 1.7817234703337228
+        },
+        {
+          "request_id": 88,
+          "fault": "трансмиссия",
+          "distance": 1.8077251240644607
+        },
+        {
+          "request_id": 86,
+          "fault": "прокол",
+          "distance": 1.8127858381334463
+        },
+        {
+          "request_id": 40,
+          "fault": "трансмиссия",
+          "distance": 1.8645291456413824
+        }
+      ]
+    },
+    {
+      "request_id": 27,
+      "fault": "трансмиссия",
+      "pred": "тормоза",
+      "correct": false,
+      "tie": false,
+      "pressure_bar": 3.02,
+      "pad_mm": 1.3,
+      "chain_pct": 0.71,
+      "lever_mm": 9.2,
+      "neighbors": [
+        {
+          "request_id": 35,
+          "fault": "прокол",
+          "distance": 1.4086129219414776
+        },
+        {
+          "request_id": 58,
+          "fault": "тормоза",
+          "distance": 1.4983147955641691
+        },
+        {
+          "request_id": 6,
+          "fault": "тормоза",
+          "distance": 1.5045254712387224
+        },
+        {
+          "request_id": 84,
+          "fault": "трансмиссия",
+          "distance": 1.559402803535409
+        },
+        {
+          "request_id": 50,
+          "fault": "трансмиссия",
+          "distance": 1.593960272352491
+        },
+        {
+          "request_id": 77,
+          "fault": "тормоза",
+          "distance": 1.7213640606591452
+        },
+        {
+          "request_id": 68,
+          "fault": "прокол",
+          "distance": 1.7283201112473077
+        },
+        {
+          "request_id": 52,
+          "fault": "тормоза",
+          "distance": 1.7900856702420411
+        },
+        {
+          "request_id": 43,
+          "fault": "тормоза",
+          "distance": 1.8105931957222545
+        },
+        {
+          "request_id": 67,
+          "fault": "трансмиссия",
+          "distance": 1.823288450838983
+        },
+        {
+          "request_id": 4,
+          "fault": "трансмиссия",
+          "distance": 1.8312608495458989
+        }
+      ]
+    },
+    {
+      "request_id": 31,
+      "fault": "прокол",
+      "pred": "прокол",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 2.13,
+      "pad_mm": 1.64,
+      "chain_pct": 0.52,
+      "lever_mm": 11.4,
+      "neighbors": [
+        {
+          "request_id": 47,
+          "fault": "трансмиссия",
+          "distance": 0.623972196965139
+        },
+        {
+          "request_id": 13,
+          "fault": "прокол",
+          "distance": 0.8005892322425455
+        },
+        {
+          "request_id": 55,
+          "fault": "тормоза",
+          "distance": 0.8736538188019061
+        },
+        {
+          "request_id": 39,
+          "fault": "прокол",
+          "distance": 0.8798047072378808
+        },
+        {
+          "request_id": 12,
+          "fault": "тормоза",
+          "distance": 1.0119484357371313
+        },
+        {
+          "request_id": 43,
+          "fault": "тормоза",
+          "distance": 1.1203732184363944
+        },
+        {
+          "request_id": 76,
+          "fault": "трансмиссия",
+          "distance": 1.2028994047992096
+        },
+        {
+          "request_id": 59,
+          "fault": "прокол",
+          "distance": 1.2912733735036075
+        },
+        {
+          "request_id": 68,
+          "fault": "прокол",
+          "distance": 1.3203488322084904
+        },
+        {
+          "request_id": 52,
+          "fault": "тормоза",
+          "distance": 1.3453854989974139
+        },
+        {
+          "request_id": 24,
+          "fault": "прокол",
+          "distance": 1.4752569471240717
+        }
+      ]
+    },
+    {
+      "request_id": 32,
+      "fault": "прокол",
+      "pred": "прокол",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 1.71,
+      "pad_mm": 2.08,
+      "chain_pct": 0.36,
+      "lever_mm": 14.7,
+      "neighbors": [
+        {
+          "request_id": 78,
+          "fault": "прокол",
+          "distance": 0.33514537689079366
+        },
+        {
+          "request_id": 81,
+          "fault": "прокол",
+          "distance": 0.7787754132450996
+        },
+        {
+          "request_id": 74,
+          "fault": "прокол",
+          "distance": 0.7912318833346103
+        },
+        {
+          "request_id": 30,
+          "fault": "прокол",
+          "distance": 1.3411540765412213
+        },
+        {
+          "request_id": 39,
+          "fault": "прокол",
+          "distance": 1.4743205599479243
+        },
+        {
+          "request_id": 71,
+          "fault": "прокол",
+          "distance": 1.5609482039516842
+        },
+        {
+          "request_id": 79,
+          "fault": "прокол",
+          "distance": 1.724943463483008
+        },
+        {
+          "request_id": 47,
+          "fault": "трансмиссия",
+          "distance": 1.7504252017492319
+        },
+        {
+          "request_id": 1,
+          "fault": "прокол",
+          "distance": 1.7989630290211247
+        },
+        {
+          "request_id": 86,
+          "fault": "прокол",
+          "distance": 1.8437938908042617
+        },
+        {
+          "request_id": 55,
+          "fault": "тормоза",
+          "distance": 2.0207324270831992
+        }
+      ]
+    },
+    {
+      "request_id": 33,
+      "fault": "трансмиссия",
+      "pred": "тормоза",
+      "correct": false,
+      "tie": false,
+      "pressure_bar": 3.01,
+      "pad_mm": 1.97,
+      "chain_pct": 0.45,
+      "lever_mm": 16.8,
+      "neighbors": [
+        {
+          "request_id": 88,
+          "fault": "трансмиссия",
+          "distance": 1.0398683257651697
+        },
+        {
+          "request_id": 83,
+          "fault": "тормоза",
+          "distance": 1.2318347451870146
+        },
+        {
+          "request_id": 86,
+          "fault": "прокол",
+          "distance": 1.2377882175802182
+        },
+        {
+          "request_id": 82,
+          "fault": "тормоза",
+          "distance": 1.3030108896224202
+        },
+        {
+          "request_id": 48,
+          "fault": "трансмиссия",
+          "distance": 1.319669907870778
+        },
+        {
+          "request_id": 17,
+          "fault": "тормоза",
+          "distance": 1.3843094757585999
+        },
+        {
+          "request_id": 26,
+          "fault": "прокол",
+          "distance": 1.447769904604352
+        },
+        {
+          "request_id": 58,
+          "fault": "тормоза",
+          "distance": 1.4812630369338857
+        },
+        {
+          "request_id": 49,
+          "fault": "трансмиссия",
+          "distance": 1.5287212089510374
+        },
+        {
+          "request_id": 6,
+          "fault": "тормоза",
+          "distance": 1.6734593707715228
+        },
+        {
+          "request_id": 35,
+          "fault": "прокол",
+          "distance": 1.7318160351893273
+        }
+      ]
+    },
+    {
+      "request_id": 42,
+      "fault": "прокол",
+      "pred": "прокол",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 1.86,
+      "pad_mm": 1.73,
+      "chain_pct": 0.51,
+      "lever_mm": 10.0,
+      "neighbors": [
+        {
+          "request_id": 47,
+          "fault": "трансмиссия",
+          "distance": 0.640917674552789
+        },
+        {
+          "request_id": 30,
+          "fault": "прокол",
+          "distance": 1.2474242457566094
+        },
+        {
+          "request_id": 76,
+          "fault": "трансмиссия",
+          "distance": 1.2578487713802324
+        },
+        {
+          "request_id": 39,
+          "fault": "прокол",
+          "distance": 1.3520863303162913
+        },
+        {
+          "request_id": 13,
+          "fault": "прокол",
+          "distance": 1.4029832087895198
+        },
+        {
+          "request_id": 55,
+          "fault": "тормоза",
+          "distance": 1.499273105797445
+        },
+        {
+          "request_id": 69,
+          "fault": "трансмиссия",
+          "distance": 1.5391536601891236
+        },
+        {
+          "request_id": 12,
+          "fault": "тормоза",
+          "distance": 1.5882909307412694
+        },
+        {
+          "request_id": 43,
+          "fault": "тормоза",
+          "distance": 1.6749566734802572
+        },
+        {
+          "request_id": 59,
+          "fault": "прокол",
+          "distance": 1.6894931636110193
+        },
+        {
+          "request_id": 68,
+          "fault": "прокол",
+          "distance": 1.7143697959525344
+        }
+      ]
+    },
+    {
+      "request_id": 53,
+      "fault": "трансмиссия",
+      "pred": "трансмиссия",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 3.31,
+      "pad_mm": 1.95,
+      "chain_pct": 1.11,
+      "lever_mm": 16.0,
+      "neighbors": [
+        {
+          "request_id": 85,
+          "fault": "трансмиссия",
+          "distance": 1.271918136150423
+        },
+        {
+          "request_id": 84,
+          "fault": "трансмиссия",
+          "distance": 1.9157100548116572
+        },
+        {
+          "request_id": 37,
+          "fault": "трансмиссия",
+          "distance": 1.937556736906249
+        },
+        {
+          "request_id": 45,
+          "fault": "трансмиссия",
+          "distance": 1.9982503568302734
+        },
+        {
+          "request_id": 4,
+          "fault": "трансмиссия",
+          "distance": 2.031899239720345
+        },
+        {
+          "request_id": 34,
+          "fault": "трансмиссия",
+          "distance": 2.113793165282593
+        },
+        {
+          "request_id": 29,
+          "fault": "трансмиссия",
+          "distance": 2.2063605921416727
+        },
+        {
+          "request_id": 6,
+          "fault": "тормоза",
+          "distance": 2.265285117824749
+        },
+        {
+          "request_id": 36,
+          "fault": "прокол",
+          "distance": 2.3541583429408672
+        },
+        {
+          "request_id": 50,
+          "fault": "трансмиссия",
+          "distance": 2.3803082195991165
+        },
+        {
+          "request_id": 49,
+          "fault": "трансмиссия",
+          "distance": 2.4889439322787417
+        }
+      ]
+    },
+    {
+      "request_id": 54,
+      "fault": "прокол",
+      "pred": "прокол",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 1.32,
+      "pad_mm": 1.96,
+      "chain_pct": 0.49,
+      "lever_mm": 14.1,
+      "neighbors": [
+        {
+          "request_id": 30,
+          "fault": "прокол",
+          "distance": 0.6289818596151053
+        },
+        {
+          "request_id": 71,
+          "fault": "прокол",
+          "distance": 1.1114756195082243
+        },
+        {
+          "request_id": 78,
+          "fault": "прокол",
+          "distance": 1.3321486467479484
+        },
+        {
+          "request_id": 74,
+          "fault": "прокол",
+          "distance": 1.3535247326921878
+        },
+        {
+          "request_id": 81,
+          "fault": "прокол",
+          "distance": 1.5550096929001802
+        },
+        {
+          "request_id": 79,
+          "fault": "прокол",
+          "distance": 1.9442159737523812
+        },
+        {
+          "request_id": 47,
+          "fault": "трансмиссия",
+          "distance": 2.037674962294438
+        },
+        {
+          "request_id": 51,
+          "fault": "прокол",
+          "distance": 2.0859684898282707
+        },
+        {
+          "request_id": 39,
+          "fault": "прокол",
+          "distance": 2.154656749538479
+        },
+        {
+          "request_id": 13,
+          "fault": "прокол",
+          "distance": 2.2668944550049344
+        },
+        {
+          "request_id": 38,
+          "fault": "тормоза",
+          "distance": 2.443967629717791
+        }
+      ]
+    },
+    {
+      "request_id": 56,
+      "fault": "тормоза",
+      "pred": "тормоза",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 3.34,
+      "pad_mm": 1.39,
+      "chain_pct": 0.55,
+      "lever_mm": 22.0,
+      "neighbors": [
+        {
+          "request_id": 17,
+          "fault": "тормоза",
+          "distance": 0.8863606353014664
+        },
+        {
+          "request_id": 83,
+          "fault": "тормоза",
+          "distance": 0.9753642479437974
+        },
+        {
+          "request_id": 41,
+          "fault": "тормоза",
+          "distance": 1.5460986006005435
+        },
+        {
+          "request_id": 23,
+          "fault": "тормоза",
+          "distance": 1.5755052138106598
+        },
+        {
+          "request_id": 61,
+          "fault": "тормоза",
+          "distance": 1.7374633754263247
+        },
+        {
+          "request_id": 70,
+          "fault": "тормоза",
+          "distance": 1.7978592799428672
+        },
+        {
+          "request_id": 3,
+          "fault": "тормоза",
+          "distance": 1.8004120225907196
+        },
+        {
+          "request_id": 2,
+          "fault": "тормоза",
+          "distance": 1.9735811892939361
+        },
+        {
+          "request_id": 16,
+          "fault": "тормоза",
+          "distance": 1.9815292983733348
+        },
+        {
+          "request_id": 88,
+          "fault": "трансмиссия",
+          "distance": 2.002904353987516
+        },
+        {
+          "request_id": 19,
+          "fault": "тормоза",
+          "distance": 2.111752639244067
+        }
+      ]
+    },
+    {
+      "request_id": 62,
+      "fault": "трансмиссия",
+      "pred": "тормоза",
+      "correct": false,
+      "tie": false,
+      "pressure_bar": 2.53,
+      "pad_mm": 1.41,
+      "chain_pct": 0.52,
+      "lever_mm": 10.8,
+      "neighbors": [
+        {
+          "request_id": 43,
+          "fault": "тормоза",
+          "distance": 0.5039472463787571
+        },
+        {
+          "request_id": 55,
+          "fault": "тормоза",
+          "distance": 0.7848143614490322
+        },
+        {
+          "request_id": 58,
+          "fault": "тормоза",
+          "distance": 0.9973162225542418
+        },
+        {
+          "request_id": 13,
+          "fault": "прокол",
+          "distance": 1.0302797280629232
+        },
+        {
+          "request_id": 24,
+          "fault": "прокол",
+          "distance": 1.036576039179655
+        },
+        {
+          "request_id": 12,
+          "fault": "тормоза",
+          "distance": 1.1191715928716481
+        },
+        {
+          "request_id": 68,
+          "fault": "прокол",
+          "distance": 1.1213407106848046
+        },
+        {
+          "request_id": 82,
+          "fault": "тормоза",
+          "distance": 1.1738377804502327
+        },
+        {
+          "request_id": 35,
+          "fault": "прокол",
+          "distance": 1.1889523320415882
+        },
+        {
+          "request_id": 52,
+          "fault": "тормоза",
+          "distance": 1.2504766359064299
+        },
+        {
+          "request_id": 39,
+          "fault": "прокол",
+          "distance": 1.3327037623081697
+        }
+      ]
+    },
+    {
+      "request_id": 63,
+      "fault": "трансмиссия",
+      "pred": "прокол",
+      "correct": false,
+      "tie": true,
+      "pressure_bar": 2.88,
+      "pad_mm": 2.07,
+      "chain_pct": 0.59,
+      "lever_mm": 16.6,
+      "neighbors": [
+        {
+          "request_id": 48,
+          "fault": "трансмиссия",
+          "distance": 0.7218852687681269
+        },
+        {
+          "request_id": 88,
+          "fault": "трансмиссия",
+          "distance": 0.8213288301415194
+        },
+        {
+          "request_id": 36,
+          "fault": "прокол",
+          "distance": 0.9972316831740561
+        },
+        {
+          "request_id": 82,
+          "fault": "тормоза",
+          "distance": 1.2465063011713988
+        },
+        {
+          "request_id": 57,
+          "fault": "прокол",
+          "distance": 1.287493400971718
+        },
+        {
+          "request_id": 52,
+          "fault": "тормоза",
+          "distance": 1.3477998378232954
+        },
+        {
+          "request_id": 58,
+          "fault": "тормоза",
+          "distance": 1.357405274347989
+        },
+        {
+          "request_id": 86,
+          "fault": "прокол",
+          "distance": 1.3858268279117127
+        },
+        {
+          "request_id": 34,
+          "fault": "трансмиссия",
+          "distance": 1.3858405648190164
+        },
+        {
+          "request_id": 35,
+          "fault": "прокол",
+          "distance": 1.407549577233943
+        },
+        {
+          "request_id": 83,
+          "fault": "тормоза",
+          "distance": 1.4205996549631668
+        }
+      ]
+    },
+    {
+      "request_id": 64,
+      "fault": "прокол",
+      "pred": "прокол",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 2.61,
+      "pad_mm": 2.05,
+      "chain_pct": 0.56,
+      "lever_mm": 11.8,
+      "neighbors": [
+        {
+          "request_id": 68,
+          "fault": "прокол",
+          "distance": 0.6904142257691624
+        },
+        {
+          "request_id": 59,
+          "fault": "прокол",
+          "distance": 0.7553207349342451
+        },
+        {
+          "request_id": 35,
+          "fault": "прокол",
+          "distance": 0.9036258555436087
+        },
+        {
+          "request_id": 39,
+          "fault": "прокол",
+          "distance": 0.9885538959724873
+        },
+        {
+          "request_id": 58,
+          "fault": "тормоза",
+          "distance": 1.012216532937302
+        },
+        {
+          "request_id": 52,
+          "fault": "тормоза",
+          "distance": 1.014902691817235
+        },
+        {
+          "request_id": 55,
+          "fault": "тормоза",
+          "distance": 1.0417251010375508
+        },
+        {
+          "request_id": 48,
+          "fault": "трансмиссия",
+          "distance": 1.058258349882968
+        },
+        {
+          "request_id": 76,
+          "fault": "трансмиссия",
+          "distance": 1.0668304562148936
+        },
+        {
+          "request_id": 57,
+          "fault": "прокол",
+          "distance": 1.1275673367227521
+        },
+        {
+          "request_id": 50,
+          "fault": "трансмиссия",
+          "distance": 1.2245248220240361
+        }
+      ]
+    },
+    {
+      "request_id": 65,
+      "fault": "трансмиссия",
+      "pred": "трансмиссия",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 1.99,
+      "pad_mm": 1.9,
+      "chain_pct": 0.88,
+      "lever_mm": 19.9,
+      "neighbors": [
+        {
+          "request_id": 46,
+          "fault": "трансмиссия",
+          "distance": 0.6427347961593995
+        },
+        {
+          "request_id": 51,
+          "fault": "прокол",
+          "distance": 0.8828405378924583
+        },
+        {
+          "request_id": 60,
+          "fault": "трансмиссия",
+          "distance": 1.5598038072585307
+        },
+        {
+          "request_id": 38,
+          "fault": "тормоза",
+          "distance": 1.625835086545276
+        },
+        {
+          "request_id": 79,
+          "fault": "прокол",
+          "distance": 1.8635771768490899
+        },
+        {
+          "request_id": 18,
+          "fault": "трансмиссия",
+          "distance": 1.9998270584226037
+        },
+        {
+          "request_id": 71,
+          "fault": "прокол",
+          "distance": 2.0546141262269493
+        },
+        {
+          "request_id": 34,
+          "fault": "трансмиссия",
+          "distance": 2.141105413080063
+        },
+        {
+          "request_id": 36,
+          "fault": "прокол",
+          "distance": 2.177964898571767
+        },
+        {
+          "request_id": 85,
+          "fault": "трансмиссия",
+          "distance": 2.18400423807843
+        },
+        {
+          "request_id": 40,
+          "fault": "трансмиссия",
+          "distance": 2.1878758175346773
+        }
+      ]
+    },
+    {
+      "request_id": 66,
+      "fault": "тормоза",
+      "pred": "тормоза",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 2.44,
+      "pad_mm": 1.14,
+      "chain_pct": 0.51,
+      "lever_mm": 15.1,
+      "neighbors": [
+        {
+          "request_id": 13,
+          "fault": "прокол",
+          "distance": 0.9326781443477096
+        },
+        {
+          "request_id": 82,
+          "fault": "тормоза",
+          "distance": 1.1244326989580211
+        },
+        {
+          "request_id": 55,
+          "fault": "тормоза",
+          "distance": 1.4218346867867708
+        },
+        {
+          "request_id": 12,
+          "fault": "тормоза",
+          "distance": 1.4416481399086463
+        },
+        {
+          "request_id": 43,
+          "fault": "тормоза",
+          "distance": 1.449863678709314
+        },
+        {
+          "request_id": 40,
+          "fault": "трансмиссия",
+          "distance": 1.4511861478454764
+        },
+        {
+          "request_id": 58,
+          "fault": "тормоза",
+          "distance": 1.4610897921352375
+        },
+        {
+          "request_id": 86,
+          "fault": "прокол",
+          "distance": 1.5116318770801171
+        },
+        {
+          "request_id": 77,
+          "fault": "тормоза",
+          "distance": 1.5231365689730825
+        },
+        {
+          "request_id": 52,
+          "fault": "тормоза",
+          "distance": 1.5414862327131598
+        },
+        {
+          "request_id": 88,
+          "fault": "трансмиссия",
+          "distance": 1.5935655609873407
+        }
+      ]
+    },
+    {
+      "request_id": 72,
+      "fault": "прокол",
+      "pred": "прокол",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 1.87,
+      "pad_mm": 2.18,
+      "chain_pct": 0.7,
+      "lever_mm": 15.8,
+      "neighbors": [
+        {
+          "request_id": 79,
+          "fault": "прокол",
+          "distance": 0.6843250338517747
+        },
+        {
+          "request_id": 51,
+          "fault": "прокол",
+          "distance": 0.8924787287029594
+        },
+        {
+          "request_id": 11,
+          "fault": "прокол",
+          "distance": 1.1622092394817773
+        },
+        {
+          "request_id": 38,
+          "fault": "тормоза",
+          "distance": 1.2377329903484717
+        },
+        {
+          "request_id": 81,
+          "fault": "прокол",
+          "distance": 1.291115968557785
+        },
+        {
+          "request_id": 60,
+          "fault": "трансмиссия",
+          "distance": 1.3965055282498455
+        },
+        {
+          "request_id": 46,
+          "fault": "трансмиссия",
+          "distance": 1.4374319416071857
+        },
+        {
+          "request_id": 71,
+          "fault": "прокол",
+          "distance": 1.4505736976134531
+        },
+        {
+          "request_id": 14,
+          "fault": "трансмиссия",
+          "distance": 1.4587827238674638
+        },
+        {
+          "request_id": 18,
+          "fault": "трансмиссия",
+          "distance": 1.6465374789783003
+        },
+        {
+          "request_id": 15,
+          "fault": "прокол",
+          "distance": 1.6800242172347772
+        }
+      ]
+    },
+    {
+      "request_id": 75,
+      "fault": "трансмиссия",
+      "pred": "трансмиссия",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 3.1,
+      "pad_mm": 1.63,
+      "chain_pct": 1.02,
+      "lever_mm": 16.4,
+      "neighbors": [
+        {
+          "request_id": 85,
+          "fault": "трансмиссия",
+          "distance": 0.9467968778883231
+        },
+        {
+          "request_id": 4,
+          "fault": "трансмиссия",
+          "distance": 1.609177185652563
+        },
+        {
+          "request_id": 6,
+          "fault": "тормоза",
+          "distance": 1.6737540368700479
+        },
+        {
+          "request_id": 61,
+          "fault": "тормоза",
+          "distance": 1.6987183219043327
+        },
+        {
+          "request_id": 34,
+          "fault": "трансмиссия",
+          "distance": 1.722143076233758
+        },
+        {
+          "request_id": 40,
+          "fault": "трансмиссия",
+          "distance": 1.7356050845114692
+        },
+        {
+          "request_id": 84,
+          "fault": "трансмиссия",
+          "distance": 1.7869050331481975
+        },
+        {
+          "request_id": 44,
+          "fault": "тормоза",
+          "distance": 1.8147979302697446
+        },
+        {
+          "request_id": 29,
+          "fault": "трансмиссия",
+          "distance": 1.8960138857529698
+        },
+        {
+          "request_id": 37,
+          "fault": "трансмиссия",
+          "distance": 1.982943333678381
+        },
+        {
+          "request_id": 88,
+          "fault": "трансмиссия",
+          "distance": 2.066570733815918
+        }
+      ]
+    },
+    {
+      "request_id": 80,
+      "fault": "тормоза",
+      "pred": "тормоза",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 2.54,
+      "pad_mm": 1.4,
+      "chain_pct": 0.4,
+      "lever_mm": 14.2,
+      "neighbors": [
+        {
+          "request_id": 55,
+          "fault": "тормоза",
+          "distance": 0.8262529649361289
+        },
+        {
+          "request_id": 82,
+          "fault": "тормоза",
+          "distance": 0.9093717641950135
+        },
+        {
+          "request_id": 43,
+          "fault": "тормоза",
+          "distance": 0.9437447693348097
+        },
+        {
+          "request_id": 86,
+          "fault": "прокол",
+          "distance": 1.0695651039427807
+        },
+        {
+          "request_id": 13,
+          "fault": "прокол",
+          "distance": 1.1244945387359315
+        },
+        {
+          "request_id": 58,
+          "fault": "тормоза",
+          "distance": 1.1940855642570396
+        },
+        {
+          "request_id": 39,
+          "fault": "прокол",
+          "distance": 1.213313133002659
+        },
+        {
+          "request_id": 24,
+          "fault": "прокол",
+          "distance": 1.306567001095014
+        },
+        {
+          "request_id": 88,
+          "fault": "трансмиссия",
+          "distance": 1.4924751208792373
+        },
+        {
+          "request_id": 52,
+          "fault": "тормоза",
+          "distance": 1.494284352479356
+        },
+        {
+          "request_id": 12,
+          "fault": "тормоза",
+          "distance": 1.530871190099631
+        }
+      ]
+    },
+    {
+      "request_id": 89,
+      "fault": "трансмиссия",
+      "pred": "трансмиссия",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 3.51,
+      "pad_mm": 1.95,
+      "chain_pct": 0.54,
+      "lever_mm": 14.0,
+      "neighbors": [
+        {
+          "request_id": 49,
+          "fault": "трансмиссия",
+          "distance": 0.43976331464188423
+        },
+        {
+          "request_id": 6,
+          "fault": "тормоза",
+          "distance": 1.4388761104756573
+        },
+        {
+          "request_id": 88,
+          "fault": "трансмиссия",
+          "distance": 1.6285022751138578
+        },
+        {
+          "request_id": 45,
+          "fault": "трансмиссия",
+          "distance": 1.6328272242174569
+        },
+        {
+          "request_id": 48,
+          "fault": "трансмиссия",
+          "distance": 1.6863534391464166
+        },
+        {
+          "request_id": 58,
+          "fault": "тормоза",
+          "distance": 1.7063664751890386
+        },
+        {
+          "request_id": 83,
+          "fault": "тормоза",
+          "distance": 1.7921565291751118
+        },
+        {
+          "request_id": 35,
+          "fault": "прокол",
+          "distance": 1.7976843498251855
+        },
+        {
+          "request_id": 82,
+          "fault": "тормоза",
+          "distance": 1.8886943447343643
+        },
+        {
+          "request_id": 37,
+          "fault": "трансмиссия",
+          "distance": 2.086722529834299
+        },
+        {
+          "request_id": 50,
+          "fault": "трансмиссия",
+          "distance": 2.153854796528616
+        }
+      ]
+    },
+    {
+      "request_id": 90,
+      "fault": "тормоза",
+      "pred": "тормоза",
+      "correct": true,
+      "tie": false,
+      "pressure_bar": 3.27,
+      "pad_mm": 1.38,
+      "chain_pct": 0.56,
+      "lever_mm": 19.3,
+      "neighbors": [
+        {
+          "request_id": 17,
+          "fault": "тормоза",
+          "distance": 0.8109755500628285
+        },
+        {
+          "request_id": 83,
+          "fault": "тормоза",
+          "distance": 0.8591043052866968
+        },
+        {
+          "request_id": 23,
+          "fault": "тормоза",
+          "distance": 1.0372548012185343
+        },
+        {
+          "request_id": 88,
+          "fault": "трансмиссия",
+          "distance": 1.3932723583182158
+        },
+        {
+          "request_id": 61,
+          "fault": "тормоза",
+          "distance": 1.5080445078027938
+        },
+        {
+          "request_id": 6,
+          "fault": "тормоза",
+          "distance": 1.6066564163944541
+        },
+        {
+          "request_id": 77,
+          "fault": "тормоза",
+          "distance": 1.6168392760652406
+        },
+        {
+          "request_id": 3,
+          "fault": "тормоза",
+          "distance": 1.628319582494509
+        },
+        {
+          "request_id": 16,
+          "fault": "тормоза",
+          "distance": 1.651406654234404
+        },
+        {
+          "request_id": 19,
+          "fault": "тормоза",
+          "distance": 1.7378321357736628
+        },
+        {
+          "request_id": 82,
+          "fault": "тормоза",
+          "distance": 1.8062946620028664
+        }
+      ]
+    }
+  ],
+  "centroids": {
+    "прокол": {
+      "pressure_bar": 2.154333333333333,
+      "pad_mm": 1.9706666666666666,
+      "chain_pct": 0.5396666666666667,
+      "lever_mm": 14.156666666666666
+    },
+    "тормоза": {
+      "pressure_bar": 2.857666666666667,
+      "pad_mm": 1.3273333333333335,
+      "chain_pct": 0.5850000000000001,
+      "lever_mm": 17.360000000000003
+    },
+    "трансмиссия": {
+      "pressure_bar": 2.723,
+      "pad_mm": 1.9093333333333333,
+      "chain_pct": 0.784,
+      "lever_mm": 13.353333333333332
+    }
+  },
+  "ranges": {
+    "pressure_bar": {
+      "min": 1.32,
+      "max": 3.58
+    },
+    "pad_mm": {
+      "min": 0.64,
+      "max": 2.6
+    },
+    "chain_pct": {
+      "min": 0.28,
+      "max": 1.46
+    },
+    "lever_mm": {
+      "min": 6.0,
+      "max": 24.2
+    }
+  },
+  "class_counts": {
+    "прокол": 30,
+    "тормоза": 30,
+    "трансмиссия": 30
+  }
+}
