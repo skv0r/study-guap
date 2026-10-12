@@ -1,0 +1,244 @@
+{
+  "ids": {
+    "group_id": 1,
+    "student_id": 100009,
+    "student2_id": 1,
+    "talk_id": 12010,
+    "theme": "Черновик темы для проверки изоляции"
+  },
+  "dirty": {
+    "writer_uncommitted": "НЕЗАФИКСИРОВАННАЯ ПРАВКА ТЕМЫ",
+    "reader_isolation": "read uncommitted",
+    "reader_saw": "Черновик темы для проверки изоляции",
+    "reader_saw_after_rollback": "Черновик темы для проверки изоляции",
+    "original": "Черновик темы для проверки изоляции"
+  },
+  "nonrepeatable_read_committed": {
+    "level": "READ COMMITTED",
+    "first": "Черновик темы для проверки изоляции",
+    "second": "Черновик темы после фиксации правки"
+  },
+  "nonrepeatable_repeatable_read": {
+    "level": "REPEATABLE READ",
+    "first": "Черновик темы для проверки изоляции",
+    "second": "Черновик темы для проверки изоляции"
+  },
+  "phantom_read_committed": {
+    "level": "READ COMMITTED",
+    "count_before": 3,
+    "count_after": 4,
+    "commit_error": null
+  },
+  "phantom_repeatable_read": {
+    "level": "REPEATABLE READ",
+    "count_before": 3,
+    "count_after": 3,
+    "commit_error": null
+  },
+  "phantom_serializable": {
+    "level": "SERIALIZABLE",
+    "count_before": 3,
+    "count_after": 3,
+    "commit_error": null
+  },
+  "locks": {
+    "pid_holder": 10976,
+    "pid_waiter": 4556,
+    "blocking_pids": [
+      10976
+    ],
+    "columns": [
+      "pid",
+      "application_name",
+      "locktype",
+      "mode",
+      "granted",
+      "relation",
+      "page",
+      "tuple",
+      "wait_event_type",
+      "wait_event",
+      "query"
+    ],
+    "rows": [
+      [
+        4556,
+        "lock_waiter",
+        "relation",
+        "RowShareLock",
+        true,
+        "\"Студент\"",
+        null,
+        null,
+        "Lock",
+        "transactionid",
+        "SELECT \"ФИО\" FROM \"Студент\" WHERE \"ID_студента\" = $1 FOR SHARE"
+      ],
+      [
+        4556,
+        "lock_waiter",
+        "relation",
+        "RowShareLock",
+        true,
+        "\"Студент_ID_группы\"",
+        null,
+        null,
+        "Lock",
+        "transactionid",
+        "SELECT \"ФИО\" FROM \"Студент\" WHERE \"ID_студента\" = $1 FOR SHARE"
+      ],
+      [
+        4556,
+        "lock_waiter",
+        "relation",
+        "RowShareLock",
+        true,
+        "\"Студент_ФИО\"",
+        null,
+        null,
+        "Lock",
+        "transactionid",
+        "SELECT \"ФИО\" FROM \"Студент\" WHERE \"ID_студента\" = $1 FOR SHARE"
+      ],
+      [
+        4556,
+        "lock_waiter",
+        "relation",
+        "RowShareLock",
+        true,
+        "\"Студент_pkey\"",
+        null,
+        null,
+        "Lock",
+        "transactionid",
+        "SELECT \"ФИО\" FROM \"Студент\" WHERE \"ID_студента\" = $1 FOR SHARE"
+      ],
+      [
+        4556,
+        "lock_waiter",
+        "tuple",
+        "RowShareLock",
+        true,
+        "\"Студент\"",
+        0,
+        118,
+        "Lock",
+        "transactionid",
+        "SELECT \"ФИО\" FROM \"Студент\" WHERE \"ID_студента\" = $1 FOR SHARE"
+      ],
+      [
+        4556,
+        "lock_waiter",
+        "virtualxid",
+        "ExclusiveLock",
+        true,
+        null,
+        null,
+        null,
+        "Lock",
+        "transactionid",
+        "SELECT \"ФИО\" FROM \"Студент\" WHERE \"ID_студента\" = $1 FOR SHARE"
+      ],
+      [
+        4556,
+        "lock_waiter",
+        "transactionid",
+        "ShareLock",
+        false,
+        null,
+        null,
+        null,
+        "Lock",
+        "transactionid",
+        "SELECT \"ФИО\" FROM \"Студент\" WHERE \"ID_студента\" = $1 FOR SHARE"
+      ],
+      [
+        10976,
+        "lock_holder",
+        "relation",
+        "RowExclusiveLock",
+        true,
+        "\"Студент_ID_группы\"",
+        null,
+        null,
+        "Client",
+        "ClientRead",
+        "UPDATE \"Студент\" SET \"ФИО\" = \"ФИО\" WHERE \"ID_студента\" = $1"
+      ],
+      [
+        10976,
+        "lock_holder",
+        "relation",
+        "RowExclusiveLock",
+        true,
+        "\"Студент_pkey\"",
+        null,
+        null,
+        "Client",
+        "ClientRead",
+        "UPDATE \"Студент\" SET \"ФИО\" = \"ФИО\" WHERE \"ID_студента\" = $1"
+      ],
+      [
+        10976,
+        "lock_holder",
+        "relation",
+        "RowExclusiveLock",
+        true,
+        "\"Студент\"",
+        null,
+        null,
+        "Client",
+        "ClientRead",
+        "UPDATE \"Студент\" SET \"ФИО\" = \"ФИО\" WHERE \"ID_студента\" = $1"
+      ],
+      [
+        10976,
+        "lock_holder",
+        "relation",
+        "RowExclusiveLock",
+        true,
+        "\"Студент_ФИО\"",
+        null,
+        null,
+        "Client",
+        "ClientRead",
+        "UPDATE \"Студент\" SET \"ФИО\" = \"ФИО\" WHERE \"ID_студента\" = $1"
+      ],
+      [
+        10976,
+        "lock_holder",
+        "transactionid",
+        "ExclusiveLock",
+        true,
+        null,
+        null,
+        null,
+        "Client",
+        "ClientRead",
+        "UPDATE \"Студент\" SET \"ФИО\" = \"ФИО\" WHERE \"ID_студента\" = $1"
+      ],
+      [
+        10976,
+        "lock_holder",
+        "virtualxid",
+        "ExclusiveLock",
+        true,
+        null,
+        null,
+        null,
+        "Client",
+        "ClientRead",
+        "UPDATE \"Студент\" SET \"ФИО\" = \"ФИО\" WHERE \"ID_студента\" = $1"
+      ]
+    ]
+  },
+  "deadlock": {
+    "session_2": {
+      "status": "error",
+      "server": "ERROR:  обнаружена взаимоблокировка\nDETAIL:  Процесс 20500 ожидает в режиме ShareLock блокировку \"транзакция 881\"; заблокирован процессом 24500.\nПроцесс 24500 ожидает в режиме ShareLock блокировку \"транзакция 882\"; заблокирован процессом 20500.\nHINT:  Подробности запроса смотрите в протоколе сервера.\nCONTEXT:  при изменении кортежа (0,118) в отношении \"Студент\""
+    },
+    "session_1": {
+      "status": "commit"
+    }
+  }
+}

@@ -2,13 +2,13 @@
   "n": 90,
   "n_train": 63,
   "n_test": 27,
-  "correct": 25,
-  "accuracy": 0.9259259259259259,
+  "correct": 27,
+  "accuracy": 1.0,
   "confusion": [
     [
-      7,
+      9,
       0,
-      2
+      0
     ],
     [
       0,
@@ -23,47 +23,43 @@
   ],
   "per_class": [
     {
-      "class": "сеть",
-      "precision": 1.0,
-      "recall": 0.7777777777777778,
-      "f1": 0.875,
-      "support": 9
-    },
-    {
-      "class": "доступ",
+      "class": "футбольный",
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
       "support": 9
     },
     {
-      "class": "ПО",
-      "precision": 0.8181818181818182,
+      "class": "баскетбольный",
+      "precision": 1.0,
       "recall": 1.0,
-      "f1": 0.9,
+      "f1": 1.0,
+      "support": 9
+    },
+    {
+      "class": "волейбольный",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
       "support": 9
     }
   ],
-  "macro_precision": 0.9393939393939394,
-  "macro_recall": 0.9259259259259259,
-  "macro_f1": 0.9249999999999999,
+  "macro_precision": 1.0,
+  "macro_recall": 1.0,
+  "macro_f1": 1.0,
   "train_ids": [
-    1,
-    3,
     4,
     7,
-    8,
     9,
     10,
-    11,
     12,
-    13,
     14,
-    15,
     16,
     17,
+    18,
     19,
-    20,
+    21,
+    22,
     23,
     24,
     25,
@@ -71,482 +67,726 @@
     27,
     28,
     29,
-    32,
+    30,
+    31,
     33,
-    34,
     35,
+    36,
     37,
     38,
     39,
     40,
     41,
     42,
+    43,
     44,
-    49,
-    51,
+    45,
+    47,
+    50,
+    52,
     53,
+    54,
     55,
     56,
     57,
     59,
-    60,
     61,
+    62,
     63,
     64,
-    65,
     66,
     67,
     68,
+    69,
     70,
-    71,
     72,
     73,
-    76,
-    77,
-    78,
-    79,
-    80,
-    82,
-    84,
-    85,
-    88,
-    90
-  ],
-  "test_ids": [
-    2,
-    5,
-    6,
-    18,
-    21,
-    22,
-    30,
-    31,
-    36,
-    43,
-    45,
-    46,
-    47,
-    48,
-    50,
-    52,
-    54,
-    58,
-    62,
-    69,
     74,
     75,
+    76,
+    80,
     81,
+    82,
     83,
     86,
     87,
+    90
+  ],
+  "test_ids": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    8,
+    11,
+    13,
+    15,
+    20,
+    32,
+    34,
+    46,
+    48,
+    49,
+    51,
+    58,
+    60,
+    65,
+    71,
+    77,
+    78,
+    79,
+    84,
+    85,
+    88,
     89
   ],
-  "error_ids": [
-    46,
-    31
-  ],
+  "error_ids": [],
   "predictions": [
     {
-      "ticket_id": 18,
-      "ticket_type": "сеть",
-      "predicted": "сеть",
+      "id": 1,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
       "correct": true,
       "features": {
-        "users_affected": 59.0,
-        "downtime_min": 38.0,
-        "latency_ms": 539.0,
-        "error_rate_pct": 4.2
-      }
+        "net_share": 0,
+        "play_zone": 2,
+        "hold": 2,
+        "attack": 1,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 45,
-      "ticket_type": "ПО",
-      "predicted": "ПО",
+      "id": 2,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
       "correct": true,
       "features": {
-        "users_affected": 19.0,
-        "downtime_min": 52.0,
-        "latency_ms": 239.0,
-        "error_rate_pct": 14.9
-      }
+        "net_share": 0,
+        "play_zone": 2,
+        "hold": 2,
+        "attack": 1,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 43,
-      "ticket_type": "сеть",
-      "predicted": "сеть",
+      "id": 3,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
       "correct": true,
       "features": {
-        "users_affected": 51.0,
-        "downtime_min": 37.0,
-        "latency_ms": 497.0,
-        "error_rate_pct": 4.4
-      }
+        "net_share": 0,
+        "play_zone": 2,
+        "hold": 2,
+        "attack": 0,
+        "ground": 1
+      },
+      "diffs": [
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0,
+          "phrase": "вектор 0 вместо 1"
+        }
+      ],
+      "variant_name": "баскетбольный пас по площадке без броска вверх"
     },
     {
-      "ticket_id": 6,
-      "ticket_type": "доступ",
-      "predicted": "доступ",
+      "id": 5,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
       "correct": true,
       "features": {
-        "users_affected": 5.0,
-        "downtime_min": 5.0,
-        "latency_ms": 79.0,
-        "error_rate_pct": 1.2
-      }
+        "net_share": 0,
+        "play_zone": 2,
+        "hold": 2,
+        "attack": 1,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 89,
-      "ticket_type": "сеть",
-      "predicted": "сеть",
+      "id": 6,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
       "correct": true,
       "features": {
-        "users_affected": 33.0,
-        "downtime_min": 49.0,
-        "latency_ms": 323.0,
-        "error_rate_pct": 4.6
-      }
+        "net_share": 1,
+        "play_zone": 1,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 83,
-      "ticket_type": "ПО",
-      "predicted": "ПО",
+      "id": 8,
+      "ball": "футбольный",
+      "pred": "футбольный",
       "correct": true,
       "features": {
-        "users_affected": 23.0,
-        "downtime_min": 49.0,
-        "latency_ms": 168.0,
-        "error_rate_pct": 5.8
-      }
+        "net_share": 0,
+        "play_zone": 0,
+        "hold": 1,
+        "attack": 0,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 47,
-      "ticket_type": "сеть",
-      "predicted": "сеть",
+      "id": 11,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
       "correct": true,
       "features": {
-        "users_affected": 47.0,
-        "downtime_min": 36.0,
-        "latency_ms": 589.0,
-        "error_rate_pct": 5.2
-      }
+        "net_share": 0,
+        "play_zone": 2,
+        "hold": 2,
+        "attack": 1,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 30,
-      "ticket_type": "ПО",
-      "predicted": "ПО",
+      "id": 13,
+      "ball": "футбольный",
+      "pred": "футбольный",
       "correct": true,
       "features": {
-        "users_affected": 16.0,
-        "downtime_min": 52.0,
-        "latency_ms": 138.0,
-        "error_rate_pct": 14.8
-      }
+        "net_share": 0,
+        "play_zone": 0,
+        "hold": 1,
+        "attack": 0,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 50,
-      "ticket_type": "доступ",
-      "predicted": "доступ",
+      "id": 15,
+      "ball": "футбольный",
+      "pred": "футбольный",
       "correct": true,
       "features": {
-        "users_affected": 5.0,
-        "downtime_min": 10.0,
-        "latency_ms": 50.0,
-        "error_rate_pct": 0.5
-      }
+        "net_share": 0,
+        "play_zone": 0,
+        "hold": 1,
+        "attack": 0,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 81,
-      "ticket_type": "доступ",
-      "predicted": "доступ",
+      "id": 20,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
       "correct": true,
       "features": {
-        "users_affected": 5.0,
-        "downtime_min": 7.0,
-        "latency_ms": 100.0,
-        "error_rate_pct": 0.5
-      }
+        "net_share": 1,
+        "play_zone": 1,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 46,
-      "ticket_type": "сеть",
-      "predicted": "ПО",
-      "correct": false,
-      "features": {
-        "users_affected": 64.0,
-        "downtime_min": 41.0,
-        "latency_ms": 210.0,
-        "error_rate_pct": 4.3
-      }
-    },
-    {
-      "ticket_id": 86,
-      "ticket_type": "доступ",
-      "predicted": "доступ",
+      "id": 32,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
       "correct": true,
       "features": {
-        "users_affected": 3.0,
-        "downtime_min": 8.0,
-        "latency_ms": 100.0,
-        "error_rate_pct": 1.2
-      }
+        "net_share": 0,
+        "play_zone": 2,
+        "hold": 2,
+        "attack": 1,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 87,
-      "ticket_type": "доступ",
-      "predicted": "доступ",
+      "id": 34,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
       "correct": true,
       "features": {
-        "users_affected": 2.0,
-        "downtime_min": 16.0,
-        "latency_ms": 99.0,
-        "error_rate_pct": 1.8
-      }
+        "net_share": 0,
+        "play_zone": 2,
+        "hold": 2,
+        "attack": 1,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 21,
-      "ticket_type": "сеть",
-      "predicted": "сеть",
+      "id": 46,
+      "ball": "футбольный",
+      "pred": "футбольный",
       "correct": true,
       "features": {
-        "users_affected": 61.0,
-        "downtime_min": 46.0,
-        "latency_ms": 357.0,
-        "error_rate_pct": 3.6
-      }
+        "net_share": 0,
+        "play_zone": 0,
+        "hold": 1,
+        "attack": 0,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 31,
-      "ticket_type": "сеть",
-      "predicted": "ПО",
-      "correct": false,
-      "features": {
-        "users_affected": 38.0,
-        "downtime_min": 54.0,
-        "latency_ms": 179.0,
-        "error_rate_pct": 2.9
-      }
-    },
-    {
-      "ticket_id": 75,
-      "ticket_type": "сеть",
-      "predicted": "сеть",
+      "id": 48,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
       "correct": true,
       "features": {
-        "users_affected": 82.0,
-        "downtime_min": 45.0,
-        "latency_ms": 437.0,
-        "error_rate_pct": 3.1
-      }
+        "net_share": 1,
+        "play_zone": 1,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 2,
-      "ticket_type": "ПО",
-      "predicted": "ПО",
+      "id": 49,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
       "correct": true,
       "features": {
-        "users_affected": 22.0,
-        "downtime_min": 41.0,
-        "latency_ms": 139.0,
-        "error_rate_pct": 12.6
-      }
+        "net_share": 1,
+        "play_zone": 1,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 48,
-      "ticket_type": "доступ",
-      "predicted": "доступ",
+      "id": 51,
+      "ball": "футбольный",
+      "pred": "футбольный",
       "correct": true,
       "features": {
-        "users_affected": 7.0,
-        "downtime_min": 7.0,
-        "latency_ms": 66.0,
-        "error_rate_pct": 0.8
-      }
+        "net_share": 0,
+        "play_zone": 0,
+        "hold": 1,
+        "attack": 0,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 69,
-      "ticket_type": "доступ",
-      "predicted": "доступ",
+      "id": 58,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
       "correct": true,
       "features": {
-        "users_affected": 5.0,
-        "downtime_min": 13.0,
-        "latency_ms": 111.0,
-        "error_rate_pct": 1.0
-      }
+        "net_share": 1,
+        "play_zone": 1,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 54,
-      "ticket_type": "ПО",
-      "predicted": "ПО",
+      "id": 60,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
       "correct": true,
       "features": {
-        "users_affected": 5.0,
-        "downtime_min": 61.0,
-        "latency_ms": 164.0,
-        "error_rate_pct": 16.8
-      }
+        "net_share": 0,
+        "play_zone": 2,
+        "hold": 2,
+        "attack": 1,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 36,
-      "ticket_type": "ПО",
-      "predicted": "ПО",
+      "id": 65,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
       "correct": true,
       "features": {
-        "users_affected": 20.0,
-        "downtime_min": 66.0,
-        "latency_ms": 227.0,
-        "error_rate_pct": 13.8
-      }
+        "net_share": 0,
+        "play_zone": 2,
+        "hold": 2,
+        "attack": 1,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 74,
-      "ticket_type": "доступ",
-      "predicted": "доступ",
+      "id": 71,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
       "correct": true,
       "features": {
-        "users_affected": 4.0,
-        "downtime_min": 11.0,
-        "latency_ms": 74.0,
-        "error_rate_pct": 0.5
-      }
+        "net_share": 1,
+        "play_zone": 1,
+        "hold": 0,
+        "attack": 1,
+        "ground": 1
+      },
+      "diffs": [
+        {
+          "feature": "ground",
+          "usual": 0,
+          "value": 1,
+          "phrase": "земля 1 вместо 0"
+        }
+      ],
+      "variant_name": "волейбольный приём, мяч коснулся пола"
     },
     {
-      "ticket_id": 5,
-      "ticket_type": "ПО",
-      "predicted": "ПО",
+      "id": 77,
+      "ball": "футбольный",
+      "pred": "футбольный",
       "correct": true,
       "features": {
-        "users_affected": 22.0,
-        "downtime_min": 74.0,
-        "latency_ms": 123.0,
-        "error_rate_pct": 10.0
-      }
+        "net_share": 0,
+        "play_zone": 0,
+        "hold": 1,
+        "attack": 0,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 62,
-      "ticket_type": "ПО",
-      "predicted": "ПО",
+      "id": 78,
+      "ball": "футбольный",
+      "pred": "футбольный",
       "correct": true,
       "features": {
-        "users_affected": 18.0,
-        "downtime_min": 43.0,
-        "latency_ms": 172.0,
-        "error_rate_pct": 10.7
-      }
+        "net_share": 0,
+        "play_zone": 0,
+        "hold": 1,
+        "attack": 0,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 58,
-      "ticket_type": "сеть",
-      "predicted": "сеть",
+      "id": 79,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
       "correct": true,
       "features": {
-        "users_affected": 56.0,
-        "downtime_min": 49.0,
-        "latency_ms": 413.0,
-        "error_rate_pct": 5.4
-      }
+        "net_share": 1,
+        "play_zone": 1,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 52,
-      "ticket_type": "доступ",
-      "predicted": "доступ",
+      "id": 84,
+      "ball": "футбольный",
+      "pred": "футбольный",
       "correct": true,
       "features": {
-        "users_affected": 4.0,
-        "downtime_min": 7.0,
-        "latency_ms": 111.0,
-        "error_rate_pct": 1.1
-      }
+        "net_share": 0,
+        "play_zone": 0,
+        "hold": 1,
+        "attack": 0,
+        "ground": 1
+      },
+      "diffs": [],
+      "variant_name": ""
     },
     {
-      "ticket_id": 22,
-      "ticket_type": "ПО",
-      "predicted": "ПО",
+      "id": 85,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
       "correct": true,
       "features": {
-        "users_affected": 17.0,
-        "downtime_min": 50.0,
-        "latency_ms": 175.0,
-        "error_rate_pct": 21.3
-      }
+        "net_share": 1,
+        "play_zone": 1,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": [],
+      "variant_name": ""
+    },
+    {
+      "id": 88,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "features": {
+        "net_share": 1,
+        "play_zone": 1,
+        "hold": 0,
+        "attack": 1,
+        "ground": 1
+      },
+      "diffs": [
+        {
+          "feature": "ground",
+          "usual": 0,
+          "value": 1,
+          "phrase": "земля 1 вместо 0"
+        }
+      ],
+      "variant_name": "волейбольный приём, мяч коснулся пола"
+    },
+    {
+      "id": 89,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "features": {
+        "net_share": 0,
+        "play_zone": 0,
+        "hold": 1,
+        "attack": 1,
+        "ground": 1
+      },
+      "diffs": [
+        {
+          "feature": "attack",
+          "usual": 0,
+          "value": 1,
+          "phrase": "вектор 1 вместо 0"
+        }
+      ],
+      "variant_name": "футбольный навес"
     }
   ],
   "rules": [
-    "Если Простой, мин ≤ 20,5, то тип «доступ».",
-    "Если Простой, мин > 20,5 и Задержка, мс ≤ 243,5, то тип «ПО».",
-    "Если Простой, мин > 20,5 и Задержка, мс > 243,5, то тип «сеть»."
+    "Если Игровая зона = 0, то класс «футбольный». В листе 21 обучающих наблюдений одного класса.",
+    "Если Игровая зона = 1, то класс «волейбольный». В листе 21 обучающих наблюдений одного класса.",
+    "Если Игровая зона = 2, то класс «баскетбольный». В листе 21 обучающих наблюдений одного класса."
   ],
-  "export_text": [
-    "|--- Простой, мин <= 20.5",
-    "|   |--- class: доступ",
-    "|--- Простой, мин >  20.5",
-    "|   |--- Задержка, мс <= 243.5",
-    "|   |   |--- class: ПО",
-    "|   |--- Задержка, мс >  243.5",
-    "|   |   |--- class: сеть"
-  ],
-  "max_depth": 3,
-  "criterion": "gini",
-  "feature_importance": {
-    "users_affected": 0.0,
-    "downtime_min": 0.5000000000000001,
-    "latency_ms": 0.49999999999999994,
-    "error_rate_pct": 0.0
-  },
-  "ranges": {
-    "сеть": {
-      "users_affected": [
-        33.0,
-        85.0
+  "splits": [
+    {
+      "feature": "play_zone",
+      "left": [
+        0
       ],
-      "downtime_min": [
-        23.0,
-        54.0
-      ],
-      "latency_ms": [
-        179.0,
-        589.0
-      ],
-      "error_rate_pct": [
-        0.6,
-        6.4
+      "right": [
+        1,
+        2
       ]
     },
-    "доступ": {
-      "users_affected": [
-        1.0,
-        18.0
+    {
+      "feature": "play_zone",
+      "left": [
+        1
       ],
-      "downtime_min": [
-        2.0,
-        18.0
-      ],
-      "latency_ms": [
-        33.0,
-        119.0
-      ],
-      "error_rate_pct": [
-        0.1,
-        2.1
-      ]
-    },
-    "ПО": {
-      "users_affected": [
-        3.0,
-        27.0
-      ],
-      "downtime_min": [
-        41.0,
-        84.0
-      ],
-      "latency_ms": [
-        66.0,
-        239.0
-      ],
-      "error_rate_pct": [
-        4.7,
-        22.4
+      "right": [
+        2
       ]
     }
-  }
+  ],
+  "max_depth_limit": 3,
+  "actual_depth": 2,
+  "min_samples_leaf": 3,
+  "criterion": "gini",
+  "n_leaves": 3,
+  "typical": {
+    "футбольный": [
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    "баскетбольный": [
+      0,
+      2,
+      2,
+      1,
+      1
+    ],
+    "волейбольный": [
+      1,
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  "variants": [
+    {
+      "id": 43,
+      "ball": "футбольный",
+      "name": "футбольный навес",
+      "feature": "attack",
+      "usual": 0,
+      "value": 1,
+      "phrase": "вектор 1 вместо 0"
+    },
+    {
+      "id": 83,
+      "ball": "футбольный",
+      "name": "футбольный навес",
+      "feature": "attack",
+      "usual": 0,
+      "value": 1,
+      "phrase": "вектор 1 вместо 0"
+    },
+    {
+      "id": 89,
+      "ball": "футбольный",
+      "name": "футбольный навес",
+      "feature": "attack",
+      "usual": 0,
+      "value": 1,
+      "phrase": "вектор 1 вместо 0"
+    },
+    {
+      "id": 3,
+      "ball": "баскетбольный",
+      "name": "баскетбольный пас по площадке без броска вверх",
+      "feature": "attack",
+      "usual": 1,
+      "value": 0,
+      "phrase": "вектор 0 вместо 1"
+    },
+    {
+      "id": 42,
+      "ball": "баскетбольный",
+      "name": "баскетбольный пас по площадке без броска вверх",
+      "feature": "attack",
+      "usual": 1,
+      "value": 0,
+      "phrase": "вектор 0 вместо 1"
+    },
+    {
+      "id": 68,
+      "ball": "баскетбольный",
+      "name": "баскетбольный пас по площадке без броска вверх",
+      "feature": "attack",
+      "usual": 1,
+      "value": 0,
+      "phrase": "вектор 0 вместо 1"
+    },
+    {
+      "id": 7,
+      "ball": "волейбольный",
+      "name": "волейбольный приём, мяч коснулся пола",
+      "feature": "ground",
+      "usual": 0,
+      "value": 1,
+      "phrase": "земля 1 вместо 0"
+    },
+    {
+      "id": 71,
+      "ball": "волейбольный",
+      "name": "волейбольный приём, мяч коснулся пола",
+      "feature": "ground",
+      "usual": 0,
+      "value": 1,
+      "phrase": "земля 1 вместо 0"
+    },
+    {
+      "id": 88,
+      "ball": "волейбольный",
+      "name": "волейбольный приём, мяч коснулся пола",
+      "feature": "ground",
+      "usual": 0,
+      "value": 1,
+      "phrase": "земля 1 вместо 0"
+    }
+  ],
+  "codebook": [
+    [
+      "Динамика владения",
+      "0",
+      "пас и ведение, удара через сетку нет",
+      "футбольный, баскетбольный"
+    ],
+    [
+      "Динамика владения",
+      "1",
+      "розыгрыш ударами через сетку",
+      "волейбольный"
+    ],
+    [
+      "Игровая зона",
+      "0",
+      "ворота на уровне поля",
+      "футбольный"
+    ],
+    [
+      "Игровая зона",
+      "1",
+      "площадка соперника за сеткой",
+      "волейбольный"
+    ],
+    [
+      "Игровая зона",
+      "2",
+      "кольцо над площадкой",
+      "баскетбольный"
+    ],
+    [
+      "Удержание контроля",
+      "0",
+      "краткий удар, мяч не ведут",
+      "волейбольный"
+    ],
+    [
+      "Удержание контроля",
+      "1",
+      "ведение ногой",
+      "футбольный"
+    ],
+    [
+      "Удержание контроля",
+      "2",
+      "ведение рукой с отскоком и захватом",
+      "баскетбольный"
+    ],
+    [
+      "Вектор атаки",
+      "0",
+      "горизонтальный",
+      "футбольный"
+    ],
+    [
+      "Вектор атаки",
+      "1",
+      "вертикальный",
+      "баскетбольный, волейбольный"
+    ],
+    [
+      "Контакт с землёй",
+      "0",
+      "нет, касание пола завершает розыгрыш",
+      "волейбольный"
+    ],
+    [
+      "Контакт с землёй",
+      "1",
+      "да, мяч идёт по земле или отскок обязателен",
+      "футбольный, баскетбольный"
+    ]
+  ],
+  "seed": 24
 }
