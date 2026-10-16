@@ -41,43 +41,52 @@ CLASSES = ["футбольный", "баскетбольный", "волейбо
 COLORS = {"футбольный": "#1f77b4", "баскетбольный": "#ff7f0e", "волейбольный": "#2ca02c"}
 LEAF_FC = {"футбольный": "#cfe2f3", "баскетбольный": "#fce5cd", "волейбольный": "#d9ead3"}
 TYPICAL = {
-    "футбольный": [0, 0, 1, 0, 1],
-    "баскетбольный": [0, 2, 2, 1, 1],
-    "волейбольный": [1, 1, 0, 1, 0],
+    "футбольный": [0, 0, 1, 0, 2],
+    "баскетбольный": [1, 2, 2, 1, 0],
+    "волейбольный": [2, 1, 0, 1, 0],
 }
-VARIANT = {
-    "футбольный": {
-        "feature": "attack",
-        "value": 1,
-        "name": "футбольный навес",
-        "phrase": "вектор 1 вместо 0",
-    },
-    "волейбольный": {
-        "feature": "ground",
-        "value": 1,
-        "name": "волейбольный приём, мяч коснулся пола",
-        "phrase": "земля 1 вместо 0",
-    },
-    "баскетбольный": {
-        "feature": "attack",
-        "value": 0,
-        "name": "баскетбольный пас по площадке без броска вверх",
-        "phrase": "вектор 0 вместо 1",
-    },
+PATTERNS = {
+    "футбольный": [
+        ([0, 0, 1, 0, 2], 8),
+        ([1, 0, 1, 0, 1], 6),
+        ([0, 2, 1, 2, 0], 4),
+        ([1, 2, 0, 1, 0], 4),
+        ([0, 1, 2, 0, 0], 4),
+        ([1, 0, 1, 0, 2], 4),
+    ],
+    "баскетбольный": [
+        ([1, 2, 2, 1, 0], 8),
+        ([0, 0, 2, 0, 2], 6),
+        ([0, 1, 2, 0, 0], 6),
+        ([1, 2, 2, 2, 0], 4),
+        ([1, 2, 0, 1, 0], 3),
+        ([0, 1, 2, 0, 1], 3),
+    ],
+    "волейбольный": [
+        ([2, 1, 0, 1, 0], 8),
+        ([2, 2, 0, 1, 0], 6),
+        ([0, 0, 0, 0, 1], 5),
+        ([0, 1, 2, 2, 0], 5),
+        ([1, 2, 0, 1, 0], 4),
+        ([2, 1, 0, 2, 0], 2),
+    ],
 }
 CODEBOOK = [
-    ["Динамика владения", "0", "пас и ведение, удара через сетку нет", "футбольный, баскетбольный"],
-    ["Динамика владения", "1", "розыгрыш ударами через сетку", "волейбольный"],
-    ["Игровая зона", "0", "ворота на уровне поля", "футбольный"],
-    ["Игровая зона", "1", "площадка соперника за сеткой", "волейбольный"],
-    ["Игровая зона", "2", "кольцо над площадкой", "баскетбольный"],
-    ["Удержание контроля", "0", "краткий удар, мяч не ведут", "волейбольный"],
-    ["Удержание контроля", "1", "ведение ногой", "футбольный"],
-    ["Удержание контроля", "2", "ведение рукой с отскоком и захватом", "баскетбольный"],
-    ["Вектор атаки", "0", "горизонтальный", "футбольный"],
-    ["Вектор атаки", "1", "вертикальный", "баскетбольный, волейбольный"],
-    ["Контакт с землёй", "0", "нет, касание пола завершает розыгрыш", "волейбольный"],
-    ["Контакт с землёй", "1", "да, мяч идёт по земле или отскок обязателен", "футбольный, баскетбольный"],
+    ["Динамика владения", "0", "пас партнёру", "все три мяча"],
+    ["Динамика владения", "1", "удар или бросок в цель", "все три мяча"],
+    ["Динамика владения", "2", "розыгрыш через сетку", "волейбольный"],
+    ["Игровая зона", "0", "цель у земли", "все три мяча"],
+    ["Игровая зона", "1", "цель на уровне игрока", "все три мяча"],
+    ["Игровая зона", "2", "высокая цель", "все три мяча"],
+    ["Удержание контроля", "0", "краткий удар без ведения", "все три мяча"],
+    ["Удержание контроля", "1", "контакт ногой", "футбольный"],
+    ["Удержание контроля", "2", "контакт рукой", "все три мяча"],
+    ["Вектор атаки", "0", "вдоль площадки", "все три мяча"],
+    ["Вектор атаки", "1", "круто вверх", "все три мяча"],
+    ["Вектор атаки", "2", "по дуге", "все три мяча"],
+    ["Контакт с землёй", "0", "мяч в воздухе", "все три мяча"],
+    ["Контакт с землёй", "1", "один отскок", "все три мяча"],
+    ["Контакт с землёй", "2", "катится или серия отскоков", "футбольный, баскетбольный"],
 ]
 SEED = 24
 MAX_DEPTH = 3
@@ -87,20 +96,14 @@ MIN_LEAF = 3
 def generate(rng: np.random.Generator) -> pd.DataFrame:
     rows = []
     for name in CLASSES:
-        typical = TYPICAL[name]
-        spec = VARIANT[name]
-        changed = typical.copy()
-        changed[FEATURES.index(spec["feature"])] = spec["value"]
-        for _ in range(27):
-            item = {"ball": name}
-            for feature, value in zip(FEATURES, typical):
-                item[feature] = int(value)
-            rows.append(item)
-        for _ in range(3):
-            item = {"ball": name}
-            for feature, value in zip(FEATURES, changed):
-                item[feature] = int(value)
-            rows.append(item)
+        if sum(count for _, count in PATTERNS[name]) != 30:
+            raise RuntimeError(f"у {name} не 30 строк")
+        for vec, count in PATTERNS[name]:
+            for _ in range(count):
+                item = {"ball": name}
+                for feature, value in zip(FEATURES, vec):
+                    item[feature] = int(value)
+                rows.append(item)
     df = pd.DataFrame(rows)
     df = df.iloc[rng.permutation(len(df))].reset_index(drop=True)
     df.insert(0, "id", np.arange(1, len(df) + 1))
@@ -109,41 +112,28 @@ def generate(rng: np.random.Generator) -> pd.DataFrame:
     return df
 
 
-def audit(df: pd.DataFrame) -> list[dict]:
+def audit(df: pd.DataFrame) -> dict:
     if len(df) != 90 or sorted(df["ball"].value_counts().tolist()) != [30, 30, 30]:
         raise RuntimeError("нужно 90 строк, по 30 в классе")
     raw = df[FEATURES].to_numpy()
     if not set(int(v) for v in raw.ravel()) <= {0, 1, 2}:
         raise RuntimeError("код вне 0, 1, 2")
-    found = []
+    mode_count = {}
     for name in CLASSES:
-        spec = VARIANT[name]
-        index = FEATURES.index(spec["feature"])
-        n_typical = 0
-        n_variant = 0
-        for row in df[df["ball"] == name].itertuples(index=False):
-            vec = [int(getattr(row, feature)) for feature in FEATURES]
-            changed = [i for i, (got, exp) in enumerate(zip(vec, TYPICAL[name])) if got != exp]
-            if not changed:
-                n_typical += 1
-                continue
-            if changed != [index] or vec[index] != spec["value"]:
-                raise RuntimeError(f"неожиданный код в строке {int(row.id)}: {vec}")
-            n_variant += 1
-            found.append(
-                {
-                    "id": int(row.id),
-                    "ball": name,
-                    "name": spec["name"],
-                    "feature": spec["feature"],
-                    "usual": int(TYPICAL[name][index]),
-                    "value": int(spec["value"]),
-                    "phrase": spec["phrase"],
-                }
-            )
-        if n_typical != 27 or n_variant != 3:
-            raise RuntimeError(f"{name}: обычных {n_typical}, особых {n_variant}")
-    return found
+        part = df[df["ball"] == name]
+        counts = part.groupby(FEATURES).size()
+        mode = [int(value) for value in counts.idxmax()]
+        if mode != TYPICAL[name] or int(counts.max()) != 8:
+            raise RuntimeError(f"обычный набор {name}: {mode} x {int(counts.max())}")
+        mode_count[name] = int(counts.max())
+    for zone in (0, 1, 2):
+        owners = set(df.loc[df["play_zone"] == zone, "ball"])
+        if owners != set(CLASSES):
+            raise RuntimeError(f"зона {zone} не общая: {owners}")
+    grouped = df.groupby(FEATURES)["ball"].nunique()
+    if int((grouped > 1).sum()) < 2:
+        raise RuntimeError("нет общих наборов кодов у разных мячей")
+    return {"mode_count": mode_count}
 
 
 def row_diff(ball: str, features: dict) -> dict:
@@ -159,11 +149,7 @@ def row_diff(ball: str, features: dict) -> dict:
                     "phrase": f"{SHORT[feature]} {value} вместо {usual}",
                 }
             )
-    spec = VARIANT[ball]
-    variant_name = ""
-    if len(diffs) == 1 and diffs[0]["feature"] == spec["feature"] and diffs[0]["value"] == spec["value"]:
-        variant_name = spec["name"]
-    return {"diffs": diffs, "variant_name": variant_name}
+    return {"diffs": diffs, "variant_name": ""}
 
 
 def path_to(tree, target: int) -> list[tuple[int, bool, float]]:
@@ -471,7 +457,7 @@ def main() -> None:
     FIG.mkdir(parents=True, exist_ok=True)
     rng = np.random.default_rng(SEED)
     df = generate(rng)
-    variants = audit(df)
+    design = audit(df)
     df.to_csv(DATA / "balls.csv", index=False, encoding="utf-8")
 
     X = df[FEATURES].to_numpy(dtype=float)
@@ -554,12 +540,12 @@ def main() -> None:
         "criterion": "gini",
         "n_leaves": int(clf.get_n_leaves()),
         "typical": TYPICAL,
-        "variants": variants,
+        "mode_count": design["mode_count"],
         "codebook": CODEBOOK,
         "seed": SEED,
     }
     (DATA / "metrics.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2), encoding="utf-8")
-    codes = {"typical": TYPICAL, "variant": VARIANT, "codebook": CODEBOOK, "features": FEATURES}
+    codes = {"typical": TYPICAL, "codebook": CODEBOOK, "features": FEATURES, "mode_count": design["mode_count"]}
     (DATA / "codes.json").write_text(json.dumps(codes, ensure_ascii=False, indent=2), encoding="utf-8")
     split = {"seed": SEED, "train_ids": metrics["train_ids"], "test_ids": metrics["test_ids"]}
     (DATA / "split.json").write_text(json.dumps(split, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -580,7 +566,7 @@ def main() -> None:
     print("splits", splits)
     for rule in rules:
         print(rule)
-    print("variants", [(item["id"], item["name"]) for item in variants])
+    print("modes", design["mode_count"])
 
 
 if __name__ == "__main__":

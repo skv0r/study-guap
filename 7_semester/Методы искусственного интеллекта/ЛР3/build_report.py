@@ -292,26 +292,27 @@ def ru_ids(ids: list[int]) -> str:
     return "строки " + ", ".join(text[:-1]) + " и " + text[-1]
 
 
-def variant_sentence(variants: list[dict]) -> str:
-    order = [
-        "футбольный навес",
-        "волейбольный приём, мяч коснулся пола",
-        "баскетбольный пас по площадке без броска вверх",
-    ]
-    grouped: dict[str, list[dict]] = {}
-    for item in variants:
-        grouped.setdefault(item["name"], []).append(item)
-    parts = []
-    for name in order:
-        rows = sorted(grouped[name], key=lambda item: item["id"])
-        if len(rows) != 3 or len({row["phrase"] for row in rows}) != 1:
-            raise RuntimeError(f"особые строки {name}")
-        title = name[0].upper() + name[1:]
-        parts.append(f"{title}: {rows[0]['phrase']}, {ru_ids([row['id'] for row in rows])}")
+def overlap_sentence(df: pd.DataFrame) -> str:
+    buckets: dict[tuple, dict[str, int]] = {}
+    for row in df.itertuples(index=False):
+        key = tuple(int(getattr(row, feature)) for feature in FEATURES)
+        buckets.setdefault(key, {name: 0 for name in CLASSES})
+        buckets[key][row.ball] += 1
+    shared = [item for item in buckets.items() if sum(count > 0 for count in item[1].values()) > 1]
+    if len(shared) != 2:
+        raise RuntimeError(f"общих наборов {len(shared)}")
+    bits = []
+    for key, counts in sorted(shared):
+        owners = ", ".join(f"{name} — {counts[name]}" for name in CLASSES if counts[name])
+        shown = ", ".join(str(value) for value in key)
+        bits.append(f"коды {shown} встречаются у разных мячей ({owners})")
     return (
-        "В каждом классе 27 строк с этим набором и 3 строки, где меняется ровно один код. "
-        + ". ".join(parts)
-        + "."
+        "Обычный набор — самый частый, но не единственный. Два полных набора кодов принадлежат "
+        "сразу нескольким мячам, поэтому по одним только кодам класс иногда не восстановить: "
+        + "; ".join(bits)
+        + ". Высокий короткий удар вверх без касания земли путает футбольный удар головой, "
+        "баскетбольное добивание и волейбольную атаку. Передача руками на уровне игрока, пока мяч "
+        "в воздухе, есть и у ввода вратаря, и у баскетбольной передачи."
     )
 
 
@@ -355,14 +356,10 @@ def check_design(df: pd.DataFrame, m: dict) -> None:
             if any(value not in (0, 1, 2) for value in got):
                 raise RuntimeError("код вне 0, 1, 2")
             matched += int(got == usual)
-        if matched != 27:
+        if matched != 8:
             raise RuntimeError(f"у {name} обычных строк {matched}")
-    if len(m["variants"]) != 9:
-        raise RuntimeError("особых строк не 9")
-    for item in m["variants"]:
-        row = by_id[int(item["id"])]
-        if row.ball != item["ball"]:
-            raise RuntimeError("особая строка другого класса")
+    if m["correct"] >= 27:
+        raise RuntimeError("на тесте не должно быть стопроцентного ответа")
     per = {row["class"]: row for row in m["per_class"]}
     counts = {}
     for item in m["predictions"]:
@@ -435,25 +432,25 @@ def build() -> None:
         "id — номер наблюдения; net_share — динамика владения; play_zone — игровая зона; "
         "hold — удержание контроля; attack — вектор атаки; ground — допустимость контакта "
         "с землёй; ball — класс. В модель входят пять кодов. Номер нужен только чтобы "
-        "отличать строки. Пропусков нет. Одинаковые коды у разных розыгрышей одного класса "
-        "составляют обычный набор: он повторён в 27 строках класса.",
+        "отличать строки. Пропусков нет. Самый частый набор кодов внутри класса — обычный "
+        "розыгрыш. Он не занимает все 30 строк: у каждого мяча таких строк 8.",
     )
     add_text(
         doc,
-        "Код — целое число 0, 1 или 2. Динамика владения: 0 — пас и ведение, удара через сетку нет; "
-        "1 — розыгрыш ударами через сетку. Игровая зона: 0 — ворота на уровне поля; 1 — площадка "
-        "соперника за сеткой; 2 — кольцо над площадкой. Удержание контроля: 0 — краткий удар, мяч "
-        "не ведут; 1 — ведение ногой; 2 — ведение рукой с отскоком и захватом. Вектор атаки: "
-        "0 — горизонтальный; 1 — вертикальный. Волейбольный удар через сетку идёт вверх, поэтому "
-        "у него код 1, как у броска в кольцо. Контакт с землёй: 0 — нет, касание пола завершает "
-        "розыгрыш; 1 — да, мяч идёт по земле или отскок обязателен.",
+        "Код — целое число 0, 1 или 2, и каждый признак использует все три значения. "
+        "Динамика владения: 0 — пас партнёру; 1 — удар или бросок в цель; 2 — розыгрыш через сетку. "
+        "Игровая зона — высота цели, а не вид мяча: 0 — у земли; 1 — на уровне игрока; 2 — высоко. "
+        "Один и тот же код зоны есть у всех трёх мячей. Удержание контроля: 0 — краткий удар без "
+        "ведения; 1 — контакт ногой; 2 — контакт рукой. Вектор атаки: 0 — вдоль площадки; "
+        "1 — круто вверх; 2 — по дуге. Контакт с землёй: 0 — мяч в воздухе; 1 — один отскок; "
+        "2 — катится или серия отскоков.",
     )
     add_text(doc, "Расшифровка каждого кода собрана в таблице 1.")
     desc_w = [3.6, 1.3, 7.2, 4.4]
     add_table_caption(doc, "Таблица 1 — Расшифровка кодов", sum(desc_w))
     add_table(
         doc,
-        ["Признак", "Код", "Значение", "Обычный розыгрыш"],
+        ["Признак", "Код", "Значение", "Встречается у"],
         codes["codebook"],
         desc_w,
         font=12,
@@ -477,7 +474,7 @@ def build() -> None:
         mean_w,
         font=12,
     )
-    add_text(doc, variant_sentence(m["variants"]), space_before=12)
+    add_text(doc, overlap_sentence(df), space_before=12)
     data_w = [1.3, 2.5, 2.2, 2.6, 2.3, 2.2, 3.4]
     add_text(doc, "Все 90 розыгрышей приведены в таблице 3.")
     add_table_caption(doc, "Таблица 3 — Розыгрыши трёх мячей", sum(data_w))
@@ -659,12 +656,12 @@ def build() -> None:
         "игровая зона, по вертикали — динамика владения. Оси размечены кодами 0, 1 и 2. "
         "Цвет точки — фактический класс, число у точки — сколько строк совпало в этих двух кодах. "
         + ". ".join(groups)
-        + "."
+        + ". Одинаковая точка бывает у разных мячей: игровая зона сама по себе класс не называет."
     )
     if wrong:
         scatter += " Ошибки теста обведены чёрным."
     else:
-        scatter += " Ошибок на тесте нет: точки трёх классов стоят врозь."
+        scatter += " Ошибок на тесте нет."
     add_text(doc, scatter)
     add_picture(doc, FIG / "scatter.png", 15.2)
     add_figure_caption(doc, "Рисунок 3 — Классы мяча в осях игровой зоны и динамики владения")
@@ -787,11 +784,9 @@ def assert_clean() -> None:
         "таблице 3",
         "Таблица 1 — Расшифровка кодов",
         "Таблица 2 — Обычные коды трёх мячей",
-        "вектор 1 вместо 0",
-        "земля 1 вместо 0",
-        "вектор 0 вместо 1",
-        "пас и ведение, удара через сетку нет",
-        "Игровая зона = 0",
+        "игровая зона сама по себе класс не называет",
+        "цель у земли",
+        "классы перемешаны",
     ):
         if needle not in plain:
             raise RuntimeError(f"нет {needle}")

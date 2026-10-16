@@ -1,0 +1,1322 @@
+{
+  "sigma": 0.5,
+  "penalty": 1.0,
+  "gamma": 2.0,
+  "n_support": {
+    "футбольный": 11,
+    "баскетбольный": 10,
+    "волейбольный": 9
+  },
+  "n_support_total": 30,
+  "support_vectors": [
+    {
+      "class": "баскетбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 1.0,
+        "hold": 2.0,
+        "attack": 0.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "баскетбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 1.0,
+        "hold": 2.0,
+        "attack": 0.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "баскетбольный",
+      "features": {
+        "net_share": 1.0,
+        "play_zone": 2.0,
+        "hold": 0.0,
+        "attack": 1.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "баскетбольный",
+      "features": {
+        "net_share": 1.0,
+        "play_zone": 2.0,
+        "hold": 2.0,
+        "attack": 2.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "баскетбольный",
+      "features": {
+        "net_share": 1.0,
+        "play_zone": 2.0,
+        "hold": 2.0,
+        "attack": 1.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "баскетбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 1.0,
+        "hold": 2.0,
+        "attack": 0.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "баскетбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 1.0,
+        "hold": 2.0,
+        "attack": 0.0,
+        "ground": 1.0
+      }
+    },
+    {
+      "class": "баскетбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 0.0,
+        "hold": 2.0,
+        "attack": 0.0,
+        "ground": 2.0
+      }
+    },
+    {
+      "class": "баскетбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 0.0,
+        "hold": 2.0,
+        "attack": 0.0,
+        "ground": 2.0
+      }
+    },
+    {
+      "class": "баскетбольный",
+      "features": {
+        "net_share": 1.0,
+        "play_zone": 2.0,
+        "hold": 0.0,
+        "attack": 1.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "волейбольный",
+      "features": {
+        "net_share": 1.0,
+        "play_zone": 2.0,
+        "hold": 0.0,
+        "attack": 1.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "волейбольный",
+      "features": {
+        "net_share": 2.0,
+        "play_zone": 1.0,
+        "hold": 0.0,
+        "attack": 2.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "волейбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 0.0,
+        "hold": 0.0,
+        "attack": 0.0,
+        "ground": 1.0
+      }
+    },
+    {
+      "class": "волейбольный",
+      "features": {
+        "net_share": 2.0,
+        "play_zone": 2.0,
+        "hold": 0.0,
+        "attack": 1.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "волейбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 1.0,
+        "hold": 2.0,
+        "attack": 2.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "волейбольный",
+      "features": {
+        "net_share": 2.0,
+        "play_zone": 1.0,
+        "hold": 0.0,
+        "attack": 1.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "волейбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 1.0,
+        "hold": 2.0,
+        "attack": 2.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "волейбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 0.0,
+        "hold": 0.0,
+        "attack": 0.0,
+        "ground": 1.0
+      }
+    },
+    {
+      "class": "волейбольный",
+      "features": {
+        "net_share": 2.0,
+        "play_zone": 2.0,
+        "hold": 0.0,
+        "attack": 1.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "футбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 1.0,
+        "hold": 2.0,
+        "attack": 0.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "футбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 1.0,
+        "hold": 2.0,
+        "attack": 0.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "футбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 1.0,
+        "hold": 2.0,
+        "attack": 0.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "футбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 0.0,
+        "hold": 1.0,
+        "attack": 0.0,
+        "ground": 2.0
+      }
+    },
+    {
+      "class": "футбольный",
+      "features": {
+        "net_share": 1.0,
+        "play_zone": 2.0,
+        "hold": 0.0,
+        "attack": 1.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "футбольный",
+      "features": {
+        "net_share": 1.0,
+        "play_zone": 2.0,
+        "hold": 0.0,
+        "attack": 1.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "футбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 2.0,
+        "hold": 1.0,
+        "attack": 2.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "футбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 2.0,
+        "hold": 1.0,
+        "attack": 2.0,
+        "ground": 0.0
+      }
+    },
+    {
+      "class": "футбольный",
+      "features": {
+        "net_share": 0.0,
+        "play_zone": 0.0,
+        "hold": 1.0,
+        "attack": 0.0,
+        "ground": 2.0
+      }
+    },
+    {
+      "class": "футбольный",
+      "features": {
+        "net_share": 1.0,
+        "play_zone": 0.0,
+        "hold": 1.0,
+        "attack": 0.0,
+        "ground": 2.0
+      }
+    },
+    {
+      "class": "футбольный",
+      "features": {
+        "net_share": 1.0,
+        "play_zone": 0.0,
+        "hold": 1.0,
+        "attack": 0.0,
+        "ground": 1.0
+      }
+    }
+  ],
+  "predictions": [
+    {
+      "id": 1,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.43604976550225216,
+        "баскетбольный": 0.5234238171772346,
+        "волейбольный": 0.040526417320513146
+      },
+      "features": {
+        "net_share": 0,
+        "play_zone": 1,
+        "hold": 2,
+        "attack": 0,
+        "ground": 0
+      },
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 1,
+          "value": 0
+        },
+        {
+          "feature": "play_zone",
+          "usual": 2,
+          "value": 1
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.43604976550225216,
+        "баскетбольный": 0.5234238171772346,
+        "волейбольный": 0.040526417320513146
+      },
+      "features": {
+        "net_share": 0,
+        "play_zone": 1,
+        "hold": 2,
+        "attack": 0,
+        "ground": 0
+      },
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 1,
+          "value": 0
+        },
+        {
+          "feature": "play_zone",
+          "usual": 2,
+          "value": 1
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.19178787991867768,
+        "баскетбольный": 0.7235342307986987,
+        "волейбольный": 0.08467788928262376
+      },
+      "features": {
+        "net_share": 0,
+        "play_zone": 1,
+        "hold": 2,
+        "attack": 0,
+        "ground": 1
+      },
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 1,
+          "value": 0
+        },
+        {
+          "feature": "play_zone",
+          "usual": 2,
+          "value": 1
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0
+        },
+        {
+          "feature": "ground",
+          "usual": 0,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.1798202244718602,
+        "баскетбольный": 0.7278991767489191,
+        "волейбольный": 0.0922805987792205
+      },
+      "features": {
+        "net_share": 1,
+        "play_zone": 2,
+        "hold": 2,
+        "attack": 2,
+        "ground": 0
+      },
+      "diffs": [
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.04921263820066612,
+        "баскетбольный": 0.05966740635982865,
+        "волейбольный": 0.891119955439505
+      },
+      "features": {
+        "net_share": 2,
+        "play_zone": 2,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": [
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "ball": "футбольный",
+      "pred": "баскетбольный",
+      "correct": false,
+      "probs": {
+        "футбольный": 0.43604976550225216,
+        "баскетбольный": 0.5234238171772346,
+        "волейбольный": 0.040526417320513146
+      },
+      "features": {
+        "net_share": 0,
+        "play_zone": 1,
+        "hold": 2,
+        "attack": 0,
+        "ground": 0
+      },
+      "diffs": [
+        {
+          "feature": "play_zone",
+          "usual": 0,
+          "value": 1
+        },
+        {
+          "feature": "hold",
+          "usual": 1,
+          "value": 2
+        },
+        {
+          "feature": "ground",
+          "usual": 2,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.43604976550225216,
+        "баскетбольный": 0.5234238171772346,
+        "волейбольный": 0.040526417320513146
+      },
+      "features": {
+        "net_share": 0,
+        "play_zone": 1,
+        "hold": 2,
+        "attack": 0,
+        "ground": 0
+      },
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 1,
+          "value": 0
+        },
+        {
+          "feature": "play_zone",
+          "usual": 2,
+          "value": 1
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "ball": "футбольный",
+      "pred": "баскетбольный",
+      "correct": false,
+      "probs": {
+        "футбольный": 0.4714695704375324,
+        "баскетбольный": 0.48011992447964164,
+        "волейбольный": 0.048410505082826016
+      },
+      "features": {
+        "net_share": 1,
+        "play_zone": 2,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 0,
+          "value": 1
+        },
+        {
+          "feature": "play_zone",
+          "usual": 0,
+          "value": 2
+        },
+        {
+          "feature": "hold",
+          "usual": 1,
+          "value": 0
+        },
+        {
+          "feature": "attack",
+          "usual": 0,
+          "value": 1
+        },
+        {
+          "feature": "ground",
+          "usual": 2,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.7258698362348006,
+        "баскетбольный": 0.18971303860772196,
+        "волейбольный": 0.08441712515747747
+      },
+      "features": {
+        "net_share": 0,
+        "play_zone": 0,
+        "hold": 1,
+        "attack": 0,
+        "ground": 2
+      },
+      "diffs": []
+    },
+    {
+      "id": 20,
+      "ball": "волейбольный",
+      "pred": "баскетбольный",
+      "correct": false,
+      "probs": {
+        "футбольный": 0.4714695704375324,
+        "баскетбольный": 0.48011992447964164,
+        "волейбольный": 0.048410505082826016
+      },
+      "features": {
+        "net_share": 1,
+        "play_zone": 2,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 2,
+          "value": 1
+        },
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.18025367687729799,
+        "баскетбольный": 0.7277734275857495,
+        "волейбольный": 0.09197289553695245
+      },
+      "features": {
+        "net_share": 1,
+        "play_zone": 2,
+        "hold": 2,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": []
+    },
+    {
+      "id": 34,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.18025367687729799,
+        "баскетбольный": 0.7277734275857495,
+        "волейбольный": 0.09197289553695245
+      },
+      "features": {
+        "net_share": 1,
+        "play_zone": 2,
+        "hold": 2,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": []
+    },
+    {
+      "id": 46,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.7258698362348006,
+        "баскетбольный": 0.18971303860772196,
+        "волейбольный": 0.08441712515747747
+      },
+      "features": {
+        "net_share": 0,
+        "play_zone": 0,
+        "hold": 1,
+        "attack": 0,
+        "ground": 2
+      },
+      "diffs": []
+    },
+    {
+      "id": 48,
+      "ball": "волейбольный",
+      "pred": "баскетбольный",
+      "correct": false,
+      "probs": {
+        "футбольный": 0.4714695704375324,
+        "баскетбольный": 0.48011992447964164,
+        "волейбольный": 0.048410505082826016
+      },
+      "features": {
+        "net_share": 1,
+        "play_zone": 2,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 2,
+          "value": 1
+        },
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.04961305769881997,
+        "баскетбольный": 0.05915528056615259,
+        "волейбольный": 0.8912316617350272
+      },
+      "features": {
+        "net_share": 0,
+        "play_zone": 0,
+        "hold": 0,
+        "attack": 0,
+        "ground": 1
+      },
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 2,
+          "value": 0
+        },
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 0
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0
+        },
+        {
+          "feature": "ground",
+          "usual": 0,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.728330235921551,
+        "баскетбольный": 0.17958328846342017,
+        "волейбольный": 0.09208647561502882
+      },
+      "features": {
+        "net_share": 1,
+        "play_zone": 0,
+        "hold": 1,
+        "attack": 0,
+        "ground": 1
+      },
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 0,
+          "value": 1
+        },
+        {
+          "feature": "ground",
+          "usual": 2,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.049180019809378035,
+        "баскетбольный": 0.059617981436533025,
+        "волейбольный": 0.8912019987540887
+      },
+      "features": {
+        "net_share": 2,
+        "play_zone": 1,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": []
+    },
+    {
+      "id": 60,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.19160412749024472,
+        "баскетбольный": 0.7236895954835305,
+        "волейбольный": 0.08470627702622503
+      },
+      "features": {
+        "net_share": 0,
+        "play_zone": 0,
+        "hold": 2,
+        "attack": 0,
+        "ground": 2
+      },
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 1,
+          "value": 0
+        },
+        {
+          "feature": "play_zone",
+          "usual": 2,
+          "value": 0
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0
+        },
+        {
+          "feature": "ground",
+          "usual": 0,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.4714695704375324,
+        "баскетбольный": 0.48011992447964164,
+        "волейбольный": 0.048410505082826016
+      },
+      "features": {
+        "net_share": 1,
+        "play_zone": 2,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": [
+        {
+          "feature": "hold",
+          "usual": 2,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.049224861768962874,
+        "баскетбольный": 0.05963970873819506,
+        "волейбольный": 0.891135429492842
+      },
+      "features": {
+        "net_share": 2,
+        "play_zone": 1,
+        "hold": 0,
+        "attack": 2,
+        "ground": 0
+      },
+      "diffs": [
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.7275055658577874,
+        "баскетбольный": 0.18219271360194444,
+        "волейбольный": 0.09030172054026818
+      },
+      "features": {
+        "net_share": 1,
+        "play_zone": 0,
+        "hold": 1,
+        "attack": 0,
+        "ground": 2
+      },
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 0,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.7258698362348006,
+        "баскетбольный": 0.18971303860772196,
+        "волейбольный": 0.08441712515747747
+      },
+      "features": {
+        "net_share": 0,
+        "play_zone": 0,
+        "hold": 1,
+        "attack": 0,
+        "ground": 2
+      },
+      "diffs": []
+    },
+    {
+      "id": 79,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.049180019809378035,
+        "баскетбольный": 0.059617981436533025,
+        "волейбольный": 0.8912019987540887
+      },
+      "features": {
+        "net_share": 2,
+        "play_zone": 1,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": []
+    },
+    {
+      "id": 84,
+      "ball": "футбольный",
+      "pred": "баскетбольный",
+      "correct": false,
+      "probs": {
+        "футбольный": 0.4714695704375324,
+        "баскетбольный": 0.48011992447964164,
+        "волейбольный": 0.048410505082826016
+      },
+      "features": {
+        "net_share": 1,
+        "play_zone": 2,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 0,
+          "value": 1
+        },
+        {
+          "feature": "play_zone",
+          "usual": 0,
+          "value": 2
+        },
+        {
+          "feature": "hold",
+          "usual": 1,
+          "value": 0
+        },
+        {
+          "feature": "attack",
+          "usual": 0,
+          "value": 1
+        },
+        {
+          "feature": "ground",
+          "usual": 2,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.04921263820066612,
+        "баскетбольный": 0.05966740635982865,
+        "волейбольный": 0.891119955439505
+      },
+      "features": {
+        "net_share": 2,
+        "play_zone": 2,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": [
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "ball": "волейбольный",
+      "pred": "баскетбольный",
+      "correct": false,
+      "probs": {
+        "футбольный": 0.4714695704375324,
+        "баскетбольный": 0.48011992447964164,
+        "волейбольный": 0.048410505082826016
+      },
+      "features": {
+        "net_share": 1,
+        "play_zone": 2,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
+      },
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 2,
+          "value": 1
+        },
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "probs": {
+        "футбольный": 0.7275055658577874,
+        "баскетбольный": 0.18219271360194444,
+        "волейбольный": 0.09030172054026818
+      },
+      "features": {
+        "net_share": 1,
+        "play_zone": 0,
+        "hold": 1,
+        "attack": 0,
+        "ground": 2
+      },
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 0,
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "example": {
+    "id": 1,
+    "ball": "баскетбольный",
+    "pred": "баскетбольный",
+    "correct": true,
+    "probs": {
+      "футбольный": 0.43604976550225216,
+      "баскетбольный": 0.5234238171772346,
+      "волейбольный": 0.040526417320513146
+    },
+    "features": {
+      "net_share": 0,
+      "play_zone": 1,
+      "hold": 2,
+      "attack": 0,
+      "ground": 0
+    },
+    "diffs": [
+      {
+        "feature": "net_share",
+        "usual": 1,
+        "value": 0
+      },
+      {
+        "feature": "play_zone",
+        "usual": 2,
+        "value": 1
+      },
+      {
+        "feature": "attack",
+        "usual": 1,
+        "value": 0
+      }
+    ]
+  },
+  "comparison": [
+    {
+      "lab": "2",
+      "method": "k ближайших соседей",
+      "correct": 22,
+      "n_test": 27,
+      "accuracy": 0.8148148148148148,
+      "precision": 0.8518518518518517,
+      "recall": 0.8148148148148148,
+      "f1": 0.816931216931217
+    },
+    {
+      "lab": "3",
+      "method": "дерево решений",
+      "correct": 23,
+      "n_test": 27,
+      "accuracy": 0.8518518518518519,
+      "precision": 0.8796296296296297,
+      "recall": 0.8518518518518517,
+      "f1": 0.8486772486772486
+    },
+    {
+      "lab": "4",
+      "method": "наивный Байес",
+      "correct": 21,
+      "n_test": 27,
+      "accuracy": 0.7777777777777778,
+      "precision": 0.7840909090909092,
+      "recall": 0.7777777777777777,
+      "f1": 0.7764705882352941
+    },
+    {
+      "lab": "5",
+      "method": "опорные векторы",
+      "correct": 21,
+      "n_test": 27,
+      "accuracy": 0.7777777777777778,
+      "precision": 0.8666666666666667,
+      "recall": 0.7777777777777777,
+      "f1": 0.7833333333333333
+    }
+  ],
+  "best_accuracy": 0.8518518518518519,
+  "winners": [
+    "дерево решений"
+  ],
+  "train_ids": [
+    4,
+    7,
+    9,
+    10,
+    12,
+    14,
+    16,
+    17,
+    18,
+    19,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    33,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    47,
+    50,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    59,
+    61,
+    62,
+    63,
+    64,
+    66,
+    67,
+    68,
+    69,
+    70,
+    72,
+    73,
+    74,
+    75,
+    76,
+    80,
+    81,
+    82,
+    83,
+    86,
+    87,
+    90
+  ],
+  "test_ids": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    8,
+    11,
+    13,
+    15,
+    20,
+    32,
+    34,
+    46,
+    48,
+    49,
+    51,
+    58,
+    60,
+    65,
+    71,
+    77,
+    78,
+    79,
+    84,
+    85,
+    88,
+    89
+  ],
+  "correct": 21,
+  "accuracy": 0.7777777777777778,
+  "confusion": [
+    [
+      6,
+      3,
+      0
+    ],
+    [
+      0,
+      9,
+      0
+    ],
+    [
+      0,
+      3,
+      6
+    ]
+  ],
+  "per_class": [
+    {
+      "class": "футбольный",
+      "tp": 6,
+      "fp": 0,
+      "fn": 3,
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
+      "support": 9
+    },
+    {
+      "class": "баскетбольный",
+      "tp": 9,
+      "fp": 6,
+      "fn": 0,
+      "precision": 0.6,
+      "recall": 1.0,
+      "f1": 0.7499999999999999,
+      "support": 9
+    },
+    {
+      "class": "волейбольный",
+      "tp": 6,
+      "fp": 0,
+      "fn": 3,
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
+      "support": 9
+    }
+  ],
+  "macro_precision": 0.8666666666666667,
+  "macro_recall": 0.7777777777777777,
+  "macro_f1": 0.7833333333333333
+}

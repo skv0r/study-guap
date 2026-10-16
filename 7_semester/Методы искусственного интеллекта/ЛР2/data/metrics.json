@@ -4,137 +4,130 @@
   "n_test": 27,
   "k": 1,
   "k_tied": [
-    1,
-    3,
-    5,
-    7,
-    9,
-    11,
-    13,
-    15
+    1
   ],
   "loo": [
     {
       "k": 1,
-      "correct": 63,
+      "correct": 55,
       "n": 63,
-      "accuracy": 1.0
+      "accuracy": 0.873015873015873
     },
     {
       "k": 3,
-      "correct": 63,
+      "correct": 54,
       "n": 63,
-      "accuracy": 1.0
+      "accuracy": 0.8571428571428571
     },
     {
       "k": 5,
-      "correct": 63,
+      "correct": 52,
       "n": 63,
-      "accuracy": 1.0
+      "accuracy": 0.8253968253968254
     },
     {
       "k": 7,
-      "correct": 63,
+      "correct": 48,
       "n": 63,
-      "accuracy": 1.0
+      "accuracy": 0.7619047619047619
     },
     {
       "k": 9,
-      "correct": 63,
+      "correct": 38,
       "n": 63,
-      "accuracy": 1.0
+      "accuracy": 0.6031746031746031
     },
     {
       "k": 11,
-      "correct": 63,
+      "correct": 43,
       "n": 63,
-      "accuracy": 1.0
+      "accuracy": 0.6825396825396826
     },
     {
       "k": 13,
-      "correct": 63,
+      "correct": 38,
       "n": 63,
-      "accuracy": 1.0
+      "accuracy": 0.6031746031746031
     },
     {
       "k": 15,
-      "correct": 63,
+      "correct": 38,
       "n": 63,
-      "accuracy": 1.0
+      "accuracy": 0.6031746031746031
     }
   ],
-  "correct": 27,
-  "errors": 0,
+  "correct": 22,
+  "errors": 5,
   "ties_on_test": 0,
-  "accuracy": 1.0,
+  "accuracy": 0.8148148148148148,
   "confusion": [
     [
-      9,
-      0,
+      8,
+      1,
       0
     ],
     [
-      0,
-      9,
+      1,
+      8,
       0
     ],
     [
+      3,
       0,
-      0,
-      9
+      6
     ]
   ],
   "per_class": [
     {
       "class": "футбольный",
-      "tp": 9,
-      "fp": 0,
-      "tn": 18,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0,
-      "f1": 1.0,
+      "tp": 8,
+      "fp": 4,
+      "tn": 14,
+      "fn": 1,
+      "precision": 0.6666666666666666,
+      "recall": 0.8888888888888888,
+      "f1": 0.761904761904762,
       "support": 9
     },
     {
       "class": "баскетбольный",
-      "tp": 9,
-      "fp": 0,
-      "tn": 18,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0,
-      "f1": 1.0,
+      "tp": 8,
+      "fp": 1,
+      "tn": 17,
+      "fn": 1,
+      "precision": 0.8888888888888888,
+      "recall": 0.8888888888888888,
+      "f1": 0.8888888888888888,
       "support": 9
     },
     {
       "class": "волейбольный",
-      "tp": 9,
+      "tp": 6,
       "fp": 0,
       "tn": 18,
-      "fn": 0,
+      "fn": 3,
       "precision": 1.0,
-      "recall": 1.0,
-      "f1": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
       "support": 9
     }
   ],
-  "macro_precision": 1.0,
-  "macro_recall": 1.0,
-  "macro_f1": 1.0,
+  "macro_precision": 0.8518518518518517,
+  "macro_recall": 0.8148148148148148,
+  "macro_f1": 0.816931216931217,
   "mu": {
-    "net_share": 0.3333333333333333,
-    "play_zone": 1.0,
-    "hold": 1.0,
-    "attack": 0.6666666666666666,
-    "ground": 0.6825396825396826
+    "net_share": 0.6825396825396826,
+    "play_zone": 1.0158730158730158,
+    "hold": 1.1111111111111112,
+    "attack": 0.746031746031746,
+    "ground": 0.5555555555555556
   },
   "sd": {
-    "net_share": 0.47140452079103157,
-    "play_zone": 0.816496580927726,
-    "hold": 0.816496580927726,
-    "attack": 0.47140452079103157,
-    "ground": 0.46548819995603774
+    "net_share": 0.752253689591923,
+    "play_zone": 0.8260071003973137,
+    "hold": 0.8565547659194951,
+    "attack": 0.7759940674019249,
+    "ground": 0.7923799348792815
   },
   "train_ids": [
     4,
@@ -230,7 +223,13 @@
     88,
     89
   ],
-  "error_ids": [],
+  "error_ids": [
+    8,
+    20,
+    48,
+    65,
+    88
+  ],
   "predictions": [
     {
       "id": 1,
@@ -245,26 +244,45 @@
       },
       "features": {
         "net_share": 0,
-        "play_zone": 2,
+        "play_zone": 1,
         "hold": 2,
-        "attack": 1,
-        "ground": 1
+        "attack": 0,
+        "ground": 0
       },
       "neighbors": [
         {
-          "id": 26,
+          "id": 64,
           "ball": "баскетбольный",
           "distance": 0.0,
           "features": {
             "net_share": 0,
-            "play_zone": 2,
+            "play_zone": 1,
             "hold": 2,
-            "attack": 1,
-            "ground": 1
+            "attack": 0,
+            "ground": 0
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 1,
+          "value": 0,
+          "phrase": "динамика владения 0 вместо 1"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 2,
+          "value": 1,
+          "phrase": "зона 1 вместо 2"
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0,
+          "phrase": "вектор 0 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -280,26 +298,45 @@
       },
       "features": {
         "net_share": 0,
-        "play_zone": 2,
+        "play_zone": 1,
         "hold": 2,
-        "attack": 1,
-        "ground": 1
+        "attack": 0,
+        "ground": 0
       },
       "neighbors": [
         {
-          "id": 26,
+          "id": 64,
           "ball": "баскетбольный",
           "distance": 0.0,
           "features": {
             "net_share": 0,
-            "play_zone": 2,
+            "play_zone": 1,
             "hold": 2,
-            "attack": 1,
-            "ground": 1
+            "attack": 0,
+            "ground": 0
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 1,
+          "value": 0,
+          "phrase": "динамика владения 0 вместо 1"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 2,
+          "value": 1,
+          "phrase": "зона 1 вместо 2"
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0,
+          "phrase": "вектор 0 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -315,7 +352,7 @@
       },
       "features": {
         "net_share": 0,
-        "play_zone": 2,
+        "play_zone": 1,
         "hold": 2,
         "attack": 0,
         "ground": 1
@@ -327,7 +364,7 @@
           "distance": 0.0,
           "features": {
             "net_share": 0,
-            "play_zone": 2,
+            "play_zone": 1,
             "hold": 2,
             "attack": 0,
             "ground": 1
@@ -336,13 +373,31 @@
       ],
       "diffs": [
         {
+          "feature": "net_share",
+          "usual": 1,
+          "value": 0,
+          "phrase": "динамика владения 0 вместо 1"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 2,
+          "value": 1,
+          "phrase": "зона 1 вместо 2"
+        },
+        {
           "feature": "attack",
           "usual": 1,
           "value": 0,
           "phrase": "вектор 0 вместо 1"
+        },
+        {
+          "feature": "ground",
+          "usual": 0,
+          "value": 1,
+          "phrase": "земля 1 вместо 0"
         }
       ],
-      "variant_name": "баскетбольный пас по площадке без броска вверх"
+      "variant_name": ""
     },
     {
       "id": 5,
@@ -356,27 +411,34 @@
         "волейбольный": 0
       },
       "features": {
-        "net_share": 0,
+        "net_share": 1,
         "play_zone": 2,
         "hold": 2,
-        "attack": 1,
-        "ground": 1
+        "attack": 2,
+        "ground": 0
       },
       "neighbors": [
         {
-          "id": 26,
+          "id": 19,
           "ball": "баскетбольный",
           "distance": 0.0,
           "features": {
-            "net_share": 0,
+            "net_share": 1,
             "play_zone": 2,
             "hold": 2,
-            "attack": 1,
-            "ground": 1
+            "attack": 2,
+            "ground": 0
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 2,
+          "phrase": "вектор 2 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -391,62 +453,88 @@
         "волейбольный": 1
       },
       "features": {
-        "net_share": 1,
-        "play_zone": 1,
+        "net_share": 2,
+        "play_zone": 2,
         "hold": 0,
         "attack": 1,
         "ground": 0
       },
       "neighbors": [
         {
-          "id": 39,
+          "id": 9,
           "ball": "волейбольный",
           "distance": 0.0,
           "features": {
-            "net_share": 1,
-            "play_zone": 1,
+            "net_share": 2,
+            "play_zone": 2,
             "hold": 0,
             "attack": 1,
             "ground": 0
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 2,
+          "phrase": "зона 2 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
       "id": 8,
       "ball": "футбольный",
-      "pred": "футбольный",
-      "correct": true,
+      "pred": "баскетбольный",
+      "correct": false,
       "tie": false,
       "votes": {
-        "футбольный": 1,
-        "баскетбольный": 0,
+        "футбольный": 0,
+        "баскетбольный": 1,
         "волейбольный": 0
       },
       "features": {
         "net_share": 0,
-        "play_zone": 0,
-        "hold": 1,
+        "play_zone": 1,
+        "hold": 2,
         "attack": 0,
-        "ground": 1
+        "ground": 0
       },
       "neighbors": [
         {
-          "id": 74,
-          "ball": "футбольный",
+          "id": 64,
+          "ball": "баскетбольный",
           "distance": 0.0,
           "features": {
             "net_share": 0,
-            "play_zone": 0,
-            "hold": 1,
+            "play_zone": 1,
+            "hold": 2,
             "attack": 0,
-            "ground": 1
+            "ground": 0
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "play_zone",
+          "usual": 0,
+          "value": 1,
+          "phrase": "зона 1 вместо 0"
+        },
+        {
+          "feature": "hold",
+          "usual": 1,
+          "value": 2,
+          "phrase": "удержание 2 вместо 1"
+        },
+        {
+          "feature": "ground",
+          "usual": 2,
+          "value": 0,
+          "phrase": "земля 0 вместо 2"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -462,26 +550,45 @@
       },
       "features": {
         "net_share": 0,
-        "play_zone": 2,
+        "play_zone": 1,
         "hold": 2,
-        "attack": 1,
-        "ground": 1
+        "attack": 0,
+        "ground": 0
       },
       "neighbors": [
         {
-          "id": 26,
+          "id": 64,
           "ball": "баскетбольный",
           "distance": 0.0,
           "features": {
             "net_share": 0,
-            "play_zone": 2,
+            "play_zone": 1,
             "hold": 2,
-            "attack": 1,
-            "ground": 1
+            "attack": 0,
+            "ground": 0
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 1,
+          "value": 0,
+          "phrase": "динамика владения 0 вместо 1"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 2,
+          "value": 1,
+          "phrase": "зона 1 вместо 2"
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0,
+          "phrase": "вектор 0 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -496,11 +603,11 @@
         "волейбольный": 0
       },
       "features": {
-        "net_share": 0,
-        "play_zone": 0,
-        "hold": 1,
-        "attack": 0,
-        "ground": 1
+        "net_share": 1,
+        "play_zone": 2,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
       },
       "neighbors": [
         {
@@ -508,15 +615,46 @@
           "ball": "футбольный",
           "distance": 0.0,
           "features": {
-            "net_share": 0,
-            "play_zone": 0,
-            "hold": 1,
-            "attack": 0,
-            "ground": 1
+            "net_share": 1,
+            "play_zone": 2,
+            "hold": 0,
+            "attack": 1,
+            "ground": 0
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 0,
+          "value": 1,
+          "phrase": "динамика владения 1 вместо 0"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 0,
+          "value": 2,
+          "phrase": "зона 2 вместо 0"
+        },
+        {
+          "feature": "hold",
+          "usual": 1,
+          "value": 0,
+          "phrase": "удержание 0 вместо 1"
+        },
+        {
+          "feature": "attack",
+          "usual": 0,
+          "value": 1,
+          "phrase": "вектор 1 вместо 0"
+        },
+        {
+          "feature": "ground",
+          "usual": 2,
+          "value": 0,
+          "phrase": "земля 0 вместо 2"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -535,11 +673,11 @@
         "play_zone": 0,
         "hold": 1,
         "attack": 0,
-        "ground": 1
+        "ground": 2
       },
       "neighbors": [
         {
-          "id": 74,
+          "id": 12,
           "ball": "футбольный",
           "distance": 0.0,
           "features": {
@@ -547,7 +685,7 @@
             "play_zone": 0,
             "hold": 1,
             "attack": 0,
-            "ground": 1
+            "ground": 2
           }
         }
       ],
@@ -557,36 +695,49 @@
     {
       "id": 20,
       "ball": "волейбольный",
-      "pred": "волейбольный",
-      "correct": true,
+      "pred": "футбольный",
+      "correct": false,
       "tie": false,
       "votes": {
-        "футбольный": 0,
+        "футбольный": 1,
         "баскетбольный": 0,
-        "волейбольный": 1
+        "волейбольный": 0
       },
       "features": {
         "net_share": 1,
-        "play_zone": 1,
+        "play_zone": 2,
         "hold": 0,
         "attack": 1,
         "ground": 0
       },
       "neighbors": [
         {
-          "id": 39,
-          "ball": "волейбольный",
+          "id": 74,
+          "ball": "футбольный",
           "distance": 0.0,
           "features": {
             "net_share": 1,
-            "play_zone": 1,
+            "play_zone": 2,
             "hold": 0,
             "attack": 1,
             "ground": 0
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 2,
+          "value": 1,
+          "phrase": "динамика владения 1 вместо 2"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 2,
+          "phrase": "зона 2 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -601,23 +752,23 @@
         "волейбольный": 0
       },
       "features": {
-        "net_share": 0,
+        "net_share": 1,
         "play_zone": 2,
         "hold": 2,
         "attack": 1,
-        "ground": 1
+        "ground": 0
       },
       "neighbors": [
         {
-          "id": 26,
+          "id": 21,
           "ball": "баскетбольный",
           "distance": 0.0,
           "features": {
-            "net_share": 0,
+            "net_share": 1,
             "play_zone": 2,
             "hold": 2,
             "attack": 1,
-            "ground": 1
+            "ground": 0
           }
         }
       ],
@@ -636,23 +787,23 @@
         "волейбольный": 0
       },
       "features": {
-        "net_share": 0,
+        "net_share": 1,
         "play_zone": 2,
         "hold": 2,
         "attack": 1,
-        "ground": 1
+        "ground": 0
       },
       "neighbors": [
         {
-          "id": 26,
+          "id": 21,
           "ball": "баскетбольный",
           "distance": 0.0,
           "features": {
-            "net_share": 0,
+            "net_share": 1,
             "play_zone": 2,
             "hold": 2,
             "attack": 1,
-            "ground": 1
+            "ground": 0
           }
         }
       ],
@@ -675,11 +826,11 @@
         "play_zone": 0,
         "hold": 1,
         "attack": 0,
-        "ground": 1
+        "ground": 2
       },
       "neighbors": [
         {
-          "id": 74,
+          "id": 12,
           "ball": "футбольный",
           "distance": 0.0,
           "features": {
@@ -687,7 +838,7 @@
             "play_zone": 0,
             "hold": 1,
             "attack": 0,
-            "ground": 1
+            "ground": 2
           }
         }
       ],
@@ -697,36 +848,49 @@
     {
       "id": 48,
       "ball": "волейбольный",
-      "pred": "волейбольный",
-      "correct": true,
+      "pred": "футбольный",
+      "correct": false,
       "tie": false,
       "votes": {
-        "футбольный": 0,
+        "футбольный": 1,
         "баскетбольный": 0,
-        "волейбольный": 1
+        "волейбольный": 0
       },
       "features": {
         "net_share": 1,
-        "play_zone": 1,
+        "play_zone": 2,
         "hold": 0,
         "attack": 1,
         "ground": 0
       },
       "neighbors": [
         {
-          "id": 39,
-          "ball": "волейбольный",
+          "id": 74,
+          "ball": "футбольный",
           "distance": 0.0,
           "features": {
             "net_share": 1,
-            "play_zone": 1,
+            "play_zone": 2,
             "hold": 0,
             "attack": 1,
             "ground": 0
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 2,
+          "value": 1,
+          "phrase": "динамика владения 1 вместо 2"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 2,
+          "phrase": "зона 2 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -741,27 +905,52 @@
         "волейбольный": 1
       },
       "features": {
-        "net_share": 1,
-        "play_zone": 1,
+        "net_share": 0,
+        "play_zone": 0,
         "hold": 0,
-        "attack": 1,
-        "ground": 0
+        "attack": 0,
+        "ground": 1
       },
       "neighbors": [
         {
-          "id": 39,
+          "id": 17,
           "ball": "волейбольный",
           "distance": 0.0,
           "features": {
-            "net_share": 1,
-            "play_zone": 1,
+            "net_share": 0,
+            "play_zone": 0,
             "hold": 0,
-            "attack": 1,
-            "ground": 0
+            "attack": 0,
+            "ground": 1
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 2,
+          "value": 0,
+          "phrase": "динамика владения 0 вместо 2"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 0,
+          "phrase": "зона 0 вместо 1"
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0,
+          "phrase": "вектор 0 вместо 1"
+        },
+        {
+          "feature": "ground",
+          "usual": 0,
+          "value": 1,
+          "phrase": "земля 1 вместо 0"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -776,7 +965,7 @@
         "волейбольный": 0
       },
       "features": {
-        "net_share": 0,
+        "net_share": 1,
         "play_zone": 0,
         "hold": 1,
         "attack": 0,
@@ -784,11 +973,11 @@
       },
       "neighbors": [
         {
-          "id": 74,
+          "id": 86,
           "ball": "футбольный",
           "distance": 0.0,
           "features": {
-            "net_share": 0,
+            "net_share": 1,
             "play_zone": 0,
             "hold": 1,
             "attack": 0,
@@ -796,7 +985,20 @@
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 0,
+          "value": 1,
+          "phrase": "динамика владения 1 вместо 0"
+        },
+        {
+          "feature": "ground",
+          "usual": 2,
+          "value": 1,
+          "phrase": "земля 1 вместо 2"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -811,7 +1013,7 @@
         "волейбольный": 1
       },
       "features": {
-        "net_share": 1,
+        "net_share": 2,
         "play_zone": 1,
         "hold": 0,
         "attack": 1,
@@ -819,11 +1021,11 @@
       },
       "neighbors": [
         {
-          "id": 39,
+          "id": 66,
           "ball": "волейбольный",
           "distance": 0.0,
           "features": {
-            "net_share": 1,
+            "net_share": 2,
             "play_zone": 1,
             "hold": 0,
             "attack": 1,
@@ -847,10 +1049,10 @@
       },
       "features": {
         "net_share": 0,
-        "play_zone": 2,
+        "play_zone": 0,
         "hold": 2,
-        "attack": 1,
-        "ground": 1
+        "attack": 0,
+        "ground": 2
       },
       "neighbors": [
         {
@@ -859,49 +1061,81 @@
           "distance": 0.0,
           "features": {
             "net_share": 0,
-            "play_zone": 2,
+            "play_zone": 0,
             "hold": 2,
-            "attack": 1,
-            "ground": 1
+            "attack": 0,
+            "ground": 2
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 1,
+          "value": 0,
+          "phrase": "динамика владения 0 вместо 1"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 2,
+          "value": 0,
+          "phrase": "зона 0 вместо 2"
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0,
+          "phrase": "вектор 0 вместо 1"
+        },
+        {
+          "feature": "ground",
+          "usual": 0,
+          "value": 2,
+          "phrase": "земля 2 вместо 0"
+        }
+      ],
       "variant_name": ""
     },
     {
       "id": 65,
       "ball": "баскетбольный",
-      "pred": "баскетбольный",
-      "correct": true,
+      "pred": "футбольный",
+      "correct": false,
       "tie": false,
       "votes": {
-        "футбольный": 0,
-        "баскетбольный": 1,
+        "футбольный": 1,
+        "баскетбольный": 0,
         "волейбольный": 0
       },
       "features": {
-        "net_share": 0,
+        "net_share": 1,
         "play_zone": 2,
-        "hold": 2,
+        "hold": 0,
         "attack": 1,
-        "ground": 1
+        "ground": 0
       },
       "neighbors": [
         {
-          "id": 26,
-          "ball": "баскетбольный",
+          "id": 74,
+          "ball": "футбольный",
           "distance": 0.0,
           "features": {
-            "net_share": 0,
+            "net_share": 1,
             "play_zone": 2,
-            "hold": 2,
+            "hold": 0,
             "attack": 1,
-            "ground": 1
+            "ground": 0
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "hold",
+          "usual": 2,
+          "value": 0,
+          "phrase": "удержание 0 вместо 2"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -916,11 +1150,11 @@
         "волейбольный": 1
       },
       "features": {
-        "net_share": 1,
+        "net_share": 2,
         "play_zone": 1,
         "hold": 0,
-        "attack": 1,
-        "ground": 1
+        "attack": 2,
+        "ground": 0
       },
       "neighbors": [
         {
@@ -928,23 +1162,23 @@
           "ball": "волейбольный",
           "distance": 0.0,
           "features": {
-            "net_share": 1,
+            "net_share": 2,
             "play_zone": 1,
             "hold": 0,
-            "attack": 1,
-            "ground": 1
+            "attack": 2,
+            "ground": 0
           }
         }
       ],
       "diffs": [
         {
-          "feature": "ground",
-          "usual": 0,
-          "value": 1,
-          "phrase": "земля 1 вместо 0"
+          "feature": "attack",
+          "usual": 1,
+          "value": 2,
+          "phrase": "вектор 2 вместо 1"
         }
       ],
-      "variant_name": "волейбольный приём, мяч коснулся пола"
+      "variant_name": ""
     },
     {
       "id": 77,
@@ -958,27 +1192,34 @@
         "волейбольный": 0
       },
       "features": {
-        "net_share": 0,
+        "net_share": 1,
         "play_zone": 0,
         "hold": 1,
         "attack": 0,
-        "ground": 1
+        "ground": 2
       },
       "neighbors": [
         {
-          "id": 74,
+          "id": 83,
           "ball": "футбольный",
           "distance": 0.0,
           "features": {
-            "net_share": 0,
+            "net_share": 1,
             "play_zone": 0,
             "hold": 1,
             "attack": 0,
-            "ground": 1
+            "ground": 2
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 0,
+          "value": 1,
+          "phrase": "динамика владения 1 вместо 0"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -997,11 +1238,11 @@
         "play_zone": 0,
         "hold": 1,
         "attack": 0,
-        "ground": 1
+        "ground": 2
       },
       "neighbors": [
         {
-          "id": 74,
+          "id": 12,
           "ball": "футбольный",
           "distance": 0.0,
           "features": {
@@ -1009,7 +1250,7 @@
             "play_zone": 0,
             "hold": 1,
             "attack": 0,
-            "ground": 1
+            "ground": 2
           }
         }
       ],
@@ -1028,7 +1269,7 @@
         "волейбольный": 1
       },
       "features": {
-        "net_share": 1,
+        "net_share": 2,
         "play_zone": 1,
         "hold": 0,
         "attack": 1,
@@ -1036,11 +1277,11 @@
       },
       "neighbors": [
         {
-          "id": 39,
+          "id": 66,
           "ball": "волейбольный",
           "distance": 0.0,
           "features": {
-            "net_share": 1,
+            "net_share": 2,
             "play_zone": 1,
             "hold": 0,
             "attack": 1,
@@ -1063,11 +1304,11 @@
         "волейбольный": 0
       },
       "features": {
-        "net_share": 0,
-        "play_zone": 0,
-        "hold": 1,
-        "attack": 0,
-        "ground": 1
+        "net_share": 1,
+        "play_zone": 2,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
       },
       "neighbors": [
         {
@@ -1075,15 +1316,46 @@
           "ball": "футбольный",
           "distance": 0.0,
           "features": {
-            "net_share": 0,
-            "play_zone": 0,
-            "hold": 1,
-            "attack": 0,
-            "ground": 1
+            "net_share": 1,
+            "play_zone": 2,
+            "hold": 0,
+            "attack": 1,
+            "ground": 0
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 0,
+          "value": 1,
+          "phrase": "динамика владения 1 вместо 0"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 0,
+          "value": 2,
+          "phrase": "зона 2 вместо 0"
+        },
+        {
+          "feature": "hold",
+          "usual": 1,
+          "value": 0,
+          "phrase": "удержание 0 вместо 1"
+        },
+        {
+          "feature": "attack",
+          "usual": 0,
+          "value": 1,
+          "phrase": "вектор 1 вместо 0"
+        },
+        {
+          "feature": "ground",
+          "usual": 2,
+          "value": 0,
+          "phrase": "земля 0 вместо 2"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -1098,70 +1370,83 @@
         "волейбольный": 1
       },
       "features": {
-        "net_share": 1,
-        "play_zone": 1,
+        "net_share": 2,
+        "play_zone": 2,
         "hold": 0,
         "attack": 1,
         "ground": 0
       },
       "neighbors": [
         {
-          "id": 39,
+          "id": 9,
           "ball": "волейбольный",
           "distance": 0.0,
           "features": {
-            "net_share": 1,
-            "play_zone": 1,
+            "net_share": 2,
+            "play_zone": 2,
             "hold": 0,
             "attack": 1,
             "ground": 0
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 2,
+          "phrase": "зона 2 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
       "id": 88,
       "ball": "волейбольный",
-      "pred": "волейбольный",
-      "correct": true,
+      "pred": "футбольный",
+      "correct": false,
       "tie": false,
       "votes": {
-        "футбольный": 0,
+        "футбольный": 1,
         "баскетбольный": 0,
-        "волейбольный": 1
+        "волейбольный": 0
       },
       "features": {
         "net_share": 1,
-        "play_zone": 1,
+        "play_zone": 2,
         "hold": 0,
         "attack": 1,
-        "ground": 1
+        "ground": 0
       },
       "neighbors": [
         {
-          "id": 7,
-          "ball": "волейбольный",
+          "id": 74,
+          "ball": "футбольный",
           "distance": 0.0,
           "features": {
             "net_share": 1,
-            "play_zone": 1,
+            "play_zone": 2,
             "hold": 0,
             "attack": 1,
-            "ground": 1
+            "ground": 0
           }
         }
       ],
       "diffs": [
         {
-          "feature": "ground",
-          "usual": 0,
+          "feature": "net_share",
+          "usual": 2,
           "value": 1,
-          "phrase": "земля 1 вместо 0"
+          "phrase": "динамика владения 1 вместо 2"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 2,
+          "phrase": "зона 2 вместо 1"
         }
       ],
-      "variant_name": "волейбольный приём, мяч коснулся пола"
+      "variant_name": ""
     },
     {
       "id": 89,
@@ -1175,11 +1460,11 @@
         "волейбольный": 0
       },
       "features": {
-        "net_share": 0,
+        "net_share": 1,
         "play_zone": 0,
         "hold": 1,
-        "attack": 1,
-        "ground": 1
+        "attack": 0,
+        "ground": 2
       },
       "neighbors": [
         {
@@ -1187,43 +1472,43 @@
           "ball": "футбольный",
           "distance": 0.0,
           "features": {
-            "net_share": 0,
+            "net_share": 1,
             "play_zone": 0,
             "hold": 1,
-            "attack": 1,
-            "ground": 1
+            "attack": 0,
+            "ground": 2
           }
         }
       ],
       "diffs": [
         {
-          "feature": "attack",
+          "feature": "net_share",
           "usual": 0,
           "value": 1,
-          "phrase": "вектор 1 вместо 0"
+          "phrase": "динамика владения 1 вместо 0"
         }
       ],
-      "variant_name": "футбольный навес"
+      "variant_name": ""
     }
   ],
-  "example_id": 1,
+  "example_id": 15,
   "typical": {
     "футбольный": [
       0,
       0,
       1,
       0,
-      1
+      2
     ],
     "баскетбольный": [
-      0,
+      1,
       2,
       2,
       1,
-      1
+      0
     ],
     "волейбольный": [
-      1,
+      2,
       1,
       0,
       1,
@@ -1233,8 +1518,8 @@
   "scale_note": {
     "raw_zone_sq": 4,
     "raw_ground_sq": 1,
-    "scaled_zone_step": 1.224744871391589,
-    "scaled_ground_step": 2.1482821693319902
+    "scaled_zone_step": 1.210643346187938,
+    "scaled_ground_step": 1.2620208513386313
   },
   "classes_present": [
     "баскетбольный",

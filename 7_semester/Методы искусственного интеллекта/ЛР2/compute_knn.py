@@ -221,7 +221,7 @@ def neighbor_record(train_ids, y_train, x_train, nn, dist) -> list[dict]:
     return rows
 
 
-def row_diff(ball: str, features: dict, typical: dict, variant: dict) -> dict:
+def row_diff(ball: str, features: dict, typical: dict) -> dict:
     diffs = []
     for feature, usual in zip(FEATURES, typical[ball]):
         value = int(features[feature])
@@ -234,11 +234,7 @@ def row_diff(ball: str, features: dict, typical: dict, variant: dict) -> dict:
                     "phrase": f"{SHORT[feature]} {value} вместо {usual}",
                 }
             )
-    spec = variant[ball]
-    variant_name = ""
-    if len(diffs) == 1 and diffs[0]["feature"] == spec["feature"] and diffs[0]["value"] == spec["value"]:
-        variant_name = spec["name"]
-    return {"diffs": diffs, "variant_name": variant_name}
+    return {"diffs": diffs, "variant_name": ""}
 
 
 def main() -> None:
@@ -249,7 +245,6 @@ def main() -> None:
     split = json.loads((DATA / "split.json").read_text(encoding="utf-8"))
     codes = json.loads((DATA / "codes.json").read_text(encoding="utf-8"))
     typical = codes["typical"]
-    variant = codes["variant"]
     if len(df) != 90:
         raise RuntimeError("в таблице не 90 строк")
     for feature in FEATURES:
@@ -295,7 +290,7 @@ def main() -> None:
         y_hat.append(pred)
         votes = {name: int((y_train[nn] == name).sum()) for name in CLASSES}
         features = {feature: int(X_test[i, j]) for j, feature in enumerate(FEATURES)}
-        described = row_diff(str(y_test[i]), features, typical, variant)
+        described = row_diff(str(y_test[i]), features, typical)
         predictions.append(
             {
                 "id": int(id_test[i]),

@@ -2,18 +2,18 @@
   "n": 90,
   "n_train": 63,
   "n_test": 27,
-  "correct": 27,
-  "accuracy": 1.0,
+  "correct": 23,
+  "accuracy": 0.8518518518518519,
   "confusion": [
     [
-      9,
-      0,
-      0
+      6,
+      1,
+      2
     ],
     [
       0,
-      9,
-      0
+      8,
+      1
     ],
     [
       0,
@@ -25,28 +25,28 @@
     {
       "class": "футбольный",
       "precision": 1.0,
-      "recall": 1.0,
-      "f1": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
       "support": 9
     },
     {
       "class": "баскетбольный",
-      "precision": 1.0,
-      "recall": 1.0,
-      "f1": 1.0,
+      "precision": 0.8888888888888888,
+      "recall": 0.8888888888888888,
+      "f1": 0.8888888888888888,
       "support": 9
     },
     {
       "class": "волейбольный",
-      "precision": 1.0,
+      "precision": 0.75,
       "recall": 1.0,
-      "f1": 1.0,
+      "f1": 0.8571428571428571,
       "support": 9
     }
   ],
-  "macro_precision": 1.0,
-  "macro_recall": 1.0,
-  "macro_f1": 1.0,
+  "macro_precision": 0.8796296296296297,
+  "macro_recall": 0.8518518518518517,
+  "macro_f1": 0.8486772486772486,
   "train_ids": [
     4,
     7,
@@ -141,7 +141,12 @@
     88,
     89
   ],
-  "error_ids": [],
+  "error_ids": [
+    8,
+    13,
+    65,
+    84
+  ],
   "predictions": [
     {
       "id": 1,
@@ -150,12 +155,31 @@
       "correct": true,
       "features": {
         "net_share": 0,
-        "play_zone": 2,
+        "play_zone": 1,
         "hold": 2,
-        "attack": 1,
-        "ground": 1
+        "attack": 0,
+        "ground": 0
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 1,
+          "value": 0,
+          "phrase": "динамика владения 0 вместо 1"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 2,
+          "value": 1,
+          "phrase": "зона 1 вместо 2"
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0,
+          "phrase": "вектор 0 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -165,12 +189,31 @@
       "correct": true,
       "features": {
         "net_share": 0,
-        "play_zone": 2,
+        "play_zone": 1,
         "hold": 2,
-        "attack": 1,
-        "ground": 1
+        "attack": 0,
+        "ground": 0
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 1,
+          "value": 0,
+          "phrase": "динамика владения 0 вместо 1"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 2,
+          "value": 1,
+          "phrase": "зона 1 вместо 2"
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0,
+          "phrase": "вектор 0 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -180,20 +223,38 @@
       "correct": true,
       "features": {
         "net_share": 0,
-        "play_zone": 2,
+        "play_zone": 1,
         "hold": 2,
         "attack": 0,
         "ground": 1
       },
       "diffs": [
         {
+          "feature": "net_share",
+          "usual": 1,
+          "value": 0,
+          "phrase": "динамика владения 0 вместо 1"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 2,
+          "value": 1,
+          "phrase": "зона 1 вместо 2"
+        },
+        {
           "feature": "attack",
           "usual": 1,
           "value": 0,
           "phrase": "вектор 0 вместо 1"
+        },
+        {
+          "feature": "ground",
+          "usual": 0,
+          "value": 1,
+          "phrase": "земля 1 вместо 0"
         }
       ],
-      "variant_name": "баскетбольный пас по площадке без броска вверх"
+      "variant_name": ""
     },
     {
       "id": 5,
@@ -201,13 +262,20 @@
       "pred": "баскетбольный",
       "correct": true,
       "features": {
-        "net_share": 0,
+        "net_share": 1,
         "play_zone": 2,
         "hold": 2,
-        "attack": 1,
-        "ground": 1
+        "attack": 2,
+        "ground": 0
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 2,
+          "phrase": "вектор 2 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -216,28 +284,54 @@
       "pred": "волейбольный",
       "correct": true,
       "features": {
-        "net_share": 1,
-        "play_zone": 1,
+        "net_share": 2,
+        "play_zone": 2,
         "hold": 0,
         "attack": 1,
         "ground": 0
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 2,
+          "phrase": "зона 2 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
       "id": 8,
       "ball": "футбольный",
-      "pred": "футбольный",
-      "correct": true,
+      "pred": "баскетбольный",
+      "correct": false,
       "features": {
         "net_share": 0,
-        "play_zone": 0,
-        "hold": 1,
+        "play_zone": 1,
+        "hold": 2,
         "attack": 0,
-        "ground": 1
+        "ground": 0
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "play_zone",
+          "usual": 0,
+          "value": 1,
+          "phrase": "зона 1 вместо 0"
+        },
+        {
+          "feature": "hold",
+          "usual": 1,
+          "value": 2,
+          "phrase": "удержание 2 вместо 1"
+        },
+        {
+          "feature": "ground",
+          "usual": 2,
+          "value": 0,
+          "phrase": "земля 0 вместо 2"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -247,27 +341,77 @@
       "correct": true,
       "features": {
         "net_share": 0,
-        "play_zone": 2,
+        "play_zone": 1,
         "hold": 2,
-        "attack": 1,
-        "ground": 1
+        "attack": 0,
+        "ground": 0
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 1,
+          "value": 0,
+          "phrase": "динамика владения 0 вместо 1"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 2,
+          "value": 1,
+          "phrase": "зона 1 вместо 2"
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0,
+          "phrase": "вектор 0 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
       "id": 13,
       "ball": "футбольный",
-      "pred": "футбольный",
-      "correct": true,
+      "pred": "волейбольный",
+      "correct": false,
       "features": {
-        "net_share": 0,
-        "play_zone": 0,
-        "hold": 1,
-        "attack": 0,
-        "ground": 1
+        "net_share": 1,
+        "play_zone": 2,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 0,
+          "value": 1,
+          "phrase": "динамика владения 1 вместо 0"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 0,
+          "value": 2,
+          "phrase": "зона 2 вместо 0"
+        },
+        {
+          "feature": "hold",
+          "usual": 1,
+          "value": 0,
+          "phrase": "удержание 0 вместо 1"
+        },
+        {
+          "feature": "attack",
+          "usual": 0,
+          "value": 1,
+          "phrase": "вектор 1 вместо 0"
+        },
+        {
+          "feature": "ground",
+          "usual": 2,
+          "value": 0,
+          "phrase": "земля 0 вместо 2"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -280,7 +424,7 @@
         "play_zone": 0,
         "hold": 1,
         "attack": 0,
-        "ground": 1
+        "ground": 2
       },
       "diffs": [],
       "variant_name": ""
@@ -292,12 +436,25 @@
       "correct": true,
       "features": {
         "net_share": 1,
-        "play_zone": 1,
+        "play_zone": 2,
         "hold": 0,
         "attack": 1,
         "ground": 0
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 2,
+          "value": 1,
+          "phrase": "динамика владения 1 вместо 2"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 2,
+          "phrase": "зона 2 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -306,11 +463,11 @@
       "pred": "баскетбольный",
       "correct": true,
       "features": {
-        "net_share": 0,
+        "net_share": 1,
         "play_zone": 2,
         "hold": 2,
         "attack": 1,
-        "ground": 1
+        "ground": 0
       },
       "diffs": [],
       "variant_name": ""
@@ -321,11 +478,11 @@
       "pred": "баскетбольный",
       "correct": true,
       "features": {
-        "net_share": 0,
+        "net_share": 1,
         "play_zone": 2,
         "hold": 2,
         "attack": 1,
-        "ground": 1
+        "ground": 0
       },
       "diffs": [],
       "variant_name": ""
@@ -340,7 +497,7 @@
         "play_zone": 0,
         "hold": 1,
         "attack": 0,
-        "ground": 1
+        "ground": 2
       },
       "diffs": [],
       "variant_name": ""
@@ -352,12 +509,25 @@
       "correct": true,
       "features": {
         "net_share": 1,
-        "play_zone": 1,
+        "play_zone": 2,
         "hold": 0,
         "attack": 1,
         "ground": 0
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 2,
+          "value": 1,
+          "phrase": "динамика владения 1 вместо 2"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 2,
+          "phrase": "зона 2 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -366,13 +536,38 @@
       "pred": "волейбольный",
       "correct": true,
       "features": {
-        "net_share": 1,
-        "play_zone": 1,
+        "net_share": 0,
+        "play_zone": 0,
         "hold": 0,
-        "attack": 1,
-        "ground": 0
+        "attack": 0,
+        "ground": 1
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 2,
+          "value": 0,
+          "phrase": "динамика владения 0 вместо 2"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 0,
+          "phrase": "зона 0 вместо 1"
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0,
+          "phrase": "вектор 0 вместо 1"
+        },
+        {
+          "feature": "ground",
+          "usual": 0,
+          "value": 1,
+          "phrase": "земля 1 вместо 0"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -381,13 +576,26 @@
       "pred": "футбольный",
       "correct": true,
       "features": {
-        "net_share": 0,
+        "net_share": 1,
         "play_zone": 0,
         "hold": 1,
         "attack": 0,
         "ground": 1
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 0,
+          "value": 1,
+          "phrase": "динамика владения 1 вместо 0"
+        },
+        {
+          "feature": "ground",
+          "usual": 2,
+          "value": 1,
+          "phrase": "земля 1 вместо 2"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -396,7 +604,7 @@
       "pred": "волейбольный",
       "correct": true,
       "features": {
-        "net_share": 1,
+        "net_share": 2,
         "play_zone": 1,
         "hold": 0,
         "attack": 1,
@@ -412,27 +620,59 @@
       "correct": true,
       "features": {
         "net_share": 0,
-        "play_zone": 2,
+        "play_zone": 0,
         "hold": 2,
-        "attack": 1,
-        "ground": 1
+        "attack": 0,
+        "ground": 2
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 1,
+          "value": 0,
+          "phrase": "динамика владения 0 вместо 1"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 2,
+          "value": 0,
+          "phrase": "зона 0 вместо 2"
+        },
+        {
+          "feature": "attack",
+          "usual": 1,
+          "value": 0,
+          "phrase": "вектор 0 вместо 1"
+        },
+        {
+          "feature": "ground",
+          "usual": 0,
+          "value": 2,
+          "phrase": "земля 2 вместо 0"
+        }
+      ],
       "variant_name": ""
     },
     {
       "id": 65,
       "ball": "баскетбольный",
-      "pred": "баскетбольный",
-      "correct": true,
+      "pred": "волейбольный",
+      "correct": false,
       "features": {
-        "net_share": 0,
+        "net_share": 1,
         "play_zone": 2,
-        "hold": 2,
+        "hold": 0,
         "attack": 1,
-        "ground": 1
+        "ground": 0
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "hold",
+          "usual": 2,
+          "value": 0,
+          "phrase": "удержание 0 вместо 2"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -441,21 +681,21 @@
       "pred": "волейбольный",
       "correct": true,
       "features": {
-        "net_share": 1,
+        "net_share": 2,
         "play_zone": 1,
         "hold": 0,
-        "attack": 1,
-        "ground": 1
+        "attack": 2,
+        "ground": 0
       },
       "diffs": [
         {
-          "feature": "ground",
-          "usual": 0,
-          "value": 1,
-          "phrase": "земля 1 вместо 0"
+          "feature": "attack",
+          "usual": 1,
+          "value": 2,
+          "phrase": "вектор 2 вместо 1"
         }
       ],
-      "variant_name": "волейбольный приём, мяч коснулся пола"
+      "variant_name": ""
     },
     {
       "id": 77,
@@ -463,13 +703,20 @@
       "pred": "футбольный",
       "correct": true,
       "features": {
-        "net_share": 0,
+        "net_share": 1,
         "play_zone": 0,
         "hold": 1,
         "attack": 0,
-        "ground": 1
+        "ground": 2
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 0,
+          "value": 1,
+          "phrase": "динамика владения 1 вместо 0"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -482,7 +729,7 @@
         "play_zone": 0,
         "hold": 1,
         "attack": 0,
-        "ground": 1
+        "ground": 2
       },
       "diffs": [],
       "variant_name": ""
@@ -493,7 +740,7 @@
       "pred": "волейбольный",
       "correct": true,
       "features": {
-        "net_share": 1,
+        "net_share": 2,
         "play_zone": 1,
         "hold": 0,
         "attack": 1,
@@ -505,16 +752,47 @@
     {
       "id": 84,
       "ball": "футбольный",
-      "pred": "футбольный",
-      "correct": true,
+      "pred": "волейбольный",
+      "correct": false,
       "features": {
-        "net_share": 0,
-        "play_zone": 0,
-        "hold": 1,
-        "attack": 0,
-        "ground": 1
+        "net_share": 1,
+        "play_zone": 2,
+        "hold": 0,
+        "attack": 1,
+        "ground": 0
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "net_share",
+          "usual": 0,
+          "value": 1,
+          "phrase": "динамика владения 1 вместо 0"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 0,
+          "value": 2,
+          "phrase": "зона 2 вместо 0"
+        },
+        {
+          "feature": "hold",
+          "usual": 1,
+          "value": 0,
+          "phrase": "удержание 0 вместо 1"
+        },
+        {
+          "feature": "attack",
+          "usual": 0,
+          "value": 1,
+          "phrase": "вектор 1 вместо 0"
+        },
+        {
+          "feature": "ground",
+          "usual": 2,
+          "value": 0,
+          "phrase": "земля 0 вместо 2"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -523,13 +801,20 @@
       "pred": "волейбольный",
       "correct": true,
       "features": {
-        "net_share": 1,
-        "play_zone": 1,
+        "net_share": 2,
+        "play_zone": 2,
         "hold": 0,
         "attack": 1,
         "ground": 0
       },
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 2,
+          "phrase": "зона 2 вместо 1"
+        }
+      ],
       "variant_name": ""
     },
     {
@@ -539,20 +824,26 @@
       "correct": true,
       "features": {
         "net_share": 1,
-        "play_zone": 1,
+        "play_zone": 2,
         "hold": 0,
         "attack": 1,
-        "ground": 1
+        "ground": 0
       },
       "diffs": [
         {
-          "feature": "ground",
-          "usual": 0,
+          "feature": "net_share",
+          "usual": 2,
           "value": 1,
-          "phrase": "земля 1 вместо 0"
+          "phrase": "динамика владения 1 вместо 2"
+        },
+        {
+          "feature": "play_zone",
+          "usual": 1,
+          "value": 2,
+          "phrase": "зона 2 вместо 1"
         }
       ],
-      "variant_name": "волейбольный приём, мяч коснулся пола"
+      "variant_name": ""
     },
     {
       "id": 89,
@@ -560,31 +851,74 @@
       "pred": "футбольный",
       "correct": true,
       "features": {
-        "net_share": 0,
+        "net_share": 1,
         "play_zone": 0,
         "hold": 1,
-        "attack": 1,
-        "ground": 1
+        "attack": 0,
+        "ground": 2
       },
       "diffs": [
         {
-          "feature": "attack",
+          "feature": "net_share",
           "usual": 0,
           "value": 1,
-          "phrase": "вектор 1 вместо 0"
+          "phrase": "динамика владения 1 вместо 0"
         }
       ],
-      "variant_name": "футбольный навес"
+      "variant_name": ""
     }
   ],
   "rules": [
-    "Если Игровая зона = 0, то класс «футбольный». В листе 21 обучающих наблюдений одного класса.",
-    "Если Игровая зона = 1, то класс «волейбольный». В листе 21 обучающих наблюдений одного класса.",
-    "Если Игровая зона = 2, то класс «баскетбольный». В листе 21 обучающих наблюдений одного класса."
+    "Если Динамика владения = 0 или 1 и Удержание контроля = 0, то класс «волейбольный». В листе 9 обучающих наблюдений, классы перемешаны.",
+    "Если Динамика владения = 2 и Удержание контроля = 0, то класс «волейбольный». В листе 11 обучающих наблюдений одного класса.",
+    "Если Удержание контроля = 1, то класс «футбольный». В листе 16 обучающих наблюдений одного класса.",
+    "Если Удержание контроля = 2 и Вектор атаки = 0 или 1 и Контакт с землёй = 0, то класс «баскетбольный». В листе 12 обучающих наблюдений, классы перемешаны.",
+    "Если Удержание контроля = 2 и Вектор атаки = 0 или 1 и Контакт с землёй = 1 или 2, то класс «баскетбольный». В листе 7 обучающих наблюдений одного класса.",
+    "Если Игровая зона = 1 и Удержание контроля = 2 и Вектор атаки = 2, то класс «волейбольный». В листе 5 обучающих наблюдений одного класса.",
+    "Если Игровая зона = 2 и Удержание контроля = 2 и Вектор атаки = 2, то класс «баскетбольный». В листе 3 обучающих наблюдений одного класса."
   ],
   "splits": [
     {
-      "feature": "play_zone",
+      "feature": "hold",
+      "left": [
+        0,
+        1
+      ],
+      "right": [
+        2
+      ]
+    },
+    {
+      "feature": "hold",
+      "left": [
+        0
+      ],
+      "right": [
+        1
+      ]
+    },
+    {
+      "feature": "net_share",
+      "left": [
+        0,
+        1
+      ],
+      "right": [
+        2
+      ]
+    },
+    {
+      "feature": "attack",
+      "left": [
+        0,
+        1
+      ],
+      "right": [
+        2
+      ]
+    },
+    {
+      "feature": "ground",
       "left": [
         0
       ],
@@ -604,187 +938,127 @@
     }
   ],
   "max_depth_limit": 3,
-  "actual_depth": 2,
+  "actual_depth": 3,
   "min_samples_leaf": 3,
   "criterion": "gini",
-  "n_leaves": 3,
+  "n_leaves": 7,
   "typical": {
     "футбольный": [
       0,
       0,
       1,
       0,
-      1
+      2
     ],
     "баскетбольный": [
-      0,
+      1,
       2,
       2,
       1,
-      1
+      0
     ],
     "волейбольный": [
-      1,
+      2,
       1,
       0,
       1,
       0
     ]
   },
-  "variants": [
-    {
-      "id": 43,
-      "ball": "футбольный",
-      "name": "футбольный навес",
-      "feature": "attack",
-      "usual": 0,
-      "value": 1,
-      "phrase": "вектор 1 вместо 0"
-    },
-    {
-      "id": 83,
-      "ball": "футбольный",
-      "name": "футбольный навес",
-      "feature": "attack",
-      "usual": 0,
-      "value": 1,
-      "phrase": "вектор 1 вместо 0"
-    },
-    {
-      "id": 89,
-      "ball": "футбольный",
-      "name": "футбольный навес",
-      "feature": "attack",
-      "usual": 0,
-      "value": 1,
-      "phrase": "вектор 1 вместо 0"
-    },
-    {
-      "id": 3,
-      "ball": "баскетбольный",
-      "name": "баскетбольный пас по площадке без броска вверх",
-      "feature": "attack",
-      "usual": 1,
-      "value": 0,
-      "phrase": "вектор 0 вместо 1"
-    },
-    {
-      "id": 42,
-      "ball": "баскетбольный",
-      "name": "баскетбольный пас по площадке без броска вверх",
-      "feature": "attack",
-      "usual": 1,
-      "value": 0,
-      "phrase": "вектор 0 вместо 1"
-    },
-    {
-      "id": 68,
-      "ball": "баскетбольный",
-      "name": "баскетбольный пас по площадке без броска вверх",
-      "feature": "attack",
-      "usual": 1,
-      "value": 0,
-      "phrase": "вектор 0 вместо 1"
-    },
-    {
-      "id": 7,
-      "ball": "волейбольный",
-      "name": "волейбольный приём, мяч коснулся пола",
-      "feature": "ground",
-      "usual": 0,
-      "value": 1,
-      "phrase": "земля 1 вместо 0"
-    },
-    {
-      "id": 71,
-      "ball": "волейбольный",
-      "name": "волейбольный приём, мяч коснулся пола",
-      "feature": "ground",
-      "usual": 0,
-      "value": 1,
-      "phrase": "земля 1 вместо 0"
-    },
-    {
-      "id": 88,
-      "ball": "волейбольный",
-      "name": "волейбольный приём, мяч коснулся пола",
-      "feature": "ground",
-      "usual": 0,
-      "value": 1,
-      "phrase": "земля 1 вместо 0"
-    }
-  ],
+  "mode_count": {
+    "футбольный": 8,
+    "баскетбольный": 8,
+    "волейбольный": 8
+  },
   "codebook": [
     [
       "Динамика владения",
       "0",
-      "пас и ведение, удара через сетку нет",
-      "футбольный, баскетбольный"
+      "пас партнёру",
+      "все три мяча"
     ],
     [
       "Динамика владения",
       "1",
-      "розыгрыш ударами через сетку",
+      "удар или бросок в цель",
+      "все три мяча"
+    ],
+    [
+      "Динамика владения",
+      "2",
+      "розыгрыш через сетку",
       "волейбольный"
     ],
     [
       "Игровая зона",
       "0",
-      "ворота на уровне поля",
-      "футбольный"
+      "цель у земли",
+      "все три мяча"
     ],
     [
       "Игровая зона",
       "1",
-      "площадка соперника за сеткой",
-      "волейбольный"
+      "цель на уровне игрока",
+      "все три мяча"
     ],
     [
       "Игровая зона",
       "2",
-      "кольцо над площадкой",
-      "баскетбольный"
+      "высокая цель",
+      "все три мяча"
     ],
     [
       "Удержание контроля",
       "0",
-      "краткий удар, мяч не ведут",
-      "волейбольный"
+      "краткий удар без ведения",
+      "все три мяча"
     ],
     [
       "Удержание контроля",
       "1",
-      "ведение ногой",
+      "контакт ногой",
       "футбольный"
     ],
     [
       "Удержание контроля",
       "2",
-      "ведение рукой с отскоком и захватом",
-      "баскетбольный"
+      "контакт рукой",
+      "все три мяча"
     ],
     [
       "Вектор атаки",
       "0",
-      "горизонтальный",
-      "футбольный"
+      "вдоль площадки",
+      "все три мяча"
     ],
     [
       "Вектор атаки",
       "1",
-      "вертикальный",
-      "баскетбольный, волейбольный"
+      "круто вверх",
+      "все три мяча"
+    ],
+    [
+      "Вектор атаки",
+      "2",
+      "по дуге",
+      "все три мяча"
     ],
     [
       "Контакт с землёй",
       "0",
-      "нет, касание пола завершает розыгрыш",
-      "волейбольный"
+      "мяч в воздухе",
+      "все три мяча"
     ],
     [
       "Контакт с землёй",
       "1",
-      "да, мяч идёт по земле или отскок обязателен",
+      "один отскок",
+      "все три мяча"
+    ],
+    [
+      "Контакт с землёй",
+      "2",
+      "катится или серия отскоков",
       "футбольный, баскетбольный"
     ]
   ],
