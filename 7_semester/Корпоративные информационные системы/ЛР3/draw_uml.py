@@ -99,48 +99,40 @@ def actor(ax, x, y, name, side):
     line(ax, x - 0.62, y_neck - 0.32, x + 0.62, y_neck - 0.32, 1.15)
     line(ax, x, y_hip, x - 0.48, y_hip - 0.85, 1.15)
     line(ax, x, y_hip, x + 0.48, y_hip - 0.85, 1.15)
-    txt(ax, x, y_hip - 1.05, name, size=12, va="top")
+    txt(ax, x, y_hip - 1.05, name, size=11.5, va="top")
     return x + side * 0.78, y_neck - 0.32
-
-
-def ellipse_point(cx, cy, rx, ry, px, py):
-    dx, dy = px - cx, py - cy
-    norm = math.hypot(dx / rx, dy / ry)
-    if norm == 0:
-        return cx + rx, cy
-    t = 1 / norm
-    return cx + dx * t, cy + dy * t
 
 
 def use_case(ax, cx, cy, rx, ry, label):
     ax.add_patch(Ellipse((cx, cy), rx * 2, ry * 2, fill=True, facecolor="white",
                          edgecolor="black", lw=1.15, zorder=3))
-    txt(ax, cx, cy, label, size=11.5)
+    txt(ax, cx, cy, label, size=11)
 
 
 def draw_usecase():
-    w, h = 24.0, 12.2
+    w, h = 24.0, 13.0
     fig, ax = cm_fig(w, h)
-    ax.add_patch(Rectangle((4.15, 0.55), 15.7, 11.15, fill=False, lw=1.25, zorder=1))
-    txt(ax, 12.0, 11.25, "СпринтКонтур", size=14, weight="bold")
+    ax.add_patch(Rectangle((4.0, 0.45), 14.2, 12.15, fill=False, lw=1.25, zorder=1))
+    txt(ax, 11.1, 12.15, "СпринтКонтур / СервисЗадач", size=13, weight="bold")
 
     cases = {
-        "reg": (8.15, 9.55, "Зарегистрировать\nсрочную задачу"),
-        "assign": (8.15, 7.15, "Назначить\nразработчика"),
-        "term": (8.15, 4.75, "Проверить\nсрок сдачи"),
-        "close": (8.15, 2.35, "Закрыть задачу"),
-        "tell": (15.85, 9.55, "Сообщить\nтребование"),
-        "status": (15.85, 7.15, "Получить\nстатус задачи"),
-        "accept": (15.85, 4.75, "Принять задачу"),
-        "protocol": (15.85, 2.35, "Оформить протокол\nпроверки"),
+        "reg": (7.7, 10.35, "Зарегистрировать\nсрочную задачу"),
+        "assign": (7.7, 7.85, "Назначить\nразработчика"),
+        "persist": (7.7, 5.35, "Записать состояние\nв БазаДанных"),
+        "close": (7.7, 2.85, "Закрыть задачу"),
+        "tell": (14.5, 10.35, "Сообщить\nтребование"),
+        "status": (14.5, 7.85, "Получить\nстатус задачи"),
+        "accept": (14.5, 5.35, "Принять задачу"),
+        "protocol": (14.5, 2.85, "Оформить протокол\nпроверки"),
     }
-    rx, ry = 2.55, 0.82
+    rx, ry = 2.45, 0.78
     for cx, cy, label in cases.values():
         use_case(ax, cx, cy, rx, ry, label)
 
-    lead = actor(ax, 2.05, 8.55, "Руководитель\nкоманды", side=1)
-    customer = actor(ax, 21.95, 8.55, "Заказчик", side=-1)
-    developer = actor(ax, 21.95, 3.55, "Разработчик", side=-1)
+    lead = actor(ax, 1.85, 9.05, "Руководитель\nкоманды", side=1)
+    customer = actor(ax, 21.85, 9.55, "Заказчик", side=-1)
+    developer = actor(ax, 21.85, 5.15, "Разработчик", side=-1)
+    db = actor(ax, 1.85, 3.55, "БазаДанных", side=1)
 
     def link(anchor, key, from_left):
         cx, cy, _ = cases[key]
@@ -153,157 +145,234 @@ def draw_usecase():
         link(customer, key, False)
     for key in ("accept", "protocol"):
         link(developer, key, False)
+    link(db, "persist", True)
 
+    # include: назначение → запись в БД
     x = cases["assign"][0]
     y_from = cases["assign"][1] - ry
-    y_to = cases["term"][1] + ry
+    y_to = cases["persist"][1] + ry
     arrow(ax, x, y_from - 0.02, x, y_to + 0.02, dashed=True, open_head=True, lw=1.05)
-    txt(ax, x + 1.15, (y_from + y_to) / 2, "«include»", size=11, style="italic")
+    txt(ax, x + 1.05, (y_from + y_to) / 2, "«include»", size=10.5, style="italic")
+
+    # include: закрытие → запись в БД (стрелка к включаемому)
+    x2 = cases["close"][0] + 0.55
+    y_close = cases["close"][1] + ry
+    y_persist = cases["persist"][1] - ry
+    arrow(ax, x2, y_close + 0.02, x2, y_persist - 0.02, dashed=True, open_head=True, lw=1.05)
+    txt(ax, x2 + 1.0, (y_close + y_persist) / 2, "«include»", size=10.5, style="italic")
+
+    # secondary: сервис обращается к БД при статусе (dashed association from status to persist conceptually via DB actor already)
     return save(fig, "fig01_usecase.png")
 
 
-def class_box(ax, x, top, w, name, attrs, ops):
-    head = 0.72
-    row = 0.46
-    attr_h = 0.20 + len(attrs) * row + 0.10
-    op_h = (0.16 + len(ops) * row + 0.12) if ops else 0.0
+def class_box(ax, x, top, w, name, attrs, ops, stereo=None):
+    head = 0.72 if stereo is None else 0.95
+    row = 0.42
+    attr_h = 0.16 + len(attrs) * row + 0.08 if attrs else 0.18
+    op_h = (0.14 + len(ops) * row + 0.10) if ops else 0.0
     h = head + attr_h + op_h
     bottom = top - h
     ax.add_patch(Rectangle((x, bottom), w, h, fill=True, facecolor="white", edgecolor="black", lw=1.15, zorder=3))
     sep1 = top - head
     ax.plot([x, x + w], [sep1, sep1], color="black", lw=1.0, zorder=4)
-    txt(ax, x + w / 2, top - head / 2, name, size=13, weight="bold")
+    if stereo:
+        txt(ax, x + w / 2, top - 0.28, stereo, size=10, style="italic")
+        txt(ax, x + w / 2, top - 0.68, name, size=12, weight="bold")
+    else:
+        txt(ax, x + w / 2, top - head / 2, name, size=12.5, weight="bold")
     for i, attr in enumerate(attrs):
-        txt(ax, x + 0.22, sep1 - 0.12 - i * row, attr, size=11, ha="left", va="top")
+        txt(ax, x + 0.18, sep1 - 0.10 - i * row, attr, size=10.5, ha="left", va="top")
     if ops:
         sep2 = bottom + op_h
         ax.plot([x, x + w], [sep2, sep2], color="black", lw=1.0, zorder=4)
         for i, op in enumerate(ops):
-            txt(ax, x + 0.22, sep2 - 0.10 - i * row, "+ " + op, size=11, ha="left", va="top")
+            txt(ax, x + 0.18, sep2 - 0.08 - i * row, "+ " + op, size=10.5, ha="left", va="top")
     return bottom
 
 
 def draw_classes():
-    w, h = 24.0, 12.8
+    w, h = 26.0, 17.5
     fig, ax = cm_fig(w, h)
-    top = 12.35
-    x_mod, w_mod = 0.25, 5.2
-    x_task, w_task = 8.55, 6.7
-    x_team, w_team = 18.15, 5.55
-    b_mod = class_box(ax, x_mod, top, w_mod, "Модуль", ["код", "название", "версия"], [])
+
+    # слой приложения (верх)
+    txt(ax, 0.4, 17.15, "слой приложения и хранилища", size=10.5, ha="left", style="italic", color="#333333")
+    top_app = 16.75
+    b_svc = class_box(
+        ax, 0.5, top_app, 11.0, "СервисЗадач",
+        [],
+        ["зарегистрироватьСрочную()", "назначитьРазработчика()",
+         "принятьЗадачу()", "закрытьПослеПроверки()"],
+        stereo="«приложение»",
+    )
+    b_db = class_box(
+        ax, 14.5, top_app, 11.0, "БазаДанных",
+        ["таблицы: задачи, модули,", "назначения, протоколы"],
+        ["сохранитьЗадачу()", "обновитьСостояние()",
+         "сохранитьНазначение()", "сохранитьПротокол()"],
+        stereo="«хранилище»",
+    )
+
+    # связь сервис → БД (между блоками, не по центру текста)
+    y_app = (top_app + min(b_svc, b_db)) / 2
+    arrow(ax, 11.5, y_app, 14.5, y_app, open_head=True)
+    txt(ax, 13.0, y_app + 0.28, "использует", size=11, style="italic", va="bottom")
+
+    # промежуток между слоями
+    gap = 1.35
+    top_d = min(b_svc, b_db) - gap
+    txt(ax, 0.4, top_d + 0.55, "доменный слой", size=10.5, ha="left", style="italic", color="#333333")
+
+    # домен: три класса в ряд, протокол ниже задачи
+    x_mod, w_mod = 0.5, 5.4
+    x_task, w_task = 7.4, 6.6
+    x_team, w_team = 16.0, 5.4
+
+    b_mod = class_box(ax, x_mod, top_d, w_mod, "Модуль",
+                      ["код", "название", "версия"], [])
     b_task = class_box(
-        ax, x_task, top, w_task, "Задача",
-        ["номер", "признакСрочности", "состояние", "срокСдачи", "описание"],
-        ["зарегистрировать()", "назначитьРазработчика()", "закрыть()"],
+        ax, x_task, top_d, w_task, "Задача",
+        ["номер", "признакСрочности", "состояние", "срокСдачи"],
+        ["изменитьСостояние()"],
     )
     b_team = class_box(
-        ax, x_team, top, w_team, "Команда",
-        ["код", "руководитель", "естьСвободный"],
-        ["принятьЗадачу()"],
+        ax, x_team, top_d, w_team, "Команда",
+        ["код", "руководитель"],
+        ["естьСвободный()"],
     )
-    act_top = b_task - 1.55
+
+    w_proto = 6.2
+    x_proto = x_task + (w_task - w_proto) / 2
+    top_proto = min(b_mod, b_task, b_team) - 1.65
     b_proto = class_box(
-        ax, x_task, act_top, w_task, "ПротоколПроверки",
-        ["номер", "результат", "замечание", "дата"],
+        ax, x_proto, top_proto, w_proto, "ПротоколПроверки",
+        ["номер", "результат", "дата"],
         ["оформить()"],
     )
 
-    y_link = top - 1.45
+    # Сервис управляет Задачей (вертикаль слева от задачи, без пересечения блоков)
+    x_ctrl = x_task + 0.55
+    line(ax, x_ctrl, b_svc, x_ctrl, top_d)
+    arrow(ax, x_ctrl, top_d + 0.02, x_ctrl, top_d, open_head=True)
+    txt(ax, x_ctrl + 0.22, (b_svc + top_d) / 2, "управляет", size=10.5, style="italic", ha="left")
+
+    # БД хранит домен (справа, к Команде)
+    x_store = x_team + w_team / 2
+    arrow(ax, x_store, b_db, x_store, top_d, open_head=True, dashed=True)
+    txt(ax, x_store + 0.25, (b_db + top_d) / 2, "хранит", size=10.5, style="italic", ha="left")
+
+    # горизонтальные связи домена — ниже нижнего края всех трёх коробок
+    y_link = min(b_mod, b_task, b_team) - 0.45
     line(ax, x_mod + w_mod, y_link, x_task, y_link)
-    txt(ax, x_mod + w_mod + 0.12, y_link - 0.18, "1", size=12, ha="left", va="top")
-    txt(ax, x_task - 0.12, y_link - 0.18, "0..*", size=12, ha="right", va="top")
-    txt(ax, (x_mod + w_mod + x_task) / 2, y_link + 0.12, "относится к", size=12, style="italic", va="bottom")
+    txt(ax, x_mod + w_mod + 0.15, y_link - 0.22, "1", size=11, ha="left", va="top")
+    txt(ax, x_task - 0.15, y_link - 0.22, "0..*", size=11, ha="right", va="top")
+    txt(ax, (x_mod + w_mod + x_task) / 2, y_link + 0.18, "относится к", size=10.5, style="italic", va="bottom")
 
     line(ax, x_task + w_task, y_link, x_team, y_link)
-    txt(ax, x_task + w_task + 0.12, y_link - 0.18, "0..*", size=12, ha="left", va="top")
-    txt(ax, x_team - 0.12, y_link - 0.18, "0..1", size=12, ha="right", va="top")
-    txt(ax, (x_task + w_task + x_team) / 2, y_link + 0.12, "назначена", size=12, style="italic", va="bottom")
+    txt(ax, x_task + w_task + 0.15, y_link - 0.22, "0..*", size=11, ha="left", va="top")
+    txt(ax, x_team - 0.15, y_link - 0.22, "0..1", size=11, ha="right", va="top")
+    txt(ax, (x_task + w_task + x_team) / 2, y_link + 0.18, "назначена", size=10.5, style="italic", va="bottom")
 
-    x_v = x_task + w_task / 2
-    line(ax, x_v, b_task, x_v, act_top)
-    txt(ax, x_v - 0.18, b_task - 0.1, "1", size=12, ha="right", va="top")
-    txt(ax, x_v - 0.18, act_top + 0.1, "0..1", size=12, ha="right", va="bottom")
-    txt(ax, x_v + 0.18, (b_task + act_top) / 2, "имеет", size=12, style="italic", ha="left")
+    # Задача — Протокол (вертикаль вниз по центру)
+    x_tp = x_task + w_task / 2
+    line(ax, x_tp, b_task, x_tp, top_proto)
+    txt(ax, x_tp - 0.25, b_task - 0.15, "1", size=11, ha="right", va="top")
+    txt(ax, x_tp + 0.25, top_proto + 0.18, "0..1", size=11, ha="left", va="bottom")
+    txt(ax, x_tp + 0.45, (b_task + top_proto) / 2, "имеет", size=10.5, style="italic", ha="left")
 
-    x_side = x_team + w_team / 2
-    y_side = (act_top + b_proto) / 2
-    line(ax, x_side, b_team, x_side, y_side)
-    line(ax, x_side, y_side, x_task + w_task, y_side)
-    txt(ax, x_side - 0.15, b_team - 0.08, "1", size=11, ha="right", va="top")
-    txt(ax, x_task + w_task + 0.12, y_side + 0.12, "0..*", size=11, ha="left", va="bottom")
-    txt(ax, x_side - 0.18, (b_team + y_side) / 2, "составляет", size=11, style="italic", ha="right")
     return save(fig, "fig02_classes.png")
 
 
 def head_box(ax, cx, top, text, bw=4.6, bh=0.85):
     ax.add_patch(Rectangle((cx - bw / 2, top - bh), bw, bh, fill=True, facecolor="white",
                            edgecolor="black", lw=1.1, zorder=4))
-    txt(ax, cx, top - bh / 2, text, size=12, weight="bold")
+    txt(ax, cx, top - bh / 2, text, size=11.5, weight="bold")
     return top - bh
 
 
 def draw_sequence():
-    w, h = 24.0, 13.6
+    w, h = 24.0, 15.2
     fig, ax = cm_fig(w, h)
-    cols = [3.7, 12.15, 20.35]
-    names = ["Руководитель команды", "СпринтКонтур", "Разработчик"]
-    widths = [6.5, 4.9, 4.5]
-    top = 13.05
+    cols = [2.55, 8.35, 14.35, 20.55]
+    names = ["Руководитель\nкоманды", "СервисЗадач", "БазаДанных", "Разработчик"]
+    widths = [4.4, 4.2, 4.0, 3.8]
+    top = 14.75
     bottoms = []
     for cx, name, bw in zip(cols, names, widths):
-        bottoms.append(head_box(ax, cx, top, name, bw=bw))
+        bottoms.append(head_box(ax, cx, top, name, bw=bw, bh=1.05))
     life_top = min(bottoms)
-    life_bot = 0.35
+    life_bot = 0.30
     for cx in cols:
         line(ax, cx, life_top, cx, life_bot, lw=0.9, dashed=True)
 
     labels = []
-    y = life_top - 0.95
+    y = life_top - 0.75
 
     def call(x1, x2, y_pos, text, ret=False):
         if x2 >= x1:
             arrow(ax, x1, y_pos, x2 - 0.06, y_pos, dashed=ret, open_head=ret)
         else:
             arrow(ax, x1, y_pos, x2 + 0.06, y_pos, dashed=ret, open_head=ret)
-        left = min(x1, x2) + 0.42
-        right = max(x1, x2) - 0.42
+        # подпись только в первом сегменте от источника, чтобы не пересекать чужие линии жизни
+        lo, hi = min(x1, x2), max(x1, x2)
+        mids = sorted(c for c in cols if lo + 0.15 < c < hi - 0.15)
+        if x1 < x2:
+            left = x1 + 0.38
+            right = (mids[0] if mids else x2) - 0.38
+        else:
+            right = x1 - 0.38
+            left = (mids[-1] if mids else x2) + 0.38
         lines = text.split("\n")
-        line_h = 0.38
+        line_h = 0.34
         for i, part in enumerate(reversed(lines)):
-            artist = txt(ax, (left + right) / 2, y_pos + 0.12 + i * line_h, part, size=10.5, va="bottom")
+            artist = txt(ax, (left + right) / 2, y_pos + 0.10 + i * line_h, part, size=9.8, va="bottom")
             labels.append((artist, left, right))
 
     def self_msg(x, y_pos, text, next_x):
-        gap = 0.55
-        tw = text_width(fig, ax, text, 10.5)
-        reach = gap + tw + 0.45
-        if x + reach > next_x - 0.5:
+        gap = 0.42
+        tw = text_width(fig, ax, text, 9.8)
+        reach = gap + tw + 0.38
+        if x + reach > next_x - 0.45:
             raise RuntimeError(f"Самосообщение не помещается справа от линии: {text}")
-        drop = 0.72
+        drop = 0.62
         line(ax, x, y_pos, x + reach, y_pos)
         line(ax, x + reach, y_pos, x + reach, y_pos - drop)
         arrow(ax, x + reach, y_pos - drop, x + 0.06, y_pos - drop)
-        artist = txt(ax, x + gap, y_pos + 0.12, text, size=10.5, ha="left", va="bottom")
-        labels.append((artist, x + 0.28, next_x - 0.35))
+        artist = txt(ax, x + gap, y_pos + 0.10, text, size=9.8, ha="left", va="bottom")
+        labels.append((artist, x + 0.22, next_x - 0.30))
         return y_pos - drop
 
+    # 1 руководитель → сервис
     call(cols[0], cols[1], y, "1: зарегистрироватьСрочную\n(модуль)")
-    y -= 1.22
-    y = self_msg(cols[1], y, "2: состояние := «Новая»", cols[2])
-    y -= 0.95
-    call(cols[1], cols[0], y, "3: номер и срок, «Новая»", ret=True)
     y -= 1.05
-    call(cols[0], cols[1], y, "4: назначитьРазработчика\n(номер)")
-    y -= 1.22
-    y = self_msg(cols[1], y, "5: проверить срок сдачи", cols[2])
+    # 2 сервис → БД
+    call(cols[1], cols[2], y, "2: сохранитьЗадачу\n(«Новая»)")
+    y -= 1.00
+    # 3 БД → сервис
+    call(cols[2], cols[1], y, "3: номер, срок", ret=True)
+    y -= 0.90
+    # 4 сервис → руководитель
+    call(cols[1], cols[0], y, "4: номер и срок, «Новая»", ret=True)
     y -= 0.95
-    call(cols[1], cols[2], y, "6: задача, «Назначена»")
+    # 5 руководитель → сервис
+    call(cols[0], cols[1], y, "5: назначитьРазработчика\n(номер)")
     y -= 1.05
-    call(cols[2], cols[1], y, "7: принятьЗадачу(номер)")
-    y -= 1.05
-    y = self_msg(cols[1], y, "8: состояние := «В работе»", cols[2])
+    # 6 самосообщение сервиса
+    y = self_msg(cols[1], y, "6: проверить срок сдачи", cols[2])
+    y -= 0.78
+    # 7 сервис → БД
+    call(cols[1], cols[2], y, "7: обновитьСостояние\n(«Назначена»)")
+    y -= 1.00
+    # 8 сервис → разработчик
+    call(cols[1], cols[3], y, "8: задача, «Назначена»")
     y -= 0.95
-    call(cols[1], cols[0], y, "9: состояние «В работе»", ret=True)
+    # 9 разработчик → сервис
+    call(cols[3], cols[1], y, "9: принятьЗадачу(номер)")
+    y -= 0.95
+    # 10 сервис → БД
+    call(cols[1], cols[2], y, "10: обновитьСостояние\n(«В работе»)")
+    y -= 1.00
+    # 11 сервис → руководитель
+    call(cols[1], cols[0], y, "11: состояние «В работе»", ret=True)
 
     fig.canvas.draw()
     for artist, left, right in labels:
@@ -337,9 +406,11 @@ def final(ax, x, y, r=0.26):
 
 
 def draw_states():
-    w, h = 24.0, 10.2
+    w, h = 24.0, 11.0
     fig, ax = cm_fig(w, h)
-    y1, y2 = 6.55, 2.25
+    txt(ax, 12.0, 10.45, "Состояние задачи хранится в БазаДанных; переходы выполняет СервисЗадач",
+        size=11, style="italic")
+    y1, y2 = 6.85, 2.45
     xs = [5.15, 10.55, 15.95]
     initial(ax, 0.55, y1)
     labels = ["Новая", "Назначена", "В работе"]
@@ -383,55 +454,61 @@ def draw_states():
     return save(fig, "fig04_states.png")
 
 
-def action_box(ax, cx, cy, text, bw=6.7, bh=0.92):
+def action_box(ax, cx, cy, text, bw=5.4, bh=0.88):
     ax.add_patch(FancyBboxPatch(
         (cx - bw / 2, cy - bh / 2), bw, bh,
         boxstyle="round,pad=0.02,rounding_size=0.28",
         facecolor="white", edgecolor="black", lw=1.1, zorder=3,
     ))
-    txt(ax, cx, cy, text, size=12)
+    txt(ax, cx, cy, text, size=11)
     return cy - bh / 2, cy + bh / 2
 
 
 def draw_activity():
-    w, h = 24.0, 14.6
+    w, h = 24.0, 15.4
     fig, ax = cm_fig(w, h)
-    lanes = [0.0, 8.0, 16.0]
-    lane_w = 8.0
+    lanes = [0.0, 6.0, 12.0, 18.0]
+    lane_w = 6.0
     ax.add_patch(Rectangle((0, 0.25), w, h - 0.5, fill=False, lw=1.15, zorder=1))
-    for x in (8.0, 16.0):
+    for x in (6.0, 12.0, 18.0):
         line(ax, x, 0.25, x, h - 0.25, lw=1.05)
     line(ax, 0, h - 1.35, w, h - 1.35, lw=1.05)
-    for x, name in zip(lanes, ["Разработчик", "СпринтКонтур", "Руководитель команды"]):
-        txt(ax, x + lane_w / 2, h - 0.8, name, size=13, weight="bold")
+    names = ["Разработчик", "СервисЗадач", "БазаДанных", "Руководитель\nкоманды"]
+    for x, name in zip(lanes, names):
+        txt(ax, x + lane_w / 2, h - 0.75, name, size=12, weight="bold")
 
     centers = [lane + lane_w / 2 for lane in lanes]
+    # lane indices: 0 dev, 1 svc, 2 db, 3 lead
     steps = [
         (0, "start", ""),
         (0, "act", "Зафиксировать результат\nи замечание"),
-        (0, "act", "Оформить протокол\nпроверки"),
-        (1, "act", "Перевести в «Проверена»"),
-        (2, "act", "Сверить протокол\nсо сроком сдачи"),
-        (2, "act", "Закрыть задачу"),
-        (1, "act", "Перевести в «Закрыта»"),
+        (0, "act", "Передать протокол\nв СервисЗадач"),
+        (1, "act", "Проверить результат\nпротокола"),
+        (2, "act", "Сохранить протокол"),
+        (1, "act", "Запросить обновление\nсостояния"),
+        (2, "act", "Записать «Проверена»"),
+        (3, "act", "Сверить протокол\nсо сроком сдачи"),
+        (3, "act", "Закрыть задачу"),
+        (1, "act", "Запросить закрытие"),
+        (2, "act", "Записать «Закрыта»"),
         (1, "end", ""),
     ]
     top = h - 1.55
-    bot = 0.45
+    bot = 0.40
     slot = (top - bot) / len(steps)
     nodes = []
     for i, (lane, kind, text) in enumerate(steps):
         cy = top - slot * (i + 0.5)
         cx = centers[lane]
         if kind == "start":
-            txt(ax, cx, cy + 0.42, "состояние «В работе»", size=12, va="bottom")
-            initial(ax, cx, cy - 0.08, r=0.22)
-            nodes.append((cx, cy - 0.30, cy + 0.14, "start"))
+            txt(ax, cx, cy + 0.38, "состояние «В работе»", size=11, va="bottom")
+            initial(ax, cx, cy - 0.08, r=0.20)
+            nodes.append((cx, cy - 0.28, cy + 0.12, "start"))
         elif kind == "end":
-            final(ax, cx, cy, r=0.28)
-            nodes.append((cx, cy - 0.28, cy + 0.28, "end"))
+            final(ax, cx, cy, r=0.26)
+            nodes.append((cx, cy - 0.26, cy + 0.26, "end"))
         else:
-            yb, yt = action_box(ax, cx, cy, text)
+            yb, yt = action_box(ax, cx, cy, text, bw=5.35, bh=0.82)
             nodes.append((cx, yb, yt, "act"))
 
     for a, b in zip(nodes, nodes[1:]):
@@ -441,7 +518,7 @@ def draw_activity():
             arrow(ax, x1, yb1, x2, yt2)
         else:
             gap = yb1 - yt2
-            if gap < 0.36:
+            if gap < 0.28:
                 raise RuntimeError("Мало места для стрелки между дорожками")
             mid = yt2 + gap / 2
             line(ax, x1, yb1, x1, mid)

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Опорные векторы по мячу и сравнение четырёх методов. В текст отчёта не входит."""
+"""Опорные векторы по измерениям мяча и сравнение четырёх методов. В текст отчёта не входит."""
 from __future__ import annotations
 
 import json
@@ -18,23 +18,34 @@ BASE = Path(__file__).resolve().parent
 DATA = BASE / "data"
 FIG = BASE / "figures"
 ROOT = BASE.parent
-FEATURES = ["net_share", "play_zone", "hold", "attack", "ground"]
+FEATURES = ["elasticity", "size", "mass", "pressure", "bounce"]
 FEATURE_RU = {
-    "net_share": "Динамика владения",
-    "play_zone": "Игровая зона",
-    "hold": "Удержание контроля",
-    "attack": "Вектор атаки",
-    "ground": "Контакт с землёй",
+    "elasticity": "Коэффициент упругости",
+    "size": "Окружность, см",
+    "mass": "Масса, г",
+    "pressure": "Давление, бар",
+    "bounce": "Высота отскока, см",
 }
 CLASSES = ["футбольный", "баскетбольный", "волейбольный"]
 COLORS = {"футбольный": "#1f77b4", "баскетбольный": "#ff7f0e", "волейбольный": "#2ca02c"}
 SIGMA = 0.5
 PENALTY = 1.0
-TYPICAL = {
-    "футбольный": [0, 0, 1, 0, 2],
-    "баскетбольный": [1, 2, 2, 1, 0],
-    "волейбольный": [2, 1, 0, 1, 0],
+SHORT = {
+    "elasticity": "упругость",
+    "size": "окружность",
+    "mass": "масса",
+    "pressure": "давление",
+    "bounce": "отскок",
 }
+
+
+def fmt_num(feature: str, value: float) -> str:
+    number = float(value)
+    if feature in ("elasticity", "pressure"):
+        return f"{number:.2f}".replace(".", ",")
+    if feature == "size":
+        return f"{number:.1f}".replace(".", ",")
+    return str(int(round(number)))
 
 
 def metrics(y_true, y_pred) -> dict:
@@ -74,17 +85,50 @@ def metrics(y_true, y_pred) -> dict:
     }
 
 
+def row_diff(ball: str, features: dict, typical: dict) -> list[dict]:
+    diffs = []
+    for feature, usual in zip(FEATURES, typical[ball]):
+        value = float(features[feature])
+        if abs(value - float(usual)) > 1e-9:
+            diffs.append(
+                {
+                    "feature": feature,
+                    "usual": float(usual),
+                    "value": value,
+                    "phrase": (
+                        f"{SHORT[feature]} {fmt_num(feature, value)} "
+                        f"вместо {fmt_num(feature, usual)}"
+                    ),
+                }
+            )
+    return diffs
+
+
 def main() -> None:
     DATA.mkdir(exist_ok=True)
     FIG.mkdir(exist_ok=True)
-    shutil.copyfile(ROOT / "ЛР3" / "data" / "balls.csv", DATA / "balls.csv")
-    split = json.loads((ROOT / "ЛР3" / "data" / "split.json").read_text(encoding="utf-8"))
+    for name in ("balls.csv", "split.json", "codes.json"):
+        shutil.copyfile(ROOT / "ЛР3" / "data" / name, DATA / name)
+    split = json.loads((DATA / "split.json").read_text(encoding="utf-8"))
+    codes = json.loads((DATA / "codes.json").read_text(encoding="utf-8"))
+    typical = codes["typical"]
     df = pd.read_csv(DATA / "balls.csv")
     train = df[df["id"].isin(split["train_ids"])].sort_values("id")
     test = df[df["id"].isin(split["test_ids"])].sort_values("id")
-    x_train = train[FEATURES].to_numpy(dtype=float)
+    n_total = int(codes.get("n", len(df)))
+    n_train = int(codes.get("n_train", split.get("n_train", 105)))
+    n_test = int(codes.get("n_test", split.get("n_test", 45)))
+    if len(train) != n_train or len(test) != n_test:
+        raise RuntimeError(f"разбиение не {n_train}/{n_test}")
+    x_train_raw = train[FEATURES].to_numpy(dtype=float)
     y_train = train["ball"].to_numpy()
-    x_test = test[FEATURES].to_numpy(dtype=float)
+    x_test_raw = test[FEATURES].to_numpy(dtype=float)
+    # Масштаб как у kNN: иначе масса в граммах подавляет упругость в ядре RBF.
+    mu = x_train_raw.mean(axis=0)
+    sd = x_train_raw.std(axis=0, ddof=0)
+    sd = np.where(sd < 1e-9, 1.0, sd)
+    x_train = (x_train_raw - mu) / sd
+    x_test = (x_test_raw - mu) / sd
     gamma = 1.0 / (2.0 * SIGMA * SIGMA)
     model = SVC(kernel="rbf", C=PENALTY, gamma=gamma, probability=True)
     model.fit(x_train, y_train)
@@ -92,13 +136,14 @@ def main() -> None:
     proba = model.predict_proba(x_test)
     class_order = list(model.classes_)
     scored = metrics(test["ball"].tolist(), pred.tolist())
+    if scored["correct"] >= n_test:
+        raise RuntimeError("SVM дал 100 % на тесте — данные слишком простые")
+    if scored["correct"] / n_test < 0.80:
+        raise RuntimeError(f"SVM ниже 80 %: {scored['correct']}/{n_test}")
     rows = []
     for i, (_, row) in enumerate(test.iterrows()):
-        usual = TYPICAL[row["ball"]]
-        diffs = []
-        for feature, usual_value in zip(FEATURES, usual):
-            if int(row[feature]) != int(usual_value):
-                diffs.append({"feature": feature, "usual": int(usual_value), "value": int(row[feature])})
+        features = {feature: float(row[feature]) for feature in FEATURES}
+        diffs = row_diff(row["ball"], features, typical)
         probs = {name: float(proba[i, class_order.index(name)]) for name in CLASSES}
         rows.append(
             {
@@ -107,35 +152,39 @@ def main() -> None:
                 "pred": str(pred[i]),
                 "correct": str(pred[i]) == row["ball"],
                 "probs": probs,
-                "features": {feature: int(row[feature]) for feature in FEATURES},
+                "features": features,
                 "diffs": diffs,
             }
         )
     sv_rows = []
     for vector, label in zip(model.support_vectors_, y_train[model.support_]):
+        original = vector * sd + mu
         sv_rows.append(
             {
                 "class": str(label),
-                "features": {feature: float(value) for feature, value in zip(FEATURES, vector)},
+                "features": {feature: float(value) for feature, value in zip(FEATURES, original)},
             }
         )
     counts = {name: int((y_train[model.support_] == name).sum()) for name in CLASSES}
     knn = json.loads((ROOT / "ЛР2" / "data" / "metrics.json").read_text(encoding="utf-8"))
     tree = json.loads((ROOT / "ЛР3" / "data" / "metrics.json").read_text(encoding="utf-8"))
     bayes = json.loads((ROOT / "ЛР4" / "data" / "metrics.json").read_text(encoding="utf-8"))
+    for label, source in (("ЛР2", knn), ("ЛР3", tree), ("ЛР4", bayes)):
+        if sorted(source.get("test_ids", [])) != sorted(split["test_ids"]):
+            raise RuntimeError(f"тест {label} не совпал")
     comparison = []
     for lab, title, source in (
         ("2", "k ближайших соседей", knn),
         ("3", "дерево решений", tree),
         ("4", "наивный Байес", bayes),
-        ("5", "опорные векторы", scored),
+        ("5", "опорные векторы", {**scored}),
     ):
         comparison.append(
             {
                 "lab": lab,
                 "method": title,
                 "correct": source["correct"],
-                "n_test": 27,
+                "n_test": n_test,
                 "accuracy": source["accuracy"],
                 "precision": source["macro_precision"],
                 "recall": source["macro_recall"],
@@ -143,51 +192,114 @@ def main() -> None:
             }
         )
     best = max(item["accuracy"] for item in comparison)
-    winners = [item["method"] for item in comparison if item["accuracy"] == best]
+    winners = [item["method"] for item in comparison if abs(item["accuracy"] - best) < 1e-12]
+    example = next(
+        (row for row in rows if row["correct"] and not row["diffs"]),
+        None,
+    )
+    if example is None:
+        example = next(row for row in rows if row["correct"])
+    error_ids = [row["id"] for row in rows if not row["correct"]]
     payload = {
+        "n": n_total,
+        "n_train": n_train,
+        "n_test": n_test,
+        "n_train_per": int(codes.get("n_train_per", split.get("n_train_per", 35))),
+        "n_test_per": int(codes.get("n_test_per", split.get("n_test_per", 15))),
         "sigma": SIGMA,
         "penalty": PENALTY,
         "gamma": gamma,
+        "scaled": True,
+        "mu": {feature: float(mu[i]) for i, feature in enumerate(FEATURES)},
+        "sd": {feature: float(sd[i]) for i, feature in enumerate(FEATURES)},
         "n_support": counts,
         "n_support_total": int(model.n_support_.sum()),
         "support_vectors": sv_rows,
         "predictions": rows,
-        "example": next(row for row in rows if row["id"] == 1),
+        "example": example,
         "comparison": comparison,
         "best_accuracy": best,
         "winners": winners,
         "train_ids": split["train_ids"],
         "test_ids": split["test_ids"],
+        "error_ids": error_ids,
+        "typical": typical,
+        "seed": split["seed"],
+        "knn_k": knn.get("k"),
+        "tree_depth": tree.get("actual_depth"),
         **scored,
     }
     (DATA / "metrics.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    fig, ax = plt.subplots(figsize=(7.2, 4.6))
+    plt.rcParams["font.family"] = "Times New Roman"
+    fig, ax = plt.subplots(figsize=(7.6, 5.8))
     for name in CLASSES:
         part = df[df["ball"] == name]
-        ax.scatter(part["play_zone"], part["attack"], s=46, c=COLORS[name], label=name, alpha=0.75, edgecolors="white", linewidths=0.4)
-    ax.set_xticks([0, 1, 2])
-    ax.set_yticks([0, 1, 2])
-    ax.set_xlabel("Игровая зона")
-    ax.set_ylabel("Вектор атаки")
-    ax.legend(frameon=False)
-    ax.set_xlim(-0.4, 2.4)
-    ax.set_ylim(-0.4, 2.4)
+        ax.scatter(
+            part["size"],
+            part["elasticity"],
+            s=70,
+            c=COLORS[name],
+            label=name,
+            alpha=0.9,
+            edgecolors="white",
+            linewidths=0.6,
+            zorder=3,
+        )
+    err = df[df["id"].isin(error_ids)]
+    if len(err):
+        ax.scatter(
+            err["size"],
+            err["elasticity"],
+            facecolors="none",
+            edgecolors="black",
+            s=180,
+            linewidths=1.3,
+            label="ошибка на тесте",
+            zorder=4,
+        )
+    ax.set_xlabel("Окружность, см", fontsize=12)
+    ax.set_ylabel("Коэффициент упругости", fontsize=12)
+    ax.tick_params(labelsize=11)
+    ax.grid(True, color="#d0d0d0", linewidth=0.6)
+    ax.set_axisbelow(True)
+    ax.legend(frameon=True, fontsize=11, loc="best")
     fig.tight_layout()
-    fig.savefig(FIG / "scatter.png", dpi=140)
+    fig.savefig(FIG / "scatter.png", dpi=160, bbox_inches="tight", facecolor="white")
     plt.close(fig)
-    fig, ax = plt.subplots(figsize=(8.2, 2.2))
-    ax.set_xlim(0, 8.2)
-    ax.set_ylim(0, 2.2)
+
+    labels = [
+        "Чтение таблицы измерений мяча",
+        "Разбиение 70 % / 30 % по классу",
+        "Обучение SVM с ядром RBF",
+        "Прогноз на тесте",
+        "Матрица ошибок и сравнение методов",
+        "Диаграмма рассеяния",
+    ]
+    n = len(labels)
+    box_h = 0.72
+    gap = 0.38
+    top = 0.15
+    fig_h = top + n * box_h + (n - 1) * gap + 0.12
+    fig, ax = plt.subplots(figsize=(8.4, fig_h))
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0, fig_h)
     ax.axis("off")
-    for x, text in ((0.2, "90 розыгрышей"), (2.2, "63 на обучение"), (4.2, "ядро RBF"), (6.2, "27 на проверку")):
-        ax.add_patch(plt.Rectangle((x, 0.7), 1.7, 0.8, fill=False, linewidth=1.2))
-        ax.text(x + 0.85, 1.1, text, ha="center", va="center", fontsize=9)
-    for x in (1.9, 3.9, 5.9):
-        ax.annotate("", xy=(x + 0.3, 1.1), xytext=(x, 1.1), arrowprops={"arrowstyle": "->"})
-    fig.tight_layout()
-    fig.savefig(FIG / "scheme.png", dpi=140)
+    y = fig_h - top - box_h
+    for i, text in enumerate(labels):
+        ax.add_patch(plt.Rectangle((0.35, y), 9.3, box_h, fill=False, edgecolor="black", linewidth=1.0))
+        ax.text(5.0, y + box_h / 2, text, ha="center", va="center", fontsize=12, color="black")
+        if i < n - 1:
+            ax.annotate(
+                "",
+                xy=(5.0, y - gap + 0.02),
+                xytext=(5.0, y - 0.01),
+                arrowprops=dict(arrowstyle="-|>", color="black", lw=1.05, mutation_scale=11),
+            )
+        y -= box_h + gap
+    fig.savefig(FIG / "scheme.png", dpi=160, bbox_inches="tight", facecolor="white", pad_inches=0.12)
     plt.close(fig)
     print("svm", scored["correct"], "supports", counts, "winners", winners)
+    print("comparison", [(item["method"], item["correct"]) for item in comparison])
 
 
 if __name__ == "__main__":

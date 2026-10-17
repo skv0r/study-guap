@@ -1,158 +1,163 @@
 {
-  "n": 90,
-  "n_train": 63,
-  "n_test": 27,
-  "k": 1,
+  "n": 150,
+  "n_train": 105,
+  "n_test": 45,
+  "n_train_per": 35,
+  "n_test_per": 15,
+  "k": 5,
   "k_tied": [
-    1
+    5
   ],
   "loo": [
     {
       "k": 1,
-      "correct": 55,
-      "n": 63,
-      "accuracy": 0.873015873015873
+      "correct": 93,
+      "n": 105,
+      "accuracy": 0.8857142857142857
     },
     {
       "k": 3,
-      "correct": 54,
-      "n": 63,
-      "accuracy": 0.8571428571428571
+      "correct": 96,
+      "n": 105,
+      "accuracy": 0.9142857142857143
     },
     {
       "k": 5,
-      "correct": 52,
-      "n": 63,
-      "accuracy": 0.8253968253968254
+      "correct": 99,
+      "n": 105,
+      "accuracy": 0.9428571428571428
     },
     {
       "k": 7,
-      "correct": 48,
-      "n": 63,
-      "accuracy": 0.7619047619047619
+      "correct": 94,
+      "n": 105,
+      "accuracy": 0.8952380952380953
     },
     {
       "k": 9,
-      "correct": 38,
-      "n": 63,
-      "accuracy": 0.6031746031746031
+      "correct": 95,
+      "n": 105,
+      "accuracy": 0.9047619047619048
     },
     {
       "k": 11,
-      "correct": 43,
-      "n": 63,
-      "accuracy": 0.6825396825396826
+      "correct": 95,
+      "n": 105,
+      "accuracy": 0.9047619047619048
     },
     {
       "k": 13,
-      "correct": 38,
-      "n": 63,
-      "accuracy": 0.6031746031746031
+      "correct": 96,
+      "n": 105,
+      "accuracy": 0.9142857142857143
     },
     {
       "k": 15,
-      "correct": 38,
-      "n": 63,
-      "accuracy": 0.6031746031746031
+      "correct": 96,
+      "n": 105,
+      "accuracy": 0.9142857142857143
     }
   ],
-  "correct": 22,
-  "errors": 5,
+  "correct": 42,
+  "errors": 3,
   "ties_on_test": 0,
-  "accuracy": 0.8148148148148148,
+  "accuracy": 0.9333333333333333,
   "confusion": [
     [
-      8,
-      1,
-      0
-    ],
-    [
-      1,
-      8,
-      0
-    ],
-    [
-      3,
+      15,
       0,
-      6
+      0
+    ],
+    [
+      2,
+      13,
+      0
+    ],
+    [
+      1,
+      0,
+      14
     ]
   ],
   "per_class": [
     {
       "class": "футбольный",
-      "tp": 8,
-      "fp": 4,
-      "tn": 14,
-      "fn": 1,
-      "precision": 0.6666666666666666,
-      "recall": 0.8888888888888888,
-      "f1": 0.761904761904762,
-      "support": 9
+      "tp": 15,
+      "fp": 3,
+      "tn": 27,
+      "fn": 0,
+      "precision": 0.8333333333333334,
+      "recall": 1.0,
+      "f1": 0.9090909090909091,
+      "support": 15
     },
     {
       "class": "баскетбольный",
-      "tp": 8,
-      "fp": 1,
-      "tn": 17,
-      "fn": 1,
-      "precision": 0.8888888888888888,
-      "recall": 0.8888888888888888,
-      "f1": 0.8888888888888888,
-      "support": 9
+      "tp": 13,
+      "fp": 0,
+      "tn": 30,
+      "fn": 2,
+      "precision": 1.0,
+      "recall": 0.8666666666666667,
+      "f1": 0.9285714285714286,
+      "support": 15
     },
     {
       "class": "волейбольный",
-      "tp": 6,
+      "tp": 14,
       "fp": 0,
-      "tn": 18,
-      "fn": 3,
+      "tn": 30,
+      "fn": 1,
       "precision": 1.0,
-      "recall": 0.6666666666666666,
-      "f1": 0.8,
-      "support": 9
+      "recall": 0.9333333333333333,
+      "f1": 0.9655172413793104,
+      "support": 15
     }
   ],
-  "macro_precision": 0.8518518518518517,
-  "macro_recall": 0.8148148148148148,
-  "macro_f1": 0.816931216931217,
+  "macro_precision": 0.9444444444444445,
+  "macro_recall": 0.9333333333333332,
+  "macro_f1": 0.9343931930138827,
   "mu": {
-    "net_share": 0.6825396825396826,
-    "play_zone": 1.0158730158730158,
-    "hold": 1.1111111111111112,
-    "attack": 0.746031746031746,
-    "ground": 0.5555555555555556
+    "elasticity": 0.7481238095238095,
+    "size": 70.44666666666669,
+    "mass": 431.14285714285717,
+    "pressure": 0.4909238095238094,
+    "bounce": 126.70476190476191
   },
   "sd": {
-    "net_share": 0.752253689591923,
-    "play_zone": 0.8260071003973137,
-    "hold": 0.8565547659194951,
-    "attack": 0.7759940674019249,
-    "ground": 0.7923799348792815
+    "elasticity": 0.06169953233412253,
+    "size": 1.7052337734815786,
+    "mass": 45.41877702143078,
+    "pressure": 0.06261244288905479,
+    "bounce": 8.471716315143173
   },
   "train_ids": [
-    4,
+    1,
+    2,
+    5,
+    6,
     7,
     9,
     10,
-    12,
+    11,
+    13,
     14,
+    15,
     16,
     17,
     18,
     19,
+    20,
     21,
     22,
     23,
-    24,
-    25,
-    26,
     27,
     28,
     29,
-    30,
     31,
+    32,
     33,
-    35,
+    34,
     36,
     37,
     38,
@@ -162,287 +167,132 @@
     42,
     43,
     44,
-    45,
-    47,
+    46,
+    49,
     50,
+    51,
     52,
     53,
     54,
     55,
-    56,
     57,
     59,
+    60,
     61,
     62,
     63,
     64,
+    65,
+    69,
+    70,
+    71,
+    72,
+    74,
+    75,
+    77,
+    78,
+    80,
+    82,
+    83,
+    84,
+    86,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    98,
+    99,
+    101,
+    103,
+    106,
+    107,
+    109,
+    110,
+    112,
+    113,
+    114,
+    115,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    133,
+    136,
+    137,
+    138,
+    139,
+    143,
+    147,
+    149,
+    150
+  ],
+  "test_ids": [
+    3,
+    4,
+    8,
+    12,
+    24,
+    25,
+    26,
+    30,
+    35,
+    45,
+    47,
+    48,
+    56,
+    58,
     66,
     67,
     68,
-    69,
-    70,
-    72,
     73,
-    74,
-    75,
     76,
-    80,
-    81,
-    82,
-    83,
-    86,
-    87,
-    90
-  ],
-  "test_ids": [
-    1,
-    2,
-    3,
-    5,
-    6,
-    8,
-    11,
-    13,
-    15,
-    20,
-    32,
-    34,
-    46,
-    48,
-    49,
-    51,
-    58,
-    60,
-    65,
-    71,
-    77,
-    78,
     79,
-    84,
+    81,
     85,
-    88,
-    89
+    87,
+    95,
+    96,
+    97,
+    100,
+    102,
+    104,
+    105,
+    108,
+    111,
+    116,
+    117,
+    124,
+    132,
+    134,
+    135,
+    140,
+    141,
+    142,
+    144,
+    145,
+    146,
+    148
   ],
   "error_ids": [
     8,
-    20,
-    48,
-    65,
-    88
+    102,
+    105
   ],
   "predictions": [
     {
-      "id": 1,
-      "ball": "баскетбольный",
-      "pred": "баскетбольный",
-      "correct": true,
-      "tie": false,
-      "votes": {
-        "футбольный": 0,
-        "баскетбольный": 1,
-        "волейбольный": 0
-      },
-      "features": {
-        "net_share": 0,
-        "play_zone": 1,
-        "hold": 2,
-        "attack": 0,
-        "ground": 0
-      },
-      "neighbors": [
-        {
-          "id": 64,
-          "ball": "баскетбольный",
-          "distance": 0.0,
-          "features": {
-            "net_share": 0,
-            "play_zone": 1,
-            "hold": 2,
-            "attack": 0,
-            "ground": 0
-          }
-        }
-      ],
-      "diffs": [
-        {
-          "feature": "net_share",
-          "usual": 1,
-          "value": 0,
-          "phrase": "динамика владения 0 вместо 1"
-        },
-        {
-          "feature": "play_zone",
-          "usual": 2,
-          "value": 1,
-          "phrase": "зона 1 вместо 2"
-        },
-        {
-          "feature": "attack",
-          "usual": 1,
-          "value": 0,
-          "phrase": "вектор 0 вместо 1"
-        }
-      ],
-      "variant_name": ""
-    },
-    {
-      "id": 2,
-      "ball": "баскетбольный",
-      "pred": "баскетбольный",
-      "correct": true,
-      "tie": false,
-      "votes": {
-        "футбольный": 0,
-        "баскетбольный": 1,
-        "волейбольный": 0
-      },
-      "features": {
-        "net_share": 0,
-        "play_zone": 1,
-        "hold": 2,
-        "attack": 0,
-        "ground": 0
-      },
-      "neighbors": [
-        {
-          "id": 64,
-          "ball": "баскетбольный",
-          "distance": 0.0,
-          "features": {
-            "net_share": 0,
-            "play_zone": 1,
-            "hold": 2,
-            "attack": 0,
-            "ground": 0
-          }
-        }
-      ],
-      "diffs": [
-        {
-          "feature": "net_share",
-          "usual": 1,
-          "value": 0,
-          "phrase": "динамика владения 0 вместо 1"
-        },
-        {
-          "feature": "play_zone",
-          "usual": 2,
-          "value": 1,
-          "phrase": "зона 1 вместо 2"
-        },
-        {
-          "feature": "attack",
-          "usual": 1,
-          "value": 0,
-          "phrase": "вектор 0 вместо 1"
-        }
-      ],
-      "variant_name": ""
-    },
-    {
       "id": 3,
-      "ball": "баскетбольный",
-      "pred": "баскетбольный",
-      "correct": true,
-      "tie": false,
-      "votes": {
-        "футбольный": 0,
-        "баскетбольный": 1,
-        "волейбольный": 0
-      },
-      "features": {
-        "net_share": 0,
-        "play_zone": 1,
-        "hold": 2,
-        "attack": 0,
-        "ground": 1
-      },
-      "neighbors": [
-        {
-          "id": 42,
-          "ball": "баскетбольный",
-          "distance": 0.0,
-          "features": {
-            "net_share": 0,
-            "play_zone": 1,
-            "hold": 2,
-            "attack": 0,
-            "ground": 1
-          }
-        }
-      ],
-      "diffs": [
-        {
-          "feature": "net_share",
-          "usual": 1,
-          "value": 0,
-          "phrase": "динамика владения 0 вместо 1"
-        },
-        {
-          "feature": "play_zone",
-          "usual": 2,
-          "value": 1,
-          "phrase": "зона 1 вместо 2"
-        },
-        {
-          "feature": "attack",
-          "usual": 1,
-          "value": 0,
-          "phrase": "вектор 0 вместо 1"
-        },
-        {
-          "feature": "ground",
-          "usual": 0,
-          "value": 1,
-          "phrase": "земля 1 вместо 0"
-        }
-      ],
-      "variant_name": ""
-    },
-    {
-      "id": 5,
-      "ball": "баскетбольный",
-      "pred": "баскетбольный",
-      "correct": true,
-      "tie": false,
-      "votes": {
-        "футбольный": 0,
-        "баскетбольный": 1,
-        "волейбольный": 0
-      },
-      "features": {
-        "net_share": 1,
-        "play_zone": 2,
-        "hold": 2,
-        "attack": 2,
-        "ground": 0
-      },
-      "neighbors": [
-        {
-          "id": 19,
-          "ball": "баскетбольный",
-          "distance": 0.0,
-          "features": {
-            "net_share": 1,
-            "play_zone": 2,
-            "hold": 2,
-            "attack": 2,
-            "ground": 0
-          }
-        }
-      ],
-      "diffs": [
-        {
-          "feature": "attack",
-          "usual": 1,
-          "value": 2,
-          "phrase": "вектор 2 вместо 1"
-        }
-      ],
-      "variant_name": ""
-    },
-    {
-      "id": 6,
       "ball": "волейбольный",
       "pred": "волейбольный",
       "correct": true,
@@ -450,451 +300,443 @@
       "votes": {
         "футбольный": 0,
         "баскетбольный": 0,
-        "волейбольный": 1
+        "волейбольный": 5
       },
       "features": {
-        "net_share": 2,
-        "play_zone": 2,
-        "hold": 0,
-        "attack": 1,
-        "ground": 0
+        "elasticity": 0.679,
+        "size": 68.8,
+        "mass": 380.0,
+        "pressure": 0.413,
+        "bounce": 117.0
       },
       "neighbors": [
         {
-          "id": 9,
+          "id": 137,
           "ball": "волейбольный",
-          "distance": 0.0,
+          "distance": 0.21538219250363383,
           "features": {
-            "net_share": 2,
-            "play_zone": 2,
-            "hold": 0,
-            "attack": 1,
-            "ground": 0
+            "elasticity": 0.679,
+            "size": 69.1,
+            "mass": 381.0,
+            "pressure": 0.415,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 49,
+          "ball": "волейбольный",
+          "distance": 0.2518034382638946,
+          "features": {
+            "elasticity": 0.688,
+            "size": 69.0,
+            "mass": 378.0,
+            "pressure": 0.42,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 119,
+          "ball": "волейбольный",
+          "distance": 0.27822869523768207,
+          "features": {
+            "elasticity": 0.67,
+            "size": 69.0,
+            "mass": 375.0,
+            "pressure": 0.421,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 16,
+          "ball": "волейбольный",
+          "distance": 0.28048023469159084,
+          "features": {
+            "elasticity": 0.685,
+            "size": 69.2,
+            "mass": 380.0,
+            "pressure": 0.414,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 34,
+          "ball": "волейбольный",
+          "distance": 0.2893630142876826,
+          "features": {
+            "elasticity": 0.68,
+            "size": 69.2,
+            "mass": 385.0,
+            "pressure": 0.421,
+            "bounce": 117.0
           }
         }
       ],
       "diffs": [
         {
-          "feature": "play_zone",
-          "usual": 1,
-          "value": 2,
-          "phrase": "зона 2 вместо 1"
+          "feature": "elasticity",
+          "usual": 0.68,
+          "value": 0.679,
+          "phrase": "упругость 0,68 вместо 0,68"
+        },
+        {
+          "feature": "size",
+          "usual": 69.0,
+          "value": 68.8,
+          "phrase": "окружность 68,8 вместо 69,0"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.42,
+          "value": 0.413,
+          "phrase": "давление 0,41 вместо 0,42"
+        },
+        {
+          "feature": "bounce",
+          "usual": 118.0,
+          "value": 117.0,
+          "phrase": "отскок 117 вместо 118"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 4,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 5,
+        "баскетбольный": 0,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.752,
+        "size": 70.0,
+        "mass": 416.0,
+        "pressure": 0.534,
+        "bounce": 126.0
+      },
+      "neighbors": [
+        {
+          "id": 78,
+          "ball": "футбольный",
+          "distance": 0.19368264680975622,
+          "features": {
+            "elasticity": 0.756,
+            "size": 70.1,
+            "mass": 419.0,
+            "pressure": 0.544,
+            "bounce": 126.0
+          }
+        },
+        {
+          "id": 121,
+          "ball": "футбольный",
+          "distance": 0.2173797204479734,
+          "features": {
+            "elasticity": 0.752,
+            "size": 70.0,
+            "mass": 424.0,
+            "pressure": 0.537,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 18,
+          "ball": "футбольный",
+          "distance": 0.24926995483820272,
+          "features": {
+            "elasticity": 0.75,
+            "size": 70.3,
+            "mass": 421.0,
+            "pressure": 0.538,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 36,
+          "ball": "футбольный",
+          "distance": 0.2510471099423889,
+          "features": {
+            "elasticity": 0.759,
+            "size": 69.9,
+            "mass": 421.0,
+            "pressure": 0.543,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 139,
+          "ball": "футбольный",
+          "distance": 0.2581140291861069,
+          "features": {
+            "elasticity": 0.751,
+            "size": 69.8,
+            "mass": 418.0,
+            "pressure": 0.546,
+            "bounce": 125.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.75,
+          "value": 0.752,
+          "phrase": "упругость 0,75 вместо 0,75"
+        },
+        {
+          "feature": "mass",
+          "usual": 420.0,
+          "value": 416.0,
+          "phrase": "масса 416 вместо 420"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.55,
+          "value": 0.534,
+          "phrase": "давление 0,53 вместо 0,55"
+        },
+        {
+          "feature": "bounce",
+          "usual": 125.0,
+          "value": 126.0,
+          "phrase": "отскок 126 вместо 125"
         }
       ],
       "variant_name": ""
     },
     {
       "id": 8,
-      "ball": "футбольный",
-      "pred": "баскетбольный",
-      "correct": false,
-      "tie": false,
-      "votes": {
-        "футбольный": 0,
-        "баскетбольный": 1,
-        "волейбольный": 0
-      },
-      "features": {
-        "net_share": 0,
-        "play_zone": 1,
-        "hold": 2,
-        "attack": 0,
-        "ground": 0
-      },
-      "neighbors": [
-        {
-          "id": 64,
-          "ball": "баскетбольный",
-          "distance": 0.0,
-          "features": {
-            "net_share": 0,
-            "play_zone": 1,
-            "hold": 2,
-            "attack": 0,
-            "ground": 0
-          }
-        }
-      ],
-      "diffs": [
-        {
-          "feature": "play_zone",
-          "usual": 0,
-          "value": 1,
-          "phrase": "зона 1 вместо 0"
-        },
-        {
-          "feature": "hold",
-          "usual": 1,
-          "value": 2,
-          "phrase": "удержание 2 вместо 1"
-        },
-        {
-          "feature": "ground",
-          "usual": 2,
-          "value": 0,
-          "phrase": "земля 0 вместо 2"
-        }
-      ],
-      "variant_name": ""
-    },
-    {
-      "id": 11,
       "ball": "баскетбольный",
-      "pred": "баскетбольный",
-      "correct": true,
-      "tie": false,
-      "votes": {
-        "футбольный": 0,
-        "баскетбольный": 1,
-        "волейбольный": 0
-      },
-      "features": {
-        "net_share": 0,
-        "play_zone": 1,
-        "hold": 2,
-        "attack": 0,
-        "ground": 0
-      },
-      "neighbors": [
-        {
-          "id": 64,
-          "ball": "баскетбольный",
-          "distance": 0.0,
-          "features": {
-            "net_share": 0,
-            "play_zone": 1,
-            "hold": 2,
-            "attack": 0,
-            "ground": 0
-          }
-        }
-      ],
-      "diffs": [
-        {
-          "feature": "net_share",
-          "usual": 1,
-          "value": 0,
-          "phrase": "динамика владения 0 вместо 1"
-        },
-        {
-          "feature": "play_zone",
-          "usual": 2,
-          "value": 1,
-          "phrase": "зона 1 вместо 2"
-        },
-        {
-          "feature": "attack",
-          "usual": 1,
-          "value": 0,
-          "phrase": "вектор 0 вместо 1"
-        }
-      ],
-      "variant_name": ""
-    },
-    {
-      "id": 13,
-      "ball": "футбольный",
-      "pred": "футбольный",
-      "correct": true,
-      "tie": false,
-      "votes": {
-        "футбольный": 1,
-        "баскетбольный": 0,
-        "волейбольный": 0
-      },
-      "features": {
-        "net_share": 1,
-        "play_zone": 2,
-        "hold": 0,
-        "attack": 1,
-        "ground": 0
-      },
-      "neighbors": [
-        {
-          "id": 74,
-          "ball": "футбольный",
-          "distance": 0.0,
-          "features": {
-            "net_share": 1,
-            "play_zone": 2,
-            "hold": 0,
-            "attack": 1,
-            "ground": 0
-          }
-        }
-      ],
-      "diffs": [
-        {
-          "feature": "net_share",
-          "usual": 0,
-          "value": 1,
-          "phrase": "динамика владения 1 вместо 0"
-        },
-        {
-          "feature": "play_zone",
-          "usual": 0,
-          "value": 2,
-          "phrase": "зона 2 вместо 0"
-        },
-        {
-          "feature": "hold",
-          "usual": 1,
-          "value": 0,
-          "phrase": "удержание 0 вместо 1"
-        },
-        {
-          "feature": "attack",
-          "usual": 0,
-          "value": 1,
-          "phrase": "вектор 1 вместо 0"
-        },
-        {
-          "feature": "ground",
-          "usual": 2,
-          "value": 0,
-          "phrase": "земля 0 вместо 2"
-        }
-      ],
-      "variant_name": ""
-    },
-    {
-      "id": 15,
-      "ball": "футбольный",
-      "pred": "футбольный",
-      "correct": true,
-      "tie": false,
-      "votes": {
-        "футбольный": 1,
-        "баскетбольный": 0,
-        "волейбольный": 0
-      },
-      "features": {
-        "net_share": 0,
-        "play_zone": 0,
-        "hold": 1,
-        "attack": 0,
-        "ground": 2
-      },
-      "neighbors": [
-        {
-          "id": 12,
-          "ball": "футбольный",
-          "distance": 0.0,
-          "features": {
-            "net_share": 0,
-            "play_zone": 0,
-            "hold": 1,
-            "attack": 0,
-            "ground": 2
-          }
-        }
-      ],
-      "diffs": [],
-      "variant_name": ""
-    },
-    {
-      "id": 20,
-      "ball": "волейбольный",
       "pred": "футбольный",
       "correct": false,
       "tie": false,
       "votes": {
-        "футбольный": 1,
+        "футбольный": 5,
         "баскетбольный": 0,
         "волейбольный": 0
       },
       "features": {
-        "net_share": 1,
-        "play_zone": 2,
-        "hold": 0,
-        "attack": 1,
-        "ground": 0
+        "elasticity": 0.766,
+        "size": 70.9,
+        "mass": 442.0,
+        "pressure": 0.496,
+        "bounce": 131.0
       },
       "neighbors": [
         {
-          "id": 74,
+          "id": 44,
           "ball": "футбольный",
-          "distance": 0.0,
+          "distance": 0.6036971866394495,
           "features": {
-            "net_share": 1,
-            "play_zone": 2,
-            "hold": 0,
-            "attack": 1,
-            "ground": 0
+            "elasticity": 0.746,
+            "size": 71.1,
+            "mass": 448.0,
+            "pressure": 0.522,
+            "bounce": 133.0
+          }
+        },
+        {
+          "id": 53,
+          "ball": "футбольный",
+          "distance": 0.7598020333761352,
+          "features": {
+            "elasticity": 0.769,
+            "size": 69.7,
+            "mass": 443.0,
+            "pressure": 0.48,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 131,
+          "ball": "футбольный",
+          "distance": 0.8208503059548318,
+          "features": {
+            "elasticity": 0.738,
+            "size": 71.2,
+            "mass": 455.0,
+            "pressure": 0.526,
+            "bounce": 128.0
+          }
+        },
+        {
+          "id": 149,
+          "ball": "футбольный",
+          "distance": 0.8748062564702239,
+          "features": {
+            "elasticity": 0.731,
+            "size": 70.5,
+            "mass": 451.0,
+            "pressure": 0.459,
+            "bounce": 131.0
+          }
+        },
+        {
+          "id": 82,
+          "ball": "футбольный",
+          "distance": 0.909860977321641,
+          "features": {
+            "elasticity": 0.744,
+            "size": 70.6,
+            "mass": 474.0,
+            "pressure": 0.521,
+            "bounce": 132.0
           }
         }
       ],
       "diffs": [
         {
-          "feature": "net_share",
-          "usual": 2,
-          "value": 1,
-          "phrase": "динамика владения 1 вместо 2"
+          "feature": "elasticity",
+          "usual": 0.82,
+          "value": 0.766,
+          "phrase": "упругость 0,77 вместо 0,82"
         },
         {
-          "feature": "play_zone",
-          "usual": 1,
-          "value": 2,
-          "phrase": "зона 2 вместо 1"
-        }
-      ],
-      "variant_name": ""
-    },
-    {
-      "id": 32,
-      "ball": "баскетбольный",
-      "pred": "баскетбольный",
-      "correct": true,
-      "tie": false,
-      "votes": {
-        "футбольный": 0,
-        "баскетбольный": 1,
-        "волейбольный": 0
-      },
-      "features": {
-        "net_share": 1,
-        "play_zone": 2,
-        "hold": 2,
-        "attack": 1,
-        "ground": 0
-      },
-      "neighbors": [
+          "feature": "size",
+          "usual": 72.0,
+          "value": 70.9,
+          "phrase": "окружность 70,9 вместо 72,0"
+        },
         {
-          "id": 21,
-          "ball": "баскетбольный",
-          "distance": 0.0,
-          "features": {
-            "net_share": 1,
-            "play_zone": 2,
-            "hold": 2,
-            "attack": 1,
-            "ground": 0
-          }
-        }
-      ],
-      "diffs": [],
-      "variant_name": ""
-    },
-    {
-      "id": 34,
-      "ball": "баскетбольный",
-      "pred": "баскетбольный",
-      "correct": true,
-      "tie": false,
-      "votes": {
-        "футбольный": 0,
-        "баскетбольный": 1,
-        "волейбольный": 0
-      },
-      "features": {
-        "net_share": 1,
-        "play_zone": 2,
-        "hold": 2,
-        "attack": 1,
-        "ground": 0
-      },
-      "neighbors": [
+          "feature": "mass",
+          "usual": 480.0,
+          "value": 442.0,
+          "phrase": "масса 442 вместо 480"
+        },
         {
-          "id": 21,
-          "ball": "баскетбольный",
-          "distance": 0.0,
-          "features": {
-            "net_share": 1,
-            "play_zone": 2,
-            "hold": 2,
-            "attack": 1,
-            "ground": 0
-          }
+          "feature": "pressure",
+          "usual": 0.5,
+          "value": 0.496,
+          "phrase": "давление 0,50 вместо 0,50"
+        },
+        {
+          "feature": "bounce",
+          "usual": 135.0,
+          "value": 131.0,
+          "phrase": "отскок 131 вместо 135"
         }
       ],
-      "diffs": [],
       "variant_name": ""
     },
     {
-      "id": 46,
+      "id": 12,
       "ball": "футбольный",
       "pred": "футбольный",
       "correct": true,
       "tie": false,
       "votes": {
-        "футбольный": 1,
-        "баскетбольный": 0,
+        "футбольный": 4,
+        "баскетбольный": 1,
         "волейбольный": 0
       },
       "features": {
-        "net_share": 0,
-        "play_zone": 0,
-        "hold": 1,
-        "attack": 0,
-        "ground": 2
+        "elasticity": 0.728,
+        "size": 70.5,
+        "mass": 437.0,
+        "pressure": 0.56,
+        "bounce": 130.0
       },
       "neighbors": [
         {
-          "id": 12,
+          "id": 14,
           "ball": "футбольный",
-          "distance": 0.0,
+          "distance": 0.7399483984355328,
           "features": {
-            "net_share": 0,
-            "play_zone": 0,
-            "hold": 1,
-            "attack": 0,
-            "ground": 2
+            "elasticity": 0.746,
+            "size": 69.9,
+            "mass": 423.0,
+            "pressure": 0.551,
+            "bounce": 126.0
           }
-        }
-      ],
-      "diffs": [],
-      "variant_name": ""
-    },
-    {
-      "id": 48,
-      "ball": "волейбольный",
-      "pred": "футбольный",
-      "correct": false,
-      "tie": false,
-      "votes": {
-        "футбольный": 1,
-        "баскетбольный": 0,
-        "волейбольный": 0
-      },
-      "features": {
-        "net_share": 1,
-        "play_zone": 2,
-        "hold": 0,
-        "attack": 1,
-        "ground": 0
-      },
-      "neighbors": [
+        },
         {
-          "id": 74,
+          "id": 86,
           "ball": "футбольный",
-          "distance": 0.0,
+          "distance": 0.7540057803654229,
           "features": {
-            "net_share": 1,
-            "play_zone": 2,
-            "hold": 0,
-            "attack": 1,
-            "ground": 0
+            "elasticity": 0.748,
+            "size": 70.2,
+            "mass": 426.0,
+            "pressure": 0.55,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 23,
+          "ball": "баскетбольный",
+          "distance": 0.7955080108885978,
+          "features": {
+            "elasticity": 0.753,
+            "size": 71.3,
+            "mass": 459.0,
+            "pressure": 0.56,
+            "bounce": 131.0
+          }
+        },
+        {
+          "id": 131,
+          "ball": "футбольный",
+          "distance": 0.8381230746256978,
+          "features": {
+            "elasticity": 0.738,
+            "size": 71.2,
+            "mass": 455.0,
+            "pressure": 0.526,
+            "bounce": 128.0
+          }
+        },
+        {
+          "id": 78,
+          "ball": "футбольный",
+          "distance": 0.8403974425778722,
+          "features": {
+            "elasticity": 0.756,
+            "size": 70.1,
+            "mass": 419.0,
+            "pressure": 0.544,
+            "bounce": 126.0
           }
         }
       ],
       "diffs": [
         {
-          "feature": "net_share",
-          "usual": 2,
-          "value": 1,
-          "phrase": "динамика владения 1 вместо 2"
+          "feature": "elasticity",
+          "usual": 0.75,
+          "value": 0.728,
+          "phrase": "упругость 0,73 вместо 0,75"
         },
         {
-          "feature": "play_zone",
-          "usual": 1,
-          "value": 2,
-          "phrase": "зона 2 вместо 1"
+          "feature": "size",
+          "usual": 70.0,
+          "value": 70.5,
+          "phrase": "окружность 70,5 вместо 70,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 420.0,
+          "value": 437.0,
+          "phrase": "масса 437 вместо 420"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.55,
+          "value": 0.56,
+          "phrase": "давление 0,56 вместо 0,55"
+        },
+        {
+          "feature": "bounce",
+          "usual": 125.0,
+          "value": 130.0,
+          "phrase": "отскок 130 вместо 125"
         }
       ],
       "variant_name": ""
     },
     {
-      "id": 49,
+      "id": 24,
       "ball": "волейбольный",
       "pred": "волейбольный",
       "correct": true,
@@ -902,244 +744,1457 @@
       "votes": {
         "футбольный": 0,
         "баскетбольный": 0,
-        "волейбольный": 1
+        "волейбольный": 5
       },
       "features": {
-        "net_share": 0,
-        "play_zone": 0,
-        "hold": 0,
-        "attack": 0,
-        "ground": 1
+        "elasticity": 0.686,
+        "size": 69.1,
+        "mass": 375.0,
+        "pressure": 0.409,
+        "bounce": 118.0
       },
       "neighbors": [
         {
-          "id": 17,
+          "id": 16,
           "ball": "волейбольный",
-          "distance": 0.0,
+          "distance": 0.14898920996897494,
           "features": {
-            "net_share": 0,
-            "play_zone": 0,
-            "hold": 0,
-            "attack": 0,
-            "ground": 1
+            "elasticity": 0.685,
+            "size": 69.2,
+            "mass": 380.0,
+            "pressure": 0.414,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 137,
+          "ball": "волейбольный",
+          "distance": 0.19876110557787516,
+          "features": {
+            "elasticity": 0.679,
+            "size": 69.1,
+            "mass": 381.0,
+            "pressure": 0.415,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 49,
+          "ball": "волейбольный",
+          "distance": 0.19929237028387842,
+          "features": {
+            "elasticity": 0.688,
+            "size": 69.0,
+            "mass": 378.0,
+            "pressure": 0.42,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 138,
+          "ball": "волейбольный",
+          "distance": 0.24700190688759593,
+          "features": {
+            "elasticity": 0.686,
+            "size": 68.9,
+            "mass": 367.0,
+            "pressure": 0.412,
+            "bounce": 117.0
+          }
+        },
+        {
+          "id": 28,
+          "ball": "волейбольный",
+          "distance": 0.25415205791201645,
+          "features": {
+            "elasticity": 0.68,
+            "size": 69.3,
+            "mass": 377.0,
+            "pressure": 0.419,
+            "bounce": 117.0
           }
         }
       ],
       "diffs": [
         {
-          "feature": "net_share",
-          "usual": 2,
-          "value": 0,
-          "phrase": "динамика владения 0 вместо 2"
+          "feature": "elasticity",
+          "usual": 0.68,
+          "value": 0.686,
+          "phrase": "упругость 0,69 вместо 0,68"
         },
         {
-          "feature": "play_zone",
-          "usual": 1,
-          "value": 0,
-          "phrase": "зона 0 вместо 1"
+          "feature": "size",
+          "usual": 69.0,
+          "value": 69.1,
+          "phrase": "окружность 69,1 вместо 69,0"
         },
         {
-          "feature": "attack",
-          "usual": 1,
-          "value": 0,
-          "phrase": "вектор 0 вместо 1"
+          "feature": "mass",
+          "usual": 380.0,
+          "value": 375.0,
+          "phrase": "масса 375 вместо 380"
         },
         {
-          "feature": "ground",
-          "usual": 0,
-          "value": 1,
-          "phrase": "земля 1 вместо 0"
+          "feature": "pressure",
+          "usual": 0.42,
+          "value": 0.409,
+          "phrase": "давление 0,41 вместо 0,42"
         }
       ],
       "variant_name": ""
     },
     {
-      "id": 51,
-      "ball": "футбольный",
-      "pred": "футбольный",
+      "id": 25,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
       "correct": true,
       "tie": false,
       "votes": {
-        "футбольный": 1,
-        "баскетбольный": 0,
+        "футбольный": 0,
+        "баскетбольный": 5,
         "волейбольный": 0
       },
       "features": {
-        "net_share": 1,
-        "play_zone": 0,
-        "hold": 1,
-        "attack": 0,
-        "ground": 1
+        "elasticity": 0.823,
+        "size": 72.1,
+        "mass": 481.0,
+        "pressure": 0.494,
+        "bounce": 135.0
       },
       "neighbors": [
         {
-          "id": 86,
-          "ball": "футбольный",
-          "distance": 0.0,
+          "id": 150,
+          "ball": "баскетбольный",
+          "distance": 0.015971266314779256,
           "features": {
-            "net_share": 1,
-            "play_zone": 0,
-            "hold": 1,
-            "attack": 0,
-            "ground": 1
+            "elasticity": 0.823,
+            "size": 72.1,
+            "mass": 481.0,
+            "pressure": 0.495,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 38,
+          "ball": "баскетбольный",
+          "distance": 0.07215797526980582,
+          "features": {
+            "elasticity": 0.824,
+            "size": 72.0,
+            "mass": 480.0,
+            "pressure": 0.492,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 122,
+          "ball": "баскетбольный",
+          "distance": 0.16011275385999785,
+          "features": {
+            "elasticity": 0.825,
+            "size": 72.0,
+            "mass": 482.0,
+            "pressure": 0.503,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 98,
+          "ball": "баскетбольный",
+          "distance": 0.16487854712415254,
+          "features": {
+            "elasticity": 0.818,
+            "size": 71.9,
+            "mass": 482.0,
+            "pressure": 0.489,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 123,
+          "ball": "баскетбольный",
+          "distance": 0.2064954242095599,
+          "features": {
+            "elasticity": 0.822,
+            "size": 72.1,
+            "mass": 476.0,
+            "pressure": 0.502,
+            "bounce": 136.0
           }
         }
       ],
       "diffs": [
         {
-          "feature": "net_share",
-          "usual": 0,
-          "value": 1,
-          "phrase": "динамика владения 1 вместо 0"
+          "feature": "elasticity",
+          "usual": 0.82,
+          "value": 0.823,
+          "phrase": "упругость 0,82 вместо 0,82"
         },
         {
-          "feature": "ground",
-          "usual": 2,
-          "value": 1,
-          "phrase": "земля 1 вместо 2"
+          "feature": "size",
+          "usual": 72.0,
+          "value": 72.1,
+          "phrase": "окружность 72,1 вместо 72,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 480.0,
+          "value": 481.0,
+          "phrase": "масса 481 вместо 480"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.5,
+          "value": 0.494,
+          "phrase": "давление 0,49 вместо 0,50"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 26,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 0,
+        "баскетбольный": 5,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.814,
+        "size": 71.9,
+        "mass": 470.0,
+        "pressure": 0.505,
+        "bounce": 134.0
+      },
+      "neighbors": [
+        {
+          "id": 63,
+          "ball": "баскетбольный",
+          "distance": 0.2728814362220409,
+          "features": {
+            "elasticity": 0.819,
+            "size": 71.7,
+            "mass": 478.0,
+            "pressure": 0.511,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 110,
+          "ball": "баскетбольный",
+          "distance": 0.30442902011522227,
+          "features": {
+            "elasticity": 0.829,
+            "size": 71.8,
+            "mass": 475.0,
+            "pressure": 0.501,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 123,
+          "ball": "баскетбольный",
+          "distance": 0.32565115504730374,
+          "features": {
+            "elasticity": 0.822,
+            "size": 72.1,
+            "mass": 476.0,
+            "pressure": 0.502,
+            "bounce": 136.0
+          }
+        },
+        {
+          "id": 74,
+          "ball": "баскетбольный",
+          "distance": 0.3339240855394598,
+          "features": {
+            "elasticity": 0.815,
+            "size": 71.9,
+            "mass": 484.0,
+            "pressure": 0.502,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 122,
+          "ball": "баскетбольный",
+          "distance": 0.34638634890343944,
+          "features": {
+            "elasticity": 0.825,
+            "size": 72.0,
+            "mass": 482.0,
+            "pressure": 0.503,
+            "bounce": 135.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.82,
+          "value": 0.814,
+          "phrase": "упругость 0,81 вместо 0,82"
+        },
+        {
+          "feature": "size",
+          "usual": 72.0,
+          "value": 71.9,
+          "phrase": "окружность 71,9 вместо 72,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 480.0,
+          "value": 470.0,
+          "phrase": "масса 470 вместо 480"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.5,
+          "value": 0.505,
+          "phrase": "давление 0,51 вместо 0,50"
+        },
+        {
+          "feature": "bounce",
+          "usual": 135.0,
+          "value": 134.0,
+          "phrase": "отскок 134 вместо 135"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 30,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 5,
+        "баскетбольный": 0,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.76,
+        "size": 68.6,
+        "mass": 411.0,
+        "pressure": 0.581,
+        "bounce": 118.0
+      },
+      "neighbors": [
+        {
+          "id": 133,
+          "ball": "футбольный",
+          "distance": 0.7851970712188624,
+          "features": {
+            "elasticity": 0.746,
+            "size": 69.1,
+            "mass": 395.0,
+            "pressure": 0.551,
+            "bounce": 121.0
+          }
+        },
+        {
+          "id": 5,
+          "ball": "футбольный",
+          "distance": 0.785913742016073,
+          "features": {
+            "elasticity": 0.768,
+            "size": 68.9,
+            "mass": 426.0,
+            "pressure": 0.602,
+            "bounce": 123.0
+          }
+        },
+        {
+          "id": 89,
+          "ball": "футбольный",
+          "distance": 0.8026275287677502,
+          "features": {
+            "elasticity": 0.779,
+            "size": 69.5,
+            "mass": 390.0,
+            "pressure": 0.568,
+            "bounce": 117.0
+          }
+        },
+        {
+          "id": 120,
+          "ball": "футбольный",
+          "distance": 1.032602594772597,
+          "features": {
+            "elasticity": 0.789,
+            "size": 69.8,
+            "mass": 399.0,
+            "pressure": 0.566,
+            "bounce": 122.0
+          }
+        },
+        {
+          "id": 57,
+          "ball": "футбольный",
+          "distance": 1.1659257229890463,
+          "features": {
+            "elasticity": 0.751,
+            "size": 69.7,
+            "mass": 420.0,
+            "pressure": 0.553,
+            "bounce": 125.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.75,
+          "value": 0.76,
+          "phrase": "упругость 0,76 вместо 0,75"
+        },
+        {
+          "feature": "size",
+          "usual": 70.0,
+          "value": 68.6,
+          "phrase": "окружность 68,6 вместо 70,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 420.0,
+          "value": 411.0,
+          "phrase": "масса 411 вместо 420"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.55,
+          "value": 0.581,
+          "phrase": "давление 0,58 вместо 0,55"
+        },
+        {
+          "feature": "bounce",
+          "usual": 125.0,
+          "value": 118.0,
+          "phrase": "отскок 118 вместо 125"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 35,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 0,
+        "баскетбольный": 5,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.813,
+        "size": 71.4,
+        "mass": 470.0,
+        "pressure": 0.554,
+        "bounce": 132.0
+      },
+      "neighbors": [
+        {
+          "id": 63,
+          "ball": "баскетбольный",
+          "distance": 0.8176053596542064,
+          "features": {
+            "elasticity": 0.819,
+            "size": 71.7,
+            "mass": 478.0,
+            "pressure": 0.511,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 13,
+          "ball": "баскетбольный",
+          "distance": 0.9378821343045933,
+          "features": {
+            "elasticity": 0.828,
+            "size": 71.5,
+            "mass": 468.0,
+            "pressure": 0.502,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 39,
+          "ball": "баскетбольный",
+          "distance": 0.9635221421051392,
+          "features": {
+            "elasticity": 0.775,
+            "size": 71.9,
+            "mass": 492.0,
+            "pressure": 0.525,
+            "bounce": 131.0
+          }
+        },
+        {
+          "id": 110,
+          "ball": "баскетбольный",
+          "distance": 0.9880863852241604,
+          "features": {
+            "elasticity": 0.829,
+            "size": 71.8,
+            "mass": 475.0,
+            "pressure": 0.501,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 74,
+          "ball": "баскетбольный",
+          "distance": 0.9985889046272628,
+          "features": {
+            "elasticity": 0.815,
+            "size": 71.9,
+            "mass": 484.0,
+            "pressure": 0.502,
+            "bounce": 135.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.82,
+          "value": 0.813,
+          "phrase": "упругость 0,81 вместо 0,82"
+        },
+        {
+          "feature": "size",
+          "usual": 72.0,
+          "value": 71.4,
+          "phrase": "окружность 71,4 вместо 72,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 480.0,
+          "value": 470.0,
+          "phrase": "масса 470 вместо 480"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.5,
+          "value": 0.554,
+          "phrase": "давление 0,55 вместо 0,50"
+        },
+        {
+          "feature": "bounce",
+          "usual": 135.0,
+          "value": 132.0,
+          "phrase": "отскок 132 вместо 135"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 45,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 5,
+        "баскетбольный": 0,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.723,
+        "size": 71.3,
+        "mass": 404.0,
+        "pressure": 0.598,
+        "bounce": 124.0
+      },
+      "neighbors": [
+        {
+          "id": 11,
+          "ball": "футбольный",
+          "distance": 0.7908401791890901,
+          "features": {
+            "elasticity": 0.733,
+            "size": 71.7,
+            "mass": 437.0,
+            "pressure": 0.601,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 22,
+          "ball": "футбольный",
+          "distance": 1.1516796319483493,
+          "features": {
+            "elasticity": 0.755,
+            "size": 70.1,
+            "mass": 421.0,
+            "pressure": 0.558,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 86,
+          "ball": "футбольный",
+          "distance": 1.190194693437262,
+          "features": {
+            "elasticity": 0.748,
+            "size": 70.2,
+            "mass": 426.0,
+            "pressure": 0.55,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 41,
+          "ball": "футбольный",
+          "distance": 1.2443255397710866,
+          "features": {
+            "elasticity": 0.746,
+            "size": 69.8,
+            "mass": 417.0,
+            "pressure": 0.552,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 14,
+          "ball": "футбольный",
+          "distance": 1.267758751760855,
+          "features": {
+            "elasticity": 0.746,
+            "size": 69.9,
+            "mass": 423.0,
+            "pressure": 0.551,
+            "bounce": 126.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.75,
+          "value": 0.723,
+          "phrase": "упругость 0,72 вместо 0,75"
+        },
+        {
+          "feature": "size",
+          "usual": 70.0,
+          "value": 71.3,
+          "phrase": "окружность 71,3 вместо 70,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 420.0,
+          "value": 404.0,
+          "phrase": "масса 404 вместо 420"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.55,
+          "value": 0.598,
+          "phrase": "давление 0,60 вместо 0,55"
+        },
+        {
+          "feature": "bounce",
+          "usual": 125.0,
+          "value": 124.0,
+          "phrase": "отскок 124 вместо 125"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 47,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 4,
+        "баскетбольный": 0,
+        "волейбольный": 1
+      },
+      "features": {
+        "elasticity": 0.736,
+        "size": 68.2,
+        "mass": 435.0,
+        "pressure": 0.533,
+        "bounce": 120.0
+      },
+      "neighbors": [
+        {
+          "id": 50,
+          "ball": "волейбольный",
+          "distance": 0.9660446453499165,
+          "features": {
+            "elasticity": 0.735,
+            "size": 68.7,
+            "mass": 403.0,
+            "pressure": 0.499,
+            "bounce": 122.0
+          }
+        },
+        {
+          "id": 32,
+          "ball": "футбольный",
+          "distance": 1.0079841176255617,
+          "features": {
+            "elasticity": 0.721,
+            "size": 69.7,
+            "mass": 439.0,
+            "pressure": 0.547,
+            "bounce": 123.0
+          }
+        },
+        {
+          "id": 133,
+          "ball": "футбольный",
+          "distance": 1.0849089827300071,
+          "features": {
+            "elasticity": 0.746,
+            "size": 69.1,
+            "mass": 395.0,
+            "pressure": 0.551,
+            "bounce": 121.0
+          }
+        },
+        {
+          "id": 57,
+          "ball": "футбольный",
+          "distance": 1.179965427030717,
+          "features": {
+            "elasticity": 0.751,
+            "size": 69.7,
+            "mass": 420.0,
+            "pressure": 0.553,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 114,
+          "ball": "футбольный",
+          "distance": 1.2066080471788756,
+          "features": {
+            "elasticity": 0.749,
+            "size": 69.8,
+            "mass": 420.0,
+            "pressure": 0.55,
+            "bounce": 125.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.75,
+          "value": 0.736,
+          "phrase": "упругость 0,74 вместо 0,75"
+        },
+        {
+          "feature": "size",
+          "usual": 70.0,
+          "value": 68.2,
+          "phrase": "окружность 68,2 вместо 70,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 420.0,
+          "value": 435.0,
+          "phrase": "масса 435 вместо 420"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.55,
+          "value": 0.533,
+          "phrase": "давление 0,53 вместо 0,55"
+        },
+        {
+          "feature": "bounce",
+          "usual": 125.0,
+          "value": 120.0,
+          "phrase": "отскок 120 вместо 125"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 48,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 5,
+        "баскетбольный": 0,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.766,
+        "size": 70.4,
+        "mass": 423.0,
+        "pressure": 0.592,
+        "bounce": 126.0
+      },
+      "neighbors": [
+        {
+          "id": 22,
+          "ball": "футбольный",
+          "distance": 0.611132102002429,
+          "features": {
+            "elasticity": 0.755,
+            "size": 70.1,
+            "mass": 421.0,
+            "pressure": 0.558,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 86,
+          "ball": "футбольный",
+          "distance": 0.7530776156526758,
+          "features": {
+            "elasticity": 0.748,
+            "size": 70.2,
+            "mass": 426.0,
+            "pressure": 0.55,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 14,
+          "ball": "футбольный",
+          "distance": 0.7872998015880857,
+          "features": {
+            "elasticity": 0.746,
+            "size": 69.9,
+            "mass": 423.0,
+            "pressure": 0.551,
+            "bounce": 126.0
+          }
+        },
+        {
+          "id": 57,
+          "ball": "футбольный",
+          "distance": 0.7961722453768396,
+          "features": {
+            "elasticity": 0.751,
+            "size": 69.7,
+            "mass": 420.0,
+            "pressure": 0.553,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 78,
+          "ball": "футбольный",
+          "distance": 0.807888101487903,
+          "features": {
+            "elasticity": 0.756,
+            "size": 70.1,
+            "mass": 419.0,
+            "pressure": 0.544,
+            "bounce": 126.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.75,
+          "value": 0.766,
+          "phrase": "упругость 0,77 вместо 0,75"
+        },
+        {
+          "feature": "size",
+          "usual": 70.0,
+          "value": 70.4,
+          "phrase": "окружность 70,4 вместо 70,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 420.0,
+          "value": 423.0,
+          "phrase": "масса 423 вместо 420"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.55,
+          "value": 0.592,
+          "phrase": "давление 0,59 вместо 0,55"
+        },
+        {
+          "feature": "bounce",
+          "usual": 125.0,
+          "value": 126.0,
+          "phrase": "отскок 126 вместо 125"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 56,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 0,
+        "баскетбольный": 5,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.781,
+        "size": 72.5,
+        "mass": 445.0,
+        "pressure": 0.555,
+        "bounce": 129.0
+      },
+      "neighbors": [
+        {
+          "id": 71,
+          "ball": "баскетбольный",
+          "distance": 0.5449404682981657,
+          "features": {
+            "elasticity": 0.8,
+            "size": 72.6,
+            "mass": 436.0,
+            "pressure": 0.58,
+            "bounce": 129.0
+          }
+        },
+        {
+          "id": 147,
+          "ball": "баскетбольный",
+          "distance": 0.7613029408639563,
+          "features": {
+            "elasticity": 0.78,
+            "size": 73.0,
+            "mass": 459.0,
+            "pressure": 0.541,
+            "bounce": 134.0
+          }
+        },
+        {
+          "id": 23,
+          "ball": "баскетбольный",
+          "distance": 0.9264370425111745,
+          "features": {
+            "elasticity": 0.753,
+            "size": 71.3,
+            "mass": 459.0,
+            "pressure": 0.56,
+            "bounce": 131.0
+          }
+        },
+        {
+          "id": 33,
+          "ball": "баскетбольный",
+          "distance": 1.0009659022804502,
+          "features": {
+            "elasticity": 0.762,
+            "size": 73.4,
+            "mass": 431.0,
+            "pressure": 0.595,
+            "bounce": 132.0
+          }
+        },
+        {
+          "id": 6,
+          "ball": "баскетбольный",
+          "distance": 1.0921620847247975,
+          "features": {
+            "elasticity": 0.791,
+            "size": 72.9,
+            "mass": 481.0,
+            "pressure": 0.532,
+            "bounce": 134.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.82,
+          "value": 0.781,
+          "phrase": "упругость 0,78 вместо 0,82"
+        },
+        {
+          "feature": "size",
+          "usual": 72.0,
+          "value": 72.5,
+          "phrase": "окружность 72,5 вместо 72,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 480.0,
+          "value": 445.0,
+          "phrase": "масса 445 вместо 480"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.5,
+          "value": 0.555,
+          "phrase": "давление 0,56 вместо 0,50"
+        },
+        {
+          "feature": "bounce",
+          "usual": 135.0,
+          "value": 129.0,
+          "phrase": "отскок 129 вместо 135"
         }
       ],
       "variant_name": ""
     },
     {
       "id": 58,
-      "ball": "волейбольный",
-      "pred": "волейбольный",
+      "ball": "футбольный",
+      "pred": "футбольный",
       "correct": true,
       "tie": false,
       "votes": {
-        "футбольный": 0,
+        "футбольный": 5,
         "баскетбольный": 0,
-        "волейбольный": 1
+        "волейбольный": 0
       },
       "features": {
-        "net_share": 2,
-        "play_zone": 1,
-        "hold": 0,
-        "attack": 1,
-        "ground": 0
+        "elasticity": 0.755,
+        "size": 70.1,
+        "mass": 421.0,
+        "pressure": 0.553,
+        "bounce": 126.0
       },
       "neighbors": [
         {
-          "id": 66,
-          "ball": "волейбольный",
-          "distance": 0.0,
+          "id": 22,
+          "ball": "футбольный",
+          "distance": 0.14251468854317698,
           "features": {
-            "net_share": 2,
-            "play_zone": 1,
-            "hold": 0,
-            "attack": 1,
-            "ground": 0
+            "elasticity": 0.755,
+            "size": 70.1,
+            "mass": 421.0,
+            "pressure": 0.558,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 78,
+          "ball": "футбольный",
+          "distance": 0.15120623418215012,
+          "features": {
+            "elasticity": 0.756,
+            "size": 70.1,
+            "mass": 419.0,
+            "pressure": 0.544,
+            "bounce": 126.0
+          }
+        },
+        {
+          "id": 14,
+          "ball": "футбольный",
+          "distance": 0.1949176957513267,
+          "features": {
+            "elasticity": 0.746,
+            "size": 69.9,
+            "mass": 423.0,
+            "pressure": 0.551,
+            "bounce": 126.0
+          }
+        },
+        {
+          "id": 86,
+          "ball": "футбольный",
+          "distance": 0.211326274694368,
+          "features": {
+            "elasticity": 0.748,
+            "size": 70.2,
+            "mass": 426.0,
+            "pressure": 0.55,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 114,
+          "ball": "футбольный",
+          "distance": 0.2390012070193533,
+          "features": {
+            "elasticity": 0.749,
+            "size": 69.8,
+            "mass": 420.0,
+            "pressure": 0.55,
+            "bounce": 125.0
           }
         }
       ],
-      "diffs": [],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.75,
+          "value": 0.755,
+          "phrase": "упругость 0,76 вместо 0,75"
+        },
+        {
+          "feature": "size",
+          "usual": 70.0,
+          "value": 70.1,
+          "phrase": "окружность 70,1 вместо 70,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 420.0,
+          "value": 421.0,
+          "phrase": "масса 421 вместо 420"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.55,
+          "value": 0.553,
+          "phrase": "давление 0,55 вместо 0,55"
+        },
+        {
+          "feature": "bounce",
+          "usual": 125.0,
+          "value": 126.0,
+          "phrase": "отскок 126 вместо 125"
+        }
+      ],
       "variant_name": ""
     },
     {
-      "id": 60,
+      "id": 66,
       "ball": "баскетбольный",
       "pred": "баскетбольный",
       "correct": true,
       "tie": false,
       "votes": {
         "футбольный": 0,
-        "баскетбольный": 1,
+        "баскетбольный": 5,
         "волейбольный": 0
       },
       "features": {
-        "net_share": 0,
-        "play_zone": 0,
-        "hold": 2,
-        "attack": 0,
-        "ground": 2
+        "elasticity": 0.813,
+        "size": 71.0,
+        "mass": 482.0,
+        "pressure": 0.5,
+        "bounce": 127.0
       },
       "neighbors": [
         {
-          "id": 26,
+          "id": 80,
           "ball": "баскетбольный",
-          "distance": 0.0,
+          "distance": 0.3831846131883213,
           "features": {
-            "net_share": 0,
-            "play_zone": 0,
-            "hold": 2,
-            "attack": 0,
-            "ground": 2
+            "elasticity": 0.805,
+            "size": 71.0,
+            "mass": 485.0,
+            "pressure": 0.499,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 10,
+          "ball": "баскетбольный",
+          "distance": 1.0072603409003356,
+          "features": {
+            "elasticity": 0.834,
+            "size": 70.5,
+            "mass": 506.0,
+            "pressure": 0.54,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 84,
+          "ball": "баскетбольный",
+          "distance": 1.018656307709618,
+          "features": {
+            "elasticity": 0.817,
+            "size": 71.6,
+            "mass": 498.0,
+            "pressure": 0.445,
+            "bounce": 128.0
+          }
+        },
+        {
+          "id": 39,
+          "ball": "баскетбольный",
+          "distance": 1.0434143610115405,
+          "features": {
+            "elasticity": 0.775,
+            "size": 71.9,
+            "mass": 492.0,
+            "pressure": 0.525,
+            "bounce": 131.0
+          }
+        },
+        {
+          "id": 63,
+          "ball": "баскетбольный",
+          "distance": 1.0527708641817957,
+          "features": {
+            "elasticity": 0.819,
+            "size": 71.7,
+            "mass": 478.0,
+            "pressure": 0.511,
+            "bounce": 135.0
           }
         }
       ],
       "diffs": [
         {
-          "feature": "net_share",
-          "usual": 1,
-          "value": 0,
-          "phrase": "динамика владения 0 вместо 1"
+          "feature": "elasticity",
+          "usual": 0.82,
+          "value": 0.813,
+          "phrase": "упругость 0,81 вместо 0,82"
         },
         {
-          "feature": "play_zone",
-          "usual": 2,
-          "value": 0,
-          "phrase": "зона 0 вместо 2"
+          "feature": "size",
+          "usual": 72.0,
+          "value": 71.0,
+          "phrase": "окружность 71,0 вместо 72,0"
         },
         {
-          "feature": "attack",
-          "usual": 1,
-          "value": 0,
-          "phrase": "вектор 0 вместо 1"
+          "feature": "mass",
+          "usual": 480.0,
+          "value": 482.0,
+          "phrase": "масса 482 вместо 480"
         },
         {
-          "feature": "ground",
-          "usual": 0,
-          "value": 2,
-          "phrase": "земля 2 вместо 0"
+          "feature": "bounce",
+          "usual": 135.0,
+          "value": 127.0,
+          "phrase": "отскок 127 вместо 135"
         }
       ],
       "variant_name": ""
     },
     {
-      "id": 65,
+      "id": 67,
       "ball": "баскетбольный",
-      "pred": "футбольный",
-      "correct": false,
+      "pred": "баскетбольный",
+      "correct": true,
       "tie": false,
       "votes": {
-        "футбольный": 1,
+        "футбольный": 0,
+        "баскетбольный": 5,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.815,
+        "size": 72.1,
+        "mass": 480.0,
+        "pressure": 0.487,
+        "bounce": 134.0
+      },
+      "neighbors": [
+        {
+          "id": 98,
+          "ball": "баскетбольный",
+          "distance": 0.181694656316664,
+          "features": {
+            "elasticity": 0.818,
+            "size": 71.9,
+            "mass": 482.0,
+            "pressure": 0.489,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 38,
+          "ball": "баскетбольный",
+          "distance": 0.21219559213213576,
+          "features": {
+            "elasticity": 0.824,
+            "size": 72.0,
+            "mass": 480.0,
+            "pressure": 0.492,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 150,
+          "ball": "баскетбольный",
+          "distance": 0.21807166167902986,
+          "features": {
+            "elasticity": 0.823,
+            "size": 72.1,
+            "mass": 481.0,
+            "pressure": 0.495,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 74,
+          "ball": "баскетбольный",
+          "distance": 0.3046947769946334,
+          "features": {
+            "elasticity": 0.815,
+            "size": 71.9,
+            "mass": 484.0,
+            "pressure": 0.502,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 122,
+          "ball": "баскетбольный",
+          "distance": 0.33298774364196815,
+          "features": {
+            "elasticity": 0.825,
+            "size": 72.0,
+            "mass": 482.0,
+            "pressure": 0.503,
+            "bounce": 135.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.82,
+          "value": 0.815,
+          "phrase": "упругость 0,81 вместо 0,82"
+        },
+        {
+          "feature": "size",
+          "usual": 72.0,
+          "value": 72.1,
+          "phrase": "окружность 72,1 вместо 72,0"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.5,
+          "value": 0.487,
+          "phrase": "давление 0,49 вместо 0,50"
+        },
+        {
+          "feature": "bounce",
+          "usual": 135.0,
+          "value": 134.0,
+          "phrase": "отскок 134 вместо 135"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 68,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 5,
         "баскетбольный": 0,
         "волейбольный": 0
       },
       "features": {
-        "net_share": 1,
-        "play_zone": 2,
-        "hold": 0,
-        "attack": 1,
-        "ground": 0
+        "elasticity": 0.777,
+        "size": 69.7,
+        "mass": 385.0,
+        "pressure": 0.556,
+        "bounce": 127.0
       },
       "neighbors": [
         {
-          "id": 74,
+          "id": 120,
           "ball": "футбольный",
-          "distance": 0.0,
+          "distance": 0.7142285372436992,
           "features": {
-            "net_share": 1,
-            "play_zone": 2,
-            "hold": 0,
-            "attack": 1,
-            "ground": 0
+            "elasticity": 0.789,
+            "size": 69.8,
+            "mass": 399.0,
+            "pressure": 0.566,
+            "bounce": 122.0
+          }
+        },
+        {
+          "id": 127,
+          "ball": "футбольный",
+          "distance": 0.7206281769839393,
+          "features": {
+            "elasticity": 0.739,
+            "size": 69.2,
+            "mass": 392.0,
+            "pressure": 0.564,
+            "bounce": 128.0
+          }
+        },
+        {
+          "id": 78,
+          "ball": "футбольный",
+          "distance": 0.8842618697162238,
+          "features": {
+            "elasticity": 0.756,
+            "size": 70.1,
+            "mass": 419.0,
+            "pressure": 0.544,
+            "bounce": 126.0
+          }
+        },
+        {
+          "id": 139,
+          "ball": "футбольный",
+          "distance": 0.8889109657739405,
+          "features": {
+            "elasticity": 0.751,
+            "size": 69.8,
+            "mass": 418.0,
+            "pressure": 0.546,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 41,
+          "ball": "футбольный",
+          "distance": 0.9011613037912889,
+          "features": {
+            "elasticity": 0.746,
+            "size": 69.8,
+            "mass": 417.0,
+            "pressure": 0.552,
+            "bounce": 125.0
           }
         }
       ],
       "diffs": [
         {
-          "feature": "hold",
-          "usual": 2,
-          "value": 0,
-          "phrase": "удержание 0 вместо 2"
+          "feature": "elasticity",
+          "usual": 0.75,
+          "value": 0.777,
+          "phrase": "упругость 0,78 вместо 0,75"
+        },
+        {
+          "feature": "size",
+          "usual": 70.0,
+          "value": 69.7,
+          "phrase": "окружность 69,7 вместо 70,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 420.0,
+          "value": 385.0,
+          "phrase": "масса 385 вместо 420"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.55,
+          "value": 0.556,
+          "phrase": "давление 0,56 вместо 0,55"
+        },
+        {
+          "feature": "bounce",
+          "usual": 125.0,
+          "value": 127.0,
+          "phrase": "отскок 127 вместо 125"
         }
       ],
       "variant_name": ""
     },
     {
-      "id": 71,
+      "id": 73,
       "ball": "волейбольный",
       "pred": "волейбольный",
       "correct": true,
@@ -1147,114 +2202,211 @@
       "votes": {
         "футбольный": 0,
         "баскетбольный": 0,
-        "волейбольный": 1
+        "волейбольный": 5
       },
       "features": {
-        "net_share": 2,
-        "play_zone": 1,
-        "hold": 0,
-        "attack": 2,
-        "ground": 0
+        "elasticity": 0.719,
+        "size": 70.0,
+        "mass": 376.0,
+        "pressure": 0.409,
+        "bounce": 124.0
       },
       "neighbors": [
+        {
+          "id": 55,
+          "ball": "волейбольный",
+          "distance": 0.5902142941435746,
+          "features": {
+            "elasticity": 0.735,
+            "size": 69.8,
+            "mass": 369.0,
+            "pressure": 0.4,
+            "bounce": 128.0
+          }
+        },
         {
           "id": 7,
           "ball": "волейбольный",
-          "distance": 0.0,
+          "distance": 0.9763920857987423,
           "features": {
-            "net_share": 2,
-            "play_zone": 1,
-            "hold": 0,
-            "attack": 2,
-            "ground": 0
+            "elasticity": 0.719,
+            "size": 70.2,
+            "mass": 410.0,
+            "pressure": 0.398,
+            "bounce": 119.0
+          }
+        },
+        {
+          "id": 16,
+          "ball": "волейбольный",
+          "distance": 1.0195568976352076,
+          "features": {
+            "elasticity": 0.685,
+            "size": 69.2,
+            "mass": 380.0,
+            "pressure": 0.414,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 49,
+          "ball": "волейбольный",
+          "distance": 1.0633659891771816,
+          "features": {
+            "elasticity": 0.688,
+            "size": 69.0,
+            "mass": 378.0,
+            "pressure": 0.42,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 15,
+          "ball": "волейбольный",
+          "distance": 1.0882410094073387,
+          "features": {
+            "elasticity": 0.74,
+            "size": 69.5,
+            "mass": 410.0,
+            "pressure": 0.449,
+            "bounce": 123.0
           }
         }
       ],
       "diffs": [
         {
-          "feature": "attack",
-          "usual": 1,
-          "value": 2,
-          "phrase": "вектор 2 вместо 1"
+          "feature": "elasticity",
+          "usual": 0.68,
+          "value": 0.719,
+          "phrase": "упругость 0,72 вместо 0,68"
+        },
+        {
+          "feature": "size",
+          "usual": 69.0,
+          "value": 70.0,
+          "phrase": "окружность 70,0 вместо 69,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 380.0,
+          "value": 376.0,
+          "phrase": "масса 376 вместо 380"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.42,
+          "value": 0.409,
+          "phrase": "давление 0,41 вместо 0,42"
+        },
+        {
+          "feature": "bounce",
+          "usual": 118.0,
+          "value": 124.0,
+          "phrase": "отскок 124 вместо 118"
         }
       ],
       "variant_name": ""
     },
     {
-      "id": 77,
-      "ball": "футбольный",
-      "pred": "футбольный",
+      "id": 76,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
       "correct": true,
       "tie": false,
       "votes": {
-        "футбольный": 1,
-        "баскетбольный": 0,
+        "футбольный": 0,
+        "баскетбольный": 5,
         "волейбольный": 0
       },
       "features": {
-        "net_share": 1,
-        "play_zone": 0,
-        "hold": 1,
-        "attack": 0,
-        "ground": 2
+        "elasticity": 0.82,
+        "size": 71.9,
+        "mass": 479.0,
+        "pressure": 0.504,
+        "bounce": 135.0
       },
       "neighbors": [
         {
-          "id": 83,
-          "ball": "футбольный",
-          "distance": 0.0,
+          "id": 122,
+          "ball": "баскетбольный",
+          "distance": 0.12093008143471565,
           "features": {
-            "net_share": 1,
-            "play_zone": 0,
-            "hold": 1,
-            "attack": 0,
-            "ground": 2
+            "elasticity": 0.825,
+            "size": 72.0,
+            "mass": 482.0,
+            "pressure": 0.503,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 74,
+          "ball": "баскетбольный",
+          "distance": 0.14037995172581733,
+          "features": {
+            "elasticity": 0.815,
+            "size": 71.9,
+            "mass": 484.0,
+            "pressure": 0.502,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 63,
+          "ball": "баскетбольный",
+          "distance": 0.164324171683548,
+          "features": {
+            "elasticity": 0.819,
+            "size": 71.7,
+            "mass": 478.0,
+            "pressure": 0.511,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 103,
+          "ball": "баскетбольный",
+          "distance": 0.17879859355484326,
+          "features": {
+            "elasticity": 0.818,
+            "size": 71.8,
+            "mass": 482.0,
+            "pressure": 0.498,
+            "bounce": 136.0
+          }
+        },
+        {
+          "id": 123,
+          "ball": "баскетбольный",
+          "distance": 0.1847250207441266,
+          "features": {
+            "elasticity": 0.822,
+            "size": 72.1,
+            "mass": 476.0,
+            "pressure": 0.502,
+            "bounce": 136.0
           }
         }
       ],
       "diffs": [
         {
-          "feature": "net_share",
-          "usual": 0,
-          "value": 1,
-          "phrase": "динамика владения 1 вместо 0"
-        }
-      ],
-      "variant_name": ""
-    },
-    {
-      "id": 78,
-      "ball": "футбольный",
-      "pred": "футбольный",
-      "correct": true,
-      "tie": false,
-      "votes": {
-        "футбольный": 1,
-        "баскетбольный": 0,
-        "волейбольный": 0
-      },
-      "features": {
-        "net_share": 0,
-        "play_zone": 0,
-        "hold": 1,
-        "attack": 0,
-        "ground": 2
-      },
-      "neighbors": [
+          "feature": "size",
+          "usual": 72.0,
+          "value": 71.9,
+          "phrase": "окружность 71,9 вместо 72,0"
+        },
         {
-          "id": 12,
-          "ball": "футбольный",
-          "distance": 0.0,
-          "features": {
-            "net_share": 0,
-            "play_zone": 0,
-            "hold": 1,
-            "attack": 0,
-            "ground": 2
-          }
+          "feature": "mass",
+          "usual": 480.0,
+          "value": 479.0,
+          "phrase": "масса 479 вместо 480"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.5,
+          "value": 0.504,
+          "phrase": "давление 0,50 вместо 0,50"
         }
       ],
-      "diffs": [],
       "variant_name": ""
     },
     {
@@ -1264,102 +2416,115 @@
       "correct": true,
       "tie": false,
       "votes": {
-        "футбольный": 0,
+        "футбольный": 2,
         "баскетбольный": 0,
-        "волейбольный": 1
+        "волейбольный": 3
       },
       "features": {
-        "net_share": 2,
-        "play_zone": 1,
-        "hold": 0,
-        "attack": 1,
-        "ground": 0
+        "elasticity": 0.76,
+        "size": 69.1,
+        "mass": 444.0,
+        "pressure": 0.41,
+        "bounce": 122.0
       },
       "neighbors": [
         {
-          "id": 66,
-          "ball": "волейбольный",
-          "distance": 0.0,
-          "features": {
-            "net_share": 2,
-            "play_zone": 1,
-            "hold": 0,
-            "attack": 1,
-            "ground": 0
-          }
-        }
-      ],
-      "diffs": [],
-      "variant_name": ""
-    },
-    {
-      "id": 84,
-      "ball": "футбольный",
-      "pred": "футбольный",
-      "correct": true,
-      "tie": false,
-      "votes": {
-        "футбольный": 1,
-        "баскетбольный": 0,
-        "волейбольный": 0
-      },
-      "features": {
-        "net_share": 1,
-        "play_zone": 2,
-        "hold": 0,
-        "attack": 1,
-        "ground": 0
-      },
-      "neighbors": [
-        {
-          "id": 74,
+          "id": 83,
           "ball": "футбольный",
-          "distance": 0.0,
+          "distance": 0.9677085302554204,
           "features": {
-            "net_share": 1,
-            "play_zone": 2,
-            "hold": 0,
-            "attack": 1,
-            "ground": 0
+            "elasticity": 0.755,
+            "size": 69.6,
+            "mass": 416.0,
+            "pressure": 0.45,
+            "bounce": 120.0
+          }
+        },
+        {
+          "id": 15,
+          "ball": "волейбольный",
+          "distance": 1.0594319046899408,
+          "features": {
+            "elasticity": 0.74,
+            "size": 69.5,
+            "mass": 410.0,
+            "pressure": 0.449,
+            "bounce": 123.0
+          }
+        },
+        {
+          "id": 88,
+          "ball": "волейбольный",
+          "distance": 1.2069426994305585,
+          "features": {
+            "elasticity": 0.701,
+            "size": 69.6,
+            "mass": 421.0,
+            "pressure": 0.437,
+            "bounce": 123.0
+          }
+        },
+        {
+          "id": 60,
+          "ball": "футбольный",
+          "distance": 1.2162091095813767,
+          "features": {
+            "elasticity": 0.741,
+            "size": 69.1,
+            "mass": 412.0,
+            "pressure": 0.469,
+            "bounce": 122.0
+          }
+        },
+        {
+          "id": 7,
+          "ball": "волейбольный",
+          "distance": 1.2570645925836468,
+          "features": {
+            "elasticity": 0.719,
+            "size": 70.2,
+            "mass": 410.0,
+            "pressure": 0.398,
+            "bounce": 119.0
           }
         }
       ],
       "diffs": [
         {
-          "feature": "net_share",
-          "usual": 0,
-          "value": 1,
-          "phrase": "динамика владения 1 вместо 0"
+          "feature": "elasticity",
+          "usual": 0.68,
+          "value": 0.76,
+          "phrase": "упругость 0,76 вместо 0,68"
         },
         {
-          "feature": "play_zone",
-          "usual": 0,
-          "value": 2,
-          "phrase": "зона 2 вместо 0"
+          "feature": "size",
+          "usual": 69.0,
+          "value": 69.1,
+          "phrase": "окружность 69,1 вместо 69,0"
         },
         {
-          "feature": "hold",
-          "usual": 1,
-          "value": 0,
-          "phrase": "удержание 0 вместо 1"
+          "feature": "mass",
+          "usual": 380.0,
+          "value": 444.0,
+          "phrase": "масса 444 вместо 380"
         },
         {
-          "feature": "attack",
-          "usual": 0,
-          "value": 1,
-          "phrase": "вектор 1 вместо 0"
+          "feature": "pressure",
+          "usual": 0.42,
+          "value": 0.41,
+          "phrase": "давление 0,41 вместо 0,42"
         },
         {
-          "feature": "ground",
-          "usual": 2,
-          "value": 0,
-          "phrase": "земля 0 вместо 2"
+          "feature": "bounce",
+          "usual": 118.0,
+          "value": 122.0,
+          "phrase": "отскок 122 вместо 118"
         }
       ],
       "variant_name": ""
     },
     {
-      "id": 85,
+      "id": 81,
       "ball": "волейбольный",
       "pred": "волейбольный",
       "correct": true,
@@ -1367,163 +2532,2846 @@
       "votes": {
         "футбольный": 0,
         "баскетбольный": 0,
-        "волейбольный": 1
+        "волейбольный": 5
       },
       "features": {
-        "net_share": 2,
-        "play_zone": 2,
-        "hold": 0,
-        "attack": 1,
-        "ground": 0
+        "elasticity": 0.687,
+        "size": 69.2,
+        "mass": 383.0,
+        "pressure": 0.424,
+        "bounce": 117.0
       },
       "neighbors": [
         {
-          "id": 9,
+          "id": 34,
           "ball": "волейбольный",
-          "distance": 0.0,
+          "distance": 0.13079134801424397,
           "features": {
-            "net_share": 2,
-            "play_zone": 2,
-            "hold": 0,
-            "attack": 1,
-            "ground": 0
+            "elasticity": 0.68,
+            "size": 69.2,
+            "mass": 385.0,
+            "pressure": 0.421,
+            "bounce": 117.0
           }
-        }
-      ],
-      "diffs": [
-        {
-          "feature": "play_zone",
-          "usual": 1,
-          "value": 2,
-          "phrase": "зона 2 вместо 1"
-        }
-      ],
-      "variant_name": ""
-    },
-    {
-      "id": 88,
-      "ball": "волейбольный",
-      "pred": "футбольный",
-      "correct": false,
-      "tie": false,
-      "votes": {
-        "футбольный": 1,
-        "баскетбольный": 0,
-        "волейбольный": 0
-      },
-      "features": {
-        "net_share": 1,
-        "play_zone": 2,
-        "hold": 0,
-        "attack": 1,
-        "ground": 0
-      },
-      "neighbors": [
-        {
-          "id": 74,
-          "ball": "футбольный",
-          "distance": 0.0,
-          "features": {
-            "net_share": 1,
-            "play_zone": 2,
-            "hold": 0,
-            "attack": 1,
-            "ground": 0
-          }
-        }
-      ],
-      "diffs": [
-        {
-          "feature": "net_share",
-          "usual": 2,
-          "value": 1,
-          "phrase": "динамика владения 1 вместо 2"
         },
         {
-          "feature": "play_zone",
-          "usual": 1,
-          "value": 2,
-          "phrase": "зона 2 вместо 1"
+          "id": 28,
+          "ball": "волейбольный",
+          "distance": 0.20034740340688992,
+          "features": {
+            "elasticity": 0.68,
+            "size": 69.3,
+            "mass": 377.0,
+            "pressure": 0.419,
+            "bounce": 117.0
+          }
+        },
+        {
+          "id": 49,
+          "ball": "волейбольный",
+          "distance": 0.2101248549650247,
+          "features": {
+            "elasticity": 0.688,
+            "size": 69.0,
+            "mass": 378.0,
+            "pressure": 0.42,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 16,
+          "ball": "волейбольный",
+          "distance": 0.21179032915555468,
+          "features": {
+            "elasticity": 0.685,
+            "size": 69.2,
+            "mass": 380.0,
+            "pressure": 0.414,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 75,
+          "ball": "волейбольный",
+          "distance": 0.2142613505205877,
+          "features": {
+            "elasticity": 0.677,
+            "size": 69.1,
+            "mass": 388.0,
+            "pressure": 0.428,
+            "bounce": 117.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.68,
+          "value": 0.687,
+          "phrase": "упругость 0,69 вместо 0,68"
+        },
+        {
+          "feature": "size",
+          "usual": 69.0,
+          "value": 69.2,
+          "phrase": "окружность 69,2 вместо 69,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 380.0,
+          "value": 383.0,
+          "phrase": "масса 383 вместо 380"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.42,
+          "value": 0.424,
+          "phrase": "давление 0,42 вместо 0,42"
+        },
+        {
+          "feature": "bounce",
+          "usual": 118.0,
+          "value": 117.0,
+          "phrase": "отскок 117 вместо 118"
         }
       ],
       "variant_name": ""
     },
     {
-      "id": 89,
+      "id": 85,
       "ball": "футбольный",
       "pred": "футбольный",
       "correct": true,
       "tie": false,
       "votes": {
-        "футбольный": 1,
+        "футбольный": 5,
         "баскетбольный": 0,
         "волейбольный": 0
       },
       "features": {
-        "net_share": 1,
-        "play_zone": 0,
-        "hold": 1,
-        "attack": 0,
-        "ground": 2
+        "elasticity": 0.759,
+        "size": 69.1,
+        "mass": 460.0,
+        "pressure": 0.533,
+        "bounce": 130.0
       },
       "neighbors": [
         {
-          "id": 83,
+          "id": 107,
           "ball": "футбольный",
-          "distance": 0.0,
+          "distance": 0.7014168457135057,
           "features": {
-            "net_share": 1,
-            "play_zone": 0,
-            "hold": 1,
-            "attack": 0,
-            "ground": 2
+            "elasticity": 0.735,
+            "size": 69.2,
+            "mass": 439.0,
+            "pressure": 0.511,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 136,
+          "ball": "футбольный",
+          "distance": 0.8511710223577198,
+          "features": {
+            "elasticity": 0.788,
+            "size": 69.2,
+            "mass": 434.0,
+            "pressure": 0.507,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 91,
+          "ball": "футбольный",
+          "distance": 0.8655872624575368,
+          "features": {
+            "elasticity": 0.769,
+            "size": 68.9,
+            "mass": 430.0,
+            "pressure": 0.519,
+            "bounce": 134.0
+          }
+        },
+        {
+          "id": 53,
+          "ball": "футбольный",
+          "distance": 1.0033406479617648,
+          "features": {
+            "elasticity": 0.769,
+            "size": 69.7,
+            "mass": 443.0,
+            "pressure": 0.48,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 82,
+          "ball": "футбольный",
+          "distance": 1.010127719619254,
+          "features": {
+            "elasticity": 0.744,
+            "size": 70.6,
+            "mass": 474.0,
+            "pressure": 0.521,
+            "bounce": 132.0
           }
         }
       ],
       "diffs": [
         {
-          "feature": "net_share",
-          "usual": 0,
-          "value": 1,
-          "phrase": "динамика владения 1 вместо 0"
+          "feature": "elasticity",
+          "usual": 0.75,
+          "value": 0.759,
+          "phrase": "упругость 0,76 вместо 0,75"
+        },
+        {
+          "feature": "size",
+          "usual": 70.0,
+          "value": 69.1,
+          "phrase": "окружность 69,1 вместо 70,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 420.0,
+          "value": 460.0,
+          "phrase": "масса 460 вместо 420"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.55,
+          "value": 0.533,
+          "phrase": "давление 0,53 вместо 0,55"
+        },
+        {
+          "feature": "bounce",
+          "usual": 125.0,
+          "value": 130.0,
+          "phrase": "отскок 130 вместо 125"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 87,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 0,
+        "баскетбольный": 5,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.797,
+        "size": 71.6,
+        "mass": 468.0,
+        "pressure": 0.519,
+        "bounce": 140.0
+      },
+      "neighbors": [
+        {
+          "id": 19,
+          "ball": "баскетбольный",
+          "distance": 0.719333807598963,
+          "features": {
+            "elasticity": 0.838,
+            "size": 71.8,
+            "mass": 468.0,
+            "pressure": 0.514,
+            "bounce": 142.0
+          }
+        },
+        {
+          "id": 63,
+          "ball": "баскетбольный",
+          "distance": 0.7373705749263023,
+          "features": {
+            "elasticity": 0.819,
+            "size": 71.7,
+            "mass": 478.0,
+            "pressure": 0.511,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 103,
+          "ball": "баскетбольный",
+          "distance": 0.748357627622087,
+          "features": {
+            "elasticity": 0.818,
+            "size": 71.8,
+            "mass": 482.0,
+            "pressure": 0.498,
+            "bounce": 136.0
+          }
+        },
+        {
+          "id": 123,
+          "ball": "баскетбольный",
+          "distance": 0.7601521244172371,
+          "features": {
+            "elasticity": 0.822,
+            "size": 72.1,
+            "mass": 476.0,
+            "pressure": 0.502,
+            "bounce": 136.0
+          }
+        },
+        {
+          "id": 74,
+          "ball": "баскетбольный",
+          "distance": 0.8137652860286125,
+          "features": {
+            "elasticity": 0.815,
+            "size": 71.9,
+            "mass": 484.0,
+            "pressure": 0.502,
+            "bounce": 135.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.82,
+          "value": 0.797,
+          "phrase": "упругость 0,80 вместо 0,82"
+        },
+        {
+          "feature": "size",
+          "usual": 72.0,
+          "value": 71.6,
+          "phrase": "окружность 71,6 вместо 72,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 480.0,
+          "value": 468.0,
+          "phrase": "масса 468 вместо 480"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.5,
+          "value": 0.519,
+          "phrase": "давление 0,52 вместо 0,50"
+        },
+        {
+          "feature": "bounce",
+          "usual": 135.0,
+          "value": 140.0,
+          "phrase": "отскок 140 вместо 135"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 95,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 5,
+        "баскетбольный": 0,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.757,
+        "size": 70.2,
+        "mass": 417.0,
+        "pressure": 0.59,
+        "bounce": 122.0
+      },
+      "neighbors": [
+        {
+          "id": 22,
+          "ball": "футбольный",
+          "distance": 0.6315456191120284,
+          "features": {
+            "elasticity": 0.755,
+            "size": 70.1,
+            "mass": 421.0,
+            "pressure": 0.558,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 57,
+          "ball": "футбольный",
+          "distance": 0.7578928218841434,
+          "features": {
+            "elasticity": 0.751,
+            "size": 69.7,
+            "mass": 420.0,
+            "pressure": 0.553,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 41,
+          "ball": "футбольный",
+          "distance": 0.7619363781205583,
+          "features": {
+            "elasticity": 0.746,
+            "size": 69.8,
+            "mass": 417.0,
+            "pressure": 0.552,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 86,
+          "ball": "футбольный",
+          "distance": 0.7707620169779175,
+          "features": {
+            "elasticity": 0.748,
+            "size": 70.2,
+            "mass": 426.0,
+            "pressure": 0.55,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 114,
+          "ball": "футбольный",
+          "distance": 0.7808517908854626,
+          "features": {
+            "elasticity": 0.749,
+            "size": 69.8,
+            "mass": 420.0,
+            "pressure": 0.55,
+            "bounce": 125.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.75,
+          "value": 0.757,
+          "phrase": "упругость 0,76 вместо 0,75"
+        },
+        {
+          "feature": "size",
+          "usual": 70.0,
+          "value": 70.2,
+          "phrase": "окружность 70,2 вместо 70,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 420.0,
+          "value": 417.0,
+          "phrase": "масса 417 вместо 420"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.55,
+          "value": 0.59,
+          "phrase": "давление 0,59 вместо 0,55"
+        },
+        {
+          "feature": "bounce",
+          "usual": 125.0,
+          "value": 122.0,
+          "phrase": "отскок 122 вместо 125"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 96,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 2,
+        "баскетбольный": 0,
+        "волейбольный": 3
+      },
+      "features": {
+        "elasticity": 0.749,
+        "size": 69.2,
+        "mass": 435.0,
+        "pressure": 0.399,
+        "bounce": 116.0
+      },
+      "neighbors": [
+        {
+          "id": 7,
+          "ball": "волейбольный",
+          "distance": 1.0044647128762625,
+          "features": {
+            "elasticity": 0.719,
+            "size": 70.2,
+            "mass": 410.0,
+            "pressure": 0.398,
+            "bounce": 119.0
+          }
+        },
+        {
+          "id": 83,
+          "ball": "футбольный",
+          "distance": 1.0610754049171793,
+          "features": {
+            "elasticity": 0.755,
+            "size": 69.6,
+            "mass": 416.0,
+            "pressure": 0.45,
+            "bounce": 120.0
+          }
+        },
+        {
+          "id": 15,
+          "ball": "волейбольный",
+          "distance": 1.2944671783892683,
+          "features": {
+            "elasticity": 0.74,
+            "size": 69.5,
+            "mass": 410.0,
+            "pressure": 0.449,
+            "bounce": 123.0
+          }
+        },
+        {
+          "id": 88,
+          "ball": "волейбольный",
+          "distance": 1.3440012202140323,
+          "features": {
+            "elasticity": 0.701,
+            "size": 69.6,
+            "mass": 421.0,
+            "pressure": 0.437,
+            "bounce": 123.0
+          }
+        },
+        {
+          "id": 60,
+          "ball": "футбольный",
+          "distance": 1.424145852503887,
+          "features": {
+            "elasticity": 0.741,
+            "size": 69.1,
+            "mass": 412.0,
+            "pressure": 0.469,
+            "bounce": 122.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.68,
+          "value": 0.749,
+          "phrase": "упругость 0,75 вместо 0,68"
+        },
+        {
+          "feature": "size",
+          "usual": 69.0,
+          "value": 69.2,
+          "phrase": "окружность 69,2 вместо 69,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 380.0,
+          "value": 435.0,
+          "phrase": "масса 435 вместо 380"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.42,
+          "value": 0.399,
+          "phrase": "давление 0,40 вместо 0,42"
+        },
+        {
+          "feature": "bounce",
+          "usual": 118.0,
+          "value": 116.0,
+          "phrase": "отскок 116 вместо 118"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 97,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 0,
+        "баскетбольный": 0,
+        "волейбольный": 5
+      },
+      "features": {
+        "elasticity": 0.707,
+        "size": 68.6,
+        "mass": 394.0,
+        "pressure": 0.444,
+        "bounce": 121.0
+      },
+      "neighbors": [
+        {
+          "id": 61,
+          "ball": "волейбольный",
+          "distance": 0.6544836246238039,
+          "features": {
+            "elasticity": 0.686,
+            "size": 68.7,
+            "mass": 382.0,
+            "pressure": 0.436,
+            "bounce": 117.0
+          }
+        },
+        {
+          "id": 49,
+          "ball": "волейбольный",
+          "distance": 0.7391077112781609,
+          "features": {
+            "elasticity": 0.688,
+            "size": 69.0,
+            "mass": 378.0,
+            "pressure": 0.42,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 75,
+          "ball": "волейбольный",
+          "distance": 0.7925141970591748,
+          "features": {
+            "elasticity": 0.677,
+            "size": 69.1,
+            "mass": 388.0,
+            "pressure": 0.428,
+            "bounce": 117.0
+          }
+        },
+        {
+          "id": 16,
+          "ball": "волейбольный",
+          "distance": 0.8372162992829457,
+          "features": {
+            "elasticity": 0.685,
+            "size": 69.2,
+            "mass": 380.0,
+            "pressure": 0.414,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 34,
+          "ball": "волейбольный",
+          "distance": 0.8440616326460194,
+          "features": {
+            "elasticity": 0.68,
+            "size": 69.2,
+            "mass": 385.0,
+            "pressure": 0.421,
+            "bounce": 117.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.68,
+          "value": 0.707,
+          "phrase": "упругость 0,71 вместо 0,68"
+        },
+        {
+          "feature": "size",
+          "usual": 69.0,
+          "value": 68.6,
+          "phrase": "окружность 68,6 вместо 69,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 380.0,
+          "value": 394.0,
+          "phrase": "масса 394 вместо 380"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.42,
+          "value": 0.444,
+          "phrase": "давление 0,44 вместо 0,42"
+        },
+        {
+          "feature": "bounce",
+          "usual": 118.0,
+          "value": 121.0,
+          "phrase": "отскок 121 вместо 118"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 100,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 1,
+        "баскетбольный": 0,
+        "волейбольный": 4
+      },
+      "features": {
+        "elasticity": 0.719,
+        "size": 70.3,
+        "mass": 394.0,
+        "pressure": 0.495,
+        "bounce": 120.0
+      },
+      "neighbors": [
+        {
+          "id": 90,
+          "ball": "волейбольный",
+          "distance": 0.8425697304522365,
+          "features": {
+            "elasticity": 0.743,
+            "size": 70.6,
+            "mass": 418.0,
+            "pressure": 0.505,
+            "bounce": 124.0
+          }
+        },
+        {
+          "id": 60,
+          "ball": "футбольный",
+          "distance": 1.0037865753980675,
+          "features": {
+            "elasticity": 0.741,
+            "size": 69.1,
+            "mass": 412.0,
+            "pressure": 0.469,
+            "bounce": 122.0
+          }
+        },
+        {
+          "id": 50,
+          "ball": "волейбольный",
+          "distance": 1.023089508487614,
+          "features": {
+            "elasticity": 0.735,
+            "size": 68.7,
+            "mass": 403.0,
+            "pressure": 0.499,
+            "bounce": 122.0
+          }
+        },
+        {
+          "id": 113,
+          "ball": "волейбольный",
+          "distance": 1.0473778959325473,
+          "features": {
+            "elasticity": 0.718,
+            "size": 69.5,
+            "mass": 414.0,
+            "pressure": 0.495,
+            "bounce": 127.0
+          }
+        },
+        {
+          "id": 15,
+          "ball": "волейбольный",
+          "distance": 1.0607508291507972,
+          "features": {
+            "elasticity": 0.74,
+            "size": 69.5,
+            "mass": 410.0,
+            "pressure": 0.449,
+            "bounce": 123.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.68,
+          "value": 0.719,
+          "phrase": "упругость 0,72 вместо 0,68"
+        },
+        {
+          "feature": "size",
+          "usual": 69.0,
+          "value": 70.3,
+          "phrase": "окружность 70,3 вместо 69,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 380.0,
+          "value": 394.0,
+          "phrase": "масса 394 вместо 380"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.42,
+          "value": 0.495,
+          "phrase": "давление 0,49 вместо 0,42"
+        },
+        {
+          "feature": "bounce",
+          "usual": 118.0,
+          "value": 120.0,
+          "phrase": "отскок 120 вместо 118"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 102,
+      "ball": "баскетбольный",
+      "pred": "футбольный",
+      "correct": false,
+      "tie": false,
+      "votes": {
+        "футбольный": 3,
+        "баскетбольный": 2,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.775,
+        "size": 71.7,
+        "mass": 456.0,
+        "pressure": 0.504,
+        "bounce": 130.0
+      },
+      "neighbors": [
+        {
+          "id": 44,
+          "ball": "футбольный",
+          "distance": 0.7640643729347085,
+          "features": {
+            "elasticity": 0.746,
+            "size": 71.1,
+            "mass": 448.0,
+            "pressure": 0.522,
+            "bounce": 133.0
+          }
+        },
+        {
+          "id": 131,
+          "ball": "футбольный",
+          "distance": 0.7907397285248731,
+          "features": {
+            "elasticity": 0.738,
+            "size": 71.2,
+            "mass": 455.0,
+            "pressure": 0.526,
+            "bounce": 128.0
+          }
+        },
+        {
+          "id": 39,
+          "ball": "баскетбольный",
+          "distance": 0.876602896255387,
+          "features": {
+            "elasticity": 0.775,
+            "size": 71.9,
+            "mass": 492.0,
+            "pressure": 0.525,
+            "bounce": 131.0
+          }
+        },
+        {
+          "id": 80,
+          "ball": "баскетбольный",
+          "distance": 0.9049808974573871,
+          "features": {
+            "elasticity": 0.805,
+            "size": 71.0,
+            "mass": 485.0,
+            "pressure": 0.499,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 82,
+          "ball": "футбольный",
+          "distance": 0.9772794075758252,
+          "features": {
+            "elasticity": 0.744,
+            "size": 70.6,
+            "mass": 474.0,
+            "pressure": 0.521,
+            "bounce": 132.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.82,
+          "value": 0.775,
+          "phrase": "упругость 0,78 вместо 0,82"
+        },
+        {
+          "feature": "size",
+          "usual": 72.0,
+          "value": 71.7,
+          "phrase": "окружность 71,7 вместо 72,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 480.0,
+          "value": 456.0,
+          "phrase": "масса 456 вместо 480"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.5,
+          "value": 0.504,
+          "phrase": "давление 0,50 вместо 0,50"
+        },
+        {
+          "feature": "bounce",
+          "usual": 135.0,
+          "value": 130.0,
+          "phrase": "отскок 130 вместо 135"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 104,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 0,
+        "баскетбольный": 5,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.806,
+        "size": 71.5,
+        "mass": 454.0,
+        "pressure": 0.512,
+        "bounce": 135.0
+      },
+      "neighbors": [
+        {
+          "id": 13,
+          "ball": "баскетбольный",
+          "distance": 0.4976559418988554,
+          "features": {
+            "elasticity": 0.828,
+            "size": 71.5,
+            "mass": 468.0,
+            "pressure": 0.502,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 63,
+          "ball": "баскетбольный",
+          "distance": 0.5810578435804766,
+          "features": {
+            "elasticity": 0.819,
+            "size": 71.7,
+            "mass": 478.0,
+            "pressure": 0.511,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 110,
+          "ball": "баскетбольный",
+          "distance": 0.6438608837506413,
+          "features": {
+            "elasticity": 0.829,
+            "size": 71.8,
+            "mass": 475.0,
+            "pressure": 0.501,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 123,
+          "ball": "баскетбольный",
+          "distance": 0.6819957126706024,
+          "features": {
+            "elasticity": 0.822,
+            "size": 72.1,
+            "mass": 476.0,
+            "pressure": 0.502,
+            "bounce": 136.0
+          }
+        },
+        {
+          "id": 103,
+          "ball": "баскетбольный",
+          "distance": 0.7160732980306983,
+          "features": {
+            "elasticity": 0.818,
+            "size": 71.8,
+            "mass": 482.0,
+            "pressure": 0.498,
+            "bounce": 136.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.82,
+          "value": 0.806,
+          "phrase": "упругость 0,81 вместо 0,82"
+        },
+        {
+          "feature": "size",
+          "usual": 72.0,
+          "value": 71.5,
+          "phrase": "окружность 71,5 вместо 72,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 480.0,
+          "value": 454.0,
+          "phrase": "масса 454 вместо 480"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.5,
+          "value": 0.512,
+          "phrase": "давление 0,51 вместо 0,50"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 105,
+      "ball": "волейбольный",
+      "pred": "футбольный",
+      "correct": false,
+      "tie": false,
+      "votes": {
+        "футбольный": 3,
+        "баскетбольный": 0,
+        "волейбольный": 2
+      },
+      "features": {
+        "elasticity": 0.749,
+        "size": 68.4,
+        "mass": 431.0,
+        "pressure": 0.459,
+        "bounce": 129.0
+      },
+      "neighbors": [
+        {
+          "id": 53,
+          "ball": "футбольный",
+          "distance": 0.9394122078849284,
+          "features": {
+            "elasticity": 0.769,
+            "size": 69.7,
+            "mass": 443.0,
+            "pressure": 0.48,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 107,
+          "ball": "футбольный",
+          "distance": 1.0031353535605112,
+          "features": {
+            "elasticity": 0.735,
+            "size": 69.2,
+            "mass": 439.0,
+            "pressure": 0.511,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 60,
+          "ball": "футбольный",
+          "distance": 1.0337151662360815,
+          "features": {
+            "elasticity": 0.741,
+            "size": 69.1,
+            "mass": 412.0,
+            "pressure": 0.469,
+            "bounce": 122.0
+          }
+        },
+        {
+          "id": 15,
+          "ball": "волейбольный",
+          "distance": 1.0854895018857524,
+          "features": {
+            "elasticity": 0.74,
+            "size": 69.5,
+            "mass": 410.0,
+            "pressure": 0.449,
+            "bounce": 123.0
+          }
+        },
+        {
+          "id": 113,
+          "ball": "волейбольный",
+          "distance": 1.093149242208994,
+          "features": {
+            "elasticity": 0.718,
+            "size": 69.5,
+            "mass": 414.0,
+            "pressure": 0.495,
+            "bounce": 127.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.68,
+          "value": 0.749,
+          "phrase": "упругость 0,75 вместо 0,68"
+        },
+        {
+          "feature": "size",
+          "usual": 69.0,
+          "value": 68.4,
+          "phrase": "окружность 68,4 вместо 69,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 380.0,
+          "value": 431.0,
+          "phrase": "масса 431 вместо 380"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.42,
+          "value": 0.459,
+          "phrase": "давление 0,46 вместо 0,42"
+        },
+        {
+          "feature": "bounce",
+          "usual": 118.0,
+          "value": 129.0,
+          "phrase": "отскок 129 вместо 118"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 108,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 1,
+        "баскетбольный": 0,
+        "волейбольный": 4
+      },
+      "features": {
+        "elasticity": 0.722,
+        "size": 69.3,
+        "mass": 379.0,
+        "pressure": 0.445,
+        "bounce": 127.0
+      },
+      "neighbors": [
+        {
+          "id": 109,
+          "ball": "волейбольный",
+          "distance": 0.7827583702093976,
+          "features": {
+            "elasticity": 0.744,
+            "size": 69.0,
+            "mass": 355.0,
+            "pressure": 0.459,
+            "bounce": 124.0
+          }
+        },
+        {
+          "id": 55,
+          "ball": "волейбольный",
+          "distance": 0.8422103385018692,
+          "features": {
+            "elasticity": 0.735,
+            "size": 69.8,
+            "mass": 369.0,
+            "pressure": 0.4,
+            "bounce": 128.0
+          }
+        },
+        {
+          "id": 15,
+          "ball": "волейбольный",
+          "distance": 0.8897970327081856,
+          "features": {
+            "elasticity": 0.74,
+            "size": 69.5,
+            "mass": 410.0,
+            "pressure": 0.449,
+            "bounce": 123.0
+          }
+        },
+        {
+          "id": 60,
+          "ball": "футбольный",
+          "distance": 1.0638392368508853,
+          "features": {
+            "elasticity": 0.741,
+            "size": 69.1,
+            "mass": 412.0,
+            "pressure": 0.469,
+            "bounce": 122.0
+          }
+        },
+        {
+          "id": 88,
+          "ball": "волейбольный",
+          "distance": 1.1140809059700199,
+          "features": {
+            "elasticity": 0.701,
+            "size": 69.6,
+            "mass": 421.0,
+            "pressure": 0.437,
+            "bounce": 123.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.68,
+          "value": 0.722,
+          "phrase": "упругость 0,72 вместо 0,68"
+        },
+        {
+          "feature": "size",
+          "usual": 69.0,
+          "value": 69.3,
+          "phrase": "окружность 69,3 вместо 69,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 380.0,
+          "value": 379.0,
+          "phrase": "масса 379 вместо 380"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.42,
+          "value": 0.445,
+          "phrase": "давление 0,45 вместо 0,42"
+        },
+        {
+          "feature": "bounce",
+          "usual": 118.0,
+          "value": 127.0,
+          "phrase": "отскок 127 вместо 118"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 111,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 4,
+        "баскетбольный": 1,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.803,
+        "size": 70.7,
+        "mass": 416.0,
+        "pressure": 0.593,
+        "bounce": 129.0
+      },
+      "neighbors": [
+        {
+          "id": 29,
+          "ball": "футбольный",
+          "distance": 1.1254030832865265,
+          "features": {
+            "elasticity": 0.76,
+            "size": 71.2,
+            "mass": 410.0,
+            "pressure": 0.542,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 22,
+          "ball": "футбольный",
+          "distance": 1.129849441601062,
+          "features": {
+            "elasticity": 0.755,
+            "size": 70.1,
+            "mass": 421.0,
+            "pressure": 0.558,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 120,
+          "ball": "футбольный",
+          "distance": 1.1570794247362892,
+          "features": {
+            "elasticity": 0.789,
+            "size": 69.8,
+            "mass": 399.0,
+            "pressure": 0.566,
+            "bounce": 122.0
+          }
+        },
+        {
+          "id": 78,
+          "ball": "футбольный",
+          "distance": 1.2026180910345645,
+          "features": {
+            "elasticity": 0.756,
+            "size": 70.1,
+            "mass": 419.0,
+            "pressure": 0.544,
+            "bounce": 126.0
+          }
+        },
+        {
+          "id": 71,
+          "ball": "баскетбольный",
+          "distance": 1.2169046350053299,
+          "features": {
+            "elasticity": 0.8,
+            "size": 72.6,
+            "mass": 436.0,
+            "pressure": 0.58,
+            "bounce": 129.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.75,
+          "value": 0.803,
+          "phrase": "упругость 0,80 вместо 0,75"
+        },
+        {
+          "feature": "size",
+          "usual": 70.0,
+          "value": 70.7,
+          "phrase": "окружность 70,7 вместо 70,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 420.0,
+          "value": 416.0,
+          "phrase": "масса 416 вместо 420"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.55,
+          "value": 0.593,
+          "phrase": "давление 0,59 вместо 0,55"
+        },
+        {
+          "feature": "bounce",
+          "usual": 125.0,
+          "value": 129.0,
+          "phrase": "отскок 129 вместо 125"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 116,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 0,
+        "баскетбольный": 5,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.82,
+        "size": 72.2,
+        "mass": 479.0,
+        "pressure": 0.495,
+        "bounce": 136.0
+      },
+      "neighbors": [
+        {
+          "id": 123,
+          "ball": "баскетбольный",
+          "distance": 0.1461218389534576,
+          "features": {
+            "elasticity": 0.822,
+            "size": 72.1,
+            "mass": 476.0,
+            "pressure": 0.502,
+            "bounce": 136.0
+          }
+        },
+        {
+          "id": 150,
+          "ball": "баскетбольный",
+          "distance": 0.14722643575523053,
+          "features": {
+            "elasticity": 0.823,
+            "size": 72.1,
+            "mass": 481.0,
+            "pressure": 0.495,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 38,
+          "ball": "баскетбольный",
+          "distance": 0.18620651480035136,
+          "features": {
+            "elasticity": 0.824,
+            "size": 72.0,
+            "mass": 480.0,
+            "pressure": 0.492,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 122,
+          "ball": "баскетбольный",
+          "distance": 0.23440266981612803,
+          "features": {
+            "elasticity": 0.825,
+            "size": 72.0,
+            "mass": 482.0,
+            "pressure": 0.503,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 98,
+          "ball": "баскетбольный",
+          "distance": 0.24388713649008054,
+          "features": {
+            "elasticity": 0.818,
+            "size": 71.9,
+            "mass": 482.0,
+            "pressure": 0.489,
+            "bounce": 135.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "size",
+          "usual": 72.0,
+          "value": 72.2,
+          "phrase": "окружность 72,2 вместо 72,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 480.0,
+          "value": 479.0,
+          "phrase": "масса 479 вместо 480"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.5,
+          "value": 0.495,
+          "phrase": "давление 0,49 вместо 0,50"
+        },
+        {
+          "feature": "bounce",
+          "usual": 135.0,
+          "value": 136.0,
+          "phrase": "отскок 136 вместо 135"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 117,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 0,
+        "баскетбольный": 5,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.841,
+        "size": 73.2,
+        "mass": 532.0,
+        "pressure": 0.517,
+        "bounce": 142.0
+      },
+      "neighbors": [
+        {
+          "id": 70,
+          "ball": "баскетбольный",
+          "distance": 1.0747616528312482,
+          "features": {
+            "elasticity": 0.824,
+            "size": 74.4,
+            "mass": 510.0,
+            "pressure": 0.519,
+            "bounce": 147.0
+          }
+        },
+        {
+          "id": 106,
+          "ball": "баскетбольный",
+          "distance": 1.102587852562342,
+          "features": {
+            "elasticity": 0.84,
+            "size": 72.7,
+            "mass": 487.0,
+            "pressure": 0.498,
+            "bounce": 144.0
+          }
+        },
+        {
+          "id": 143,
+          "ball": "баскетбольный",
+          "distance": 1.2076332286313445,
+          "features": {
+            "elasticity": 0.817,
+            "size": 72.4,
+            "mass": 492.0,
+            "pressure": 0.49,
+            "bounce": 139.0
+          }
+        },
+        {
+          "id": 122,
+          "ball": "баскетбольный",
+          "distance": 1.583383314918058,
+          "features": {
+            "elasticity": 0.825,
+            "size": 72.0,
+            "mass": 482.0,
+            "pressure": 0.503,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 150,
+          "ball": "баскетбольный",
+          "distance": 1.6025894048292513,
+          "features": {
+            "elasticity": 0.823,
+            "size": 72.1,
+            "mass": 481.0,
+            "pressure": 0.495,
+            "bounce": 135.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.82,
+          "value": 0.841,
+          "phrase": "упругость 0,84 вместо 0,82"
+        },
+        {
+          "feature": "size",
+          "usual": 72.0,
+          "value": 73.2,
+          "phrase": "окружность 73,2 вместо 72,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 480.0,
+          "value": 532.0,
+          "phrase": "масса 532 вместо 480"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.5,
+          "value": 0.517,
+          "phrase": "давление 0,52 вместо 0,50"
+        },
+        {
+          "feature": "bounce",
+          "usual": 135.0,
+          "value": 142.0,
+          "phrase": "отскок 142 вместо 135"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 124,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 2,
+        "баскетбольный": 3,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.812,
+        "size": 69.5,
+        "mass": 496.0,
+        "pressure": 0.538,
+        "bounce": 129.0
+      },
+      "neighbors": [
+        {
+          "id": 10,
+          "ball": "баскетбольный",
+          "distance": 0.7310744124411702,
+          "features": {
+            "elasticity": 0.834,
+            "size": 70.5,
+            "mass": 506.0,
+            "pressure": 0.54,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 80,
+          "ball": "баскетбольный",
+          "distance": 1.1167877847312448,
+          "features": {
+            "elasticity": 0.805,
+            "size": 71.0,
+            "mass": 485.0,
+            "pressure": 0.499,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 82,
+          "ball": "футбольный",
+          "distance": 1.4368442517030648,
+          "features": {
+            "elasticity": 0.744,
+            "size": 70.6,
+            "mass": 474.0,
+            "pressure": 0.521,
+            "bounce": 132.0
+          }
+        },
+        {
+          "id": 136,
+          "ball": "футбольный",
+          "distance": 1.518140970685979,
+          "features": {
+            "elasticity": 0.788,
+            "size": 69.2,
+            "mass": 434.0,
+            "pressure": 0.507,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 39,
+          "ball": "баскетбольный",
+          "distance": 1.5643142316068446,
+          "features": {
+            "elasticity": 0.775,
+            "size": 71.9,
+            "mass": 492.0,
+            "pressure": 0.525,
+            "bounce": 131.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.82,
+          "value": 0.812,
+          "phrase": "упругость 0,81 вместо 0,82"
+        },
+        {
+          "feature": "size",
+          "usual": 72.0,
+          "value": 69.5,
+          "phrase": "окружность 69,5 вместо 72,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 480.0,
+          "value": 496.0,
+          "phrase": "масса 496 вместо 480"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.5,
+          "value": 0.538,
+          "phrase": "давление 0,54 вместо 0,50"
+        },
+        {
+          "feature": "bounce",
+          "usual": 135.0,
+          "value": 129.0,
+          "phrase": "отскок 129 вместо 135"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 132,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 0,
+        "баскетбольный": 0,
+        "волейбольный": 5
+      },
+      "features": {
+        "elasticity": 0.678,
+        "size": 69.0,
+        "mass": 377.0,
+        "pressure": 0.423,
+        "bounce": 118.0
+      },
+      "neighbors": [
+        {
+          "id": 119,
+          "ball": "волейбольный",
+          "distance": 0.14061029080863818,
+          "features": {
+            "elasticity": 0.67,
+            "size": 69.0,
+            "mass": 375.0,
+            "pressure": 0.421,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 137,
+          "ball": "волейбольный",
+          "distance": 0.16668261344828614,
+          "features": {
+            "elasticity": 0.679,
+            "size": 69.1,
+            "mass": 381.0,
+            "pressure": 0.415,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 49,
+          "ball": "волейбольный",
+          "distance": 0.17043783064951654,
+          "features": {
+            "elasticity": 0.688,
+            "size": 69.0,
+            "mass": 378.0,
+            "pressure": 0.42,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 28,
+          "ball": "волейбольный",
+          "distance": 0.2236435663504431,
+          "features": {
+            "elasticity": 0.68,
+            "size": 69.3,
+            "mass": 377.0,
+            "pressure": 0.419,
+            "bounce": 117.0
+          }
+        },
+        {
+          "id": 16,
+          "ball": "волейбольный",
+          "distance": 0.22727086486547476,
+          "features": {
+            "elasticity": 0.685,
+            "size": 69.2,
+            "mass": 380.0,
+            "pressure": 0.414,
+            "bounce": 118.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.68,
+          "value": 0.678,
+          "phrase": "упругость 0,68 вместо 0,68"
+        },
+        {
+          "feature": "mass",
+          "usual": 380.0,
+          "value": 377.0,
+          "phrase": "масса 377 вместо 380"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.42,
+          "value": 0.423,
+          "phrase": "давление 0,42 вместо 0,42"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 134,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 3,
+        "баскетбольный": 2,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.738,
+        "size": 71.6,
+        "mass": 422.0,
+        "pressure": 0.638,
+        "bounce": 132.0
+      },
+      "neighbors": [
+        {
+          "id": 11,
+          "ball": "футбольный",
+          "distance": 1.0728563884828013,
+          "features": {
+            "elasticity": 0.733,
+            "size": 71.7,
+            "mass": 437.0,
+            "pressure": 0.601,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 33,
+          "ball": "баскетбольный",
+          "distance": 1.3328368306301823,
+          "features": {
+            "elasticity": 0.762,
+            "size": 73.4,
+            "mass": 431.0,
+            "pressure": 0.595,
+            "bounce": 132.0
+          }
+        },
+        {
+          "id": 20,
+          "ball": "футбольный",
+          "distance": 1.3962829829422194,
+          "features": {
+            "elasticity": 0.711,
+            "size": 69.8,
+            "mass": 455.0,
+            "pressure": 0.618,
+            "bounce": 131.0
+          }
+        },
+        {
+          "id": 27,
+          "ball": "футбольный",
+          "distance": 1.4499873881749084,
+          "features": {
+            "elasticity": 0.717,
+            "size": 71.9,
+            "mass": 464.0,
+            "pressure": 0.574,
+            "bounce": 134.0
+          }
+        },
+        {
+          "id": 23,
+          "ball": "баскетбольный",
+          "distance": 1.5230047970617115,
+          "features": {
+            "elasticity": 0.753,
+            "size": 71.3,
+            "mass": 459.0,
+            "pressure": 0.56,
+            "bounce": 131.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.75,
+          "value": 0.738,
+          "phrase": "упругость 0,74 вместо 0,75"
+        },
+        {
+          "feature": "size",
+          "usual": 70.0,
+          "value": 71.6,
+          "phrase": "окружность 71,6 вместо 70,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 420.0,
+          "value": 422.0,
+          "phrase": "масса 422 вместо 420"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.55,
+          "value": 0.638,
+          "phrase": "давление 0,64 вместо 0,55"
+        },
+        {
+          "feature": "bounce",
+          "usual": 125.0,
+          "value": 132.0,
+          "phrase": "отскок 132 вместо 125"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 135,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 4,
+        "баскетбольный": 1,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.787,
+        "size": 69.7,
+        "mass": 463.0,
+        "pressure": 0.529,
+        "bounce": 129.0
+      },
+      "neighbors": [
+        {
+          "id": 136,
+          "ball": "футбольный",
+          "distance": 0.7945538512773123,
+          "features": {
+            "elasticity": 0.788,
+            "size": 69.2,
+            "mass": 434.0,
+            "pressure": 0.507,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 53,
+          "ball": "футбольный",
+          "distance": 0.9515245140071281,
+          "features": {
+            "elasticity": 0.769,
+            "size": 69.7,
+            "mass": 443.0,
+            "pressure": 0.48,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 82,
+          "ball": "футбольный",
+          "distance": 0.9821643212493858,
+          "features": {
+            "elasticity": 0.744,
+            "size": 70.6,
+            "mass": 474.0,
+            "pressure": 0.521,
+            "bounce": 132.0
+          }
+        },
+        {
+          "id": 80,
+          "ball": "баскетбольный",
+          "distance": 1.0697816703262966,
+          "features": {
+            "elasticity": 0.805,
+            "size": 71.0,
+            "mass": 485.0,
+            "pressure": 0.499,
+            "bounce": 130.0
+          }
+        },
+        {
+          "id": 107,
+          "ball": "футбольный",
+          "distance": 1.0826263764567738,
+          "features": {
+            "elasticity": 0.735,
+            "size": 69.2,
+            "mass": 439.0,
+            "pressure": 0.511,
+            "bounce": 130.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.75,
+          "value": 0.787,
+          "phrase": "упругость 0,79 вместо 0,75"
+        },
+        {
+          "feature": "size",
+          "usual": 70.0,
+          "value": 69.7,
+          "phrase": "окружность 69,7 вместо 70,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 420.0,
+          "value": 463.0,
+          "phrase": "масса 463 вместо 420"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.55,
+          "value": 0.529,
+          "phrase": "давление 0,53 вместо 0,55"
+        },
+        {
+          "feature": "bounce",
+          "usual": 125.0,
+          "value": 129.0,
+          "phrase": "отскок 129 вместо 125"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 140,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 1,
+        "баскетбольный": 0,
+        "волейбольный": 4
+      },
+      "features": {
+        "elasticity": 0.725,
+        "size": 69.7,
+        "mass": 369.0,
+        "pressure": 0.467,
+        "bounce": 121.0
+      },
+      "neighbors": [
+        {
+          "id": 109,
+          "ball": "волейбольный",
+          "distance": 0.7071632020347416,
+          "features": {
+            "elasticity": 0.744,
+            "size": 69.0,
+            "mass": 355.0,
+            "pressure": 0.459,
+            "bounce": 124.0
+          }
+        },
+        {
+          "id": 99,
+          "ball": "волейбольный",
+          "distance": 0.9270558877928619,
+          "features": {
+            "elasticity": 0.743,
+            "size": 68.9,
+            "mass": 362.0,
+            "pressure": 0.512,
+            "bounce": 120.0
+          }
+        },
+        {
+          "id": 15,
+          "ball": "волейбольный",
+          "distance": 1.0129788731041958,
+          "features": {
+            "elasticity": 0.74,
+            "size": 69.5,
+            "mass": 410.0,
+            "pressure": 0.449,
+            "bounce": 123.0
+          }
+        },
+        {
+          "id": 60,
+          "ball": "футбольный",
+          "distance": 1.0499196756448945,
+          "features": {
+            "elasticity": 0.741,
+            "size": 69.1,
+            "mass": 412.0,
+            "pressure": 0.469,
+            "bounce": 122.0
+          }
+        },
+        {
+          "id": 50,
+          "ball": "волейбольный",
+          "distance": 1.098039541549777,
+          "features": {
+            "elasticity": 0.735,
+            "size": 68.7,
+            "mass": 403.0,
+            "pressure": 0.499,
+            "bounce": 122.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.68,
+          "value": 0.725,
+          "phrase": "упругость 0,72 вместо 0,68"
+        },
+        {
+          "feature": "size",
+          "usual": 69.0,
+          "value": 69.7,
+          "phrase": "окружность 69,7 вместо 69,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 380.0,
+          "value": 369.0,
+          "phrase": "масса 369 вместо 380"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.42,
+          "value": 0.467,
+          "phrase": "давление 0,47 вместо 0,42"
+        },
+        {
+          "feature": "bounce",
+          "usual": 118.0,
+          "value": 121.0,
+          "phrase": "отскок 121 вместо 118"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 141,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 1,
+        "баскетбольный": 0,
+        "волейбольный": 4
+      },
+      "features": {
+        "elasticity": 0.72,
+        "size": 69.2,
+        "mass": 383.0,
+        "pressure": 0.452,
+        "bounce": 128.0
+      },
+      "neighbors": [
+        {
+          "id": 109,
+          "ball": "волейбольный",
+          "distance": 0.8834875375064863,
+          "features": {
+            "elasticity": 0.744,
+            "size": 69.0,
+            "mass": 355.0,
+            "pressure": 0.459,
+            "bounce": 124.0
+          }
+        },
+        {
+          "id": 15,
+          "ball": "волейбольный",
+          "distance": 0.9165413192775802,
+          "features": {
+            "elasticity": 0.74,
+            "size": 69.5,
+            "mass": 410.0,
+            "pressure": 0.449,
+            "bounce": 123.0
+          }
+        },
+        {
+          "id": 55,
+          "ball": "волейбольный",
+          "distance": 0.9836979665828411,
+          "features": {
+            "elasticity": 0.735,
+            "size": 69.8,
+            "mass": 369.0,
+            "pressure": 0.4,
+            "bounce": 128.0
+          }
+        },
+        {
+          "id": 113,
+          "ball": "волейбольный",
+          "distance": 0.9916841419241728,
+          "features": {
+            "elasticity": 0.718,
+            "size": 69.5,
+            "mass": 414.0,
+            "pressure": 0.495,
+            "bounce": 127.0
+          }
+        },
+        {
+          "id": 60,
+          "ball": "футбольный",
+          "distance": 1.049899863150711,
+          "features": {
+            "elasticity": 0.741,
+            "size": 69.1,
+            "mass": 412.0,
+            "pressure": 0.469,
+            "bounce": 122.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.68,
+          "value": 0.72,
+          "phrase": "упругость 0,72 вместо 0,68"
+        },
+        {
+          "feature": "size",
+          "usual": 69.0,
+          "value": 69.2,
+          "phrase": "окружность 69,2 вместо 69,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 380.0,
+          "value": 383.0,
+          "phrase": "масса 383 вместо 380"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.42,
+          "value": 0.452,
+          "phrase": "давление 0,45 вместо 0,42"
+        },
+        {
+          "feature": "bounce",
+          "usual": 118.0,
+          "value": 128.0,
+          "phrase": "отскок 128 вместо 118"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 142,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 4,
+        "баскетбольный": 1,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.715,
+        "size": 70.6,
+        "mass": 447.0,
+        "pressure": 0.577,
+        "bounce": 128.0
+      },
+      "neighbors": [
+        {
+          "id": 20,
+          "ball": "футбольный",
+          "distance": 0.899731145443203,
+          "features": {
+            "elasticity": 0.711,
+            "size": 69.8,
+            "mass": 455.0,
+            "pressure": 0.618,
+            "bounce": 131.0
+          }
+        },
+        {
+          "id": 23,
+          "ball": "баскетбольный",
+          "distance": 0.9037443991316862,
+          "features": {
+            "elasticity": 0.753,
+            "size": 71.3,
+            "mass": 459.0,
+            "pressure": 0.56,
+            "bounce": 131.0
+          }
+        },
+        {
+          "id": 11,
+          "ball": "футбольный",
+          "distance": 0.906660272649216,
+          "features": {
+            "elasticity": 0.733,
+            "size": 71.7,
+            "mass": 437.0,
+            "pressure": 0.601,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 86,
+          "ball": "футбольный",
+          "distance": 0.930711476656556,
+          "features": {
+            "elasticity": 0.748,
+            "size": 70.2,
+            "mass": 426.0,
+            "pressure": 0.55,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 32,
+          "ball": "футбольный",
+          "distance": 0.9470737848200805,
+          "features": {
+            "elasticity": 0.721,
+            "size": 69.7,
+            "mass": 439.0,
+            "pressure": 0.547,
+            "bounce": 123.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.75,
+          "value": 0.715,
+          "phrase": "упругость 0,71 вместо 0,75"
+        },
+        {
+          "feature": "size",
+          "usual": 70.0,
+          "value": 70.6,
+          "phrase": "окружность 70,6 вместо 70,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 420.0,
+          "value": 447.0,
+          "phrase": "масса 447 вместо 420"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.55,
+          "value": 0.577,
+          "phrase": "давление 0,58 вместо 0,55"
+        },
+        {
+          "feature": "bounce",
+          "usual": 125.0,
+          "value": 128.0,
+          "phrase": "отскок 128 вместо 125"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 144,
+      "ball": "баскетбольный",
+      "pred": "баскетбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 0,
+        "баскетбольный": 5,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.8,
+        "size": 72.7,
+        "mass": 470.0,
+        "pressure": 0.553,
+        "bounce": 135.0
+      },
+      "neighbors": [
+        {
+          "id": 6,
+          "ball": "баскетбольный",
+          "distance": 0.46916317726098455,
+          "features": {
+            "elasticity": 0.791,
+            "size": 72.9,
+            "mass": 481.0,
+            "pressure": 0.532,
+            "bounce": 134.0
+          }
+        },
+        {
+          "id": 147,
+          "ball": "баскетбольный",
+          "distance": 0.49532477217308335,
+          "features": {
+            "elasticity": 0.78,
+            "size": 73.0,
+            "mass": 459.0,
+            "pressure": 0.541,
+            "bounce": 134.0
+          }
+        },
+        {
+          "id": 46,
+          "ball": "баскетбольный",
+          "distance": 0.8871083974343503,
+          "features": {
+            "elasticity": 0.806,
+            "size": 72.9,
+            "mass": 446.0,
+            "pressure": 0.512,
+            "bounce": 137.0
+          }
+        },
+        {
+          "id": 63,
+          "ball": "баскетбольный",
+          "distance": 0.9590191777092317,
+          "features": {
+            "elasticity": 0.819,
+            "size": 71.7,
+            "mass": 478.0,
+            "pressure": 0.511,
+            "bounce": 135.0
+          }
+        },
+        {
+          "id": 123,
+          "ball": "баскетбольный",
+          "distance": 0.972520057488327,
+          "features": {
+            "elasticity": 0.822,
+            "size": 72.1,
+            "mass": 476.0,
+            "pressure": 0.502,
+            "bounce": 136.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.82,
+          "value": 0.8,
+          "phrase": "упругость 0,80 вместо 0,82"
+        },
+        {
+          "feature": "size",
+          "usual": 72.0,
+          "value": 72.7,
+          "phrase": "окружность 72,7 вместо 72,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 480.0,
+          "value": 470.0,
+          "phrase": "масса 470 вместо 480"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.5,
+          "value": 0.553,
+          "phrase": "давление 0,55 вместо 0,50"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 145,
+      "ball": "футбольный",
+      "pred": "футбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 5,
+        "баскетбольный": 0,
+        "волейбольный": 0
+      },
+      "features": {
+        "elasticity": 0.74,
+        "size": 70.0,
+        "mass": 413.0,
+        "pressure": 0.549,
+        "bounce": 123.0
+      },
+      "neighbors": [
+        {
+          "id": 41,
+          "ball": "футбольный",
+          "distance": 0.29832570400492225,
+          "features": {
+            "elasticity": 0.746,
+            "size": 69.8,
+            "mass": 417.0,
+            "pressure": 0.552,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 114,
+          "ball": "футбольный",
+          "distance": 0.33878546783113456,
+          "features": {
+            "elasticity": 0.749,
+            "size": 69.8,
+            "mass": 420.0,
+            "pressure": 0.55,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 139,
+          "ball": "футбольный",
+          "distance": 0.34013139336101195,
+          "features": {
+            "elasticity": 0.751,
+            "size": 69.8,
+            "mass": 418.0,
+            "pressure": 0.546,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 57,
+          "ball": "футбольный",
+          "distance": 0.382497367447366,
+          "features": {
+            "elasticity": 0.751,
+            "size": 69.7,
+            "mass": 420.0,
+            "pressure": 0.553,
+            "bounce": 125.0
+          }
+        },
+        {
+          "id": 86,
+          "ball": "футбольный",
+          "distance": 0.41046492307427074,
+          "features": {
+            "elasticity": 0.748,
+            "size": 70.2,
+            "mass": 426.0,
+            "pressure": 0.55,
+            "bounce": 125.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.75,
+          "value": 0.74,
+          "phrase": "упругость 0,74 вместо 0,75"
+        },
+        {
+          "feature": "mass",
+          "usual": 420.0,
+          "value": 413.0,
+          "phrase": "масса 413 вместо 420"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.55,
+          "value": 0.549,
+          "phrase": "давление 0,55 вместо 0,55"
+        },
+        {
+          "feature": "bounce",
+          "usual": 125.0,
+          "value": 123.0,
+          "phrase": "отскок 123 вместо 125"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 146,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 0,
+        "баскетбольный": 0,
+        "волейбольный": 5
+      },
+      "features": {
+        "elasticity": 0.672,
+        "size": 69.1,
+        "mass": 375.0,
+        "pressure": 0.432,
+        "bounce": 119.0
+      },
+      "neighbors": [
+        {
+          "id": 119,
+          "ball": "волейбольный",
+          "distance": 0.2220089817778805,
+          "features": {
+            "elasticity": 0.67,
+            "size": 69.0,
+            "mass": 375.0,
+            "pressure": 0.421,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 137,
+          "ball": "волейбольный",
+          "distance": 0.34347483287156794,
+          "features": {
+            "elasticity": 0.679,
+            "size": 69.1,
+            "mass": 381.0,
+            "pressure": 0.415,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 49,
+          "ball": "волейбольный",
+          "distance": 0.3545623953585052,
+          "features": {
+            "elasticity": 0.688,
+            "size": 69.0,
+            "mass": 378.0,
+            "pressure": 0.42,
+            "bounce": 118.0
+          }
+        },
+        {
+          "id": 28,
+          "ball": "волейбольный",
+          "distance": 0.3624214210390169,
+          "features": {
+            "elasticity": 0.68,
+            "size": 69.3,
+            "mass": 377.0,
+            "pressure": 0.419,
+            "bounce": 117.0
+          }
+        },
+        {
+          "id": 75,
+          "ball": "волейбольный",
+          "distance": 0.38510639568089905,
+          "features": {
+            "elasticity": 0.677,
+            "size": 69.1,
+            "mass": 388.0,
+            "pressure": 0.428,
+            "bounce": 117.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.68,
+          "value": 0.672,
+          "phrase": "упругость 0,67 вместо 0,68"
+        },
+        {
+          "feature": "size",
+          "usual": 69.0,
+          "value": 69.1,
+          "phrase": "окружность 69,1 вместо 69,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 380.0,
+          "value": 375.0,
+          "phrase": "масса 375 вместо 380"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.42,
+          "value": 0.432,
+          "phrase": "давление 0,43 вместо 0,42"
+        },
+        {
+          "feature": "bounce",
+          "usual": 118.0,
+          "value": 119.0,
+          "phrase": "отскок 119 вместо 118"
+        }
+      ],
+      "variant_name": ""
+    },
+    {
+      "id": 148,
+      "ball": "волейбольный",
+      "pred": "волейбольный",
+      "correct": true,
+      "tie": false,
+      "votes": {
+        "футбольный": 0,
+        "баскетбольный": 0,
+        "волейбольный": 5
+      },
+      "features": {
+        "elasticity": 0.625,
+        "size": 68.1,
+        "mass": 334.0,
+        "pressure": 0.45,
+        "bounce": 114.0
+      },
+      "neighbors": [
+        {
+          "id": 21,
+          "ball": "волейбольный",
+          "distance": 0.8124320136531354,
+          "features": {
+            "elasticity": 0.652,
+            "size": 68.2,
+            "mass": 359.0,
+            "pressure": 0.438,
+            "bounce": 117.0
+          }
+        },
+        {
+          "id": 101,
+          "ball": "волейбольный",
+          "distance": 0.9273814359765427,
+          "features": {
+            "elasticity": 0.66,
+            "size": 68.3,
+            "mass": 354.0,
+            "pressure": 0.414,
+            "bounce": 114.0
+          }
+        },
+        {
+          "id": 31,
+          "ball": "волейбольный",
+          "distance": 1.0917522245107625,
+          "features": {
+            "elasticity": 0.673,
+            "size": 67.3,
+            "mass": 336.0,
+            "pressure": 0.442,
+            "bounce": 119.0
+          }
+        },
+        {
+          "id": 52,
+          "ball": "волейбольный",
+          "distance": 1.270287348825464,
+          "features": {
+            "elasticity": 0.644,
+            "size": 68.8,
+            "mass": 369.0,
+            "pressure": 0.467,
+            "bounce": 121.0
+          }
+        },
+        {
+          "id": 77,
+          "ball": "волейбольный",
+          "distance": 1.3668066016808944,
+          "features": {
+            "elasticity": 0.637,
+            "size": 67.3,
+            "mass": 384.0,
+            "pressure": 0.436,
+            "bounce": 109.0
+          }
+        }
+      ],
+      "diffs": [
+        {
+          "feature": "elasticity",
+          "usual": 0.68,
+          "value": 0.625,
+          "phrase": "упругость 0,62 вместо 0,68"
+        },
+        {
+          "feature": "size",
+          "usual": 69.0,
+          "value": 68.1,
+          "phrase": "окружность 68,1 вместо 69,0"
+        },
+        {
+          "feature": "mass",
+          "usual": 380.0,
+          "value": 334.0,
+          "phrase": "масса 334 вместо 380"
+        },
+        {
+          "feature": "pressure",
+          "usual": 0.42,
+          "value": 0.45,
+          "phrase": "давление 0,45 вместо 0,42"
+        },
+        {
+          "feature": "bounce",
+          "usual": 118.0,
+          "value": 114.0,
+          "phrase": "отскок 114 вместо 118"
         }
       ],
       "variant_name": ""
     }
   ],
-  "example_id": 15,
+  "example_id": 3,
   "typical": {
     "футбольный": [
-      0,
-      0,
-      1,
-      0,
-      2
+      0.75,
+      70.0,
+      420.0,
+      0.55,
+      125.0
     ],
     "баскетбольный": [
-      1,
-      2,
-      2,
-      1,
-      0
+      0.82,
+      72.0,
+      480.0,
+      0.5,
+      135.0
     ],
     "волейбольный": [
-      2,
-      1,
-      0,
-      1,
-      0
+      0.68,
+      69.0,
+      380.0,
+      0.42,
+      118.0
     ]
   },
   "scale_note": {
-    "raw_zone_sq": 4,
-    "raw_ground_sq": 1,
-    "scaled_zone_step": 1.210643346187938,
-    "scaled_ground_step": 1.2620208513386313
+    "mass_sd_g": 45.41877702143078,
+    "elasticity_sd": 0.06169953233412253,
+    "mass_10g_scaled": 0.22017325555202677,
+    "elasticity_001_scaled": 0.16207578277655055
   },
   "classes_present": [
     "баскетбольный",
     "волейбольный",
     "футбольный"
-  ]
+  ],
+  "seed": 300
 }

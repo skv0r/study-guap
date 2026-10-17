@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""k ближайших соседей по тем же розыгрышам и тому же разбиению. В отчёт не входит."""
+"""k ближайших соседей по измерениям мяча. В отчёт не входит."""
 from __future__ import annotations
 
 import json
@@ -17,24 +17,33 @@ BASE = Path(__file__).resolve().parent
 DATA = BASE / "data"
 FIG = BASE / "figures"
 
-FEATURES = ["net_share", "play_zone", "hold", "attack", "ground"]
+FEATURES = ["elasticity", "size", "mass", "pressure", "bounce"]
 FEATURE_RU = {
-    "net_share": "Динамика владения",
-    "play_zone": "Игровая зона",
-    "hold": "Удержание контроля",
-    "attack": "Вектор атаки",
-    "ground": "Контакт с землёй",
+    "elasticity": "Коэффициент упругости",
+    "size": "Окружность, см",
+    "mass": "Масса, г",
+    "pressure": "Давление, бар",
+    "bounce": "Высота отскока, см",
 }
 CLASSES = ["футбольный", "баскетбольный", "волейбольный"]
 COLORS = {"футбольный": "#1f77b4", "баскетбольный": "#ff7f0e", "волейбольный": "#2ca02c"}
 K_CANDIDATES = [1, 3, 5, 7, 9, 11, 13, 15]
 SHORT = {
-    "net_share": "динамика владения",
-    "play_zone": "зона",
-    "hold": "удержание",
-    "attack": "вектор",
-    "ground": "земля",
+    "elasticity": "упругость",
+    "size": "окружность",
+    "mass": "масса",
+    "pressure": "давление",
+    "bounce": "отскок",
 }
+
+
+def fmt_num(feature: str, value: float) -> str:
+    number = float(value)
+    if feature in ("elasticity", "pressure"):
+        return f"{number:.2f}".replace(".", ",")
+    if feature == "size":
+        return f"{number:.1f}".replace(".", ",")
+    return str(int(round(number)))
 
 
 def scale_fit(x: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
@@ -116,7 +125,7 @@ def class_metrics(cm: np.ndarray) -> list[dict]:
 def draw_scheme(path: Path) -> None:
     plt.rcParams["font.family"] = "Times New Roman"
     labels = [
-        "Чтение таблицы розыгрышей",
+        "Чтение таблицы измерений мяча",
         "Цвет класса для диаграммы",
         "Разбиение 70 % / 30 % по классу",
         "Общий масштаб пяти признаков по обучению",
@@ -156,52 +165,35 @@ def draw_scatter(df: pd.DataFrame, error_ids: list[int], path: Path) -> None:
     fig, ax = plt.subplots(figsize=(7.6, 5.8))
     for name in CLASSES:
         part = df[df["ball"] == name]
-        grouped = part.groupby(["play_zone", "net_share"], sort=True)
-        first = True
-        for (zone, share), group in grouped:
-            ax.scatter(
-                [int(zone)],
-                [int(share)],
-                c=COLORS[name],
-                s=90,
-                label=name if first else None,
-                zorder=3,
-                edgecolors="white",
-                linewidths=0.6,
-            )
-            ax.annotate(
-                str(len(group)),
-                (int(zone), int(share)),
-                textcoords="offset points",
-                xytext=(8, 8),
-                fontsize=11,
-                color="#222222",
-            )
-            first = False
+        ax.scatter(
+            part["size"],
+            part["elasticity"],
+            c=COLORS[name],
+            s=70,
+            label=name,
+            zorder=3,
+            edgecolors="white",
+            linewidths=0.6,
+            alpha=0.9,
+        )
     err = df[df["id"].isin(error_ids)]
     if len(err):
         ax.scatter(
-            err["play_zone"],
-            err["net_share"],
+            err["size"],
+            err["elasticity"],
             facecolors="none",
             edgecolors="black",
-            s=220,
+            s=180,
             linewidths=1.3,
             label="ошибка на тесте",
             zorder=4,
         )
-    ax.set_xticks([0, 1, 2])
-    ax.set_yticks([0, 1, 2])
-    ax.set_xticklabels(["0", "1", "2"])
-    ax.set_yticklabels(["0", "1", "2"])
-    ax.set_xlim(-0.45, 2.45)
-    ax.set_ylim(-0.45, 2.45)
-    ax.set_xlabel("Игровая зона", fontsize=12)
-    ax.set_ylabel("Динамика владения", fontsize=12)
+    ax.set_xlabel("Окружность, см", fontsize=12)
+    ax.set_ylabel("Коэффициент упругости", fontsize=12)
     ax.tick_params(labelsize=11)
     ax.grid(True, color="#d0d0d0", linewidth=0.6)
     ax.set_axisbelow(True)
-    ax.legend(frameon=True, fontsize=11, loc="upper right")
+    ax.legend(frameon=True, fontsize=11, loc="best")
     fig.tight_layout()
     fig.savefig(path, dpi=160, bbox_inches="tight", facecolor="white")
     plt.close()
@@ -215,7 +207,7 @@ def neighbor_record(train_ids, y_train, x_train, nn, dist) -> list[dict]:
                 "id": int(train_ids[pos]),
                 "ball": str(y_train[pos]),
                 "distance": float(dist[pos]),
-                "features": {feature: int(x_train[pos, j]) for j, feature in enumerate(FEATURES)},
+                "features": {feature: float(x_train[pos, j]) for j, feature in enumerate(FEATURES)},
             }
         )
     return rows
@@ -224,14 +216,17 @@ def neighbor_record(train_ids, y_train, x_train, nn, dist) -> list[dict]:
 def row_diff(ball: str, features: dict, typical: dict) -> dict:
     diffs = []
     for feature, usual in zip(FEATURES, typical[ball]):
-        value = int(features[feature])
-        if value != int(usual):
+        value = float(features[feature])
+        if abs(value - float(usual)) > 1e-9:
             diffs.append(
                 {
                     "feature": feature,
-                    "usual": int(usual),
+                    "usual": float(usual),
                     "value": value,
-                    "phrase": f"{SHORT[feature]} {value} вместо {usual}",
+                    "phrase": (
+                        f"{SHORT[feature]} {fmt_num(feature, value)} "
+                        f"вместо {fmt_num(feature, usual)}"
+                    ),
                 }
             )
     return {"diffs": diffs, "variant_name": ""}
@@ -245,11 +240,18 @@ def main() -> None:
     split = json.loads((DATA / "split.json").read_text(encoding="utf-8"))
     codes = json.loads((DATA / "codes.json").read_text(encoding="utf-8"))
     typical = codes["typical"]
-    if len(df) != 90:
-        raise RuntimeError("в таблице не 90 строк")
+    if list(codes.get("features", FEATURES)) != FEATURES:
+        raise RuntimeError("признаки в codes.json не совпали")
+    n_total = int(codes.get("n", len(df)))
+    n_train = int(codes.get("n_train", split.get("n_train", 105)))
+    n_test = int(codes.get("n_test", split.get("n_test", 45)))
+    n_train_per = int(codes.get("n_train_per", split.get("n_train_per", 35)))
+    n_test_per = int(codes.get("n_test_per", split.get("n_test_per", 15)))
+    if len(df) != n_total:
+        raise RuntimeError(f"в таблице не {n_total} строк")
     for feature in FEATURES:
-        if not set(int(v) for v in df[feature].tolist()) <= {0, 1, 2}:
-            raise RuntimeError("код вне 0, 1, 2")
+        if feature not in df.columns:
+            raise RuntimeError(f"нет столбца {feature}")
     X = df[FEATURES].to_numpy(dtype=float)
     y = df["ball"].to_numpy()
     ids = df["id"].to_numpy()
@@ -261,15 +263,17 @@ def main() -> None:
     test_ids = [int(i) for i in id_test]
     if sorted(train_ids) != split["train_ids"] or sorted(test_ids) != split["test_ids"]:
         raise RuntimeError("разбиение не совпало с деревом решений")
-    if sorted(pd.Series(y_train).value_counts().tolist()) != [21, 21, 21]:
-        raise RuntimeError("в обучении не по 21")
-    if sorted(pd.Series(y_test).value_counts().tolist()) != [9, 9, 9]:
-        raise RuntimeError("в тесте не по 9")
+    if sorted(pd.Series(y_train).value_counts().tolist()) != [n_train_per] * 3:
+        raise RuntimeError(f"в обучении не по {n_train_per}")
+    if sorted(pd.Series(y_test).value_counts().tolist()) != [n_test_per] * 3:
+        raise RuntimeError(f"в тесте не по {n_test_per}")
+    if len(train_ids) != n_train or len(test_ids) != n_test:
+        raise RuntimeError("объём обучения/теста не совпал")
 
     loo = []
     for k in K_CANDIDATES:
         ok = loo_correct(X_train, y_train, k)
-        loo.append({"k": k, "correct": ok, "n": 63, "accuracy": ok / 63})
+        loo.append({"k": k, "correct": ok, "n": n_train, "accuracy": ok / n_train})
     best_correct = max(row["correct"] for row in loo)
     winners = [row["k"] for row in loo if row["correct"] == best_correct]
     k_star = min(winners)
@@ -282,14 +286,10 @@ def main() -> None:
 
     by_id = {int(row.id): row for row in df.itertuples(index=False)}
     predictions = []
-    y_hat = []
-    n_ties = 0
     for i in np.argsort(id_test):
         pred, nn, dist, tie = predict_one(z_train, y_train, z_test[i], k_star)
-        n_ties += int(tie)
-        y_hat.append(pred)
         votes = {name: int((y_train[nn] == name).sum()) for name in CLASSES}
-        features = {feature: int(X_test[i, j]) for j, feature in enumerate(FEATURES)}
+        features = {feature: float(X_test[i, j]) for j, feature in enumerate(FEATURES)}
         described = row_diff(str(y_test[i]), features, typical)
         predictions.append(
             {
@@ -305,12 +305,12 @@ def main() -> None:
                 "variant_name": described["variant_name"],
             }
         )
-    # predictions собраны в порядке id, y_hat тоже. Матрица должна идти в том же порядке, что y_test[order].
     order = np.argsort(id_test)
     y_true_ordered = y_test[order]
     cm = confusion(y_true_ordered, [item["pred"] for item in predictions])
     per_class = class_metrics(cm)
     correct = int(sum(item["correct"] for item in predictions))
+    n_ties = int(sum(item["tie"] for item in predictions))
     example = next(
         (
             item
@@ -322,22 +322,25 @@ def main() -> None:
     if example is None:
         example = next(item for item in predictions if item["correct"] and not item["tie"])
 
-    raw_zone = 2 ** 2
-    raw_ground = 1 ** 2
-    zone_step = 1.0 / float(sd[FEATURES.index("play_zone")])
-    ground_step = 1.0 / float(sd[FEATURES.index("ground")])
-
+    mass_i = FEATURES.index("mass")
+    elast_i = FEATURES.index("elasticity")
+    if correct >= n_test:
+        raise RuntimeError("kNN дал 100 % на тесте — данные слишком простые")
+    if correct / n_test < 0.80:
+        raise RuntimeError(f"kNN ниже 80 %: {correct}/{n_test}")
     metrics = {
-        "n": 90,
-        "n_train": 63,
-        "n_test": 27,
+        "n": n_total,
+        "n_train": n_train,
+        "n_test": n_test,
+        "n_train_per": n_train_per,
+        "n_test_per": n_test_per,
         "k": k_star,
         "k_tied": winners,
         "loo": loo,
         "correct": correct,
-        "errors": 27 - correct,
+        "errors": n_test - correct,
         "ties_on_test": n_ties,
-        "accuracy": correct / 27,
+        "accuracy": correct / n_test,
         "confusion": cm.tolist(),
         "per_class": per_class,
         "macro_precision": float(np.mean([row["precision"] for row in per_class])),
@@ -352,12 +355,13 @@ def main() -> None:
         "example_id": int(example["id"]),
         "typical": typical,
         "scale_note": {
-            "raw_zone_sq": raw_zone,
-            "raw_ground_sq": raw_ground,
-            "scaled_zone_step": zone_step,
-            "scaled_ground_step": ground_step,
+            "mass_sd_g": float(sd[mass_i]),
+            "elasticity_sd": float(sd[elast_i]),
+            "mass_10g_scaled": float(10.0 / sd[mass_i]),
+            "elasticity_001_scaled": float(0.01 / sd[elast_i]),
         },
         "classes_present": sorted(df["ball"].unique().tolist()),
+        "seed": seed,
     }
     if not requests.exists():
         raise RuntimeError("requests.csv должен остаться")
@@ -369,6 +373,7 @@ def main() -> None:
     print("k", k_star, "tied", winners, "correct", correct, "ties", n_ties)
     print("errors", metrics["error_ids"])
     print("loo", [(row["k"], row["correct"]) for row in loo])
+    print("sd", metrics["sd"])
     for item in predictions:
         if not item["correct"]:
             print(item["id"], item["ball"], item["pred"], item["votes"], item["features"])

@@ -7,6 +7,7 @@ import json
 import shutil
 from pathlib import Path
 
+import pandas as pd
 from docx import Document
 from docx.oxml.ns import qn
 
@@ -20,12 +21,14 @@ OUT = BASE / "ЛР4_Отчет_Буренков_МИИ.docx"
 docx.OUT = OUT
 FIG = BASE / "figures"
 DATA = BASE / "data"
+CLASSES = ["футбольный", "баскетбольный", "волейбольный"]
+FEATURES = ["elasticity", "size", "mass", "pressure", "bounce"]
 FEATURE_RU = {
-    "net_share": "Динамика владения",
-    "play_zone": "Игровая зона",
-    "hold": "Удержание контроля",
-    "attack": "Вектор атаки",
-    "ground": "Контакт с землёй",
+    "elasticity": "Коэффициент упругости",
+    "size": "Окружность, см",
+    "mass": "Масса, г",
+    "pressure": "Давление, бар",
+    "bounce": "Высота отскока, см",
 }
 
 
@@ -35,6 +38,15 @@ def num(value: float, digits: int = 4) -> str:
 
 def pct(value: float) -> str:
     return f"{float(value) * 100:.2f}".replace(".", ",")
+
+
+def meas(feature: str, value) -> str:
+    number = float(value)
+    if feature in ("elasticity", "pressure"):
+        return f"{number:.2f}".replace(".", ",")
+    if feature == "size":
+        return f"{number:.1f}".replace(".", ",")
+    return str(int(round(number)))
 
 
 def replace_title(doc: Document) -> None:
@@ -53,8 +65,38 @@ def replace_title(doc: Document) -> None:
         raise RuntimeError(f"title replace failed: {found}")
 
 
+def error_sentence(item: dict) -> str:
+    head = f"Наблюдение {item['id']}. Факт — «{item['ball']}», прогноз — «{item['pred']}»."
+    if item.get("diffs"):
+        phrases = "; ".join(diff["phrase"] for diff in item["diffs"])
+        return f"{head} Не как у типового набора этого мяча: {phrases}."
+    return f"{head} Измерения совпадают с типовым набором этого мяча."
+
+
 def build() -> None:
     m = json.loads((DATA / "metrics.json").read_text(encoding="utf-8"))
+    df = pd.read_csv(DATA / "balls.csv")
+    tree_split = json.loads((BASE.parent / "ЛР3" / "data" / "split.json").read_text(encoding="utf-8"))
+    if m["train_ids"] != tree_split["train_ids"] or m["test_ids"] != tree_split["test_ids"]:
+        raise RuntimeError("разбиение не совпало")
+    n = m["n"]
+    n_train = m["n_train"]
+    n_test = m["n_test"]
+    n_train_per = m.get("n_train_per", n_train // 3)
+    n_test_per = m.get("n_test_per", n_test // 3)
+    if len(df) != n or n_train + n_test != n:
+        raise RuntimeError(f"ожидались {n}, {n_train} и {n_test}")
+    if m["correct"] >= n_test:
+        raise RuntimeError("нужны ошибки на тесте")
+    usual = m["typical"]
+    for name in CLASSES:
+        matched = 0
+        for row in df[df["ball"] == name].itertuples(index=False):
+            got = [float(getattr(row, feature)) for feature in FEATURES]
+            matched += int(all(abs(a - b) < 1e-9 for a, b in zip(got, usual[name])))
+        if matched != 0:
+            raise RuntimeError(f"у {name} есть точные копии типового")
+
     src = BASE.parent / "ЛР1" / "ЛР1_Отчет_Буренков_МИИ.docx"
     if OUT.exists():
         OUT.unlink()
@@ -72,77 +114,107 @@ def build() -> None:
     docx.add_heading(doc, "1 Задание")
     docx.add_text(
         doc,
-        "Цель работы — по пяти кодам розыгрыша определить вид мяча наивным байесовским методом "
-        "и проверить ответ на наблюдениях, которые не входили в обучение.",
+        "Цель работы — по пяти физическим измерениям мяча определить его вид наивным байесовским "
+        "методом и проверить ответ на наблюдениях, которые не входили в обучение.",
     )
     docx.add_text(
         doc,
-        "По практикуму читается своя таблица, 70 % строк остаются для обучения и 30 % откладываются "
-        "в тест со стратификацией по классу. По обучающим строкам для каждого класса и каждого кода "
-        "считаются среднее и стандартное отклонение. Числовой код описывается нормальным распределением. "
-        "Для тестовой строки вероятность класса равна произведению вероятностей её кодов и вероятности "
-        "самого класса. Ответ — класс с наибольшей вероятностью. Затем считаются матрица ошибок, "
+        "По практикуму читается своя таблица, 70 % строк — обучение, 30 % — тест со "
+        "стратификацией по классу. По обучению для каждого класса и признака считаются среднее "
+        "и стандартное отклонение; измерение описывается нормальным распределением. Априор "
+        "класса — доля обучающих строк. Для тестовой строки мера класса — произведение пяти "
+        "плотностей и априора; ответ — класс с наибольшей мерой. Затем считаются матрица ошибок, "
         "accuracy, precision, recall и F-measure.",
+    )
+    docx.add_text(
+        doc,
+        "Расчёт выполнен в Python. Класс — вид мяча; признаки — упругость, окружность, масса, "
+        "давление и высота отскока. Таблица и разбиение те же, что в лабораторных 2 и 3. "
+        "Метод наивный: признаки внутри класса считаются независимыми.",
     )
 
     doc.add_page_break()
     docx.add_heading(doc, "2 Входные данные")
     docx.add_text(
         doc,
-        "Объект тот же, что в лабораторных 2 и 3: розыгрыш мяча. Классы — футбольный, баскетбольный "
-        "и волейбольный. Пять кодов принимают значения 0, 1 или 2. Всего 90 строк, по 30 в классе. "
-        "В обучении 63 строки, в тесте 27. В каждом классе это 21 и 9 строк. Номер строки в расчёт не входит.",
+        f"Исходный набор — {n} измерений мяча, по {n // 3} с каждым видом. В строке семь полей: "
+        "id — номер наблюдения; elasticity — коэффициент упругости; size — окружность, см; "
+        "mass — масса, г; pressure — давление, бар; bounce — высота отскока, см; ball — класс. "
+        "В модель входят пять измерений. Пропусков нет. Типовой набор — центр класса "
+        "(номинальные значения мяча). Строки таблицы — измерения с разбросом вокруг этого "
+        "центра; точных копий типового набора нет. Диапазоны соседних классов пересекаются, "
+        "поэтому один признак класс не называет.",
     )
-    docx.add_text(doc, "Расшифровка кодов собрана в таблице 1. Обычные наборы — в таблице 2.")
-    docx.add_table_caption(doc, "Таблица 1 — Расшифровка кодов", 16.5)
+    docx.add_text(doc, "Типовые центры трёх мячей приведены в таблице 1.")
+    mean_w = [3.4, 2.6, 2.8, 2.4, 2.6, 2.6]
+    docx.add_table_caption(doc, "Таблица 1 — Типовые измерения трёх мячей", sum(mean_w))
     docx.add_table(
         doc,
-        ["Код", "0", "1", "2"],
+        ["Класс", "Упругость", "Окружность, см", "Масса, г", "Давление, бар", "Отскок, см"],
         [
-            ["Динамика владения", "пас партнёру", "удар или бросок в цель", "через сетку"],
-            ["Игровая зона", "цель у земли", "на уровне игрока", "высокая цель"],
-            ["Удержание контроля", "краткий удар", "контакт ногой", "контакт рукой"],
-            ["Вектор атаки", "вдоль площадки", "круто вверх", "по дуге"],
-            ["Контакт с землёй", "в воздухе", "один отскок", "катится"],
+            [
+                name,
+                meas("elasticity", usual[name][0]),
+                meas("size", usual[name][1]),
+                meas("mass", usual[name][2]),
+                meas("pressure", usual[name][3]),
+                meas("bounce", usual[name][4]),
+            ]
+            for name in CLASSES
         ],
-        [4.2, 4.1, 4.1, 4.1],
+        mean_w,
         font=12,
     )
-    docx.add_table_caption(doc, "Таблица 2 — Обычные коды трёх мячей", 16.5)
-    docx.add_table(
-        doc,
-        ["Мяч", "Владение", "Зона", "Контроль", "Вектор", "Земля"],
-        [
-            ["футбольный", "0", "0", "1", "0", "2"],
-            ["баскетбольный", "1", "2", "2", "1", "0"],
-            ["волейбольный", "2", "1", "0", "1", "0"],
-        ],
-        [3.5, 2.6, 2.6, 2.6, 2.6, 2.6],
-    )
+    foot = df[df["ball"] == "футбольный"]
+    basket = df[df["ball"] == "баскетбольный"]
+    volley = df[df["ball"] == "волейбольный"]
     docx.add_text(
         doc,
-        "Обычный набор — самый частый в классе, по 8 строк, а не все 30. Остальные розыгрыши отличаются. "
-        "Два полных набора кодов принадлежат сразу нескольким мячам. Коды 1, 2, 0, 1, 0 — высокий "
-        "короткий удар вверх: футбольный удар головой, баскетбольное добивание и волейбольная атака. "
-        "Коды 0, 1, 2, 0, 0 — передача руками на уровне игрока. Игровая зона у всех трёх мячей "
-        "принимает и 0, и 1, и 2, поэтому по зоне класс не называется.",
+        "Диапазоны соседних классов пересекаются: "
+        f"упругость футбольного {meas('elasticity', foot['elasticity'].min())}–"
+        f"{meas('elasticity', foot['elasticity'].max())}, баскетбольного "
+        f"{meas('elasticity', basket['elasticity'].min())}–{meas('elasticity', basket['elasticity'].max())}, "
+        f"волейбольного {meas('elasticity', volley['elasticity'].min())}–"
+        f"{meas('elasticity', volley['elasticity'].max())}; "
+        f"окружность волейбольного {meas('size', volley['size'].min())}–"
+        f"{meas('size', volley['size'].max())} см, футбольного "
+        f"{meas('size', foot['size'].min())}–{meas('size', foot['size'].max())} см, "
+        f"баскетбольного {meas('size', basket['size'].min())}–"
+        f"{meas('size', basket['size'].max())} см; "
+        f"масса футбольного {meas('mass', foot['mass'].min())}–"
+        f"{meas('mass', foot['mass'].max())} г, баскетбольного "
+        f"{meas('mass', basket['mass'].min())}–{meas('mass', basket['mass'].max())} г. "
+        f"В обучении {n_train} строк (по {n_train_per} в классе), в тесте {n_test} "
+        f"(по {n_test_per}). Это тот же тест, что в лабораторных работах 2 и 3.",
+        space_before=12,
     )
 
     doc.add_page_break()
     docx.add_heading(doc, "3 Ход выполнения работы")
+    test_ids = ", ".join(str(i) for i in m["test_ids"])
     docx.add_text(
         doc,
-        "Расчёт выполнен на Python. Схема приведена на рисунке 1. Цвета классов на диаграмме рассеяния: "
-        "футбольный синий, баскетбольный оранжевый, волейбольный зелёный.",
+        "Последовательность расчёта показана на рисунке 1. Классам назначены цвета для диаграммы: "
+        "синий — футбольный, оранжевый — баскетбольный, зелёный — волейбольный. Цвет в модель "
+        "не входит.",
     )
     docx.add_picture(doc, FIG / "scheme.png", 15.5)
     docx.add_figure_caption(doc, "Рисунок 1 — Схема расчёта")
+    prior = m["priors"][CLASSES[0]]
     docx.add_text(
         doc,
-        "Априорная вероятность каждого класса равна 21/63, то есть одной трети. Для числового кода "
-        "внутри класса берётся нормальное распределение со средним и стандартным отклонением обучающих "
-        "строк этого класса. Если бы отклонение равнялось нулю, в плотность подставилось бы 0,0001. "
-        "В этой выборке отклонение каждого кода внутри класса больше нуля, подмена не понадобилась.",
+        f"Разбиение то же, что в лабораторных 2 и 3: в тесте номера {test_ids}. "
+        f"Априорная вероятность каждого класса равна {n_train_per}/{n_train}, то есть "
+        f"{pct(prior)} % — одной трети, потому что обучение стратифицировано. Для числового "
+        "признака внутри класса берётся нормальное распределение со средним и стандартным "
+        "отклонением обучающих строк этого класса. В плотность подставляется отклонение "
+        "«в расчёте»: если бы выборочное отклонение равнялось нулю, подставлялось бы "
+        "0,0001, иначе — само отклонение. "
+        + (
+            "В этой выборке отклонение каждого признака внутри класса больше нуля, подмена не понадобилась."
+            if not any(stat["floored"] for stat in m["stats"])
+            else "Для признаков с нулевым отклонением в плотность подставлено 0,0001."
+        ),
     )
     rows = []
     for stat in m["stats"]:
@@ -155,71 +227,116 @@ def build() -> None:
                 num(stat["sd_used"], 4),
             ]
         )
-    docx.add_table_caption(doc, "Таблица 3 — Среднее и стандартное отклонение по обучающим строкам", 16.5)
+    docx.add_table_caption(doc, "Таблица 2 — Среднее и стандартное отклонение по обучающим строкам", 16.5)
     docx.add_table(
         doc,
-        ["Класс", "Код", "Среднее", "Отклонение", "В расчёте"],
+        ["Класс", "Признак", "Среднее", "Отклонение", "В расчёте"],
         rows,
-        [3.6, 4.3, 2.6, 3.0, 3.0],
+        [3.4, 4.5, 2.6, 3.0, 3.0],
         font=11,
-    )
-    docx.add_text(
-        doc,
-        "Средние в таблице 3 — это частоты кодов, а не постоянная метка класса. Зона внутри класса "
-        "уже не равна одному числу, поэтому чужой класс не получает нулевую вероятность автоматически.",
     )
     example = m["example"]
     probs = example["probs"]
     fx = example["features"]
-    twin = next(
-        item
-        for item in m["predictions"]
-        if (not item["correct"]) and item["features"] == example["features"]
-    )
     docx.add_text(
         doc,
-        f"Строка {example['id']} — коды {fx['net_share']}, {fx['play_zone']}, {fx['hold']}, "
-        f"{fx['attack']}, {fx['ground']}. Факт и прогноз — «{example['ball']}». Вероятности: "
-        f"футбольный {pct(probs['футбольный'])} %, баскетбольный {pct(probs['баскетбольный'])} %, "
-        f"волейбольный {pct(probs['волейбольный'])} %.",
+        f"Пример расчёта вероятностей — тестовая строка {example['id']}. "
+        f"Упругость {meas('elasticity', fx['elasticity'])}, "
+        f"окружность {meas('size', fx['size'])} см, масса {meas('mass', fx['mass'])} г, "
+        f"давление {meas('pressure', fx['pressure'])} бар, отскок {meas('bounce', fx['bounce'])} см. "
+        f"Факт — «{example['ball']}», прогноз — «{example['pred']}». "
+        "Для каждого класса перемножаются пять нормальных плотностей признаков и априор "
+        f"{pct(prior)} %, затем меры нормируются на сумму по трём классам. Полученные "
+        f"вероятности: футбольный {pct(probs['футбольный'])} %, "
+        f"баскетбольный {pct(probs['баскетбольный'])} %, "
+        f"волейбольный {pct(probs['волейбольный'])} %. Выбирается класс с наибольшей вероятностью.",
+        space_before=12,
     )
-    docx.add_text(
-        doc,
-        f"Строка {twin['id']} имеет те же пять кодов, но факт — «{twin['ball']}», прогноз — "
-        f"«{twin['pred']}». Это передача руками на уровне игрока: такой набор есть и у футбольного, "
-        "и у баскетбольного мяча, поэтому метод ставит более частый в обучении класс и ошибается.",
-    )
+    wrong = [item for item in m["predictions"] if not item["correct"]]
+    if wrong:
+        sample = "; ".join(
+            f"№ {item['id']}: факт «{item['ball']}», прогноз «{item['pred']}»"
+            for item in wrong[:3]
+        )
+        more = f" (всего {len(wrong)})" if len(wrong) > 3 else ""
+        docx.add_text(
+            doc,
+            f"На тесте ошибки{more}: {sample}.",
+            space_before=12,
+        )
     cm = m["confusion"]
-    docx.add_table_caption(doc, "Таблица 4 — Матрица ошибок на 27 тестовых строках", 12)
+    docx.add_text(
+        doc,
+        f"Ответы по всем {n_test} тестовым строкам собраны в матрице ошибок таблицы 3: "
+        "строка — фактический класс, столбец — прогноз.",
+        space_before=12,
+    )
+    docx.add_table_caption(doc, f"Таблица 3 — Матрица ошибок на {n_test} тестовых строках", 12)
     docx.add_table(
         doc,
-        ["Факт \\ прогноз", "футбольный", "баскетбольный", "волейбольный"],
-        [[name, *[str(cm[i][j]) for j in range(3)]] for i, name in enumerate(["футбольный", "баскетбольный", "волейбольный"])],
+        ["Факт \\ прогноз", *CLASSES],
+        [[name, *[str(cm[i][j]) for j in range(3)]] for i, name in enumerate(CLASSES)],
         [4.0, 2.8, 3.4, 3.2],
         font=11,
     )
+    per = {row["class"]: row for row in m["per_class"]}
+    met_w = [3.3, 1.4, 1.4, 1.4, 1.4, 2.6, 2.4, 2.6]
+    docx.add_table_caption(doc, "Таблица 4 — Precision, recall и F-measure по классам", sum(met_w))
+    add_rows = []
+    for name in CLASSES:
+        row = per[name]
+        add_rows.append(
+            [
+                name,
+                str(row.get("tp", "")),
+                str(row.get("fp", "")),
+                str(row.get("tn", "")),
+                str(row.get("fn", "")),
+                pct(row["precision"]),
+                pct(row["recall"]),
+                pct(row["f1"]),
+            ]
+        )
+    docx.add_table(
+        doc,
+        ["Класс", "TP", "FP", "TN", "FN", "Precision, %", "Recall, %", "F-measure, %"],
+        add_rows,
+        met_w,
+        font=11,
+    )
+    class_line = "На тесте " + ", ".join(
+        f"у «{name}» верны {cm[i][i]} из {per[name]['support']}" for i, name in enumerate(CLASSES)
+    ) + "."
     docx.add_text(
         doc,
-        f"Верных ответов {m['correct']} из 27, ошибок {27 - m['correct']}. Accuracy, средние precision, "
-        f"recall и F-measure равны {pct(m['accuracy'])} %, {pct(m['macro_precision'])} %, "
-        f"{pct(m['macro_recall'])} % и {pct(m['macro_f1'])} %.",
+        f"Верных ответов {m['correct']} из {n_test}, ошибок {n_test - m['correct']}. "
+        f"Accuracy = {m['correct']}/{n_test} = {pct(m['accuracy'])} %. "
+        f"Средние по трём классам: precision {pct(m['macro_precision'])} %, "
+        f"recall {pct(m['macro_recall'])} %, F-measure {pct(m['macro_f1'])} %. "
+        f"Средний recall совпадает с accuracy, потому что в тесте по {n_test_per} наблюдений "
+        f"каждого класса. {class_line}",
+        space_before=12,
+    )
+    docx.add_text(
+        doc,
+        f"Диаграмма рассеяния на рисунке 2 построена по всем {n} наблюдениям. По горизонтали — "
+        "окружность мяча в сантиметрах, по вертикали — коэффициент упругости. Цвет точки — "
+        "фактический класс. Диапазоны соседних классов по осям пересекаются, поэтому одна ось "
+        "класс не называет; плотности считаются по всем пяти измерениям. Ошибки теста обведены "
+        "чёрным.",
     )
     docx.add_picture(doc, FIG / "scatter.png", 14)
-    docx.add_figure_caption(doc, "Рисунок 2 — Игровая зона и вектор атаки")
-    docx.add_text(
-        doc,
-        "На рисунке 2 одинаковые коды лежат в одной точке, и в одной точке бывают разные мячи. "
-        "Игровая зона классы не разводит.",
-    )
-
+    docx.add_figure_caption(doc, "Рисунок 2 — Классы мяча в осях окружности и коэффициента упругости")
     doc.add_page_break()
     docx.add_heading(doc, "4 Выводы")
     docx.add_text(
         doc,
-        "Наивный байесовский метод на 90 розыгрышах и том же разбиении 63 и 27, что в лабораторных 2 и 3, "
-        f"верно назвал {m['correct']} из 27. Accuracy равна {pct(m['accuracy'])} %. "
-        "Ошибки сидят на наборах, которые встречаются у разных мячей: одинаковые коды нельзя "
-        "отнести к одному классу без промаха.",
+        f"На общем разбиении {n_train}/{n_test} наивный Байес верно назвал {m['correct']} "
+        f"из {n_test} (accuracy {pct(m['accuracy'])} %, F-measure {pct(m['macro_f1'])} %). "
+        "Признаки описаны нормальным распределением по классу при априоре одна треть; "
+        "нулевое отклонение заменялось бы на 0,0001. Ошибки связаны с пересечением диапазонов "
+        "и с допущением независимости признаков: у мяча упругость, давление и отскок связаны, "
+        "поэтому произведение одномерных плотностей иногда ставит чужой класс выше своего.",
     )
     doc.save(str(OUT))
 
@@ -231,7 +348,11 @@ def assert_clean() -> None:
     with zipfile.ZipFile(OUT) as zf:
         text = zf.read("word/document.xml").decode("utf-8")
     plain = "".join(etree.fromstring(text.encode("utf-8")).itertext())
-    banned = ["тикет", "велосипед", "iris", "sklearn", "matplotlib", "KNIME", "build_report", "compute_", "seed", "numpy"]
+    banned = [
+        "тикет", "велосипед", "iris", "sklearn", "matplotlib", "KNIME",
+        "build_report", "compute_", "seed", "numpy", "codebook", "кодирован",
+        "игровая зона", "динамика владения", "Расшифровка кодов",
+    ]
     hits = [word for word in banned if word.lower() in plain.lower()]
     if hits:
         raise RuntimeError(f"лишнее в отчёте: {hits}")
@@ -239,8 +360,16 @@ def assert_clean() -> None:
         raise RuntimeError("маркер содержания не заменён")
     if plain.count("Python") != 1:
         raise RuntimeError(f"Python упомянут {plain.count('Python')} раз")
-    if "МЕТОД НАИВНОГО БАЙЕСА" not in plain or "0,0001" not in plain:
-        raise RuntimeError("нет темы или порога отклонения")
+    for needle in (
+        "МЕТОД НАИВНОГО БАЙЕСА",
+        "0,0001",
+        "коэффициент упругости",
+        "Таблица 1 — Типовые измерения",
+        "независимост",
+        "тот же тест",
+    ):
+        if needle not in plain:
+            raise RuntimeError(f"нет {needle}")
 
 
 def main() -> None:

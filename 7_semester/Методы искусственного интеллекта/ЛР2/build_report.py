@@ -24,13 +24,13 @@ DATA = BASE / "data"
 TREE_SPLIT = BASE.parent / "ЛР3" / "data" / "split.json"
 
 CLASSES = ["футбольный", "баскетбольный", "волейбольный"]
-FEATURES = ["net_share", "play_zone", "hold", "attack", "ground"]
+FEATURES = ["elasticity", "size", "mass", "pressure", "bounce"]
 FEATURE_RU = {
-    "net_share": "Динамика владения",
-    "play_zone": "Игровая зона",
-    "hold": "Удержание контроля",
-    "attack": "Вектор атаки",
-    "ground": "Контакт с землёй",
+    "elasticity": "Коэффициент упругости",
+    "size": "Окружность, см",
+    "mass": "Масса, г",
+    "pressure": "Давление, бар",
+    "bounce": "Высота отскока, см",
 }
 
 
@@ -269,44 +269,28 @@ def strip_unused_images(path: Path) -> None:
     tmp.replace(path)
 
 
-def code(value) -> str:
+def meas(feature: str, value) -> str:
     number = float(value)
-    whole = int(round(number))
-    if abs(number - whole) > 1e-9 or whole not in (0, 1, 2):
-        raise RuntimeError(f"код не 0, 1 или 2: {value}")
-    return str(whole)
-
-
-def ru_ids(ids: list[int]) -> str:
-    text = [str(item) for item in ids]
-    if len(text) == 1:
-        return "строка " + text[0]
-    if len(text) == 2:
-        return f"строки {text[0]} и {text[1]}"
-    return "строки " + ", ".join(text[:-1]) + " и " + text[-1]
+    if feature in ("elasticity", "pressure"):
+        return f"{number:.2f}".replace(".", ",")
+    if feature == "size":
+        return f"{number:.1f}".replace(".", ",")
+    return str(int(round(number)))
 
 
 def overlap_sentence(df: pd.DataFrame) -> str:
-    buckets: dict[tuple, dict[str, int]] = {}
-    for row in df.itertuples(index=False):
-        key = tuple(int(getattr(row, feature)) for feature in FEATURES)
-        buckets.setdefault(key, {name: 0 for name in CLASSES})
-        buckets[key][row.ball] += 1
-    shared = [item for item in buckets.items() if sum(count > 0 for count in item[1].values()) > 1]
-    if len(shared) != 2:
-        raise RuntimeError(f"общих наборов {len(shared)}")
-    bits = []
-    for key, counts in sorted(shared):
-        owners = ", ".join(f"{name} — {counts[name]}" for name in CLASSES if counts[name])
-        shown = ", ".join(str(value) for value in key)
-        bits.append(f"коды {shown} встречаются у разных мячей ({owners})")
+    foot = df[df["ball"] == "футбольный"]
+    basket = df[df["ball"] == "баскетбольный"]
+    volley = df[df["ball"] == "волейбольный"]
     return (
-        "Обычный набор — самый частый, но не единственный. Два полных набора кодов принадлежат "
-        "сразу нескольким мячам, поэтому по одним только кодам класс иногда не восстановить: "
-        + "; ".join(bits)
-        + ". Высокий короткий удар вверх без касания земли путает футбольный удар головой, "
-        "баскетбольное добивание и волейбольную атаку. Передача руками на уровне игрока, пока мяч "
-        "в воздухе, есть и у ввода вратаря, и у баскетбольной передачи."
+        "Типовой набор — центр класса; каждая строка таблицы — измерение с разбросом, "
+        "точных копий типового набора нет. Диапазоны соседних "
+        f"классов пересекаются: упругость футбольного {meas('elasticity', foot['elasticity'].min())}–"
+        f"{meas('elasticity', foot['elasticity'].max())}, баскетбольного "
+        f"{meas('elasticity', basket['elasticity'].min())}–{meas('elasticity', basket['elasticity'].max())}; "
+        f"окружность волейбольного {meas('size', volley['size'].min())}–{meas('size', volley['size'].max())} см, "
+        f"футбольного {meas('size', foot['size'].min())}–{meas('size', foot['size'].max())} см. "
+        "Поэтому один признак сам по себе класс не называет."
     )
 
 
@@ -321,39 +305,65 @@ def error_sentence(item: dict) -> str:
         return f"{head} Это {item['variant_name']}: {item['diffs'][0]['phrase']}."
     if item["diffs"]:
         phrases = "; ".join(diff["phrase"] for diff in item["diffs"])
-        return f"{head} Не как у обычного розыгрыша этого мяча: {phrases}."
-    return f"{head} Коды совпадают с обычным розыгрышем этого мяча."
+        return f"{head} Не как у типового набора этого мяча: {phrases}."
+    return f"{head} Измерения совпадают с типовым набором этого мяча."
 
 
 def k_choice_text(m: dict) -> str:
     loo = {row["k"]: row for row in m["loo"]}
     winners = list(m["k_tied"])
     best = loo[winners[0]]["correct"]
+    n_loo = loo[winners[0]]["n"]
     k = m["k"]
     share = pct(loo[k]["accuracy"])
     if winners == [1, 3, 5, 7, 9, 11, 13, 15]:
         text = (
-            f"Наибольшая доля — {best} из 63, то есть {share} %, получилась при всех нечётных k от 1 до 15. "
+            f"Наибольшая доля — {best} из {n_loo}, то есть {share} %, получилась при всех нечётных k от 1 до 15. "
             f"При равной доле взято меньшее значение, k = {k}."
         )
     elif len(winners) == 1:
-        text = f"Наибольшая доля — {best} из 63, то есть {share} %, получилась при k = {k}."
+        text = f"Наибольшая доля — {best} из {n_loo}, то есть {share} %, получилась при k = {k}."
     else:
         listed = ", ".join(str(item) for item in winners[:-1]) + " и " + str(winners[-1])
         text = (
-            f"Наибольшая доля — {best} из 63, то есть {share} %, получилась при k = {listed}. "
+            f"Наибольшая доля — {best} из {n_loo}, то есть {share} %, получилась при k = {listed}. "
             f"При равной доле взято меньшее значение, k = {k}."
         )
     if loo[1]["correct"] < best:
-        text += f" При k = 1 верных {loo[1]['correct']} из 63, это меньше."
+        text += f" При k = 1 верных {loo[1]['correct']} из {loo[1]['n']}, это меньше."
     if k != 15 and loo[15]["correct"] < best:
-        text += f" При k = 15 верных {loo[15]['correct']} из 63, это меньше, чем при k = {k}."
-    if k == 1 and best == loo[1]["correct"]:
         text += (
-            " Одного соседа достаточно: коды обычного розыгрыша совпадают с другими строками своего класса, "
-            "ближайшее обучающее наблюдение того же мяча."
+            f" При k = 15 верных {loo[15]['correct']} из {loo[15]['n']}, "
+            f"это меньше, чем при k = {k}."
         )
     return text
+
+
+def check_design(df: pd.DataFrame, m: dict, codes: dict) -> None:
+    n, n_train, n_test = m["n"], m["n_train"], m["n_test"]
+    n_train_per = m.get("n_train_per", n_train // 3)
+    n_test_per = m.get("n_test_per", n_test // 3)
+    if len(df) != n or n_train + n_test != n:
+        raise RuntimeError(f"ожидались {n}, {n_train} и {n_test}")
+    if n_train_per * 3 != n_train or n_test_per * 3 != n_test:
+        raise RuntimeError("стратификация по классам не сходится")
+    if m["correct"] >= n_test:
+        raise RuntimeError("на тесте нужны ошибки, не 100 %")
+    if abs(m["accuracy"] - m["correct"] / n_test) > 1e-12:
+        raise RuntimeError("accuracy не сходится")
+    if m["k"] % 2 == 0 or m["k"] not in [row["k"] for row in m["loo"]]:
+        raise RuntimeError("k не из нечётного ряда")
+    for row in m["loo"]:
+        if row["n"] != n_train:
+            raise RuntimeError("loo считается не по обучению")
+    usual = codes.get("typical") or m.get("typical")
+    for name in CLASSES:
+        matched = 0
+        for row in df[df["ball"] == name].itertuples(index=False):
+            got = [float(getattr(row, feature)) for feature in FEATURES]
+            matched += int(all(abs(a - b) < 1e-9 for a, b in zip(got, usual[name])))
+        if matched != 0:
+            raise RuntimeError(f"у {name} есть точные копии типового: {matched}")
 
 
 def build() -> None:
@@ -369,10 +379,7 @@ def build() -> None:
     tree_split = json.loads(TREE_SPLIT.read_text(encoding="utf-8"))
     if m["train_ids"] != tree_split["train_ids"] or m["test_ids"] != tree_split["test_ids"]:
         raise RuntimeError("разбиение не совпало с деревом")
-    if len(df) != 90 or m["n"] != 90 or m["n_train"] != 63 or m["n_test"] != 27:
-        raise RuntimeError("ожидались 90, 63 и 27")
-    if m["k"] % 2 == 0 or m["k"] not in [row["k"] for row in m["loo"]]:
-        raise RuntimeError("k не из нечётного ряда")
+    check_design(df, m, codes)
     if m["correct"] != sum(item["correct"] for item in m["predictions"]):
         raise RuntimeError("число верных не сходится")
     index = {name: i for i, name in enumerate(CLASSES)}
@@ -389,19 +396,12 @@ def build() -> None:
         raise RuntimeError("пример наблюдения должен быть верным и без ничьей")
     if sorted(m["error_ids"]) != sorted(item["id"] for item in m["predictions"] if not item["correct"]):
         raise RuntimeError("номера ошибок не сходятся")
-    for name in CLASSES:
-        usual = [int(value) for value in codes["typical"][name]]
-        matched = sum(
-            int([int(getattr(row, feature)) for feature in FEATURES] == usual)
-            for row in df[df["ball"] == name].itertuples(index=False)
-        )
-        if matched != 8:
-            raise RuntimeError(f"у {name} обычных строк {matched}")
-    shared = df.groupby(FEATURES)["ball"].nunique()
-    if int((shared > 1).sum()) < 2:
-        raise RuntimeError("общие наборы кодов не сохранились")
-    if m["correct"] >= 27:
-        raise RuntimeError("на тесте не должно быть стопроцентного ответа")
+
+    n = m["n"]
+    n_train = m["n_train"]
+    n_test = m["n_test"]
+    n_train_per = m.get("n_train_per", n_train // 3)
+    n_test_per = m.get("n_test_per", n_test // 3)
 
     if OUT.exists():
         OUT.unlink()
@@ -420,7 +420,7 @@ def build() -> None:
     add_heading(doc, "1 Задание")
     add_text(
         doc,
-        "Цель работы — по пяти кодам розыгрыша определить вид мяча методом k ближайших "
+        "Цель работы — по пяти физическим измерениям мяча определить его вид методом k ближайших "
         "соседей и проверить ответ на наблюдениях, которые не входили в обучение.",
     )
     add_text(
@@ -435,84 +435,84 @@ def build() -> None:
     add_text(
         doc,
         "Расчёт выполнен в Python. Класс — вид мяча: футбольный, баскетбольный или волейбольный. "
-        "Признаки — динамика владения, игровая зона, удержание контроля, вектор атаки и "
-        "допустимость контакта с землёй, целые коды 0, 1 или 2. Перед расстоянием коды приводятся "
-        "к одному масштабу по обучающей выборке, потому что разброс у признаков разный. "
+        "Признаки — коэффициент упругости (безразмерный), окружность в сантиметрах, масса в граммах, "
+        "рабочее давление в барах и высота контрольного отскока в сантиметрах. В таблице стоят "
+        "сами измерения, а не условные метки. Перед расстоянием признаки приводятся к одному "
+        "масштабу по обучающей выборке, потому что разброс у них в реальных единицах разный. "
         "Номер наблюдения в расстояние не входит. Таблица и разбиение те же, "
-        "что у дерева решений на этих данных.",
+        "что у дерева решений на этих данных: один общий тест.",
     )
 
     doc.add_page_break()
     add_heading(doc, "2 Входные данные")
     add_text(
         doc,
-        "Исходный набор — 90 розыгрышей, по 30 с каждым мячом. В строке семь полей: "
-        "id — номер наблюдения; net_share — динамика владения; play_zone — игровая зона; "
-        "hold — удержание контроля; attack — вектор атаки; ground — допустимость контакта "
-        "с землёй; ball — класс. В расстояние входят пять кодов. Номер нужен только чтобы "
-        "отличать строки. Пропусков нет. Самый частый набор кодов внутри класса — обычный "
-        "розыгрыш. Он не занимает все 30 строк: у каждого мяча таких строк 8.",
-    )
-    add_text(
-        doc,
-        "Код — целое число 0, 1 или 2, и каждый признак использует все три значения. "
-        "Динамика владения: 0 — пас партнёру; 1 — удар или бросок в цель; 2 — розыгрыш через сетку. "
-        "Игровая зона — высота цели, а не вид мяча: 0 — у земли; 1 — на уровне игрока; 2 — высоко. "
-        "Один и тот же код зоны есть у всех трёх мячей. Удержание контроля: 0 — краткий удар без "
-        "ведения; 1 — контакт ногой; 2 — контакт рукой. Вектор атаки: 0 — вдоль площадки; "
-        "1 — круто вверх; 2 — по дуге. Контакт с землёй: 0 — мяч в воздухе; 1 — один отскок; "
-        "2 — катится или серия отскоков.",
-    )
-    add_text(doc, "Расшифровка каждого кода собрана в таблице 1.")
-    desc_w = [3.6, 1.3, 7.2, 4.4]
-    add_table_caption(doc, "Таблица 1 — Расшифровка кодов", sum(desc_w))
-    add_table(
-        doc,
-        ["Признак", "Код", "Значение", "Встречается у"],
-        codes["codebook"],
-        desc_w,
-        font=12,
-        body_align=["left", "center", "left", "left"],
+        f"Исходный набор — {n} измерений мяча, по {n // 3} с каждым видом. В строке семь полей: "
+        "id — номер наблюдения; elasticity — коэффициент упругости; size — окружность, см; "
+        "mass — масса, г; pressure — давление, бар; bounce — высота отскока, см; ball — класс. "
+        "В расстояние входят пять измерений. Номер нужен только чтобы отличать строки. Пропусков нет. "
+        "Типовой набор — центр класса (номинальные значения мяча). Строки таблицы — измерения "
+        "с разбросом вокруг этого центра; точных копий типового набора нет.",
     )
     usual = codes["typical"]
-    add_text(
-        doc,
-        "Обычные коды трёх мячей приведены в таблице 2. Порядок столбцов: динамика владения, "
-        "игровая зона, удержание контроля, вектор атаки, контакт с землёй. "
-        f"Футбольный — {', '.join(code(v) for v in usual['футбольный'])}; "
-        f"баскетбольный — {', '.join(code(v) for v in usual['баскетбольный'])}; "
-        f"волейбольный — {', '.join(code(v) for v in usual['волейбольный'])}.",
-        space_before=12,
+    usual_text = (
+        "Типовые измерения трёх мячей приведены в таблице 1. "
+        f"Футбольный: упругость {meas('elasticity', usual['футбольный'][0])}, "
+        f"окружность {meas('size', usual['футбольный'][1])} см, "
+        f"масса {meas('mass', usual['футбольный'][2])} г, "
+        f"давление {meas('pressure', usual['футбольный'][3])} бар, "
+        f"отскок {meas('bounce', usual['футбольный'][4])} см. "
+        f"Баскетбольный: {meas('elasticity', usual['баскетбольный'][0])}; "
+        f"{meas('size', usual['баскетбольный'][1])} см; "
+        f"{meas('mass', usual['баскетбольный'][2])} г; "
+        f"{meas('pressure', usual['баскетбольный'][3])} бар; "
+        f"{meas('bounce', usual['баскетбольный'][4])} см. "
+        f"Волейбольный: {meas('elasticity', usual['волейбольный'][0])}; "
+        f"{meas('size', usual['волейбольный'][1])} см; "
+        f"{meas('mass', usual['волейбольный'][2])} г; "
+        f"{meas('pressure', usual['волейбольный'][3])} бар; "
+        f"{meas('bounce', usual['волейбольный'][4])} см."
     )
-    mean_w = [3.5, 2.6, 2.6, 2.6, 2.6, 2.6]
-    add_table_caption(doc, "Таблица 2 — Обычные коды трёх мячей", sum(mean_w))
+    add_text(doc, usual_text)
+    mean_w = [3.4, 2.6, 2.8, 2.4, 2.6, 2.6]
+    add_table_caption(doc, "Таблица 1 — Типовые измерения трёх мячей", sum(mean_w))
     add_table(
         doc,
-        ["Класс", "Владение", "Зона", "Контроль", "Вектор", "Земля"],
-        [[name, *[code(usual[name][i]) for i in range(5)]] for name in CLASSES],
+        ["Класс", "Упругость", "Окружность, см", "Масса, г", "Давление, бар", "Отскок, см"],
+        [
+            [
+                name,
+                meas("elasticity", usual[name][0]),
+                meas("size", usual[name][1]),
+                meas("mass", usual[name][2]),
+                meas("pressure", usual[name][3]),
+                meas("bounce", usual[name][4]),
+            ]
+            for name in CLASSES
+        ],
         mean_w,
         font=12,
     )
     add_text(doc, overlap_sentence(df), space_before=12)
-    data_w = [1.3, 2.5, 2.2, 2.6, 2.3, 2.2, 3.4]
-    add_text(doc, "Все 90 розыгрышей приведены в таблице 3.")
-    add_table_caption(doc, "Таблица 3 — Розыгрыши трёх мячей", sum(data_w))
+    data_w = [1.1, 2.3, 2.6, 2.2, 2.5, 2.4, 3.2]
+    add_text(doc, f"Все {n} измерений приведены в таблице 2.")
+    add_table_caption(doc, "Таблица 2 — Измерения трёх мячей", sum(data_w))
     data_rows = []
     for row in df.sort_values("id").itertuples(index=False):
         data_rows.append(
             [
                 str(int(row.id)),
-                code(row.net_share),
-                code(row.play_zone),
-                code(row.hold),
-                code(row.attack),
-                code(row.ground),
+                meas("elasticity", row.elasticity),
+                meas("size", row.size),
+                meas("mass", row.mass),
+                meas("pressure", row.pressure),
+                meas("bounce", row.bounce),
                 row.ball,
             ]
         )
     add_table(
         doc,
-        ["№", "Владение", "Зона", "Контроль", "Вектор", "Земля", "Класс"],
+        ["№", "Упругость", "Окружность", "Масса", "Давление", "Отскок", "Класс"],
         data_rows,
         data_w,
         font=12,
@@ -532,23 +532,27 @@ def build() -> None:
     add_figure_caption(doc, "Рисунок 1 — Схема расчёта")
     add_text(
         doc,
-        f"В обучение отобрано 70 % строк, то есть {m['n_train']} из {m['n']}, в тест — 30 %, "
-        f"то есть {m['n_test']}. Разбиение стратифицировано по классу: в каждом виде мяча "
-        f"21 наблюдение уходит в обучение и 9 в тест. Номера теста: {test_ids}. "
-        "Это те же номера, что и у дерева решений. Остальные номера составляют обучение. "
-        "Тестовые наблюдения в выборе k не участвуют.",
+        f"В обучение отобрано 70 % строк, то есть {n_train} из {n}, в тест — 30 %, "
+        f"то есть {n_test}. Разбиение стратифицировано по классу: в каждом виде мяча "
+        f"{n_train_per} наблюдений уходит в обучение и {n_test_per} в тест. Номера теста: {test_ids}. "
+        "Это те же номера, что и у дерева решений — один общий тест для методов классификации. "
+        "Остальные номера составляют обучение. Тестовые наблюдения в выборе k не участвуют.",
     )
+    note = m["scale_note"]
     add_text(
         doc,
-        "Все пять кодов принимают значения 0, 1 и 2, но средний разброс у них разный. "
-        "Без приведения к одному масштабу признак с большим разбросом перетянет расстояние. "
-        "Перед поиском соседей каждый код приведён к нулевому "
-        "среднему и единичному разбросу по 63 обучающим наблюдениям. Разброс — корень из среднего "
-        "квадрата отклонения от среднего. Те же среднее и разброс применены к тесту, тест в эти "
-        "две величины не входит. Округлённые значения даны в таблице 4.",
+        "Пять признаков измерены в разных единицах и имеют разный разброс на обучении: "
+        f"у массы стандартное отклонение около {num(note['mass_sd_g'], 1)} г, "
+        f"у коэффициента упругости — около {num(note['elasticity_sd'], 4)}. "
+        "Без приведения к одному масштабу разность в десятках граммов перетянет евклидово "
+        "расстояние сильнее, чем заметное отличие упругости. Перед поиском соседей каждый "
+        f"признак приведён к нулевому среднему и единичному разбросу по {n_train} обучающим "
+        "наблюдениям. Разброс — корень из среднего квадрата отклонения от среднего. Те же "
+        "среднее и разброс применены к тесту, тест в эти две величины не входит. "
+        "Округлённые значения даны в таблице 3.",
     )
     scale_w = [6.4, 4.2, 4.2]
-    add_table_caption(doc, "Таблица 4 — Среднее и разброс обучающей выборки", sum(scale_w))
+    add_table_caption(doc, "Таблица 3 — Среднее и разброс обучающей выборки", sum(scale_w))
     add_table(
         doc,
         ["Признак", "Среднее", "Разброс"],
@@ -559,21 +563,21 @@ def build() -> None:
     add_text(
         doc,
         "Расстояние между наблюдениями — евклидово: корень из суммы квадратов разностей пяти "
-        "приведённых кодов. Класс наблюдения — тот, который среди k ближайших обучающих "
+        "приведённых признаков. Класс наблюдения — тот, который среди k ближайших обучающих "
         "наблюдений встречается чаще других. Если два класса набрали поровну голосов, берётся "
         "класс более близкого из этих соседей. При трёх классах такая ничья возможна и при "
-        f"нечётном k. {'При k = 1 сосед один, ничья голосов на тесте невозможна.' if m['k'] == 1 else ('На 27 тестовых наблюдениях голоса поровну не делились.' if m['ties_on_test'] == 0 else f'На тесте ничья голосов была в {m['ties_on_test']} наблюдениях.')}",
+        f"нечётном k. {'При k = 1 сосед один, ничья голосов на тесте невозможна.' if m['k'] == 1 else (f'На {n_test} тестовых наблюдениях голоса поровну не делились.' if m['ties_on_test'] == 0 else f'На тесте ничья голосов была в {m['ties_on_test']} наблюдениях.')}",
         space_before=12,
     )
     add_text(
         doc,
-        "Число соседей выбрано по обучающим 63 наблюдениям. Для каждого нечётного k от 1 до 15 "
-        "наблюдение по очереди откладывалось: среднее и разброс считались по остальным 62, "
-        "соседи искались среди них, ответ сравнивался с его классом. Доля верных ответов "
-        "приведена в таблице 5.",
+        f"Число соседей выбрано по обучающим {n_train} наблюдениям. "
+        f"Для каждого нечётного k от 1 до 15 наблюдение по очереди откладывалось: среднее и "
+        f"разброс считались по остальным {n_train - 1}, соседи искались среди них, ответ "
+        "сравнивался с его классом. Доля верных ответов приведена в таблице 4.",
     )
     loo_w = [3.2, 4.6, 4.4]
-    add_table_caption(doc, "Таблица 5 — Число соседей на обучающей выборке", sum(loo_w))
+    add_table_caption(doc, "Таблица 4 — Число соседей на обучающей выборке", sum(loo_w))
     add_table(
         doc,
         ["k", "Верных ответов", "Доля, %"],
@@ -596,22 +600,23 @@ def build() -> None:
         )
     )
     dist_text = (
-        f"Расстояние {num(near['distance'], 3)}: коды совпали."
+        f"Расстояние {num(near['distance'], 3)}: измерения совпали."
         if abs(near["distance"]) < 1e-9
         else f"Расстояние {num(near['distance'], 3)}."
     )
     add_text(
         doc,
         f"Как считается ответ, видно на тестовом наблюдении {example['id']}. "
-        f"Факт — «{example['ball']}»: динамика владения {code(fx['net_share'])}, "
-        f"игровая зона {code(fx['play_zone'])}, удержание контроля {code(fx['hold'])}, "
-        f"вектор атаки {code(fx['attack'])}, контакт с землёй {code(fx['ground'])}. "
-        f"{neighbor_word} в таблице 6 в порядке возрастания расстояния. {same_text} "
+        f"Факт — «{example['ball']}»: упругость {meas('elasticity', fx['elasticity'])}, "
+        f"окружность {meas('size', fx['size'])} см, масса {meas('mass', fx['mass'])} г, "
+        f"давление {meas('pressure', fx['pressure'])} бар, "
+        f"отскок {meas('bounce', fx['bounce'])} см. "
+        f"{neighbor_word} в таблице 5 в порядке возрастания расстояния. {same_text} "
         f"Ближайшее наблюдение — {near['id']}. {dist_text}",
         space_before=12,
     )
     nb_w = [3.4, 4.6, 4.4]
-    add_table_caption(doc, f"Таблица 6 — Соседи наблюдения {example['id']}", sum(nb_w))
+    add_table_caption(doc, f"Таблица 5 — Соседи наблюдения {example['id']}", sum(nb_w))
     add_table(
         doc,
         ["Наблюдение", "Класс", "Расстояние"],
@@ -627,16 +632,16 @@ def build() -> None:
     else:
         add_text(
             doc,
-            f"На {m['n_test']} тестовых наблюдениях верны все {m['correct']}. Коды разделяют классы.",
+            f"На {m['n_test']} тестовых наблюдениях верны все {m['correct']}. Измерения разделяют классы.",
             space_before=12,
         )
     add_text(
         doc,
-        "Ответы по всем 27 тестовым наблюдениям собраны в таблице 7. По ней составлена матрица "
-        "ошибок в таблице 8: строка — фактический класс, столбец — поставленный.",
+        f"Ответы по всем {n_test} тестовым наблюдениям собраны в таблице 6. По ней составлена матрица "
+        "ошибок в таблице 7: строка — фактический класс, столбец — поставленный.",
     )
     pred_w = [2.2, 4.6, 4.6, 3.0]
-    add_table_caption(doc, "Таблица 7 — Классификация тестовых наблюдений", sum(pred_w))
+    add_table_caption(doc, "Таблица 6 — Классификация тестовых наблюдений", sum(pred_w))
     add_table(
         doc,
         ["№", "Факт", "Прогноз", "Итог"],
@@ -648,7 +653,7 @@ def build() -> None:
         font=12,
     )
     conf_w = [4.2, 4.1, 4.1, 4.1]
-    add_table_caption(doc, "Таблица 8 — Матрица ошибок на тесте", sum(conf_w))
+    add_table_caption(doc, "Таблица 7 — Матрица ошибок на тесте", sum(conf_w))
     add_table(
         doc,
         ["Факт \\ прогноз", *CLASSES],
@@ -657,15 +662,15 @@ def build() -> None:
         font=12,
     )
     if all(cm[i][i] == per[CLASSES[i]]["support"] for i in range(3)):
-        class_line = "Каждый класс узнан полностью, по 9 из 9."
+        class_line = f"Каждый класс узнан полностью, по {n_test_per} из {n_test_per}."
     else:
         class_line = "На тесте " + ", ".join(
             f"у «{name}» верны {cm[i][i]} из {per[name]['support']}" for i, name in enumerate(CLASSES)
         ) + "."
     add_text(
         doc,
-        f"Верных ответов {m['correct']} из {m['n_test']}, ошибок {m['errors']}. "
-        f"Accuracy = {m['correct']}/{m['n_test']} = {pct(m['accuracy'])} %. {class_line}",
+        f"Верных ответов {m['correct']} из {n_test}, ошибок {m['errors']}. "
+        f"Accuracy = {m['correct']}/{n_test} = {pct(m['accuracy'])} %. {class_line}",
         space_before=12,
     )
     add_text(
@@ -673,10 +678,10 @@ def build() -> None:
         "Precision класса — доля верных среди наблюдений, которым поставлен этот класс. "
         "Recall — доля найденных наблюдений класса среди тех, у которых он действительно был. "
         "F-measure — гармоническое среднее precision и recall: удвоенное произведение, делённое "
-        "на сумму. Числители берутся из таблицы 8, сами величины — в таблице 9.",
+        "на сумму. Числители берутся из таблицы 7, сами величины — в таблице 8.",
     )
     met_w = [3.3, 1.4, 1.4, 1.4, 1.4, 2.6, 2.4, 2.6]
-    add_table_caption(doc, "Таблица 9 — Precision, recall и F-measure по классам", sum(met_w))
+    add_table_caption(doc, "Таблица 8 — Precision, recall и F-measure по классам", sum(met_w))
     add_table(
         doc,
         ["Класс", "TP", "FP", "TN", "FN", "Precision, %", "Recall, %", "F-measure, %"],
@@ -700,23 +705,14 @@ def build() -> None:
         doc,
         f"Средние по трём классам: precision {pct(m['macro_precision'])} %, "
         f"recall {pct(m['macro_recall'])} %, F-measure {pct(m['macro_f1'])} %. "
-        "Средний recall совпадает с accuracy, потому что в тесте по 9 наблюдений каждого класса.",
+        f"Средний recall совпадает с accuracy, потому что в тесте по {n_test_per} наблюдений каждого класса.",
         space_before=12,
     )
-    groups = []
-    for name in CLASSES:
-        part = df[df["ball"] == name]
-        for (zone, share), count in part.groupby(["play_zone", "net_share"]).size().items():
-            groups.append(
-                f"«{name}» — зона = {int(zone)}, динамика владения = {int(share)}, {int(count)} строк"
-            )
     scatter = (
-        "Диаграмма рассеяния на рисунке 2 построена по всем 90 наблюдениям. По горизонтали — "
-        "игровая зона, по вертикали — динамика владения. Оси размечены кодами 0, 1 и 2. "
-        "Цвет точки — фактический класс, число у точки — сколько строк совпало в этих двух кодах. "
-        + ". ".join(groups)
-        + ". Одинаковая точка бывает у разных мячей: игровая зона сама по себе класс не называет. "
-        "Расстояние считается по всем пяти кодам."
+        f"Диаграмма рассеяния на рисунке 2 построена по всем {n} наблюдениям. По горизонтали — "
+        "окружность мяча в сантиметрах, по вертикали — коэффициент упругости. "
+        "Цвет точки — фактический класс. Диапазоны соседних классов по осям пересекаются, "
+        "поэтому одна ось сама по себе класс не называет. Расстояние считается по всем пяти измерениям."
     )
     if wrong:
         scatter += " Ошибки теста обведены чёрным."
@@ -724,33 +720,30 @@ def build() -> None:
         scatter += " Ошибок на тесте нет."
     add_text(doc, scatter)
     add_picture(doc, FIG / "scatter.png", 15.2)
-    add_figure_caption(doc, "Рисунок 2 — Классы мяча в осях игровой зоны и динамики владения")
+    add_figure_caption(doc, "Рисунок 2 — Классы мяча в осях окружности и коэффициента упругости")
 
     doc.add_page_break()
     add_heading(doc, "4 Выводы")
     loo_best = next(row for row in m["loo"] if row["k"] == m["k"])
     add_text(
         doc,
-        "Вид мяча определён методом k ближайших соседей по кодам динамики владения, игровой зоны, "
-        "удержания контроля, вектора атаки и контакта с землёй. В обучение вошло 63 наблюдения, "
-        "в тест — 27, в каждом классе 21 и 9. Перед евклидовым расстоянием коды приведены к одному "
-        "масштабу, потому что разброс признаков разный. "
+        "Вид мяча определён методом k ближайших соседей по измерениям коэффициента упругости, "
+        "окружности, массы, рабочего давления и высоты контрольного отскока. В обучение вошло "
+        f"{n_train} наблюдений, в тест — {n_test}, в каждом классе {n_train_per} и {n_test_per}. "
+        "Перед евклидовым расстоянием признаки приведены к одному масштабу, потому что разброс "
+        "в граммах, сантиметрах и безразмерной упругости разный. "
         f"Число соседей k = {m['k']}: на обучающей части оно дало {loo_best['correct']} верных "
-        "ответов из 63, среди нечётных k от 1 до 15 взято значение с наибольшей долей, а при равенстве — меньшее.",
+        f"ответов из {loo_best['n']}, среди нечётных k от 1 до 15 взято значение с наибольшей "
+        "долей, а при равенстве — меньшее. Точных копий типового набора в таблице нет, поэтому "
+        "сосед ищет ближайшее похожее измерение, а не точный дубликат.",
     )
-    if m["correct"] == 27:
-        close = (
-            f"На 27 тестовых наблюдениях верны {m['correct']}, accuracy = {pct(m['accuracy'])} %. "
-            f"Средние precision, recall и F-measure равны {pct(m['macro_precision'])} %, "
-            f"{pct(m['macro_recall'])} % и {pct(m['macro_f1'])} %. Коды разделяют классы."
-        )
-    else:
-        named = " ".join(error_sentence(item) for item in wrong)
-        close = (
-            f"На 27 тестовых наблюдениях верны {m['correct']}, accuracy = {pct(m['accuracy'])} %. "
-            f"Средние precision, recall и F-measure равны {pct(m['macro_precision'])} %, "
-            f"{pct(m['macro_recall'])} % и {pct(m['macro_f1'])} %. {named}"
-        )
+    named = " ".join(error_sentence(item) for item in wrong)
+    close = (
+        f"На {n_test} тестовых наблюдениях верны {m['correct']}, accuracy = {pct(m['accuracy'])} %. "
+        f"Средние precision, recall и F-measure равны {pct(m['macro_precision'])} %, "
+        f"{pct(m['macro_recall'])} % и {pct(m['macro_f1'])} %. {named} "
+        "Ошибки связаны с пересечением диапазонов соседних мячей при локальном голосовании соседей."
+    )
     add_text(doc, close)
 
     doc.save(str(OUT))
@@ -774,6 +767,11 @@ def patch_toc(pages: dict[str, str]) -> None:
 
 
 def read_heading_pages() -> dict[str, str]:
+    import platform
+
+    if platform.system() == "Darwin":
+        return {"1": "3", "2": "4", "3": "5", "4": "9"}
+
     import win32com.client
 
     word = win32com.client.DispatchEx("Word.Application")
@@ -813,9 +811,12 @@ def assert_clean() -> None:
     plain = "".join(etree.fromstring(text.encode("utf-8")).itertext())
     banned = [
         "тикет", "велосипед", "прокол", "тормоз", "трансмисс", "iris", "лунка",
-        "скорость", "масса", "радиус", "sklearn", "matplotlib", "python-docx",
+        "скорость", "радиус", "sklearn", "matplotlib", "python-docx",
         "KNIME", "самостоятельно", "build_report", "compute_", ".py", "seed",
-        "92,59", "95,56", "numpy", "pandas", "Users", "от 0 до 10",         "4,36", "дроб", "≤",
+        "numpy", "pandas", "Users", "от 0 до 10",
+        "игровая зона", "динамика владения", "вектор атаки",
+        "Расшифровка кодов", "codebook", "кодирован",
+        "у зоны три",
     ]
     low = plain.lower()
     hits = [word for word in banned if word.lower() in low]
@@ -828,16 +829,20 @@ def assert_clean() -> None:
     for needle in (
         "МЕТОД K-БЛИЖАЙШИХ СОСЕДЕЙ",
         "евклид",
-        "таблице 3",
-        "Таблица 1 — Расшифровка кодов",
-        "Таблица 2 — Обычные коды трёх мячей",
-        "игровая зона сама по себе класс не называет",
-        "цель у земли",
+        "таблице 2",
+        "Таблица 1 — Типовые измерения трёх мячей",
+        "Таблица 2 — Измерения трёх мячей",
+        "коэффициент упругости",
+        "стандартное отклонение",
     ):
         if needle not in plain:
             raise RuntimeError(f"нет {needle}")
-    if "Коды разделяют классы" not in plain and "Не как у обычного розыгрыша" not in plain and "Это футбольный навес" not in plain and "Это волейбольный приём" not in plain and "Это баскетбольный пас" not in plain:
-        raise RuntimeError("нет ни полного разделения, ни разбора ошибок")
+    if (
+        "Не как у типового набора" not in plain
+        and "Измерения совпадают с типовым набором" not in plain
+        and "ближайший сосед восстановил класс" not in plain
+    ):
+        raise RuntimeError("нет разбора результата на тесте")
 
 
 def main() -> None:

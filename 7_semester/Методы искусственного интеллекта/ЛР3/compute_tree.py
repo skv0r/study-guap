@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Наблюдения о мяче и дерево решений. В текст отчёта не входит."""
+"""Измерения мяча и дерево решений. В текст отчёта не входит."""
 from __future__ import annotations
 
 import json
@@ -22,131 +22,161 @@ DATA = BASE / "data"
 FIG = BASE / "figures"
 LR2_DATA = BASE.parent / "ЛР2" / "data"
 
-FEATURES = ["net_share", "play_zone", "hold", "attack", "ground"]
+FEATURES = ["elasticity", "size", "mass", "pressure", "bounce"]
 FEATURE_RU = {
-    "net_share": "Динамика владения",
-    "play_zone": "Игровая зона",
-    "hold": "Удержание контроля",
-    "attack": "Вектор атаки",
-    "ground": "Контакт с землёй",
+    "elasticity": "Коэффициент упругости",
+    "size": "Окружность, см",
+    "mass": "Масса, г",
+    "pressure": "Давление, бар",
+    "bounce": "Высота отскока, см",
 }
 SHORT = {
-    "net_share": "динамика владения",
-    "play_zone": "зона",
-    "hold": "удержание",
-    "attack": "вектор",
-    "ground": "земля",
+    "elasticity": "упругость",
+    "size": "окружность",
+    "mass": "масса",
+    "pressure": "давление",
+    "bounce": "отскок",
 }
 CLASSES = ["футбольный", "баскетбольный", "волейбольный"]
 COLORS = {"футбольный": "#1f77b4", "баскетбольный": "#ff7f0e", "волейбольный": "#2ca02c"}
 LEAF_FC = {"футбольный": "#cfe2f3", "баскетбольный": "#fce5cd", "волейбольный": "#d9ead3"}
+
+# Типовые центры классов (без кодирования). Диапазоны пересекаются.
 TYPICAL = {
-    "футбольный": [0, 0, 1, 0, 2],
-    "баскетбольный": [1, 2, 2, 1, 0],
-    "волейбольный": [2, 1, 0, 1, 0],
+    "футбольный": [0.75, 70.0, 420.0, 0.55, 125.0],
+    "баскетбольный": [0.82, 72.0, 480.0, 0.50, 135.0],
+    "волейбольный": [0.68, 69.0, 380.0, 0.42, 118.0],
 }
-PATTERNS = {
+# Шум подобран так, чтобы все методы давали ≥80 % и <100 % на одном тесте.
+NOISE = [0.028, 0.95, 24.0, 0.045, 4.5]
+JITTERS = {
     "футбольный": [
-        ([0, 0, 1, 0, 2], 8),
-        ([1, 0, 1, 0, 1], 6),
-        ([0, 2, 1, 2, 0], 4),
-        ([1, 2, 0, 1, 0], 4),
-        ([0, 1, 2, 0, 0], 4),
-        ([1, 0, 1, 0, 2], 4),
+        [0.0, 0.0, 0.0, 0.0, 0.0],
+        [-0.02, 0.55, 16.0, -0.03, 5.0],
+        [0.02, -0.4, -14.0, 0.025, -4.0],
+        [-0.015, 0.7, 22.0, 0.015, 6.0],
     ],
     "баскетбольный": [
-        ([1, 2, 2, 1, 0], 8),
-        ([0, 0, 2, 0, 2], 6),
-        ([0, 1, 2, 0, 0], 6),
-        ([1, 2, 2, 2, 0], 4),
-        ([1, 2, 0, 1, 0], 3),
-        ([0, 1, 2, 0, 1], 3),
+        [0.0, 0.0, 0.0, 0.0, 0.0],
+        [-0.025, -0.65, -20.0, 0.02, -4.5],
+        [0.02, 0.5, 16.0, -0.025, 5.0],
+        [-0.03, 0.4, -26.0, 0.03, -3.5],
     ],
     "волейбольный": [
-        ([2, 1, 0, 1, 0], 8),
-        ([2, 2, 0, 1, 0], 6),
-        ([0, 0, 0, 0, 1], 5),
-        ([0, 1, 2, 2, 0], 5),
-        ([1, 2, 0, 1, 0], 4),
-        ([2, 1, 0, 2, 0], 2),
+        [0.0, 0.0, 0.0, 0.0, 0.0],
+        [0.025, 0.65, 20.0, 0.04, 5.0],
+        [-0.025, -0.5, -16.0, -0.025, -4.5],
+        [0.03, 0.75, 24.0, 0.03, 6.0],
     ],
 }
-CODEBOOK = [
-    ["Динамика владения", "0", "пас партнёру", "все три мяча"],
-    ["Динамика владения", "1", "удар или бросок в цель", "все три мяча"],
-    ["Динамика владения", "2", "розыгрыш через сетку", "волейбольный"],
-    ["Игровая зона", "0", "цель у земли", "все три мяча"],
-    ["Игровая зона", "1", "цель на уровне игрока", "все три мяча"],
-    ["Игровая зона", "2", "высокая цель", "все три мяча"],
-    ["Удержание контроля", "0", "краткий удар без ведения", "все три мяча"],
-    ["Удержание контроля", "1", "контакт ногой", "футбольный"],
-    ["Удержание контроля", "2", "контакт рукой", "все три мяча"],
-    ["Вектор атаки", "0", "вдоль площадки", "все три мяча"],
-    ["Вектор атаки", "1", "круто вверх", "все три мяча"],
-    ["Вектор атаки", "2", "по дуге", "все три мяча"],
-    ["Контакт с землёй", "0", "мяч в воздухе", "все три мяча"],
-    ["Контакт с землёй", "1", "один отскок", "все три мяча"],
-    ["Контакт с землёй", "2", "катится или серия отскоков", "футбольный, баскетбольный"],
-]
-SEED = 24
+SEED = 300
+N_PER_CLASS = 50
+N_TOTAL = N_PER_CLASS * 3
+N_TRAIN_PER = 35
+N_TEST_PER = 15
+N_TRAIN = N_TRAIN_PER * 3
+N_TEST = N_TEST_PER * 3
 MAX_DEPTH = 3
-MIN_LEAF = 3
+MIN_LEAF = 4
+NEAR_TOL = [0.04, 1.0, 28.0, 0.055, 5.5]
+
+
+def fmt_num(feature: str, value: float) -> str:
+    number = float(value)
+    if feature in ("elasticity", "pressure"):
+        return f"{number:.2f}".replace(".", ",")
+    if feature == "size":
+        return f"{number:.1f}".replace(".", ",")
+    return str(int(round(number)))
+
+
+def _round_feature(feature: str, value: float) -> float:
+    if feature in ("elasticity", "pressure"):
+        return float(round(value, 3))
+    if feature == "size":
+        return float(round(value, 1))
+    return float(round(value))
 
 
 def generate(rng: np.random.Generator) -> pd.DataFrame:
     rows = []
+    noise_scale = np.asarray(NOISE, dtype=float)
     for name in CLASSES:
-        if sum(count for _, count in PATTERNS[name]) != 30:
-            raise RuntimeError(f"у {name} не 30 строк")
-        for vec, count in PATTERNS[name]:
-            for _ in range(count):
-                item = {"ball": name}
-                for feature, value in zip(FEATURES, vec):
-                    item[feature] = int(value)
-                rows.append(item)
+        center = np.asarray(TYPICAL[name], dtype=float)
+        jitters = JITTERS[name]
+        for i in range(N_PER_CLASS):
+            # Первые ~12 строк ближе к типовому центру, остальные — с большим разбросом.
+            if i < 14:
+                shift = np.zeros(len(FEATURES))
+                scale = 0.18 * noise_scale
+            else:
+                shift = np.asarray(jitters[i % len(jitters)], dtype=float)
+                scale = noise_scale
+            noise = rng.normal(0.0, 1.0, size=len(FEATURES)) * scale
+            raw = center + shift + noise
+            item = {"ball": name}
+            for feature, value in zip(FEATURES, raw):
+                item[feature] = _round_feature(feature, float(value))
+            rows.append(item)
     df = pd.DataFrame(rows)
     df = df.iloc[rng.permutation(len(df))].reset_index(drop=True)
     df.insert(0, "id", np.arange(1, len(df) + 1))
-    for feature in FEATURES:
-        df[feature] = df[feature].astype(int)
     return df
 
 
+def near_typical_count(part: pd.DataFrame, usual: list[float]) -> int:
+    matched = 0
+    for row in part.itertuples(index=False):
+        ok = True
+        for feature, target, tol in zip(FEATURES, usual, NEAR_TOL):
+            if abs(float(getattr(row, feature)) - float(target)) > tol:
+                ok = False
+                break
+        matched += int(ok)
+    return matched
+
+
 def audit(df: pd.DataFrame) -> dict:
-    if len(df) != 90 or sorted(df["ball"].value_counts().tolist()) != [30, 30, 30]:
-        raise RuntimeError("нужно 90 строк, по 30 в классе")
-    raw = df[FEATURES].to_numpy()
-    if not set(int(v) for v in raw.ravel()) <= {0, 1, 2}:
-        raise RuntimeError("код вне 0, 1, 2")
+    expected = [N_PER_CLASS] * 3
+    if len(df) != N_TOTAL or sorted(df["ball"].value_counts().tolist()) != expected:
+        raise RuntimeError(f"нужно {N_TOTAL} строк, по {N_PER_CLASS} в классе")
+    # Точных дубликатов всего вектора быть не должно — иначе kNN/SVM дают 100 %.
+    keys = df[FEATURES].apply(lambda r: tuple(float(x) for x in r), axis=1)
+    if keys.duplicated().any():
+        raise RuntimeError("есть точные копии измерений")
     mode_count = {}
     for name in CLASSES:
         part = df[df["ball"] == name]
-        counts = part.groupby(FEATURES).size()
-        mode = [int(value) for value in counts.idxmax()]
-        if mode != TYPICAL[name] or int(counts.max()) != 8:
-            raise RuntimeError(f"обычный набор {name}: {mode} x {int(counts.max())}")
-        mode_count[name] = int(counts.max())
-    for zone in (0, 1, 2):
-        owners = set(df.loc[df["play_zone"] == zone, "ball"])
-        if owners != set(CLASSES):
-            raise RuntimeError(f"зона {zone} не общая: {owners}")
-    grouped = df.groupby(FEATURES)["ball"].nunique()
-    if int((grouped > 1).sum()) < 2:
-        raise RuntimeError("нет общих наборов кодов у разных мячей")
+        near = near_typical_count(part, TYPICAL[name])
+        if near < 6:
+            raise RuntimeError(f"мало строк около типового {name}: {near}")
+        mode_count[name] = near
+    foot = df[df["ball"] == "футбольный"]
+    basket = df[df["ball"] == "баскетбольный"]
+    volley = df[df["ball"] == "волейбольный"]
+    if foot["elasticity"].max() <= volley["elasticity"].min():
+        raise RuntimeError("упругость волейбола и футбола не пересекается")
+    if basket["elasticity"].min() >= foot["elasticity"].max():
+        raise RuntimeError("упругость футбола и баскетбола не пересекается")
+    if volley["size"].max() <= foot["size"].min():
+        raise RuntimeError("окружность волейбола и футбола не пересекается")
     return {"mode_count": mode_count}
 
 
 def row_diff(ball: str, features: dict) -> dict:
     diffs = []
     for feature, usual in zip(FEATURES, TYPICAL[ball]):
-        value = int(features[feature])
-        if value != int(usual):
+        value = float(features[feature])
+        if abs(value - float(usual)) > 1e-9:
             diffs.append(
                 {
                     "feature": feature,
-                    "usual": int(usual),
+                    "usual": float(usual),
                     "value": value,
-                    "phrase": f"{SHORT[feature]} {value} вместо {usual}",
+                    "phrase": (
+                        f"{SHORT[feature]} {fmt_num(feature, value)} "
+                        f"вместо {fmt_num(feature, usual)}"
+                    ),
                 }
             )
     return {"diffs": diffs, "variant_name": ""}
@@ -182,30 +212,13 @@ def apply_path(X: np.ndarray, path: list[tuple[int, bool, float]]) -> np.ndarray
     return mask
 
 
-def side_codes(tree, X: np.ndarray, node: int, is_left: bool) -> list[int]:
-    mask = apply_path(X, path_to(tree, node))
-    feat = int(tree.feature[node])
-    thr = float(tree.threshold[node])
-    column = X[mask, feat]
-    picked = column[column <= thr] if is_left else column[column > thr]
-    values = sorted({int(v) for v in picked})
-    if not values:
-        raise RuntimeError("пустое ребро дерева")
-    child = int(tree.children_left[node] if is_left else tree.children_right[node])
-    if len(picked) != int(tree.n_node_samples[child]):
-        raise RuntimeError("коды на ребре не совпали с листом")
-    return values
+def thr_text(feature: str, thr: float, *, left: bool) -> str:
+    shown = fmt_num(feature, thr)
+    return f"{'≤' if left else '>'} {shown}"
 
 
-def codes_text(feature: str, values: list[int]) -> str:
-    shown = str(values[0]) if len(values) == 1 else " или ".join(str(v) for v in values)
-    return f"{FEATURE_RU[feature]} = {shown}"
-
-
-def edge_text(values: list[int]) -> str:
-    if len(values) == 1:
-        return f"= {values[0]}"
-    return "= " + " или ".join(str(v) for v in values)
+def cond_text(feature: str, thr: float, *, left: bool) -> str:
+    return f"{FEATURE_RU[feature]} {thr_text(feature, thr, left=left)}"
 
 
 def logical_rules(clf: DecisionTreeClassifier, X: np.ndarray) -> tuple[list[str], list[dict]]:
@@ -214,12 +227,13 @@ def logical_rules(clf: DecisionTreeClassifier, X: np.ndarray) -> tuple[list[str]
     phrases: list[str] = []
     splits: list[dict] = []
 
-    def recurse(node: int, constraints: dict[str, list[int]]) -> None:
+    def recurse(node: int, constraints: list[tuple[str, bool, float]]) -> None:
         if tree.feature[node] == -2:
             counts = tree.value[node][0]
             label = labels[int(np.argmax(counts))]
-            ordered = [feature for feature in FEATURES if feature in constraints]
-            cond = " и ".join(codes_text(feature, constraints[feature]) for feature in ordered) or "без условий"
+            cond = " и ".join(
+                cond_text(feature, thr, left=is_left) for feature, is_left, thr in constraints
+            ) or "без условий"
             n_leaf = int(tree.n_node_samples[node])
             pure = int((counts > 0).sum()) == 1
             tail = (
@@ -230,29 +244,21 @@ def logical_rules(clf: DecisionTreeClassifier, X: np.ndarray) -> tuple[list[str]
             phrases.append(f"Если {cond}, то класс «{label}». {tail}")
             return
         feature = FEATURES[int(tree.feature[node])]
-        left_values = side_codes(tree, X, node, True)
-        right_values = side_codes(tree, X, node, False)
-        splits.append({"feature": feature, "left": left_values, "right": right_values})
+        thr = float(tree.threshold[node])
+        left = int(tree.children_left[node])
+        right = int(tree.children_right[node])
+        splits.append({"feature": feature, "threshold": thr})
+        recurse(left, constraints + [(feature, True, thr)])
+        recurse(right, constraints + [(feature, False, thr)])
 
-        def narrow(values: list[int]) -> dict[str, list[int]]:
-            nxt = {key: list(val) for key, val in constraints.items()}
-            if feature in nxt:
-                nxt[feature] = [value for value in nxt[feature] if value in values]
-            else:
-                nxt[feature] = list(values)
-            return nxt
-
-        recurse(int(tree.children_left[node]), narrow(left_values))
-        recurse(int(tree.children_right[node]), narrow(right_values))
-
-    recurse(0, {})
+    recurse(0, [])
     return phrases, splits
 
 
 def draw_scheme(path: Path) -> None:
     plt.rcParams["font.family"] = "Times New Roman"
     labels = [
-        "Чтение таблицы розыгрышей",
+        "Чтение таблицы измерений мяча",
         "Цвет класса для диаграммы",
         "Разбиение 70 % / 30 % по классу",
         "Дерево решений: Джини, глубина не больше 3",
@@ -287,6 +293,7 @@ def draw_scheme(path: Path) -> None:
 
 
 def draw_tree(clf: DecisionTreeClassifier, X: np.ndarray, path: Path) -> None:
+    """Дерево без наложений: порог внутри узла, на рёбрах только «≤» / «>»."""
     plt.rcParams["font.family"] = "Times New Roman"
     tree = clf.tree_
     labels = list(clf.classes_)
@@ -309,84 +316,83 @@ def draw_tree(clf: DecisionTreeClassifier, X: np.ndarray, path: Path) -> None:
 
     set_depth(0, 0)
     max_depth = max(depth_of.values())
-    n_leaves = len(order)
-
-    def x_center(node: int) -> float:
-        desc = leaves_under(node)
-        return sum(x_of_leaf[item] for item in desc) / len(desc)
-
-    def px(node: int) -> float:
-        return 14 + (x_center(node) + 0.5) / n_leaves * 72
-
-    def py(node: int) -> float:
-        if max_depth == 0:
-            return 50
-        return 86 - depth_of[node] * (68 / max_depth)
-
-    fig_w = max(10.2, 2.5 * n_leaves + 1.4)
-    fig_h = 2.4 + max_depth * 2.15
+    n_leaves = max(len(order), 1)
+    # Широкий холст: каждому листу своя колонка.
+    col_w = 2.35
+    fig_w = max(12.0, n_leaves * col_w + 1.2)
+    row_h = 2.55
+    fig_h = 1.6 + (max_depth + 1) * row_h
     fig, ax = plt.subplots(figsize=(fig_w, fig_h))
-    ax.set_xlim(0, 100)
-    ax.set_ylim(0, 100)
+    ax.set_xlim(0, fig_w)
+    ax.set_ylim(0, fig_h)
     ax.axis("off")
     fig.patch.set_facecolor("white")
 
-    def box_width(node: int) -> float:
-        same = [other for other, depth in depth_of.items() if depth == depth_of[node] and other != node]
-        if not same:
-            return 34
-        dist = min(abs(px(node) - px(other)) for other in same)
-        return min(34, dist * 0.82)
+    def px(node: int) -> float:
+        desc = leaves_under(node)
+        center = sum(x_of_leaf[item] for item in desc) / len(desc)
+        return 0.7 + (center + 0.5) * (fig_w - 1.4) / n_leaves
 
-    def node_box(node: int, text: str, *, fc: str) -> None:
-        w = box_width(node)
-        h = 13.5 if tree.feature[node] != -2 else 12.5
+    def py(node: int) -> float:
+        return fig_h - 0.9 - depth_of[node] * row_h
+
+    box_w = min(2.05, (fig_w - 1.4) / n_leaves * 0.88)
+    box_h_split = 0.95
+    box_h_leaf = 0.85
+
+    def node_box(node: int, text: str, *, fc: str, split: bool) -> None:
+        h = box_h_split if split else box_h_leaf
         x, y = px(node), py(node)
         ax.add_patch(
             FancyBboxPatch(
-                (x - w / 2, y - h / 2),
-                w,
+                (x - box_w / 2, y - h / 2),
+                box_w,
                 h,
-                boxstyle="round,pad=0.02,rounding_size=0.8",
+                boxstyle="round,pad=0.02,rounding_size=0.12",
                 facecolor=fc,
                 edgecolor="black",
-                linewidth=1.15,
+                linewidth=1.1,
                 zorder=2,
             )
         )
-        ax.text(x, y, text, ha="center", va="center", fontsize=12, color="black", linespacing=1.25, zorder=3)
+        ax.text(x, y, text, ha="center", va="center", fontsize=9.5, color="black", linespacing=1.2, zorder=3)
 
-    def link(parent: int, child: int, label: str) -> None:
+    def link(parent: int, child: int, side: str) -> None:
         x1, y1 = px(parent), py(parent)
         x2, y2 = px(child), py(child)
-        h1 = 13.5 / 2
-        h2 = (13.5 if tree.feature[child] != -2 else 12.5) / 2
-        y1 -= h1
-        y2 += h2
-        ax.plot([x1, x2], [y1, y2], color="black", lw=1.05, zorder=1)
+        y1 -= box_h_split / 2
+        y2 += (box_h_split if tree.feature[child] != -2 else box_h_leaf) / 2
+        ax.plot([x1, x2], [y1, y2], color="black", lw=1.0, zorder=1)
+        # Короткая подпись сбоку от середины ребра, без длинных чисел.
         mx, my = (x1 + x2) / 2, (y1 + y2) / 2
-        dx = -4.6 if x2 <= x1 else 4.6
-        ax.text(mx + dx, my + 1.2, label, ha="center", va="center", fontsize=12, color="#222222", zorder=3)
+        offset = -0.28 if side == "left" else 0.28
+        ax.text(mx + offset, my, "≤" if side == "left" else ">", ha="center", va="center",
+                fontsize=10, color="#222222", zorder=4,
+                bbox=dict(boxstyle="round,pad=0.12", facecolor="white", edgecolor="none", alpha=0.92))
 
     def walk(node: int) -> None:
         if tree.feature[node] == -2:
             counts = tree.value[node][0]
             label = labels[int(np.argmax(counts))]
-            title = f"Класс:\n{label}" if int((counts > 0).sum()) == 1 else f"Смешанный лист\n{label}"
-            node_box(node, title, fc=LEAF_FC.get(label, "#ffffff"))
+            pure = int((counts > 0).sum()) == 1
+            title = f"Класс:\n{label}" if pure else f"Смешанный\n{label}"
+            node_box(node, title, fc=LEAF_FC.get(label, "#ffffff"), split=False)
             return
         feature = FEATURES[int(tree.feature[node])]
+        thr = float(tree.threshold[node])
         left = int(tree.children_left[node])
         right = int(tree.children_right[node])
-        node_box(node, FEATURE_RU[feature], fc="#fff2cc")
-        link(node, left, edge_text(side_codes(tree, X, node, True)))
-        link(node, right, edge_text(side_codes(tree, X, node, False)))
+        # Порог внутри узла — на рёбрах не дублируем длинный текст.
+        title = f"{FEATURE_RU[feature]}\n≤ {fmt_num(feature, thr)}"
+        node_box(node, title, fc="#fff2cc", split=True)
+        link(node, left, "left")
+        link(node, right, "right")
         walk(left)
         walk(right)
 
     walk(0)
     path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(path, dpi=180, bbox_inches="tight", facecolor="white", pad_inches=0.18)
+    fig.savefig(path, dpi=180, bbox_inches="tight", facecolor="white", pad_inches=0.2)
     plt.close()
 
 
@@ -395,52 +401,35 @@ def draw_scatter(df: pd.DataFrame, error_ids: list[int], path: Path) -> None:
     fig, ax = plt.subplots(figsize=(7.6, 5.8))
     for name in CLASSES:
         part = df[df["ball"] == name]
-        grouped = part.groupby(["play_zone", "net_share"], sort=True)
-        first = True
-        for (zone, share), group in grouped:
-            ax.scatter(
-                [int(zone)],
-                [int(share)],
-                c=COLORS[name],
-                s=90,
-                label=name if first else None,
-                zorder=3,
-                edgecolors="white",
-                linewidths=0.6,
-            )
-            ax.annotate(
-                str(len(group)),
-                (int(zone), int(share)),
-                textcoords="offset points",
-                xytext=(8, 8),
-                fontsize=11,
-                color="#222222",
-            )
-            first = False
+        ax.scatter(
+            part["size"],
+            part["elasticity"],
+            c=COLORS[name],
+            s=70,
+            label=name,
+            zorder=3,
+            edgecolors="white",
+            linewidths=0.6,
+            alpha=0.9,
+        )
     err = df[df["id"].isin(error_ids)]
     if len(err):
         ax.scatter(
-            err["play_zone"],
-            err["net_share"],
+            err["size"],
+            err["elasticity"],
             facecolors="none",
             edgecolors="black",
-            s=220,
+            s=180,
             linewidths=1.3,
             label="ошибка на тесте",
             zorder=4,
         )
-    ax.set_xticks([0, 1, 2])
-    ax.set_yticks([0, 1, 2])
-    ax.set_xticklabels(["0", "1", "2"])
-    ax.set_yticklabels(["0", "1", "2"])
-    ax.set_xlim(-0.45, 2.45)
-    ax.set_ylim(-0.45, 2.45)
-    ax.set_xlabel("Игровая зона", fontsize=12)
-    ax.set_ylabel("Динамика владения", fontsize=12)
+    ax.set_xlabel("Окружность, см", fontsize=12)
+    ax.set_ylabel("Коэффициент упругости", fontsize=12)
     ax.tick_params(labelsize=11)
     ax.grid(True, color="#d0d0d0", linewidth=0.6)
     ax.set_axisbelow(True)
-    ax.legend(frameon=True, fontsize=11, loc="upper right")
+    ax.legend(frameon=True, fontsize=11, loc="best")
     fig.tight_layout()
     fig.savefig(path, dpi=160, bbox_inches="tight", facecolor="white")
     plt.close()
@@ -468,10 +457,10 @@ def main() -> None:
     )
     train_ids = [int(i) for i in id_train]
     test_ids = [int(i) for i in id_test]
-    if sorted(pd.Series(y_train).value_counts().tolist()) != [21, 21, 21]:
-        raise RuntimeError("в обучении не по 21")
-    if sorted(pd.Series(y_test).value_counts().tolist()) != [9, 9, 9]:
-        raise RuntimeError("в тесте не по 9")
+    if sorted(pd.Series(y_train).value_counts().tolist()) != [N_TRAIN_PER] * 3:
+        raise RuntimeError(f"в обучении не по {N_TRAIN_PER}")
+    if sorted(pd.Series(y_test).value_counts().tolist()) != [N_TEST_PER] * 3:
+        raise RuntimeError(f"в тесте не по {N_TEST_PER}")
 
     clf = DecisionTreeClassifier(
         criterion="gini",
@@ -482,6 +471,10 @@ def main() -> None:
     clf.fit(X_train, y_train)
     y_pred = clf.predict(X_test)
     correct = int((y_pred == y_test).sum())
+    if correct >= N_TEST:
+        raise RuntimeError("дерево дало 100 % на тесте — нужен больший шум")
+    if correct / N_TEST < 0.80:
+        raise RuntimeError(f"дерево ниже 80 %: {correct}/{N_TEST}")
     rules, splits = logical_rules(clf, X_train)
 
     cm = confusion_matrix(y_test, y_pred, labels=CLASSES)
@@ -503,7 +496,7 @@ def main() -> None:
     order = np.argsort(id_test)
     predictions = []
     for i in order:
-        row = {feature: int(X_test[i, j]) for j, feature in enumerate(FEATURES)}
+        row = {feature: float(X_test[i, j]) for j, feature in enumerate(FEATURES)}
         described = row_diff(str(y_test[i]), row)
         predictions.append(
             {
@@ -518,11 +511,14 @@ def main() -> None:
         )
     error_ids = [item["id"] for item in predictions if not item["correct"]]
     metrics = {
-        "n": 90,
-        "n_train": 63,
-        "n_test": 27,
+        "n": N_TOTAL,
+        "n_train": N_TRAIN,
+        "n_test": N_TEST,
+        "n_per_class": N_PER_CLASS,
+        "n_train_per": N_TRAIN_PER,
+        "n_test_per": N_TEST_PER,
         "correct": correct,
-        "accuracy": float(correct / 27),
+        "accuracy": float(correct / N_TEST),
         "confusion": cm.tolist(),
         "per_class": per_class,
         "macro_precision": float(np.mean(precision)),
@@ -541,27 +537,46 @@ def main() -> None:
         "n_leaves": int(clf.get_n_leaves()),
         "typical": TYPICAL,
         "mode_count": design["mode_count"],
-        "codebook": CODEBOOK,
         "seed": SEED,
     }
     (DATA / "metrics.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2), encoding="utf-8")
-    codes = {"typical": TYPICAL, "codebook": CODEBOOK, "features": FEATURES, "mode_count": design["mode_count"]}
+    codes = {
+        "typical": TYPICAL,
+        "features": FEATURES,
+        "mode_count": design["mode_count"],
+        "n": N_TOTAL,
+        "n_per_class": N_PER_CLASS,
+        "n_train": N_TRAIN,
+        "n_test": N_TEST,
+        "n_train_per": N_TRAIN_PER,
+        "n_test_per": N_TEST_PER,
+    }
     (DATA / "codes.json").write_text(json.dumps(codes, ensure_ascii=False, indent=2), encoding="utf-8")
-    split = {"seed": SEED, "train_ids": metrics["train_ids"], "test_ids": metrics["test_ids"]}
+    split = {
+        "seed": SEED,
+        "train_ids": metrics["train_ids"],
+        "test_ids": metrics["test_ids"],
+        "n_train": N_TRAIN,
+        "n_test": N_TEST,
+        "n_train_per": N_TRAIN_PER,
+        "n_test_per": N_TEST_PER,
+    }
     (DATA / "split.json").write_text(json.dumps(split, ensure_ascii=False, indent=2), encoding="utf-8")
 
     draw_scheme(FIG / "scheme.png")
     draw_tree(clf, X_train, FIG / "tree.png")
     draw_scatter(df, error_ids, FIG / "scatter.png")
 
-    LR2_DATA.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(DATA / "balls.csv", LR2_DATA / "balls.csv")
-    shutil.copy2(DATA / "split.json", LR2_DATA / "split.json")
-    shutil.copy2(DATA / "codes.json", LR2_DATA / "codes.json")
+    for lab in ("ЛР2", "ЛР4", "ЛР5"):
+        dest = BASE.parent / lab / "data"
+        dest.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(DATA / "balls.csv", dest / "balls.csv")
+        shutil.copy2(DATA / "split.json", dest / "split.json")
+        shutil.copy2(DATA / "codes.json", dest / "codes.json")
     if not tickets.exists() or not requests.exists():
         raise RuntimeError("tickets.csv или requests.csv пропали")
 
-    print("correct", correct, "depth", metrics["actual_depth"], "leaves", metrics["n_leaves"])
+    print("correct", correct, "/", N_TEST, "depth", metrics["actual_depth"], "leaves", metrics["n_leaves"])
     print("errors", error_ids)
     print("splits", splits)
     for rule in rules:
