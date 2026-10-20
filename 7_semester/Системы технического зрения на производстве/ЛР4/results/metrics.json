@@ -1,0 +1,61 @@
+{
+  "src_w": 952,
+  "src_h": 492,
+  "width": 960,
+  "height": 496,
+  "scale": 1.0084,
+  "canny_low": [
+    40,
+    110
+  ],
+  "canny_high": [
+    90,
+    180
+  ],
+  "edges_low": 26265,
+  "edges_high": 13280,
+  "threshold": 60,
+  "contours_total": 1,
+  "contours_kept": 1,
+  "area": 143714.5,
+  "perimeter": 2442.0,
+  "bbox": [
+    33,
+    58,
+    914,
+    306
+  ],
+  "kept": [
+    {
+      "area": 143714.5,
+      "perimeter": 2442.0,
+      "bbox": [
+        33,
+        58,
+        914,
+        306
+      ]
+    }
+  ],
+  "solidity": 0.729,
+  "seed": [
+    98,
+    73
+  ],
+  "delta": 48,
+  "own_area": 143754,
+  "cv_area": 143754,
+  "flood_iou_metal": 0.993,
+  "flood_agree": 1.0,
+  "orb_src": 120,
+  "orb_rot": 120,
+  "matches": 73,
+  "inliers": 71,
+  "harris": 97,
+  "metal_mean_bgr": [
+    143.7,
+    147.1,
+    154.1
+  ],
+  "hog_median_deg": 10.0
+}
