@@ -1,0 +1,27 @@
+{
+  "images": {
+    "train": 35,
+    "valid": 10,
+    "test": 5
+  },
+  "boxes": {
+    "train": {
+      "gear": 26,
+      "washer": 27,
+      "nut": 25
+    },
+    "valid": {
+      "gear": 9,
+      "washer": 8,
+      "nut": 5
+    },
+    "test": {
+      "gear": 2,
+      "washer": 4,
+      "nut": 5
+    }
+  },
+  "total_images": 50,
+  "scenes": 5,
+  "seed": 42
+}

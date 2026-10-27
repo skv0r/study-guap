@@ -1,0 +1,21 @@
+{
+  "dirty": [
+    {
+      "file": "video03_0001.txt",
+      "text": "слишком малая рамка",
+      "area": 0.000144
+    }
+  ],
+  "clean": [],
+  "counts": {
+    "gear": 37,
+    "washer": 39,
+    "nut": 35
+  },
+  "shown": [
+    "video01_0001",
+    "video02_0005",
+    "video04_0002"
+  ],
+  "min_area": 0.001
+}
