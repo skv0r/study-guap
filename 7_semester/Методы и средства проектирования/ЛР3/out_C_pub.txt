@@ -1,0 +1,1 @@
+psql:C:/Users/skvor/OneDrive/Desktop/GitHub/study-guap/7_semester/╠хЄюф√ ш ёЁхфёЄтр яЁюхъЄшЁютрэш /╦╨3/C_юЄърч_яюфяшёъш.sql:4: ERROR:  publication "pub_vuz" already exists

@@ -1,0 +1,3 @@
+UPDATE 1
+psql:<stdin>:2: ERROR:  конфликт репликации: центр [Цифровой вуз, пленарное], узел [Цифровой вуз, секция]
+КОНТЕКСТ:  PL/pgSQL function office.check_conflict() line 9 at RAISE

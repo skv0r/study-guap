@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from "react";
+import { db, read, type Answer } from "./railway";
 
 type Role =
   | "Диспетчер расписания"
@@ -67,45 +68,32 @@ const needsShift = (role: Role) => role === "Кассир" || role === "Конт
 const App = () => {
   const [screen, setScreen] = useState<Screen>("login");
   const [role, setRole] = useState<Role>("Кассир");
-  const [stationOpen, setStationOpen] = useState(true);
-  const [shiftOpen, setShiftOpen] = useState(false);
-  const [draft, setDraft] = useState(false);
-  const [boarded, setBoarded] = useState(false);
-  const [tripOpen, setTripOpen] = useState(true);
-  const [cancelled, setCancelled] = useState(false);
-  const [repairClosed, setRepairClosed] = useState(false);
-  const [repairStatus, setRepairStatus] = useState("Открыта");
-  const [ready, setReady] = useState({ cash: true, platform: true, hall: true, passage: true });
   const [notice, setNotice] = useState("");
   const [bad, setBad] = useState(false);
+  const [tick, setTick] = useState(0);
+  const [repairStatus, setRepairStatus] = useState("Открыта");
 
-  function say(text: string, error = false) {
-    setNotice(text);
-    setBad(error);
+  function show(answer: Answer) {
+    setNotice(answer.text);
+    setBad(!answer.ok);
+    setTick((value) => value + 1);
   }
 
   function enter() {
-    if (needsShift(role)) {
-      if (!stationOpen) {
-        say("Станция не в обслуживании. Смену открыть нельзя.", true);
-        return;
-      }
-      setShiftOpen(true);
-      say("Смена открыта.");
-    } else {
-      say("Вход выполнен.");
-    }
-    setScreen("menu");
+    const answer = db.enter(role);
+    show(answer);
+    if (answer.ok) setScreen("menu");
   }
 
   function leave() {
+    db.leave();
     setScreen("login");
-    say("");
+    setNotice("");
   }
 
   function back() {
     setScreen("menu");
-    say("");
+    setNotice("");
   }
 
   const title =
@@ -122,8 +110,8 @@ const App = () => {
           <h1>АИС железной дороги</h1>
           <p>
             {role}
-            {needsShift(role) ? (shiftOpen ? " · смена открыта" : " · смена закрыта") : ""}
-            {stationOpen ? " · станция в обслуживании" : " · станция закрыта"}
+            {needsShift(role) ? (db.shiftOpen ? " · смена открыта" : " · смена закрыта") : ""}
+            {db.stationOpen ? " · станция в обслуживании" : " · станция закрыта"}
           </p>
         </div>
         {screen !== "login" ? (
@@ -153,7 +141,7 @@ const App = () => {
             </label>
             <label>
               Станция
-              <input defaultValue="Северная" />
+              <input name="station" defaultValue="Северная" />
             </label>
             <button className="primary" type="submit">
               {needsShift(role) ? "Войти и открыть смену" : "Войти"}
@@ -163,243 +151,161 @@ const App = () => {
         {screen === "menu" ? (
           <div className="menu">
             {menuByRole[role].map((item) => (
-              <button key={item.id} type="button" onClick={() => { setScreen(item.id); say(""); }}>
+              <button key={item.id} type="button" onClick={() => { setScreen(item.id); setNotice(""); }}>
                 {item.label}
               </button>
             ))}
           </div>
         ) : null}
         {screen === "stations" ? (
-          <Form onBack={back} onSave={() => say("Станция сохранена. Код уникален.")}>
-            <label>Код<input defaultValue="SVR" /></label>
-            <label>Название<input defaultValue="Северная" /></label>
+          <Form onBack={back} onSave={(data) => show(db.saveStation(read(data, "code"), read(data, "name")))}>
+            <label>Код<input name="code" defaultValue="LUG" /></label>
+            <label>Название<input name="name" defaultValue="Луговая" /></label>
+            <Records title="Записанные станции" rows={db.stations.map((item) => `${item.code} — ${item.name}`)} mark={tick} />
           </Form>
         ) : null}
         {screen === "schemes" ? (
-          <Form onBack={back} onSave={() => say("Схема сохранена. Номера мест не повторяются.")}>
-            <label>Тип вагона<input defaultValue="Плацкарт" /></label>
-            <label>Номера мест<input defaultValue="1–36" /></label>
+          <Form onBack={back} onSave={(data) => show(db.saveScheme(read(data, "type"), read(data, "seats")))}>
+            <label>Тип вагона<input name="type" defaultValue="Купе" /></label>
+            <label>Номера мест<input name="seats" defaultValue="1–18" /></label>
+            <Records title="Схемы" rows={db.schemes.map((item) => `${item.type}: ${item.seats}`)} mark={tick} />
           </Form>
         ) : null}
         {screen === "route" ? (
-          <Form onBack={back} onSave={() => say("Маршрут сохранён: две станции, без повтора.")}>
-            <label>Код<input defaultValue="M-12" /></label>
-            <label>Название<input defaultValue="Северная — Южная" /></label>
-            <label>Станции по порядку<input defaultValue="Северная — Южная" /></label>
-            <label>Время хода, мин<input defaultValue="95" /></label>
+          <Form
+            onBack={back}
+            onSave={(data) => show(db.saveRoute(read(data, "code"), read(data, "name"), read(data, "stations"), read(data, "minutes")))}
+          >
+            <label>Код<input name="code" defaultValue="M-14" /></label>
+            <label>Название<input name="name" defaultValue="Северная — Луговая" /></label>
+            <label>Станции по порядку<input name="stations" defaultValue="Северная — Луговая" /></label>
+            <label>Время хода, мин<input name="minutes" defaultValue="40" /></label>
+            <Records title="Маршруты" rows={db.routes.map((item) => `${item.code} ${item.stations}`)} mark={tick} />
           </Form>
         ) : null}
         {screen === "publish" ? (
           <Form
             onBack={back}
-            onSave={() => {
-              if (cancelled) {
-                say("Рейс отменён. Тем же номером не открывается.", true);
-                return;
-              }
-              if (tripOpen) {
-                say("Рейс с этим номером уже открыт.", true);
-                return;
-              }
-              setTripOpen(true);
-              say("Рейс 102 опубликован. Фонд мест создан.");
-            }}
+            onSave={(data) =>
+              show(db.publishTrip(read(data, "number"), read(data, "date"), read(data, "route"), read(data, "scheme"), read(data, "time")))
+            }
           >
-            <label>Номер рейса<input defaultValue="102" /></label>
-            <label>Дата<input type="date" defaultValue="2026-10-20" /></label>
-            <label>Маршрут<input defaultValue="M-12 Северная — Южная" /></label>
-            <label>Схема вагона<input defaultValue="Плацкарт" /></label>
-            <label>Время отправления и прибытия<input defaultValue="08:40–10:15" /></label>
+            <label>Номер рейса<input name="number" defaultValue="102" /></label>
+            <label>Дата<input name="date" type="date" defaultValue="2026-10-20" /></label>
+            <label>Маршрут<input name="route" defaultValue="M-12 Северная — Южная" /></label>
+            <label>Схема вагона<input name="scheme" defaultValue="Плацкарт" /></label>
+            <label>Время отправления и прибытия<input name="time" defaultValue="08:40–10:15" /></label>
+            <Records
+              title="Рейсы"
+              rows={db.trips.map((item) => `${item.number}: ${item.cancelled ? "отменён" : item.open ? "открыт" : "закрыт"}`)}
+              mark={tick}
+            />
           </Form>
         ) : null}
         {screen === "cancel" ? (
-          <Form
-            onBack={back}
-            onSave={() => {
-              if (cancelled) {
-                say("Рейс уже отменён. Повторная отмена не создана.", true);
-                return;
-              }
-              setCancelled(true);
-              setTripOpen(false);
-              setDraft(false);
-              say(
-                draft
-                  ? "Рейс отменён. Черновик продажи не проведён, новые продажи закрыты."
-                  : "Рейс отменён. Новые продажи закрыты, билеты помечены.",
-              );
-            }}
-          >
-            <label>Рейс<input defaultValue="102" /></label>
-            <label>Причина<input defaultValue="Отмена перевозчиком" /></label>
+          <Form onBack={back} onSave={(data) => show(db.cancelTrip(read(data, "number")))}>
+            <label>Рейс<input name="number" defaultValue="102" /></label>
+            <label>Причина<input name="reason" defaultValue="Отмена перевозчиком" /></label>
           </Form>
         ) : null}
         {screen === "sale" ? (
           <Form
             onBack={back}
-            onSave={() => {
-              if (!stationOpen || !shiftOpen) {
-                say("Нет обслуживания станции или открытой смены.", true);
-                return;
-              }
-              if (!tripOpen) {
-                say("Рейс закрыт. Билет не создан.", true);
-                return;
-              }
-              setDraft(false);
-              say("Билет проведён, купон отправлен на печать.");
-            }}
+            onSave={(data) =>
+              show(db.sell(read(data, "trip"), read(data, "seat"), read(data, "passenger"), read(data, "price"), data.get("draft") === "on"))
+            }
           >
-            <label>Станции и дата<input defaultValue="Северная — Южная, 20.10.2026" /></label>
-            <label>Место<input defaultValue="12" /></label>
-            <label>Пассажир<input defaultValue="Иванов Иван" /></label>
-            <label>Цена из прайса<input defaultValue="1 850" /></label>
+            <label>Рейс<input name="trip" defaultValue="102" /></label>
+            <label>Станции и дата<input name="path" defaultValue="Северная — Южная, 20.10.2026" /></label>
+            <label>Место<input name="seat" defaultValue="12" /></label>
+            <label>Пассажир<input name="passenger" defaultValue="Иванов Иван" /></label>
+            <label>Цена из прайса<input name="price" defaultValue="1 850" /></label>
             <label>
               <span>Черновик</span>
-              <input
-                type="checkbox"
-                checked={draft}
-                onChange={(event) => setDraft(event.target.checked)}
-              />
+              <input name="draft" type="checkbox" />
             </label>
+            <Records
+              title="Проведённые билеты"
+              rows={db.tickets.filter((item) => !item.refunded).map((item) => `${item.number}, место ${item.seat}, ${item.passenger}`)}
+              mark={tick}
+            />
           </Form>
         ) : null}
         {screen === "refund" ? (
-          <Form
-            onBack={back}
-            onSave={() => {
-              if (boarded) {
-                say("Посадка уже отмечена. Возврат не проведён.", true);
-                return;
-              }
-              say(tripOpen ? "Билет возвращён, место свободно." : "Билет погашен. Место закрыто: рейс отменён.");
-            }}
-          >
-            <label>Номер билета<input defaultValue="102-12" /></label>
+          <Form onBack={back} onSave={(data) => show(db.refund(read(data, "number")))}>
+            <label>Номер билета<input name="number" defaultValue="102-12" /></label>
           </Form>
         ) : null}
         {screen === "boarding" ? (
-          <Form
-            onBack={back}
-            onSave={() => {
-              if (!shiftOpen || !stationOpen) {
-                say("Нет смены или станция не в обслуживании.", true);
-                return;
-              }
-              if (boarded) {
-                say("Отметка посадки уже есть.", true);
-                return;
-              }
-              setBoarded(true);
-              say("Посадка отмечена один раз.");
-            }}
-          >
-            <label>Номер билета или купона<input defaultValue="102-12" /></label>
+          <Form onBack={back} onSave={(data) => show(db.board(read(data, "number")))}>
+            <label>Номер билета или купона<input name="number" defaultValue="102-12" /></label>
           </Form>
         ) : null}
         {screen === "service" ? (
           <Form
             onBack={back}
-            onSave={() => {
-              const allReady = Object.values(ready).every(Boolean);
-              if (!allReady) {
-                say("Неготовый объект: заявка на ремонт создана или обновлена.");
-                return;
-              }
-              if (shiftOpen && stationOpen) {
-                say("Есть открытая смена. Сутки не закрыты.", true);
-                return;
-              }
-              setStationOpen((value) => !value);
-              say(stationOpen ? "Сутки закрыты. Новые смены недоступны." : "Сутки открыты. Станция в обслуживании.");
-            }}
+            onSave={(data) =>
+              show(
+                db.saveService(
+                  {
+                    cash: data.get("cash") === "on",
+                    platform: data.get("platform") === "on",
+                    hall: data.get("hall") === "on",
+                    passage: data.get("passage") === "on",
+                  },
+                  read(data, "note"),
+                ),
+              )
+            }
           >
             <div className="checks">
-              <label>
-                <input
-                  type="checkbox"
-                  checked={ready.cash}
-                  onChange={(event) => setReady((value) => ({ ...value, cash: event.target.checked }))}
-                />{" "}
-                Кассы
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={ready.platform}
-                  onChange={(event) => setReady((value) => ({ ...value, platform: event.target.checked }))}
-                />{" "}
-                Платформы
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={ready.hall}
-                  onChange={(event) => setReady((value) => ({ ...value, hall: event.target.checked }))}
-                />{" "}
-                Зал ожидания
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={ready.passage}
-                  onChange={(event) => setReady((value) => ({ ...value, passage: event.target.checked }))}
-                />{" "}
-                Проходы
-              </label>
+              <label><input name="cash" type="checkbox" defaultChecked /> Кассы</label>
+              <label><input name="platform" type="checkbox" defaultChecked /> Платформы</label>
+              <label><input name="hall" type="checkbox" defaultChecked /> Зал ожидания</label>
+              <label><input name="passage" type="checkbox" defaultChecked /> Проходы</label>
             </div>
-            <label>Замечание<textarea defaultValue="Ограничений нет" /></label>
+            <label>Замечание<textarea name="note" defaultValue="Ограничений нет" /></label>
           </Form>
         ) : null}
         {screen === "repair" ? (
           <Form
             onBack={back}
-            onSave={() => {
-              if (repairClosed) {
-                say("Заявка уже закрыта. Той же неисправностью повторно не открывается.", true);
-                return;
-              }
-              if (repairStatus === "Закрыта" && role !== "Инженер по ремонту") {
-                say("Закрыть заявку может только инженер после отметки устранения.", true);
-                return;
-              }
-              if (repairStatus === "Закрыта") {
-                setRepairClosed(true);
-                say("Заявка закрыта.");
-                return;
-              }
-              say("Заявка на ремонт открыта или обновлена.");
-            }}
+            onSave={(data) => show(db.saveRepair(read(data, "object"), read(data, "text"), read(data, "status"), role))}
           >
-            <label>Объект<input defaultValue="Платформа 2" /></label>
-            <label>Описание<input defaultValue="Не горит табло посадки" /></label>
+            <label>Объект<input name="object" defaultValue="Платформа 2" /></label>
+            <label>Описание<input name="text" defaultValue="Не горит табло посадки" /></label>
             <label>
               Статус
-              <select value={repairStatus} onChange={(event) => setRepairStatus(event.target.value)}>
+              <select name="status" value={repairStatus} onChange={(event) => setRepairStatus(event.target.value)}>
                 <option>Открыта</option>
                 <option>Закрыта</option>
               </select>
             </label>
+            <Records
+              title="Заявки"
+              rows={db.repairs.map((item) => `${item.object}: ${item.closed ? "закрыта" : "открыта"}`)}
+              mark={tick}
+            />
           </Form>
         ) : null}
         {screen === "inventory" ? (
-          <Form onBack={back} onSave={() => say("Инвентаризация за 20.10.2026 проведена. Повтор на эту дату закрыт.")}>
-            <label>Дата<input type="date" defaultValue="2026-10-20" /></label>
-            <label>Объект<input defaultValue="Касса 1, принтер купонов" /></label>
-            <label>Факт<input defaultValue="В наличии" /></label>
+          <Form
+            onBack={back}
+            onSave={(data) => show(db.saveInventory(read(data, "date"), read(data, "object"), read(data, "fact")))}
+          >
+            <label>Дата<input name="date" type="date" defaultValue="2026-10-20" /></label>
+            <label>Объект<input name="object" defaultValue="Касса 1, принтер купонов" /></label>
+            <label>Факт<input name="fact" defaultValue="В наличии" /></label>
+            <Records title="Акты" rows={db.inventories.map((item) => `${item.date}: ${item.object}`)} mark={tick} />
           </Form>
         ) : null}
         {screen === "shift" ? (
           <Form
             onBack={back}
             onSave={() => {
-              if (draft) {
-                say("Есть черновик продажи. Смена не закрыта.", true);
-                return;
-              }
-              setShiftOpen(false);
-              say("Смена закрыта.");
-              setScreen("login");
+              const answer = db.closeShift();
+              show(answer);
+              if (answer.ok) setScreen("login");
             }}
           >
             <p>Роль: {role}. Закрытие доступно, если нет черновика продажи.</p>
@@ -410,6 +316,17 @@ const App = () => {
   );
 };
 
+const Records = ({ title, rows }: { title: string; rows: string[]; mark: number }) => (
+  <div className="records">
+    <p>{title}</p>
+    <ul>
+      {rows.map((row) => (
+        <li key={row}>{row}</li>
+      ))}
+    </ul>
+  </div>
+);
+
 const Form = ({
   children,
   onBack,
@@ -417,13 +334,13 @@ const Form = ({
 }: {
   children: ReactNode;
   onBack: () => void;
-  onSave: () => void;
+  onSave: (data: FormData) => void;
 }) => (
   <form
     className="form"
     onSubmit={(event) => {
       event.preventDefault();
-      onSave();
+      onSave(new FormData(event.currentTarget));
     }}
   >
     {children}

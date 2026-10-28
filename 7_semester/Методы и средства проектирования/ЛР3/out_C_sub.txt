@@ -1,0 +1,11 @@
+-- Блок C, вторая часть. Подписка на ту же базу, где создана публикация.
+-- Сервер этот оператор не выполняет. Пароль в строку соединения не ставится.
+
+CREATE SUBSCRIPTION sub_vuz
+  CONNECTION 'host=127.0.0.1 port=5433 dbname=vuz_repl user=postgres'
+  PUBLICATION pub_vuz;
+psql:C:/Users/skvor/OneDrive/Desktop/GitHub/study-guap/7_semester/������ � �������� ��������������/��3/C_�����_��������.sql:6: FATAL:  terminating connection due to administrator command
+psql:C:/Users/skvor/OneDrive/Desktop/GitHub/study-guap/7_semester/������ � �������� ��������������/��3/C_�����_��������.sql:6: ������ ���������� ������ ����������
+	������ ����� ������ ��������� ������ ��-�� ����
+	�� ��� � �������� ���������� �������.
+psql:C:/Users/skvor/OneDrive/Desktop/GitHub/study-guap/7_semester/������ � �������� ��������������/��3/C_�����_��������.sql:6: ������: ����������� � ������� ���� ��������

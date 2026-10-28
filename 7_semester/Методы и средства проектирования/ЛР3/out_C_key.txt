@@ -1,0 +1,3 @@
+INSERT 0 1
+psql:C:/Users/skvor/OneDrive/Desktop/GitHub/study-guap/7_semester/╠хЄюф√ ш ёЁхфёЄтр яЁюхъЄшЁютрэш /╦╨3/C_юЄърч_ъы■ўр.sql:8: ERROR:  duplicate key value violates unique constraint "╨б╤В╤Г╨┤╨╡╨╜╤В_pkey"
+╧╬─╨╬┴═╬╤╥╚:  Key ("ID")=(1) already exists.

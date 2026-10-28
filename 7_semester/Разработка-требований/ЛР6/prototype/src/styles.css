@@ -100,6 +100,20 @@ input, select, textarea {
   gap: 6px;
 }
 
+.records {
+  margin: 4px 0 0;
+  font-size: 14px;
+}
+
+.records p {
+  margin: 0 0 4px;
+}
+
+.records ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
 label:has(input[type="checkbox"]) {
   display: flex;
   align-items: center;

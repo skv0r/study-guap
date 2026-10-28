@@ -1,0 +1,3 @@
+UPDATE 1
+psql:C:/Users/skvor/OneDrive/Desktop/GitHub/study-guap/7_semester/Методы и средства проектирования/ЛР4/_reset_conflict.sql:2: ERROR:  РєРѕРЅС„Р»РёРєС‚ СЂРµРїР»РёРєР°С†РёРё: С†РµРЅС‚СЂ [Р¦РёС„СЂРѕРІРѕР№ РІСѓР·, РїР»РµРЅР°СЂРЅРѕРµ], СѓР·РµР» [Р¦РёС„СЂРѕРІРѕР№ РІСѓР·, СЃРµРєС†РёСЏ]
+КОНТЕКСТ:  PL/pgSQL function office.check_conflict() line 9 at RAISE
