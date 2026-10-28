@@ -122,6 +122,14 @@ def add_toc_item(doc, text, page):
     return p
 
 
+def add_figure(doc, path, caption, width_cm=15.5):
+    p = _base_paragraph(doc, WD_ALIGN_PARAGRAPH.CENTER, Cm(0), 1.0)
+    p.add_run().add_picture(str(path), width=Cm(width_cm))
+    cap = _base_paragraph(doc, WD_ALIGN_PARAGRAPH.CENTER, Cm(0), 1.5)
+    set_run_font(cap.add_run(caption), "Times New Roman", 14, bold=False)
+    return cap
+
+
 def add_caption(doc, text):
     p = _base_paragraph(doc, WD_ALIGN_PARAGRAPH.LEFT, Cm(0), 1.0, space_after=6)
     run = p.add_run(text)
