@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { db, read, type Answer } from "./railway";
 
 type Role =
@@ -79,14 +79,36 @@ const App = () => {
     setTick((value) => value + 1);
   }
 
-  function enter() {
-    const answer = db.enter(role);
+  useEffect(() => {
+    let alive = true;
+    const sync = async () => {
+      const answer = await db.pull(false);
+      if (!alive) return;
+      if (!answer.ok && answer.text) {
+        setNotice(answer.text);
+        setBad(true);
+      }
+      setTick((value) => value + 1);
+    };
+    void sync();
+    const timer = window.setInterval(() => void sync(), 4000);
+    return () => {
+      alive = false;
+      window.clearInterval(timer);
+    };
+  }, []);
+
+  async function enter() {
+    const answer = await db.apply(() => db.enter(role));
     show(answer);
     if (answer.ok) setScreen("menu");
   }
 
-  function leave() {
-    db.leave();
+  async function leave() {
+    await db.apply(() => {
+      db.leave();
+      return { ok: true, text: "" };
+    });
     setScreen("login");
     setNotice("");
   }
@@ -158,14 +180,14 @@ const App = () => {
           </div>
         ) : null}
         {screen === "stations" ? (
-          <Form onBack={back} onSave={(data) => show(db.saveStation(read(data, "code"), read(data, "name")))}>
+          <Form onBack={back} onSave={(data) => void db.apply(() => db.saveStation(read(data, "code"), read(data, "name"))).then(show)}>
             <label>Код<input name="code" defaultValue="LUG" /></label>
             <label>Название<input name="name" defaultValue="Луговая" /></label>
             <Records title="Записанные станции" rows={db.stations.map((item) => `${item.code} — ${item.name}`)} mark={tick} />
           </Form>
         ) : null}
         {screen === "schemes" ? (
-          <Form onBack={back} onSave={(data) => show(db.saveScheme(read(data, "type"), read(data, "seats")))}>
+          <Form onBack={back} onSave={(data) => void db.apply(() => db.saveScheme(read(data, "type"), read(data, "seats"))).then(show)}>
             <label>Тип вагона<input name="type" defaultValue="Купе" /></label>
             <label>Номера мест<input name="seats" defaultValue="1–18" /></label>
             <Records title="Схемы" rows={db.schemes.map((item) => `${item.type}: ${item.seats}`)} mark={tick} />
@@ -174,7 +196,7 @@ const App = () => {
         {screen === "route" ? (
           <Form
             onBack={back}
-            onSave={(data) => show(db.saveRoute(read(data, "code"), read(data, "name"), read(data, "stations"), read(data, "minutes")))}
+            onSave={(data) => void db.apply(() => db.saveRoute(read(data, "code"), read(data, "name"), read(data, "stations"), read(data, "minutes"))).then(show)}
           >
             <label>Код<input name="code" defaultValue="M-14" /></label>
             <label>Название<input name="name" defaultValue="Северная — Луговая" /></label>
@@ -187,7 +209,7 @@ const App = () => {
           <Form
             onBack={back}
             onSave={(data) =>
-              show(db.publishTrip(read(data, "number"), read(data, "date"), read(data, "route"), read(data, "scheme"), read(data, "time")))
+              void db.apply(() => db.publishTrip(read(data, "number"), read(data, "date"), read(data, "route"), read(data, "scheme"), read(data, "time"))).then(show)
             }
           >
             <label>Номер рейса<input name="number" defaultValue="102" /></label>
@@ -203,7 +225,7 @@ const App = () => {
           </Form>
         ) : null}
         {screen === "cancel" ? (
-          <Form onBack={back} onSave={(data) => show(db.cancelTrip(read(data, "number")))}>
+          <Form onBack={back} onSave={(data) => void db.apply(() => db.cancelTrip(read(data, "number"))).then(show)}>
             <label>Рейс<input name="number" defaultValue="102" /></label>
             <label>Причина<input name="reason" defaultValue="Отмена перевозчиком" /></label>
           </Form>
@@ -212,7 +234,7 @@ const App = () => {
           <Form
             onBack={back}
             onSave={(data) =>
-              show(db.sell(read(data, "trip"), read(data, "seat"), read(data, "passenger"), read(data, "price"), data.get("draft") === "on"))
+              void db.apply(() => db.sell(read(data, "trip"), read(data, "seat"), read(data, "passenger"), read(data, "price"), data.get("draft") === "on")).then(show)
             }
           >
             <label>Рейс<input name="trip" defaultValue="102" /></label>
@@ -232,12 +254,12 @@ const App = () => {
           </Form>
         ) : null}
         {screen === "refund" ? (
-          <Form onBack={back} onSave={(data) => show(db.refund(read(data, "number")))}>
+          <Form onBack={back} onSave={(data) => void db.apply(() => db.refund(read(data, "number"))).then(show)}>
             <label>Номер билета<input name="number" defaultValue="102-12" /></label>
           </Form>
         ) : null}
         {screen === "boarding" ? (
-          <Form onBack={back} onSave={(data) => show(db.board(read(data, "number")))}>
+          <Form onBack={back} onSave={(data) => void db.apply(() => db.board(read(data, "number"))).then(show)}>
             <label>Номер билета или купона<input name="number" defaultValue="102-12" /></label>
           </Form>
         ) : null}
@@ -245,17 +267,19 @@ const App = () => {
           <Form
             onBack={back}
             onSave={(data) =>
-              show(
-                db.saveService(
-                  {
-                    cash: data.get("cash") === "on",
-                    platform: data.get("platform") === "on",
-                    hall: data.get("hall") === "on",
-                    passage: data.get("passage") === "on",
-                  },
-                  read(data, "note"),
-                ),
-              )
+              void db
+                .apply(() =>
+                  db.saveService(
+                    {
+                      cash: data.get("cash") === "on",
+                      platform: data.get("platform") === "on",
+                      hall: data.get("hall") === "on",
+                      passage: data.get("passage") === "on",
+                    },
+                    read(data, "note"),
+                  ),
+                )
+                .then(show)
             }
           >
             <div className="checks">
@@ -270,7 +294,7 @@ const App = () => {
         {screen === "repair" ? (
           <Form
             onBack={back}
-            onSave={(data) => show(db.saveRepair(read(data, "object"), read(data, "text"), read(data, "status"), role))}
+            onSave={(data) => void db.apply(() => db.saveRepair(read(data, "object"), read(data, "text"), read(data, "status"), role)).then(show)}
           >
             <label>Объект<input name="object" defaultValue="Платформа 2" /></label>
             <label>Описание<input name="text" defaultValue="Не горит табло посадки" /></label>
@@ -291,7 +315,7 @@ const App = () => {
         {screen === "inventory" ? (
           <Form
             onBack={back}
-            onSave={(data) => show(db.saveInventory(read(data, "date"), read(data, "object"), read(data, "fact")))}
+            onSave={(data) => void db.apply(() => db.saveInventory(read(data, "date"), read(data, "object"), read(data, "fact"))).then(show)}
           >
             <label>Дата<input name="date" type="date" defaultValue="2026-10-20" /></label>
             <label>Объект<input name="object" defaultValue="Касса 1, принтер купонов" /></label>
@@ -303,9 +327,10 @@ const App = () => {
           <Form
             onBack={back}
             onSave={() => {
-              const answer = db.closeShift();
-              show(answer);
-              if (answer.ok) setScreen("login");
+              void db.apply(() => db.closeShift()).then((answer) => {
+                show(answer);
+                if (answer.ok) setScreen("login");
+              });
             }}
           >
             <p>Роль: {role}. Закрытие доступно, если нет черновика продажи.</p>

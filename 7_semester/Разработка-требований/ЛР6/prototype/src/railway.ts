@@ -1,3 +1,5 @@
+import { supabase } from "./supabase";
+
 export type Answer = { ok: boolean; text: string };
 
 type Station = { code: string; name: string };
@@ -21,7 +23,30 @@ type Ticket = {
   boarded: boolean;
   refunded: boolean;
 };
-type Repair = { object: string; text: string; closed: boolean };
+type Repair = { id?: number; object: string; text: string; closed: boolean };
+type Seat = { trip: string; seat: string; free: boolean };
+
+const fail = (error: { message: string } | null): Answer | null =>
+  error ? { ok: false, text: `База не записала строку: ${error.message}` } : null;
+
+const money = (value: string) => {
+  const number = Number(value.replace(/\s/g, "").replace(",", "."));
+  return Number.isFinite(number) ? number : 0;
+};
+
+const showMoney = (value: number | string) =>
+  new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 }).format(Number(value));
+
+export const expandSeats = (spec: string) => {
+  const seats: string[] = [];
+  for (const part of spec.split(/[,;]/).map((item) => item.trim()).filter(Boolean)) {
+    const range = part.split(/[–-]/).map((item) => item.trim());
+    if (range.length === 2 && /^\d+$/.test(range[0]) && /^\d+$/.test(range[1])) {
+      for (let number = Number(range[0]); number <= Number(range[1]); number += 1) seats.push(String(number));
+    } else seats.push(part);
+  }
+  return seats;
+};
 
 const text = (value: FormDataEntryValue | null) => String(value ?? "").trim();
 
@@ -50,9 +75,12 @@ export class RailwayDb {
     },
   ];
   tickets: Ticket[] = [];
+  seats: Seat[] = [];
   repairs: Repair[] = [];
-  inventories: { date: string; object: string; fact: string }[] = [];
+  inventories: { id?: number; date: string; object: string; fact: string }[] = [];
   ready = { cash: true, platform: true, hall: true, passage: true };
+  serviceDay = "2026-10-20";
+  busy = 0;
 
   private needsShift(role: string) {
     return role === "Кассир" || role === "Контролёр";
@@ -123,6 +151,12 @@ export class RailwayDb {
     } else {
       this.trips.push({ number, date, route, scheme, time, open: true, cancelled: false });
     }
+    const plan = this.schemes.find((item) => item.type === scheme);
+    for (const seat of expandSeats(plan?.seats ?? "")) {
+      if (!this.seats.some((item) => item.trip === number && item.seat === seat)) {
+        this.seats.push({ trip: number, seat, free: true });
+      }
+    }
     return { ok: true, text: `Рейс ${number} опубликован. Фонд мест создан.` };
   }
 
@@ -156,7 +190,17 @@ export class RailwayDb {
       return { ok: false, text: `Место ${seat} рейса ${tripNo} уже продано. Второй билет не создан.` };
     }
     const number = `${tripNo}-${seat}`;
-    this.tickets.push({ number, trip: tripNo, seat, passenger, price, boarded: false, refunded: false });
+    const previous = this.tickets.find((item) => item.number === number);
+    if (previous) {
+      previous.passenger = passenger;
+      previous.price = price;
+      previous.boarded = false;
+      previous.refunded = false;
+    } else {
+      this.tickets.push({ number, trip: tripNo, seat, passenger, price, boarded: false, refunded: false });
+    }
+    const place = this.seats.find((item) => item.trip === tripNo && item.seat === seat);
+    if (place) place.free = false;
     this.draft = false;
     return { ok: true, text: "Билет проведён, купон отправлен на печать." };
   }
@@ -167,6 +211,8 @@ export class RailwayDb {
     if (ticket.boarded) return { ok: false, text: "Посадка уже отмечена. Возврат не проведён." };
     ticket.refunded = true;
     const trip = this.trips.find((item) => item.number === ticket.trip);
+    const place = this.seats.find((item) => item.trip === ticket.trip && item.seat === ticket.seat);
+    if (place && trip?.open) place.free = true;
     return {
       ok: true,
       text: trip?.open ? "Билет возвращён, место свободно." : "Билет погашен. Место закрыто: рейс отменён.",
@@ -234,6 +280,217 @@ export class RailwayDb {
     if (this.draft) return { ok: false, text: "Есть черновик продажи. Смена не закрыта." };
     this.shiftOpen = false;
     return { ok: true, text: "Смена закрыта." };
+  }
+
+  async pull(force = false): Promise<Answer> {
+    if (!force && this.busy) return { ok: true, text: "" };
+    const stations = await supabase.from("Станция").select("*").order("код");
+    const schemes = await supabase.from("Схема вагона").select("*").order("тип");
+    const routes = await supabase.from("Маршрут").select("*").order("код");
+    const stops = await supabase.from("Состав маршрута").select("*").order("порядок");
+    const trips = await supabase.from("Рейс").select("*").order("номер");
+    const seats = await supabase.from("Место").select("*");
+    const tickets = await supabase.from("Билет").select("*");
+    const repairs = await supabase.from("Заявка на ремонт").select("*").order("ид");
+    const inventories = await supabase.from("Инвентаризация").select("*").order("дата");
+    const shift = await supabase.from("Смена").select("*").eq("код", "текущая").maybeSingle();
+    const service = await supabase.from("Обслуживание станции").select("*").order("сутки", { ascending: false }).limit(1).maybeSingle();
+    const error = [stations, schemes, routes, stops, trips, seats, tickets, repairs, inventories, shift, service].map((item) => item.error).find(Boolean);
+    const failed = fail(error ?? null);
+    if (failed) return failed;
+
+    const stationName = new Map((stations.data ?? []).map((row) => [row.код, row.название]));
+    const routeName = new Map((routes.data ?? []).map((row) => [row.код, row.название]));
+    this.stations = (stations.data ?? []).map((row) => ({ code: row.код, name: row.название }));
+    this.schemes = (schemes.data ?? []).map((row) => ({ type: row.тип, seats: row["номера мест"] }));
+    this.routes = (routes.data ?? []).map((row) => ({
+      code: row.код,
+      name: row.название,
+      stations: (stops.data ?? [])
+        .filter((stop) => stop.маршрут === row.код)
+        .sort((left, right) => left.порядок - right.порядок)
+        .map((stop) => stationName.get(stop.станция) ?? stop.станция)
+        .join(" — "),
+      minutes: String(row["время хода"]),
+    }));
+    this.trips = (trips.data ?? []).map((row) => ({
+      number: row.номер,
+      date: String(row.дата).slice(0, 10),
+      route: `${row.маршрут} ${routeName.get(row.маршрут) ?? ""}`.trim(),
+      scheme: row.схема,
+      time: row.время,
+      open: row.открыт,
+      cancelled: row["отменён"],
+    }));
+    this.seats = (seats.data ?? []).map((row) => ({ trip: row.рейс, seat: row["номер места"], free: row.свободно }));
+    this.tickets = (tickets.data ?? []).map((row) => ({
+      number: row.номер,
+      trip: row.рейс,
+      seat: row.место,
+      passenger: row.пассажир,
+      price: showMoney(row.цена),
+      boarded: row.посадка,
+      refunded: row.возврат,
+    }));
+    this.repairs = (repairs.data ?? []).map((row) => ({
+      id: row.ид,
+      object: row.объект,
+      text: row.описание,
+      closed: row.закрыта,
+    }));
+    this.inventories = (inventories.data ?? []).map((row) => ({
+      id: row.ид,
+      date: String(row.дата).slice(0, 10),
+      object: row.объект,
+      fact: row.факт,
+    }));
+    this.role = shift.data?.роль ?? "";
+    this.shiftOpen = Boolean(shift.data?.открыта);
+    this.draft = Boolean(shift.data?.черновик);
+    if (service.data) {
+      this.serviceDay = String(service.data.сутки).slice(0, 10);
+      this.stationOpen = service.data.открыты;
+      this.ready = {
+        cash: service.data.кассы,
+        platform: service.data.платформы,
+        hall: service.data["зал ожидания"],
+        passage: service.data.проходы,
+      };
+    }
+    return { ok: true, text: "" };
+  }
+
+  async flush(): Promise<Answer> {
+    const stations = await supabase.from("Станция").upsert(
+      this.stations.map((item) => ({ код: item.code, название: item.name })),
+      { onConflict: "код" },
+    );
+    const schemes = await supabase.from("Схема вагона").upsert(
+      this.schemes.map((item) => ({ тип: item.type, "номера мест": item.seats })),
+      { onConflict: "тип" },
+    );
+    const routes = await supabase.from("Маршрут").upsert(
+      this.routes.map((item) => ({
+        код: item.code,
+        название: item.name,
+        "время хода": Number(item.minutes) || 1,
+      })),
+      { onConflict: "код" },
+    );
+    const stationCode = new Map(this.stations.map((item) => [item.name, item.code]));
+    const stops = this.routes.flatMap((route) =>
+      route.stations
+        .split("—")
+        .map((item) => item.trim())
+        .filter(Boolean)
+        .map((name, index) => ({
+          маршрут: route.code,
+          станция: stationCode.get(name),
+          порядок: index + 1,
+        }))
+        .filter((item): item is { маршрут: string; станция: string; порядок: number } => Boolean(item.станция)),
+    );
+    const clearStops = await supabase.from("Состав маршрута").delete().not("маршрут", "is", null);
+    const writeStops = stops.length
+      ? await supabase.from("Состав маршрута").insert(stops)
+      : { error: null };
+    const trips = await supabase.from("Рейс").upsert(
+      this.trips.map((item) => ({
+        номер: item.number,
+        дата: item.date,
+        маршрут: item.route.split(/\s+/)[0],
+        схема: item.scheme,
+        время: item.time,
+        открыт: item.open,
+        "отменён": item.cancelled,
+      })),
+      { onConflict: "номер" },
+    );
+    const seats = this.seats.length
+      ? await supabase.from("Место").upsert(
+          this.seats.map((item) => ({ рейс: item.trip, "номер места": item.seat, свободно: item.free })),
+          { onConflict: "рейс,номер места" },
+        )
+      : { error: null };
+    const tickets = this.tickets.length
+      ? await supabase.from("Билет").upsert(
+          this.tickets.map((item) => ({
+            номер: item.number,
+            рейс: item.trip,
+            место: item.seat,
+            пассажир: item.passenger,
+            цена: money(item.price),
+            посадка: item.boarded,
+            возврат: item.refunded,
+          })),
+          { onConflict: "номер" },
+        )
+      : { error: null };
+    const shift = await supabase.from("Смена").upsert(
+      {
+        код: "текущая",
+        роль: this.role,
+        сотрудник: this.role || "не назначен",
+        открыта: this.shiftOpen,
+        черновик: this.draft,
+      },
+      { onConflict: "код" },
+    );
+    const service = await supabase.from("Обслуживание станции").upsert(
+      {
+        сутки: this.serviceDay,
+        кассы: this.ready.cash,
+        платформы: this.ready.platform,
+        "зал ожидания": this.ready.hall,
+        проходы: this.ready.passage,
+        открыты: this.stationOpen,
+      },
+      { onConflict: "сутки" },
+    );
+    const repairWrites = [];
+    for (const item of this.repairs) {
+      repairWrites.push(
+        item.id
+          ? supabase.from("Заявка на ремонт").update({ объект: item.object, описание: item.text, закрыта: item.closed }).eq("ид", item.id)
+          : supabase.from("Заявка на ремонт").insert({ объект: item.object, описание: item.text, закрыта: item.closed }).select("*").single(),
+      );
+    }
+    const repairResults = await Promise.all(repairWrites);
+    repairResults.forEach((result, index) => {
+      const id = result.data && "ид" in result.data ? result.data.ид : undefined;
+      if (id) this.repairs[index].id = id;
+    });
+    const inventory = this.inventories.length
+      ? await supabase.from("Инвентаризация").upsert(
+          this.inventories.map((item) => ({ дата: item.date, объект: item.object, факт: item.fact })),
+          { onConflict: "дата,объект" },
+        )
+      : { error: null };
+    const error = [stations, schemes, routes, clearStops, writeStops, trips, seats, tickets, shift, service, inventory, ...repairResults]
+      .map((item) => item.error)
+      .find(Boolean);
+    return fail(error ?? null) ?? { ok: true, text: "" };
+  }
+
+  async apply(task: () => Answer): Promise<Answer> {
+    this.busy += 1;
+    try {
+      const loaded = await this.pull(true);
+      if (!loaded.ok) return loaded;
+      const answer = task();
+      if (!answer.ok) {
+        await this.pull(true);
+        return answer;
+      }
+      const saved = await this.flush();
+      if (!saved.ok) {
+        await this.pull(true);
+        return saved;
+      }
+      return answer;
+    } finally {
+      this.busy -= 1;
+    }
   }
 }
 
