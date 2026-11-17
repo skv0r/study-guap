@@ -1,0 +1,9 @@
+path: C:\Users\skvor\OneDrive\Desktop\GitHub\study-guap\7_semester\Системы технического
+  зрения на производстве\ЛР7\data_photo_run2
+train: train/images
+val: valid/images
+test: test/images
+names:
+  0: gear
+  1: washer
+  2: nut

@@ -1,0 +1,489 @@
+{
+  "valid_thresholds": [
+    {
+      "conf": 0.15,
+      "TP": 20,
+      "FP": 0,
+      "FN": 1,
+      "P": 1.0,
+      "R": 0.9523809523809523,
+      "F1": 0.975609756097561
+    },
+    {
+      "conf": 0.35,
+      "TP": 20,
+      "FP": 0,
+      "FN": 1,
+      "P": 1.0,
+      "R": 0.9523809523809523,
+      "F1": 0.975609756097561
+    },
+    {
+      "conf": 0.55,
+      "TP": 20,
+      "FP": 0,
+      "FN": 1,
+      "P": 1.0,
+      "R": 0.9523809523809523,
+      "F1": 0.975609756097561
+    }
+  ],
+  "selected_threshold": {
+    "conf": 0.55,
+    "TP": 20,
+    "FP": 0,
+    "FN": 1,
+    "P": 1.0,
+    "R": 0.9523809523809523,
+    "F1": 0.975609756097561
+  },
+  "test": {
+    "frames": 10,
+    "TP": 23,
+    "FP": 0,
+    "FN": 3,
+    "P": 1.0,
+    "R": 0.8846153846153846,
+    "F1": 0.9387755102040816,
+    "classes": {
+      "gear": {
+        "TP": 10,
+        "FP": 0,
+        "FN": 0,
+        "P": 1.0,
+        "R": 1.0,
+        "F1": 1.0
+      },
+      "washer": {
+        "TP": 7,
+        "FP": 0,
+        "FN": 1,
+        "P": 1.0,
+        "R": 0.875,
+        "F1": 0.9333333333333333
+      },
+      "nut": {
+        "TP": 6,
+        "FP": 0,
+        "FN": 2,
+        "P": 1.0,
+        "R": 0.75,
+        "F1": 0.8571428571428571
+      }
+    },
+    "per_frame": [
+      {
+        "image": "video05_0001.jpg",
+        "TP": 2,
+        "FP": 0,
+        "FN": 1
+      },
+      {
+        "image": "video05_0002.jpg",
+        "TP": 2,
+        "FP": 0,
+        "FN": 1
+      },
+      {
+        "image": "video05_0003.jpg",
+        "TP": 2,
+        "FP": 0,
+        "FN": 0
+      },
+      {
+        "image": "video05_0004.jpg",
+        "TP": 3,
+        "FP": 0,
+        "FN": 0
+      },
+      {
+        "image": "video05_0005.jpg",
+        "TP": 3,
+        "FP": 0,
+        "FN": 0
+      },
+      {
+        "image": "video05_0006.jpg",
+        "TP": 3,
+        "FP": 0,
+        "FN": 0
+      },
+      {
+        "image": "video05_0007.jpg",
+        "TP": 2,
+        "FP": 0,
+        "FN": 0
+      },
+      {
+        "image": "video05_0008.jpg",
+        "TP": 2,
+        "FP": 0,
+        "FN": 0
+      },
+      {
+        "image": "video05_0009.jpg",
+        "TP": 2,
+        "FP": 0,
+        "FN": 1
+      },
+      {
+        "image": "video05_0010.jpg",
+        "TP": 2,
+        "FP": 0,
+        "FN": 0
+      }
+    ],
+    "events": [
+      {
+        "image": "video05_0001.jpg",
+        "event": "prediction",
+        "class": "gear",
+        "confidence": 0.99593,
+        "x1": 152.51,
+        "y1": 48.7,
+        "x2": 237.61,
+        "y2": 130.25,
+        "status": "TP",
+        "match_iou": 0.93638
+      },
+      {
+        "image": "video05_0001.jpg",
+        "event": "prediction",
+        "class": "washer",
+        "confidence": 0.9706,
+        "x1": 139.83,
+        "y1": 174.66,
+        "x2": 243.98,
+        "y2": 301.7,
+        "status": "TP",
+        "match_iou": 0.9428
+      },
+      {
+        "image": "video05_0001.jpg",
+        "event": "missed_ground_truth",
+        "class": "nut",
+        "confidence": "",
+        "x1": 169.0,
+        "y1": 57.0,
+        "x2": 248.0,
+        "y2": 129.0,
+        "status": "FN",
+        "match_iou": ""
+      },
+      {
+        "image": "video05_0002.jpg",
+        "event": "prediction",
+        "class": "nut",
+        "confidence": 0.9988,
+        "x1": 312.79,
+        "y1": 102.6,
+        "x2": 405.34,
+        "y2": 184.38,
+        "status": "TP",
+        "match_iou": 0.97009
+      },
+      {
+        "image": "video05_0002.jpg",
+        "event": "prediction",
+        "class": "gear",
+        "confidence": 0.98265,
+        "x1": 412.62,
+        "y1": 234.79,
+        "x2": 504.39,
+        "y2": 332.86,
+        "status": "TP",
+        "match_iou": 0.9438
+      },
+      {
+        "image": "video05_0002.jpg",
+        "event": "missed_ground_truth",
+        "class": "washer",
+        "confidence": "",
+        "x1": 389.0,
+        "y1": 185.0,
+        "x2": 471.0,
+        "y2": 307.0,
+        "status": "FN",
+        "match_iou": ""
+      },
+      {
+        "image": "video05_0003.jpg",
+        "event": "prediction",
+        "class": "gear",
+        "confidence": 0.98498,
+        "x1": 235.66,
+        "y1": 277.45,
+        "x2": 312.53,
+        "y2": 347.05,
+        "status": "TP",
+        "match_iou": 0.9528
+      },
+      {
+        "image": "video05_0003.jpg",
+        "event": "prediction",
+        "class": "washer",
+        "confidence": 0.95476,
+        "x1": 246.27,
+        "y1": 107.9,
+        "x2": 346.59,
+        "y2": 196.1,
+        "status": "TP",
+        "match_iou": 0.94648
+      },
+      {
+        "image": "video05_0004.jpg",
+        "event": "prediction",
+        "class": "nut",
+        "confidence": 0.99265,
+        "x1": 475.44,
+        "y1": 239.49,
+        "x2": 546.46,
+        "y2": 311.14,
+        "status": "TP",
+        "match_iou": 0.94218
+      },
+      {
+        "image": "video05_0004.jpg",
+        "event": "prediction",
+        "class": "gear",
+        "confidence": 0.98973,
+        "x1": 436.43,
+        "y1": 313.02,
+        "x2": 509.58,
+        "y2": 394.88,
+        "status": "TP",
+        "match_iou": 0.95046
+      },
+      {
+        "image": "video05_0004.jpg",
+        "event": "prediction",
+        "class": "washer",
+        "confidence": 0.95005,
+        "x1": 330.45,
+        "y1": 81.87,
+        "x2": 401.25,
+        "y2": 185.94,
+        "status": "TP",
+        "match_iou": 0.87476
+      },
+      {
+        "image": "video05_0005.jpg",
+        "event": "prediction",
+        "class": "nut",
+        "confidence": 0.98991,
+        "x1": 163.83,
+        "y1": 236.9,
+        "x2": 275.79,
+        "y2": 341.37,
+        "status": "TP",
+        "match_iou": 0.97316
+      },
+      {
+        "image": "video05_0005.jpg",
+        "event": "prediction",
+        "class": "gear",
+        "confidence": 0.98345,
+        "x1": 515.52,
+        "y1": 182.85,
+        "x2": 590.93,
+        "y2": 270.24,
+        "status": "TP",
+        "match_iou": 0.98204
+      },
+      {
+        "image": "video05_0005.jpg",
+        "event": "prediction",
+        "class": "washer",
+        "confidence": 0.93479,
+        "x1": 455.58,
+        "y1": 283.05,
+        "x2": 586.85,
+        "y2": 386.19,
+        "status": "TP",
+        "match_iou": 0.93689
+      },
+      {
+        "image": "video05_0006.jpg",
+        "event": "prediction",
+        "class": "gear",
+        "confidence": 0.99428,
+        "x1": 507.21,
+        "y1": 367.6,
+        "x2": 601.76,
+        "y2": 449.4,
+        "status": "TP",
+        "match_iou": 0.96133
+      },
+      {
+        "image": "video05_0006.jpg",
+        "event": "prediction",
+        "class": "nut",
+        "confidence": 0.99194,
+        "x1": 503.43,
+        "y1": 258.37,
+        "x2": 574.27,
+        "y2": 322.0,
+        "status": "TP",
+        "match_iou": 0.93814
+      },
+      {
+        "image": "video05_0006.jpg",
+        "event": "prediction",
+        "class": "washer",
+        "confidence": 0.92933,
+        "x1": 120.02,
+        "y1": 118.2,
+        "x2": 206.76,
+        "y2": 213.53,
+        "status": "TP",
+        "match_iou": 0.95101
+      },
+      {
+        "image": "video05_0007.jpg",
+        "event": "prediction",
+        "class": "nut",
+        "confidence": 0.99413,
+        "x1": 388.24,
+        "y1": 85.42,
+        "x2": 462.78,
+        "y2": 165.17,
+        "status": "TP",
+        "match_iou": 0.96484
+      },
+      {
+        "image": "video05_0007.jpg",
+        "event": "prediction",
+        "class": "gear",
+        "confidence": 0.98787,
+        "x1": 92.19,
+        "y1": 347.54,
+        "x2": 182.71,
+        "y2": 439.18,
+        "status": "TP",
+        "match_iou": 0.95646
+      },
+      {
+        "image": "video05_0008.jpg",
+        "event": "prediction",
+        "class": "nut",
+        "confidence": 0.99528,
+        "x1": 167.63,
+        "y1": 282.25,
+        "x2": 277.98,
+        "y2": 401.03,
+        "status": "TP",
+        "match_iou": 0.98345
+      },
+      {
+        "image": "video05_0008.jpg",
+        "event": "prediction",
+        "class": "gear",
+        "confidence": 0.96181,
+        "x1": 493.34,
+        "y1": 163.71,
+        "x2": 554.0,
+        "y2": 226.12,
+        "status": "TP",
+        "match_iou": 0.92705
+      },
+      {
+        "image": "video05_0009.jpg",
+        "event": "prediction",
+        "class": "gear",
+        "confidence": 0.99652,
+        "x1": 266.99,
+        "y1": 362.4,
+        "x2": 363.43,
+        "y2": 451.85,
+        "status": "TP",
+        "match_iou": 0.91638
+      },
+      {
+        "image": "video05_0009.jpg",
+        "event": "prediction",
+        "class": "washer",
+        "confidence": 0.94664,
+        "x1": 227.29,
+        "y1": 176.24,
+        "x2": 337.24,
+        "y2": 250.17,
+        "status": "TP",
+        "match_iou": 0.92196
+      },
+      {
+        "image": "video05_0009.jpg",
+        "event": "missed_ground_truth",
+        "class": "nut",
+        "confidence": "",
+        "x1": 286.0,
+        "y1": 373.0,
+        "x2": 358.0,
+        "y2": 450.0,
+        "status": "FN",
+        "match_iou": ""
+      },
+      {
+        "image": "video05_0010.jpg",
+        "event": "prediction",
+        "class": "gear",
+        "confidence": 0.99498,
+        "x1": 141.55,
+        "y1": 286.14,
+        "x2": 230.72,
+        "y2": 385.29,
+        "status": "TP",
+        "match_iou": 0.94344
+      },
+      {
+        "image": "video05_0010.jpg",
+        "event": "prediction",
+        "class": "washer",
+        "confidence": 0.95476,
+        "x1": 165.92,
+        "y1": 124.88,
+        "x2": 293.84,
+        "y2": 267.05,
+        "status": "TP",
+        "match_iou": 0.96539
+      }
+    ],
+    "mAP50": 0.9605172413793103,
+    "mAP50_95": 0.8726510057471265,
+    "mAP_by_class": {
+      "gear": 0.9264374999999999,
+      "washer": 0.89275,
+      "nut": 0.7987655172413795
+    },
+    "threshold": 0.55,
+    "iou_nms": 0.7,
+    "iou_match": 0.5,
+    "selected_weights": "C:\\Users\\skvor\\OneDrive\\Desktop\\GitHub\\study-guap\\7_semester\\Системы технического зрения на производстве\\ЛР7\\results\\lr7_photos_retrained_B\\training\\weights\\best.pt",
+    "selected_imgsz": 640,
+    "timing_ms": {
+      "count": 30,
+      "predict_mean": 9.08957000162142,
+      "predict_median": 9.021249992656521,
+      "predict_p95": 9.455530013656244,
+      "full_mean": 12.198416670435108,
+      "full_median": 12.254100001882762,
+      "full_p95": 13.084125008026602,
+      "full_fps": 81.97785229157374
+    },
+    "external_photo_qualitative": {
+      "nut": {
+        "images": 11,
+        "images_with_detection": 3,
+        "images_with_correct_class": 2,
+        "images_with_wrong_class": 1,
+        "detections": 3
+      },
+      "washer": {
+        "images": 3,
+        "images_with_detection": 2,
+        "images_with_correct_class": 2,
+        "images_with_wrong_class": 0,
+        "detections": 3
+      }
+    }
+  }
+}
